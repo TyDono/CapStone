@@ -16,9 +16,11 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var searchExperience: UITextField!
     @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
+    @IBOutlet var searchOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchGame.delegate = self
         
     }
     
@@ -27,9 +29,21 @@ class LFGTableViewController: UITableViewController {
     }
     
     //basicInfoActions
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        
+    }
     
     @IBAction func groupSizeTapped(sender: UIStepper) {
         groupSizeNumber.text = String(sender.value)
     }
     
+}
+
+extension LFGTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }
