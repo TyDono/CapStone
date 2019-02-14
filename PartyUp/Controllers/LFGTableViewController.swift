@@ -14,11 +14,9 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var searchAge: UITextField!
     @IBOutlet var searchExperience: UITextField!
-    @IBOutlet var distanceSearchSlider: UISlider!
-    @IBOutlet var prefGroupSizeSearch: UIStepper!
     @IBOutlet var groupSizeNumber: UILabel!
-    @IBOutlet var miles: UILabel!
-
+    @IBOutlet var distanceSegmentation: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +27,6 @@ class LFGTableViewController: UITableViewController {
     }
     
     //basicInfoActions
-    @IBAction func distanceSliderMoved(_ sender: UISlider) {
-        
-    }
     
     @IBAction func groupSizeTapped(sender: UIStepper) {
         groupSizeNumber.text = String(sender.value)

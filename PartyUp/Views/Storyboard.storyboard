@@ -28,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ixy-tC-FSY">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ixy-tC-FSY">
                                                     <rect key="frame" x="16" y="6" width="266" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
@@ -94,27 +94,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1mq-03-93R">
-                                                    <rect key="frame" x="16" y="6" width="345" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="distanceSliderMoved:" destination="8mv-yD-Xrl" eventType="valueChanged" id="Ryh-l1-Cbp"/>
-                                                    </connections>
-                                                </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Within how many miles?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-hs-EP5">
-                                                    <rect key="frame" x="16" y="43" width="188" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Within how many miles?*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-hs-EP5">
+                                                    <rect key="frame" x="16" y="11" width="191" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxp-oi-DMc">
-                                                    <rect key="frame" x="309" y="43" width="50" height="21"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bct-5C-haG">
+                                                    <rect key="frame" x="16" y="33" width="343" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <segments>
+                                                        <segment title="50"/>
+                                                        <segment title="100"/>
+                                                        <segment title="150"/>
+                                                        <segment title="200"/>
+                                                        <segment title="250"/>
+                                                        <segment title="300"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -162,9 +160,8 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
                     <connections>
-                        <outlet property="distanceSearchSlider" destination="1mq-03-93R" id="Qtx-bv-GwC"/>
+                        <outlet property="distanceSegmentation" destination="Bct-5C-haG" id="nQs-WS-f19"/>
                         <outlet property="groupSizeNumber" destination="0q3-ks-IPK" id="JT9-D5-Ao4"/>
-                        <outlet property="miles" destination="Fxp-oi-DMc" id="pzP-ke-dJF"/>
                         <outlet property="searchAge" destination="I36-qW-3bB" id="dPl-9H-iUD"/>
                         <outlet property="searchExperience" destination="hY8-sy-0Qt" id="6Y9-7A-Kcw"/>
                         <outlet property="searchGame" destination="Ixy-tC-FSY" id="x6s-tY-TPe"/>
@@ -236,7 +233,6 @@
         <!--Profile-->
         <scene sceneID="eJa-Ed-5i0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-VT-P4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="hgk-wY-HbF" customClass="UserTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KBV-7r-myQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -319,6 +315,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Profile" id="j5U-do-y9V"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-VT-P4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-24508" y="606.74662668665667"/>
         </scene>
@@ -403,7 +400,6 @@
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabControllerID" automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dN3-m5-hDa">
@@ -416,6 +412,7 @@
                         <segue destination="hgk-wY-HbF" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25279" y="992"/>
         </scene>
