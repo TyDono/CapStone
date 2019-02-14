@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func logInTapped(_ sender: Any) {
         
-        let tabController = storyboard?.instantiateViewController(withIdentifier: "TabController") as! TabController
+        let tabController = storyboard?.instantiateViewController(withIdentifier: "TabControllerID") as! TabController
         
         present(tabController, animated: true, completion:  nil)
         

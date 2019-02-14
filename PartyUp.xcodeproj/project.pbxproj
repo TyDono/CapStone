@@ -160,11 +160,11 @@
 		CB610C812215B8E300DBBAAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
 				CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */,
 				CB610CA82215BAED00DBBAAE /* FirebaseController.swift */,
 				CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */,
 				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
-				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
 				CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
