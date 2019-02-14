@@ -17,19 +17,7 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var distanceSearchSlider: UISlider!
     @IBOutlet var prefGroupSizeSearch: UIStepper!
     @IBOutlet var groupSizeNumber: UILabel!
-    
-    //availabiity outlets
-    @IBOutlet var mondayAvailability: UISegmentedControl!
-    @IBOutlet var tuesdayAvailability: UISegmentedControl!
-    @IBOutlet var wednesdayAvailability: UISegmentedControl!
-    @IBOutlet var thursdayAvailability: UISegmentedControl!
-    @IBOutlet var fridayAvailability: UISegmentedControl!
-    @IBOutlet var saturdayAvailability: UISegmentedControl!
-    @IBOutlet var sundayAvailability: UISegmentedControl!
-    
-    //basic info outlets
-    
-    
+    @IBOutlet var miles: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +29,10 @@ class LFGTableViewController: UITableViewController {
     }
     
     //basicInfoActions
+    @IBAction func distanceSliderMoved(_ sender: UISlider) {
+        
+    }
+    
     @IBAction func groupSizeTapped(sender: UIStepper) {
         groupSizeNumber.text = String(sender.value)
     }
