@@ -8,12 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
-		CB610C4E2214919200DBBAAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4D2214919200DBBAAE /* ViewController.swift */; };
-		CB610C512214919200DBBAAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C4F2214919200DBBAAE /* Main.storyboard */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
 		CB610C612214919400DBBAAE /* PartyUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C602214919400DBBAAE /* PartyUpTests.swift */; };
 		CB610C6C2214919400DBBAAE /* PartyUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C6B2214919400DBBAAE /* PartyUpUITests.swift */; };
+		CB610C7E221492BF00DBBAAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C7D221492BF00DBBAAE /* Main.storyboard */; };
+		CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */; };
+		CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */; };
+		CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */; };
+		CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9F2215BAEC00DBBAAE /* TabController.swift */; };
+		CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */; };
+		CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */; };
+		CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */; };
+		CB610CB02215BAED00DBBAAE /* ViewOtherProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */; };
+		CB610CB12215BAED00DBBAAE /* OtherProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */; };
+		CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */; };
+		CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */; };
+		CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */; };
+		CB610CB52215BAED00DBBAAE /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA82215BAED00DBBAAE /* FirebaseController.swift */; };
+		CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB82215BBBA00DBBAAE /* Map.swift */; };
+		CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB92215BBBA00DBBAAE /* User.swift */; };
+		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +51,6 @@
 /* Begin PBXFileReference section */
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB610C4D2214919200DBBAAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB610C502214919200DBBAAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB610C552214919400DBBAAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB610C572214919400DBBAAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +60,24 @@
 		CB610C672214919400DBBAAE /* PartyUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C6B2214919400DBBAAE /* PartyUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyUpUITests.swift; sourceTree = "<group>"; };
 		CB610C6D2214919400DBBAAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB610C7D221492BF00DBBAAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "../../../junk test for me to work on/PartyUp/PartyUp/PartyUp/Views/Main.storyboard"; sourceTree = "<group>"; };
+		CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewController.swift; sourceTree = "<group>"; };
+		CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFGTableViewController.swift; sourceTree = "<group>"; };
+		CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		CB610C9F2215BAEC00DBBAAE /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
+		CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewOtherProfileTableViewController.swift; sourceTree = "<group>"; };
+		CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherProfileTableViewCell.swift; sourceTree = "<group>"; };
+		CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFGTableViewCell.swift; sourceTree = "<group>"; };
+		CB610CA82215BAED00DBBAAE /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		CB610CB82215BBBA00DBBAAE /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		CB610CBF2215BBE700DBBAAE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +128,12 @@
 		CB610C4A2214919200DBBAAE /* PartyUp */ = {
 			isa = PBXGroup;
 			children = (
+				CB610CB72215BB9300DBBAAE /* Models */,
+				CB610C812215B8E300DBBAAE /* Controllers */,
+				CB610CBE2215BBD800DBBAAE /* Views */,
 				CB610C4B2214919200DBBAAE /* AppDelegate.swift */,
-				CB610C4D2214919200DBBAAE /* ViewController.swift */,
-				CB610C4F2214919200DBBAAE /* Main.storyboard */,
 				CB610C522214919400DBBAAE /* Assets.xcassets */,
-				CB610C542214919400DBBAAE /* LaunchScreen.storyboard */,
+				CB610C7D221492BF00DBBAAE /* Main.storyboard */,
 				CB610C572214919400DBBAAE /* Info.plist */,
 			);
 			path = PartyUp;
@@ -123,6 +155,45 @@
 				CB610C6D2214919400DBBAAE /* Info.plist */,
 			);
 			path = PartyUpUITests;
+			sourceTree = "<group>";
+		};
+		CB610C812215B8E300DBBAAE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */,
+				CB610CA82215BAED00DBBAAE /* FirebaseController.swift */,
+				CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */,
+				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
+				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
+				CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */,
+				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
+				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
+				CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */,
+				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
+				CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */,
+				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
+				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CB610CB72215BB9300DBBAAE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB610CBA2215BBBA00DBBAAE /* Games.swift */,
+				CB610CB82215BBBA00DBBAAE /* Map.swift */,
+				CB610CB92215BBBA00DBBAAE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB610CBE2215BBD800DBBAAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB610CBF2215BBE700DBBAAE /* Main.storyboard */,
+				CB610C542214919400DBBAAE /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +302,7 @@
 			files = (
 				CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */,
 				CB610C532214919400DBBAAE /* Assets.xcassets in Resources */,
-				CB610C512214919200DBBAAE /* Main.storyboard in Resources */,
+				CB610C7E221492BF00DBBAAE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +327,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB610C4E2214919200DBBAAE /* ViewController.swift in Sources */,
+				CB610CB12215BAED00DBBAAE /* OtherProfileTableViewCell.swift in Sources */,
+				CB610CB02215BAED00DBBAAE /* ViewOtherProfileTableViewController.swift in Sources */,
+				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
+				CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */,
+				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
+				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,
+				CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */,
+				CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */,
+				CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */,
+				CB610CB52215BAED00DBBAAE /* FirebaseController.swift in Sources */,
+				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
+				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
+				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,
+				CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */,
+				CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */,
+				CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +379,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CB610C4F2214919200DBBAAE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB610C502214919200DBBAAE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB610C542214919400DBBAAE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
