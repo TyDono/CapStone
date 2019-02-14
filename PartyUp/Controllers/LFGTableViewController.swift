@@ -16,6 +16,7 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var searchExperience: UITextField!
     @IBOutlet var distanceSearchSlider: UISlider!
     @IBOutlet var prefGroupSizeSearch: UIStepper!
+    @IBOutlet var groupSizeNumber: UILabel!
     
     //availabiity outlets
     @IBOutlet var mondayAvailability: UISegmentedControl!
@@ -34,5 +35,14 @@ class LFGTableViewController: UITableViewController {
         super.viewDidLoad()
         
     }
-
+    
+    func updateView() {
+        
+    }
+    
+    //basicInfoActions
+    @IBAction func groupSizeTapped(sender: UIStepper) {
+        groupSizeNumber.text = String(sender.value)
+    }
+    
 }

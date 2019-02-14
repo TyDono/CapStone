@@ -12,7 +12,6 @@
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
 		CB610C612214919400DBBAAE /* PartyUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C602214919400DBBAAE /* PartyUpTests.swift */; };
 		CB610C6C2214919400DBBAAE /* PartyUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C6B2214919400DBBAAE /* PartyUpUITests.swift */; };
-		CB610C7E221492BF00DBBAAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C7D221492BF00DBBAAE /* Main.storyboard */; };
 		CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */; };
 		CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */; };
 		CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */; };
@@ -29,6 +28,7 @@
 		CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB82215BBBA00DBBAAE /* Map.swift */; };
 		CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB92215BBBA00DBBAAE /* User.swift */; };
 		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
+		CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,6 @@
 		CB610C672214919400DBBAAE /* PartyUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C6B2214919400DBBAAE /* PartyUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyUpUITests.swift; sourceTree = "<group>"; };
 		CB610C6D2214919400DBBAAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB610C7D221492BF00DBBAAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "../../../junk test for me to work on/PartyUp/PartyUp/PartyUp/Views/Main.storyboard"; sourceTree = "<group>"; };
 		CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewController.swift; sourceTree = "<group>"; };
 		CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFGTableViewController.swift; sourceTree = "<group>"; };
 		CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -77,7 +76,7 @@
 		CB610CB82215BBBA00DBBAAE /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
-		CB610CBF2215BBE700DBBAAE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +132,6 @@
 				CB610CBE2215BBD800DBBAAE /* Views */,
 				CB610C4B2214919200DBBAAE /* AppDelegate.swift */,
 				CB610C522214919400DBBAAE /* Assets.xcassets */,
-				CB610C7D221492BF00DBBAAE /* Main.storyboard */,
 				CB610C572214919400DBBAAE /* Info.plist */,
 			);
 			path = PartyUp;
@@ -161,10 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
+				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
 				CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */,
 				CB610CA82215BAED00DBBAAE /* FirebaseController.swift */,
 				CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */,
-				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
 				CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
@@ -190,7 +188,7 @@
 		CB610CBE2215BBD800DBBAAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB610CBF2215BBE700DBBAAE /* Main.storyboard */,
+				CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */,
 				CB610C542214919400DBBAAE /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -302,7 +300,7 @@
 			files = (
 				CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */,
 				CB610C532214919400DBBAAE /* Assets.xcassets in Resources */,
-				CB610C7E221492BF00DBBAAE /* Main.storyboard in Resources */,
+				CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
