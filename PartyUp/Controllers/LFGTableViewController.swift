@@ -17,20 +17,43 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
+    @IBOutlet var ageSearch: UITextField!
+    @IBOutlet var experianceSearch: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchGame.delegate = self
-        
-    }
-    
-    func updateView() {
+        searchAge.delegate = self
+
         
     }
     
     //basicInfoActions
     @IBAction func searchButtonTapped(_ sender: Any) {
         
+        if searchGame.text == "" {
+            print("not ok")
+            UIView.animate(withDuration: 0.3, animations: {
+                let move = CGAffineTransform(translationX: 10, y: 0)
+                self.searchGame.transform = move
+            }) { (_) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    let moveBack = CGAffineTransform(translationX: -10, y: 0)
+                    self.searchGame.transform = moveBack
+                })
+            }
+        } else {
+            print("ok")
+            
+            searchGame.backgroundColor = .yellow
+            
+            performSegue(withIdentifier: "segue", sender: nil)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchGame.resignFirstResponder()
+        searchAge.resignFirstResponder()
     }
     
     @IBAction func groupSizeTapped(sender: UIStepper) {
@@ -41,9 +64,9 @@ class LFGTableViewController: UITableViewController {
 
 extension LFGTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+
         textField.resignFirstResponder()
-        
+
         return true
     }
 }

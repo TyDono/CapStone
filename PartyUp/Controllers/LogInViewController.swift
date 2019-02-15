@@ -18,6 +18,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func createAccountTapped(_ sender: Any) {
+        
     }
     
     @IBAction func logInTapped(_ sender: Any) {
