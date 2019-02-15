@@ -13,19 +13,15 @@ class LFGTableViewController: UITableViewController {
     //basic info outlets
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var searchAge: UITextField!
-    @IBOutlet var searchExperience: UITextField!
     @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
-    @IBOutlet var ageSearch: UITextField!
-    @IBOutlet var experianceSearch: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchGame.delegate = self
         searchAge.delegate = self
 
-        
     }
     
     //basicInfoActions
@@ -52,7 +48,6 @@ class LFGTableViewController: UITableViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchGame.resignFirstResponder()
         searchAge.resignFirstResponder()
     }
     
@@ -64,9 +59,7 @@ class LFGTableViewController: UITableViewController {
 
 extension LFGTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
         textField.resignFirstResponder()
-
         return true
     }
 }

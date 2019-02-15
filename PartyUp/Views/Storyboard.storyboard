@@ -184,7 +184,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
                     <connections>
-                        <outlet property="ageSearch" destination="I36-qW-3bB" id="Gn0-xA-TDM"/>
                         <outlet property="distanceSegmentation" destination="Bct-5C-haG" id="nQs-WS-f19"/>
                         <outlet property="groupSizeNumber" destination="0q3-ks-IPK" id="JT9-D5-Ao4"/>
                         <outlet property="searchAge" destination="I36-qW-3bB" id="dPl-9H-iUD"/>
@@ -253,7 +252,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bU-hg-LSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26034" y="607"/>
+            <point key="canvasLocation" x="-26034" y="634"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eJa-Ed-5i0">
@@ -460,7 +459,7 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="logInTapped:" destination="VV9-QB-HDC" eventType="touchUpInside" id="Ti0-ar-HfG"/>
-                                    <segue destination="8mv-yD-Xrl" kind="show" id="VLm-11-Xkx"/>
+                                    <segue destination="lQV-Vs-KLX" kind="show" id="fMr-x8-Zy8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -481,7 +480,7 @@
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">
             <objects>
-                <tabBarController storyboardIdentifier="TabControllerID" automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dN3-m5-hDa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -549,6 +548,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Jb5-bm-vdb"/>
-        <segue reference="Syc-at-i7Y"/>
     </inferredMetricsTieBreakers>
 </document>
