@@ -9,11 +9,19 @@
 import UIKit
 
 class UserTableViewController: UITableViewController {
-
+    @IBOutlet var groupSizeLabel: UILabel!
+    @IBOutlet var gameTextField: UITextField!
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var ageTextField: UITextField!
+    @IBOutlet var experianceSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
     }
-
+    
+    @IBAction func groupSize(_ sender: UIStepper) {
+        groupSizeLabel.text = String(sender.value)
+    }
+    
 }

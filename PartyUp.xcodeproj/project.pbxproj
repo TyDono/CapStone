@@ -29,6 +29,7 @@
 		CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB92215BBBA00DBBAAE /* User.swift */; };
 		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
 		CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */; };
+		CBBA87AD221C53610002C25E /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA87AC221C53610002C25E /* MapKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
 				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
+				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
 				CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */,
 				CB610CA82215BAED00DBBAAE /* FirebaseController.swift */,
 				CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */,
@@ -169,7 +172,6 @@
 				CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */,
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
 				CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */,
-				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 			);
 			path = Controllers;
@@ -181,6 +183,7 @@
 				CB610CBA2215BBBA00DBBAAE /* Games.swift */,
 				CB610CB82215BBBA00DBBAAE /* Map.swift */,
 				CB610CB92215BBBA00DBBAAE /* User.swift */,
+				CBBA87AC221C53610002C25E /* MapKit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */,
 				CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */,
 				CB610CB52215BAED00DBBAAE /* FirebaseController.swift in Sources */,
+				CBBA87AD221C53610002C25E /* MapKit.swift in Sources */,
 				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
 				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,

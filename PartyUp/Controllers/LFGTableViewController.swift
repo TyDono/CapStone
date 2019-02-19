@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MapKit
+import Foundation
+import CoreLocation
 
 class LFGTableViewController: UITableViewController {
     
@@ -24,11 +27,48 @@ class LFGTableViewController: UITableViewController {
 
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchAge.resignFirstResponder()
+    }
+    
+      ///LOCATION MAPKIT
+    let locationManager = CLLocationManager()
+    
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func checkLoacationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+        } else {
+            //show alert to let the user know to turn it on
+        }
+    }
+    
+    func checkLoacationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            break
+        case .denied:
+            break
+        case .notDetermined:
+            break
+        case .restricted:
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+    
     //basicInfoActions
     @IBAction func searchButtonTapped(_ sender: Any) {
         
         if searchGame.text == "" {
             print("not ok")
+            searchGame.backgroundColor = .yellow
             UIView.animate(withDuration: 0.3, animations: {
                 let move = CGAffineTransform(translationX: 10, y: 0)
                 self.searchGame.transform = move
@@ -41,25 +81,35 @@ class LFGTableViewController: UITableViewController {
         } else {
             print("ok")
             
-            searchGame.backgroundColor = .yellow
-            
             performSegue(withIdentifier: "segue", sender: nil)
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchAge.resignFirstResponder()
-    }
-    
+    //ACTIONS
     @IBAction func groupSizeTapped(sender: UIStepper) {
         groupSizeNumber.text = String(sender.value)
     }
     
 }
 
+
+//EXTENSIONS
+
 extension LFGTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+}
+
+// location extension
+extension LFGTableViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        <#code#>
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        <#code#>
+    }
+    
 }
