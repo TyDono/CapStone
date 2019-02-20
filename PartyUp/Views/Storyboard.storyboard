@@ -463,7 +463,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-VT-P4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24380" y="591.45427286356824"/>
+            <point key="canvasLocation" x="-24447" y="570"/>
         </scene>
         <!--Search Results Table View Controller-->
         <scene sceneID="dxH-sF-D3l">
@@ -480,6 +480,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Swf-l5-FHK" id="och-B8-BZ9" customClass="SCNView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-v4-Fgg">
+                                            <rect key="frame" x="278" y="6" width="81" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="View Profile"/>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="srn-Wf-i6C" kind="show" id="6G6-EZ-Sih"/>
@@ -558,11 +565,28 @@
                     <connections>
                         <segue destination="8mv-yD-Xrl" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="hgk-wY-HbF" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
+                        <segue destination="3BE-ct-g6S" kind="relationship" relationship="viewControllers" id="g6Z-c9-tEc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25279" y="992"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="cmo-i5-9Er">
+            <objects>
+                <viewController id="3BE-ct-g6S" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0E-4r-feu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xET-k0-QUb"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messages" id="05E-N4-dQu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohW-4h-kJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24516" y="1345"/>
         </scene>
         <!--View Other Profile Table View Controller-->
         <scene sceneID="6mv-lF-RhH">
@@ -582,6 +606,21 @@
                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mv8-sh-YKJ">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mv8-sh-YKJ" id="rwa-yM-Frh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIJ-Od-fqL">
+                                            <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Contact Me!"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -593,7 +632,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KK-hs-7hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23660" y="-118"/>
+            <point key="canvasLocation" x="-23660" y="-118.29085457271366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
