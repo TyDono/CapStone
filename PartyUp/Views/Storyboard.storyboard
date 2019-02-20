@@ -100,9 +100,10 @@
                                                     <rect key="frame" x="16" y="33" width="343" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
+                                                        <segment title="N/A"/>
                                                         <segment title="Novice"/>
-                                                        <segment title="Journyman"/>
-                                                        <segment title="Expert"/>
+                                                        <segment title="Journeyman"/>
+                                                        <segment title="Master"/>
                                                     </segments>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How experianced?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-Hp-Ig3">
@@ -462,7 +463,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-VT-P4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24487.200000000001" y="612.14392803598207"/>
+            <point key="canvasLocation" x="-24380" y="591.45427286356824"/>
         </scene>
         <!--Search Results Table View Controller-->
         <scene sceneID="dxH-sF-D3l">

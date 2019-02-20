@@ -35,6 +35,7 @@ class LFGTableViewController: UITableViewController {
     
       ///LOCATION MAPKIT
     let locationManager = CLLocationManager()
+    let regionInMeters: Double = 10000.0
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -54,6 +55,7 @@ class LFGTableViewController: UITableViewController {
     func checkLoacationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
+            
             break
         case .denied:
             break
@@ -96,7 +98,6 @@ class LFGTableViewController: UITableViewController {
     
 }
 
-
 //EXTENSIONS
 
 extension LFGTableViewController: UITextFieldDelegate {
@@ -109,11 +110,13 @@ extension LFGTableViewController: UITextFieldDelegate {
 // location extension
 extension LFGTableViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // brb
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude:location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // brb
+        checkLoacationAuthorization()
     }
     
 }
