@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="M7e-TA-eHH">
+                            <rect key="frame" x="0.0" y="376" width="375" height="95"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
                         <sections>
                             <tableViewSection headerTitle="Search" id="xsF-vF-Y5V">
                                 <cells>
@@ -181,6 +185,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
                     <connections>
+                        <outlet property="MapView" destination="M7e-TA-eHH" id="yrc-5G-AoV"/>
                         <outlet property="distanceSegmentation" destination="Bct-5C-haG" id="nQs-WS-f19"/>
                         <outlet property="groupSizeNumber" destination="0q3-ks-IPK" id="JT9-D5-Ao4"/>
                         <outlet property="searchAge" destination="I36-qW-3bB" id="dPl-9H-iUD"/>
