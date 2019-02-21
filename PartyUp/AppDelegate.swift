@@ -26,11 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     //openurl
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        return GIDSignIn.sharedInstance().handle(url as URL?, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
     }
-    //endurl
     
     //signin handler
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -83,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
     
 }
 
