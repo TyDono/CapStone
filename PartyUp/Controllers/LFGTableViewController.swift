@@ -19,21 +19,20 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
-    @IBOutlet var MapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLoacationServices()
         searchGame.delegate = self
         searchAge.delegate = self
-
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchAge.resignFirstResponder()
     }
     
-      ///LOCATION MAPKIT
+    ///LOCATION MAPKIT
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000.0
     
