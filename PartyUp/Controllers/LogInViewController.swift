@@ -12,10 +12,10 @@ import GoogleSignIn
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
+    let userDefault = UserDefaults.standard
+    
     //outlets
     @IBOutlet var createAccount: UIButton!
-    
-    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()

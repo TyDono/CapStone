@@ -36,6 +36,7 @@
 		CBBA886A221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886B221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886D221F02E30002C25E /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA886C221F02E30002C25E /* credentials.plist */; };
+		CBBA886F221F2D490002C25E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA886E221F2D490002C25E /* MessagesViewController.swift */; };
 		E4056C5557C1D1E7E96B1ACF /* Pods_PartyUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 		CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBBA886C221F02E30002C25E /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		CBBA886E221F2D490002C25E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		CE0E75CAB76A70F668E85D49 /* Pods-PartyUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp.release.xcconfig"; path = "Target Support Files/Pods-PartyUp/Pods-PartyUp.release.xcconfig"; sourceTree = "<group>"; };
 		D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
 				CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
+				CBBA886E221F2D490002C25E /* MessagesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				CB610CB12215BAED00DBBAAE /* OtherProfileTableViewCell.swift in Sources */,
 				CB610CB02215BAED00DBBAAE /* ViewOtherProfileTableViewController.swift in Sources */,
 				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
+				CBBA886F221F2D490002C25E /* MessagesViewController.swift in Sources */,
 				CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
