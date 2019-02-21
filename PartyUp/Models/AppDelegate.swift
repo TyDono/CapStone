@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     //didfinihslaunching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GIDSignIn.sharedInstance()?.clientID = "YOUR_CLIENT_ID"
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self
         FirebaseApp.configure()
         
@@ -37,17 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
         } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                object: nil,
-                userInfo: ["statusText": "Signed in user:\n\(fullName)"])
+            guard let authentication = user.authentication else { return }
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
+                if error == nil {
+                    print(result?.user.email)
+                    print(result?.user.displayName)
+                } else {
+                    print(error?.localizedDescription)
+                }
+            }
         }
     }
     

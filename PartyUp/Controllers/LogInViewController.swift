@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, GIDSignInUIDelegate {
+    
+    //outlets
     @IBOutlet var createAccount: UIButton!
+    
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        
     }
     
+    //actions
     @IBAction func createAccountTapped(_ sender: Any) {
         
     }

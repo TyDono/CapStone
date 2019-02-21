@@ -155,7 +155,6 @@
 				CB610CB72215BB9300DBBAAE /* Models */,
 				CB610C812215B8E300DBBAAE /* Controllers */,
 				CB610CBE2215BBD800DBBAAE /* Views */,
-				CB610C4B2214919200DBBAAE /* AppDelegate.swift */,
 				CB610C522214919400DBBAAE /* Assets.xcassets */,
 				CB610C572214919400DBBAAE /* Info.plist */,
 				CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */,
@@ -205,6 +204,7 @@
 		CB610CB72215BB9300DBBAAE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB610C4B2214919200DBBAAE /* AppDelegate.swift */,
 				CB610CBA2215BBBA00DBBAAE /* Games.swift */,
 				CB610CB82215BBBA00DBBAAE /* Map.swift */,
 				CB610CB92215BBBA00DBBAAE /* User.swift */,

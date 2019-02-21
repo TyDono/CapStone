@@ -34,7 +34,6 @@
                                                     <state key="normal" title="Search"/>
                                                     <connections>
                                                         <action selector="searchButtonTapped:" destination="8mv-yD-Xrl" eventType="touchUpInside" id="xFH-nR-cCE"/>
-                                                        <segue destination="L4m-aT-Ugv" kind="show" identifier="segue" id="Jb5-bm-vdb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -187,47 +186,12 @@
                         <outlet property="searchAge" destination="I36-qW-3bB" id="dPl-9H-iUD"/>
                         <outlet property="searchGame" destination="Ixy-tC-FSY" id="x6s-tY-TPe"/>
                         <outlet property="searchOutlet" destination="xor-7K-lAo" id="qRO-D5-szB"/>
+                        <segue destination="L4m-aT-Ugv" kind="show" identifier="segueSearch" id="qpR-gm-Exs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YU-FE-raq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25279.200000000001" y="-118.29085457271366"/>
-        </scene>
-        <!--Create Account Table View Controller-->
-        <scene sceneID="VA1-28-UmT">
-            <objects>
-                <tableViewController id="ai4-LS-PIQ" customClass="CreateAccountTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0FZ-1T-8GU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="Zrc-oB-9uo">
-                            <rect key="frame" x="0.0" y="28" width="375" height="80"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obi-ub-zZY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                    <state key="normal" title="button g sign in"/>
-                                    <connections>
-                                        <action selector="createAcountGoogleTapped:" destination="ai4-LS-PIQ" eventType="touchUpInside" id="6Ul-Zy-Hxw"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <sections>
-                            <tableViewSection headerTitle="Google Sign In" id="ORh-5e-7qO">
-                                <cells/>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="ai4-LS-PIQ" id="COg-Ay-IoE"/>
-                            <outlet property="delegate" destination="ai4-LS-PIQ" id="vPC-Cb-IH3"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2bU-hg-LSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-26034.400000000001" y="633.73313343328346"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eJa-Ed-5i0">
@@ -497,11 +461,16 @@
                                 <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="createAccountTapped:" destination="VV9-QB-HDC" eventType="touchUpInside" id="A6g-DV-HR1"/>
-                                    <segue destination="ai4-LS-PIQ" kind="show" id="Xgn-tQ-1tM"/>
+                                    <segue destination="zrt-zw-WGI" kind="show" id="Ckp-Oq-WTw"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HmU-mU-v2n" customClass="GIDSignInButton">
+                                <rect key="frame" x="95" y="320" width="184" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVi-zj-OC4">
-                                <rect key="frame" x="16" y="203" width="343" height="109"/>
+                                <rect key="frame" x="75" y="245" width="225" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
@@ -522,7 +491,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJD-kp-9Bt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26033" y="-118"/>
+            <point key="canvasLocation" x="-26034.400000000001" y="-118.29085457271366"/>
+        </scene>
+        <!--Create Account Table View Controller-->
+        <scene sceneID="ulR-d4-WNp">
+            <objects>
+                <viewController id="zrt-zw-WGI" customClass="CreateAccountTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pl8-0r-aGX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lBG-Md-hkL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lsV-Ly-weJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26034.400000000001" y="658.92053973013503"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">

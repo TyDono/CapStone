@@ -86,7 +86,7 @@ class LFGTableViewController: UITableViewController {
         } else {
             print("ok")
             
-            performSegue(withIdentifier: "segue", sender: nil)
+            performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
     
