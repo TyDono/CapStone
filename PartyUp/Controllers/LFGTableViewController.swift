@@ -98,7 +98,6 @@ class LFGTableViewController: UITableViewController {
 }
 
 //EXTENSIONS
-
 extension LFGTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class CreateAccountTableViewController: UITableViewController {
-
+class CreateAccountTableViewController: UITableViewController, GIDSignInUIDelegate {
+    
+    //Outlets
+    @IBOutlet weak var googleCreate: GIDSignInButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        
     }
     
+    //Actions
+    @IBAction func createAcountGoogleTapped(_ sender: Any) {
+    }
+    
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+    }
 }
