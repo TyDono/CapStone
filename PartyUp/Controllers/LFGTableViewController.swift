@@ -50,7 +50,15 @@ class LFGTableViewController: UITableViewController {
             checkLoacationAuthorization()
             
         } else {
-            //show alert to let the user know to turn it on
+            let locationAlert = UIAlertController(title: "Location not on", message: "Turn on Locations Services to allow Party Up to determine your location", preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            locationAlert.addAction(cancelAction)
+            
+            let goToSettingsAction = UIAlertAction(title: "Settings", style: .default, handler: { action in UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                
+            })
+//            locationAlert.popoverPresentationController?.sourceView = sender
+            present(locationAlert, animated: true, completion: nil)
         }
     }
     
