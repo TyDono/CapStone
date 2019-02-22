@@ -25,11 +25,23 @@ class UserTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataBase = Firestore.firestore()
-        Firestore.firestore()
         
     }
     
     //Actions
+    @IBAction func saveProfileTapped(_ sender: Any) {
+        Firestore.firestore().collection("profile").addDocument(data: [
+            "game": gameTextField.text
+        ]) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("Data added to Firebase")
+            }
+        }
+        
+    }
+    
     @IBAction func groupSize(_ sender: UIStepper) {
         groupSizeLabel.text = String(sender.value)
     }
