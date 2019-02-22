@@ -408,11 +408,14 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Profile" id="j5U-do-y9V"/>
                     <connections>
+                        <outlet property="aboutTextField" destination="zz7-25-QJf" id="nhv-BJ-EI1"/>
                         <outlet property="ageTextField" destination="EYH-79-fBl" id="68Q-kT-3r9"/>
+                        <outlet property="availabilityTextField" destination="Pcy-7y-Rjh" id="GmH-UR-ZAC"/>
                         <outlet property="experianceSegmentedControl" destination="3Ee-98-CKq" id="Aw3-WC-P8W"/>
                         <outlet property="gameTextField" destination="qMJ-3o-XGD" id="Pwa-0g-2E3"/>
                         <outlet property="groupSizeLabel" destination="7dQ-LM-UBv" id="i3z-dM-Ocj"/>
                         <outlet property="titleTextField" destination="GSz-qU-4gn" id="ctP-OP-BKl"/>
+                        <outlet property="userNameTextField" destination="1lV-Oo-snc" id="NR5-vW-sCf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-VT-P4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
