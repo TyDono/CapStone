@@ -14,7 +14,7 @@
 		</dict>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>We need your location to help you find fellow comrads near you!</string>
 	<key>NSAppleEventsUsageDescription</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

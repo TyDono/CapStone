@@ -25,6 +25,9 @@ class LFGTableViewController: UITableViewController {
         checkLoacationServices()
         searchGame.delegate = self
         searchAge.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 100
         
     }
     

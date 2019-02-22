@@ -23,6 +23,35 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if userDefault.bool(forKey: "usersignedin") {
+            performSegue(withIdentifier: "segueToSearch", sender: self)
+        }
+    }
+    
+    func createUser(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error == nil {
+            print("User Created")
+                self.signInUser(email: email, password: password)
+            }
+        }
+    }
+    
+    func signInUser(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error == nil {
+                print("User Signed In")
+                self.userDefault.set(true, forKey: "usersignedin")
+                self.userDefault.synchronize()
+                self.performSegue(withIdentifier: "segueToSearch", sender: self)
+            } else {
+                print(error)
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
     //actions
     @IBAction func createAccountTapped(_ sender: Any) {
         

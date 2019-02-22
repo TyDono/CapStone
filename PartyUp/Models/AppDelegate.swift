@@ -14,11 +14,11 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    let userDefaults = UserDefaults()
+    let userDefault = UserDefaults()
     
     //didfinihslaunching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GIDSignIn.sharedInstance()?.clientID = "YOUR_CLIENT_ID"
+        GIDSignIn.sharedInstance()?.clientID = "919377381997-o6hk9phvtdh43n3asuq1l4r0idq04m3p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
         FirebaseApp.configure()
         
@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
                 if error == nil {
-                    let fullName = user.profile.name
                     let givenName = user.profile.givenName
                     let familyName = user.profile.familyName
                     let email = user.profile.email
