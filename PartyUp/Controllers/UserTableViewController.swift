@@ -22,21 +22,27 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
     
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataBase = Firestore.firestore()
+        db = Firestore.firestore()
         
     }
     
     //Actions
     @IBAction func saveProfileTapped(_ sender: Any) {
-        Firestore.firestore().collection("profile").addDocument(data: [
-            "game": gameTextField.text
-        ]) { (error) in
-            if let error = error {
-                print(error)
+        
+        guard let game = gameTextField.text else {return}
+        
+        let user = User(game: game, id: Int(arc4random_uniform(1000001)))
+        let userRef = self.db.collection("profile")
+        
+        userRef.document(String(user.id)).setData(user.dictionary){ err in
+            if err != nil {
+                print("Issue here")
             } else {
-                print("Data added to Firebase")
+                print("Document Saved")
             }
         }
         
