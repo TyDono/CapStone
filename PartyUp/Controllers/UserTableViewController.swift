@@ -23,6 +23,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var aboutTextField: UITextView!
     
     var db: Firestore!
+//    var user = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class UserTableViewController: UITableViewController {
         
         guard let game = gameTextField.text else {return}
         
-        let user = User(game: game, id: Int(arc4random_uniform(1000001)))
+        let user = User(id: Int(arc4random_uniform(1000001)), game: game)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in
@@ -44,6 +45,17 @@ class UserTableViewController: UITableViewController {
             } else {
                 print("Document Saved")
             }
+        }
+        
+        db.collection("profile").document(String(user.id)).updateData([
+            "game": game
+        ]) { err in
+            if let err = err {
+                print("Error updating document")
+            } else {
+                print("Document updated!")
+            }
+            
         }
         
     }
