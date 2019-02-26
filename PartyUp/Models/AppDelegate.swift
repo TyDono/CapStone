@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     let userDefault = UserDefaults()
+    let storage = Storage.storage()
     
     //didfinihslaunching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

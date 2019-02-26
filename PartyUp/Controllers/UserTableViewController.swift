@@ -17,7 +17,6 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
-    @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var experianceSegmentedControl: UISegmentedControl!
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
@@ -47,16 +46,16 @@ class UserTableViewController: UITableViewController {
             }
         }
         
-        db.collection("profile").document(String(user.id)).updateData([
-            "game": game
-        ]) { err in
-            if let err = err {
-                print("Error updating document")
-            } else {
-                print("Document updated!")
-            }
-            
-        }
+//        db.collection("profile").document(String(user.id)).updateData([
+//            "game": game
+//        ]) { err in
+//            if let err = err {
+//                print("Error updating document")
+//            } else {
+//                print("Document updated!")
+//            }
+//
+//        }
         
     }
     

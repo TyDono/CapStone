@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import Foundation
 import CoreLocation
+import FirebaseFirestore
+import FirebaseAuth
 
 class LFGTableViewController: UITableViewController {
     
@@ -20,14 +22,32 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
     
+    //variables
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         checkLoacationServices()
         searchGame.delegate = self
         searchAge.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
+        
+        //search
+        db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
+            if error != nil {
+                print(error)
+            } else {
+                for document in (snapshop?.documents)! {
+                    if let name = document.data()["game"] as? String {
+                        print("got games")
+                    }
+                }
+            }
+        }
+        
         
     }
     
