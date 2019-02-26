@@ -29,24 +29,24 @@ class LFGTableViewController: UITableViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         checkLoacationServices()
-        searchGame.delegate = self
-        searchAge.delegate = self
+//        searchGame.delegate = self
+//        searchAge.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
         
         //search
-        db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
-            if error != nil {
-                print(error)
-            } else {
-                for document in (snapshop?.documents)! {
-                    if let name = document.data()["game"] as? String {
-                        print("got games")
-                    }
-                }
-            }
-        }
+//        db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
+//            if error != nil {
+//                print(error)
+//            } else {
+//                for document in (snapshop?.documents)! {
+//                    if let name = document.data()["game"] as? String {
+//                        print("got games")
+//                    }
+//                }
+//            }
+//        }
         
         
     }

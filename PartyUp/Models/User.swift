@@ -17,7 +17,7 @@ protocol DocumentUserSerializable {
     init?(dictionary: [String: Any])
 }
 
-struct User {
+struct Users {
     var id: Int
     var game: String
     
@@ -31,7 +31,7 @@ struct User {
     
 }
 
-extension User: DocumentUserSerializable {
+extension Users: DocumentUserSerializable {
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? Int,
             let game = dictionary["game"] as? String else {return nil}

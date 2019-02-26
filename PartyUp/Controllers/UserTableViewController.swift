@@ -38,7 +38,7 @@ class UserTableViewController: UITableViewController {
         Auth.auth().currentUser?.uid // get current auth ID
         guard let game = gameTextField.text else {return}
         
-        let user = User(id: Int(arc4random_uniform(1000001)), game: game)
+        let user = Users(id: Int(arc4random_uniform(1000001)), game: game)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in
