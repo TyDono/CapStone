@@ -57,9 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
                 if error == nil {
-                    let givenName = user.profile.givenName
-                    let familyName = user.profile.familyName
-                    let email = user.profile.email
                 } else {
                     print(error?.localizedDescription)
                 }

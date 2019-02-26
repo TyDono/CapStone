@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LFG-->
+        <!--Table View Controller-->
         <scene sceneID="gHu-S8-pHw">
             <objects>
                 <tableViewController id="8mv-yD-Xrl" customClass="LFGTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
                             <outlet property="delegate" destination="8mv-yD-Xrl" id="stW-lh-0C2"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
+                    <navigationItem key="navigationItem" id="clx-va-y3z"/>
                     <connections>
                         <outlet property="distanceSegmentation" destination="Bct-5C-haG" id="nQs-WS-f19"/>
                         <outlet property="groupSizeNumber" destination="0q3-ks-IPK" id="JT9-D5-Ao4"/>
@@ -196,7 +196,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YU-FE-raq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25279.200000000001" y="-118.29085457271366"/>
+            <point key="canvasLocation" x="-24340" y="-118.29085457271366"/>
         </scene>
         <!--Profile-->
         <scene sceneID="eJa-Ed-5i0">
@@ -461,12 +461,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoe-ck-2Ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24530" y="-118"/>
+            <point key="canvasLocation" x="-23591.200000000001" y="-118.29085457271366"/>
         </scene>
         <!--Party Up!-->
         <scene sceneID="zM7-OX-eMB">
             <objects>
-                <viewController id="VV9-QB-HDC" customClass="LogInViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="VV9-QB-HDC" customClass="LogInViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kfx-3v-Bbb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -679,7 +679,7 @@
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="lfg" automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dN3-m5-hDa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -687,7 +687,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8mv-yD-Xrl" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
+                        <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="hgk-wY-HbF" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
                         <segue destination="3BE-ct-g6S" kind="relationship" relationship="viewControllers" id="g6Z-c9-tEc"/>
                     </connections>
@@ -756,7 +756,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KK-hs-7hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23660" y="-118.29085457271366"/>
+            <point key="canvasLocation" x="-22720.799999999999" y="-118.29085457271366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
@@ -775,6 +775,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecZ-Z8-oRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26722" y="-118"/>
+        </scene>
+        <!--LFG-->
+        <scene sceneID="UNg-9S-eSk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6gU-xz-Shp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KIa-jZ-hoz">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8mv-yD-Xrl" kind="relationship" relationship="rootViewController" id="FnN-B6-q5x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIg-ZE-Glv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25279.200000000001" y="-118.29085457271366"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,6 @@
 
 import Foundation
 import Firebase
-
 import GoogleSignIn
 
 extension AppDelegate {

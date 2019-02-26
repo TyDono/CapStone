@@ -13,12 +13,21 @@ func moveToLFG() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
     appDelegate.window?.makeKeyAndVisible()
-    appDelegate.window?.rootViewController = LFGTableViewController()
+    let destinationVC = TabController()
+    
+    destinationVC.selectedIndex = 1
+    let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+    let tabController = storyboard.instantiateViewController(withIdentifier: "lfg")
+    appDelegate.window?.rootViewController = tabController
 }
 
 func moveToLogIn() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
     appDelegate.window?.makeKeyAndVisible()
-    appDelegate.window?.rootViewController = LogInViewController()
+    let destinationVC = LogInViewController()
+    
+    let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+    let loginVC = storyboard.instantiateViewController(withIdentifier: "login")
+    appDelegate.window?.rootViewController = loginVC
 }
