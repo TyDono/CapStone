@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Firebase
 
 class UserTableViewController: UITableViewController {
     
@@ -23,6 +24,7 @@ class UserTableViewController: UITableViewController {
     
     var db: Firestore!
 //    var user = [User]()
+    var currentAuthID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class UserTableViewController: UITableViewController {
     //Actions
     @IBAction func saveProfileTapped(_ sender: Any) {
         
+        Auth.auth().currentUser?.uid // get current auth ID
         guard let game = gameTextField.text else {return}
         
         let user = User(id: Int(arc4random_uniform(1000001)), game: game)
