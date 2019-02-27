@@ -29,6 +29,10 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    func googleSignIn() {
+        moveToLFG()
+    }
+    
     func createUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error == nil {

@@ -21,9 +21,12 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
+    @IBOutlet var logOut: UIBarButtonItem!
     
     //variables
     var db: Firestore!
+    var currentUser: User?
+    var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,12 +122,21 @@ class LFGTableViewController: UITableViewController {
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
+
+//ACTIONS
+@IBAction func groupSizeTapped(sender: UIStepper) {
+    groupSizeNumber.text = String(sender.value)
+}
     
-    //ACTIONS
-    @IBAction func groupSizeTapped(sender: UIStepper) {
-        groupSizeNumber.text = String(sender.value)
+    @IBAction func logOutTapped(sender: UIBarButtonItem) {
+        print("Logged Out")
+        self.currentUser = nil
+        self.userId = ""
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            moveToLogIn()
+        }
     }
-    
+
 }
 
 //EXTENSIONS

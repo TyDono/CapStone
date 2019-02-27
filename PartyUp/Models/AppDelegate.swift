@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = SplashViewController()
+        let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+        let splashVC = storyboard.instantiateViewController(withIdentifier: "splash")
+        window?.rootViewController = splashVC
     
         FirebaseApp.configure()
         
@@ -33,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         //check for currnt login token
         MyFirebase.shared.addUserListender(loggedIn: false)
-        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance()?.clientID = "919377381997-o6hk9phvtdh43n3asuq1l4r0idq04m3p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
         
         return true

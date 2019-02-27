@@ -10,24 +10,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Party Up-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController title="Party Up" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="party up" translatesAutoresizingMaskIntoConstraints="NO" id="PZm-I3-DeO">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="PZm-I3-DeO" secondAttribute="bottom" constant="20" symbolic="YES" id="355-0C-a08"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="GZt-iT-6ig"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="QvZ-mQ-lWj"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hp9-Vr-chh"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9ue-cG-wMK"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DRN-SK-UkR"/>
+                            <constraint firstAttribute="trailing" secondItem="PZm-I3-DeO" secondAttribute="trailing" id="adm-78-KeS"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t9b-Br-I2E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

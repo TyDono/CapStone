@@ -26,7 +26,6 @@
 		CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */; };
 		CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */; };
 		CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */; };
-		CB610CB52215BAED00DBBAAE /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA82215BAED00DBBAAE /* FirebaseController.swift */; };
 		CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB82215BBBA00DBBAAE /* Map.swift */; };
 		CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB92215BBBA00DBBAAE /* User.swift */; };
 		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
@@ -92,7 +91,6 @@
 		CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFGTableViewCell.swift; sourceTree = "<group>"; };
-		CB610CA82215BAED00DBBAAE /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		CB610CB82215BBBA00DBBAAE /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
 				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
 				CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */,
-				CB610CA82215BAED00DBBAAE /* FirebaseController.swift */,
 				CB610CA72215BAED00DBBAAE /* LFGTableViewCell.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
@@ -552,7 +549,6 @@
 				CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */,
 				CBBA88942225A58E0002C25E /* GlobalExtensions.swift in Sources */,
 				CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */,
-				CB610CB52215BAED00DBBAAE /* FirebaseController.swift in Sources */,
 				CBBA87AD221C53610002C25E /* MapKit.swift in Sources */,
 				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
