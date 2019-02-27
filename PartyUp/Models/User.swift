@@ -22,7 +22,6 @@ struct Users {
     var game: String
     var titleOfGroup: String
     var groupSize: String
-    var experiance: Array<Any>
     var age: Int
     var availability: String
     var about: String
@@ -33,7 +32,6 @@ struct Users {
             "game": game,
             "title of group": titleOfGroup,
             "group size": groupSize,
-            "experiance": experiance,
             "age": age,
             "availability": availability,
             "about": about
@@ -46,7 +44,12 @@ struct Users {
 extension Users: DocumentUserSerializable {
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? Int,
-            let game = dictionary["game"] as? String else {return nil}
-        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, experiance: experiance, age: age, availability: availability, about: about)
+            let game = dictionary["game"] as? String,
+            let titleOfGroup = dictionary["title of group"] as? String,
+            let groupSize = dictionary["group size"] as? String,
+            let age = dictionary["age"] as? Int,
+            let availability = dictionary["availability"] as? String,
+            let about = dictionary["about"] as? String else { return nil }
+        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
     }
 }
