@@ -27,6 +27,7 @@ class MyFirebase {
         
     }
     
+    //check to see if they are logged in, if they are move them to LFGVC, otherwise move them to LogInVC
     func addUserListender(loggedIn: Bool) {
         print("Add listener")
         listenHandler = Auth.auth().addStateDidChangeListener{ (auth, user) in

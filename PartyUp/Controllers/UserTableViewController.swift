@@ -23,7 +23,6 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var aboutTextField: UITextView!
     
     var db: Firestore!
-//    var user = [User]()
     var currentAuthID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
@@ -36,9 +35,17 @@ class UserTableViewController: UITableViewController {
     @IBAction func saveProfileTapped(_ sender: Any) {
         
         Auth.auth().currentUser?.uid // get current auth ID
-        guard let game = gameTextField.text else {return}
+        guard let game = gameTextField.text else { return }
+        guard let titleOfGroup = titleTextField.text else { return }
+        guard let groupSize = groupSizeLabel.text else  { return }
+        guard let experiance = experianceSegmentedControl else  { return }
+        guard let age = ageTextField.text else  { return }
+        guard let availability = availabilityTextField.text else  { return }
+        guard let about = aboutTextField.text else  { return }
         
-        let user = Users(id: Int(arc4random_uniform(1000001)), game: game)
+        
+        
+        let user = Users(id: Int(arc4random_uniform(1000001)), game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, experiance: experiance, age: age, availability: availability, about: about)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in

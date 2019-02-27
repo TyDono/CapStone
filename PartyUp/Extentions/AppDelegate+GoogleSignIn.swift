@@ -29,7 +29,6 @@ extension AppDelegate {
             }
             return
         }
-        
     }
     func sign(_ signIn: GIDSignIn!, didDissconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // perform any operations when the user dissconects from the app here
