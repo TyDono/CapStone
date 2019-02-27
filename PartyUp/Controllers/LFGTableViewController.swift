@@ -38,20 +38,6 @@ class LFGTableViewController: UITableViewController {
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
         
-        //search
-//        db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
-//            if error != nil {
-//                print(error)
-//            } else {
-//                for document in (snapshop?.documents)! {
-//                    if let name = document.data()["game"] as? String {
-//                        print("got games")
-//                    }
-//                }
-//            }
-//        }
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -104,7 +90,7 @@ class LFGTableViewController: UITableViewController {
     
     //basicInfoActions
     @IBAction func searchButtonTapped(_ sender: Any) {
-        
+        // if requirements to search are not met
         if searchGame.text == "" {
             print("not ok")
             searchGame.backgroundColor = .yellow
@@ -119,12 +105,28 @@ class LFGTableViewController: UITableViewController {
         } else {
             print("ok")
             
+            //if requirements to search are met
+            db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    for document in (snapshop?.documents)! {
+                        if let game = document.data()["game"] as? String {
+                            if let age = document.data()["age"] as? Int {
+                                if let groupSize = document.data()["group size"] as? String {
+                                    print(game, age, groupSize)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
-
-//ACTIONS
-@IBAction func groupSizeTapped(sender: UIStepper) {
+    
+    //ACTIONS
+    @IBAction func groupSizeTapped(sender: UIStepper) {
     groupSizeNumber.text = String(sender.value)
 }
     

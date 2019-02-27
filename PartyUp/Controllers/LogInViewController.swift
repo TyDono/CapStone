@@ -9,9 +9,14 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseCore
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
+    var currentUser: User?
+    var userId: String = ""
     let userDefault = UserDefaults.standard
     
     //outlets
@@ -27,10 +32,6 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         if userDefault.bool(forKey: "usersignedin") {
             performSegue(withIdentifier: "segueToSearch", sender: self)
         }
-    }
-    
-    func googleSignIn() {
-        moveToLFG()
     }
     
     func createUser(email: String, password: String) {
@@ -57,6 +58,10 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     //actions
+    @IBAction func googleSignIn(_ sender: Any) {
+       
+    }
+    
     @IBAction func createAccountTapped(_ sender: Any) {
         
     }

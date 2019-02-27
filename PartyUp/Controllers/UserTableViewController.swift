@@ -50,20 +50,30 @@ class UserTableViewController: UITableViewController {
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in
             if err != nil {
+                let alert1 = UIAlertController(title: "Not Saved", message: "Sorry, there was an error while trying to save your profile. Please try again.", preferredStyle: .alert)
+                alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    alert1.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert1, animated: true, completion: nil)
                 print("Issue here")
             } else {
+                let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
+                alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    alert2.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert2, animated: true, completion: nil)
                 print("Document Saved")
             }
         }
         
-//        db.collection("profile").document(String(user.id)).updateData([
-//            "game": game
-//        ]) { err in
-//            if let err = err {
-//                print("Error updating document")
-//            } else {
-//                print("Document updated!")
-//            }
+        //        db.collection("profile").document(String(user.id)).updateData([
+        //            "game": game
+        //        ]) { err in
+        //            if let err = err {
+            //                print("Error updating document")
+        //            } else {
+        //                print("Document updated!")
+        //            }
 //
 //        }
         
