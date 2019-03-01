@@ -6,6 +6,9 @@
 //  Copyright © 2019 Tyler Donohue. All rights reserved.
 //
 
+
+
+// make enum for segemned control
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -42,8 +45,6 @@ class UserTableViewController: UITableViewController {
         guard let age = Int(ageTextField.text ?? "") else  { return }
         guard let availability = availabilityTextField.text else  { return }
         guard let about = aboutTextField.text else  { return }
-        
-        
         
         let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
         let userRef = self.db.collection("profile")

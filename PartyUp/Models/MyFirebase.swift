@@ -11,6 +11,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
 import GoogleSignIn
 import Firebase
 
@@ -19,10 +20,12 @@ class MyFirebase {
     //variables
     static let shared = MyFirebase()
     
+    var db = Firestore.firestore()
+    var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: User?
     var userId: String?
     var dbRef: DatabaseReference! = Database.database().reference()
-    var stprage = Storage.storage().reference()
+    var storage = Storage.storage().reference()
     
     private var listenHandler: AuthStateDidChangeListenerHandle?
     var currentUpload:StorageUploadTask?
@@ -51,6 +54,7 @@ class MyFirebase {
             }
             else {
                 print("Logged In")
+                self.createData()
                 self.currentUser = user
                 self.userId = (user?.uid)!
                 print("UserID: \(self.userId)")
@@ -59,6 +63,27 @@ class MyFirebase {
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     moveToLFG()
                 }
+            }
+        }
+    }
+    
+    func createData() {
+        
+        var game2: String = ""
+        var titleOfGroup2: String = ""
+        var groupSize2: String = ""
+        var age2: Int = 0
+        var availability2: String = ""
+        var about2: String = ""
+        
+        let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2)
+        let userRef = self.db.collection("profile")
+        
+        userRef.document(String(user.id)).setData(user.dictionary){ err in
+            if err != nil {
+                print(Error.self)
+            } else {
+                print("Added Data")
             }
         }
     }

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 func moveToLFG() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -30,4 +32,23 @@ func moveToLogIn() {
     let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
     let loginVC = storyboard.instantiateViewController(withIdentifier: "login")
     appDelegate.window?.rootViewController = loginVC
+}
+
+func createData() {
+    
+    Firestore.firestore().collection("Profile").addDocument(data: [
+        "game": "",
+        "title of group": "",
+        "age": 0,
+        // experiance
+        "group size": "",
+        "availability": "",
+        "about": ""
+    ]) { (error) in
+        if let error = error {
+        print(error)
+    } else {
+        print("Added Data to Firestore")
+        }
+    }
 }
