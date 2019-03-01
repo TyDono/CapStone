@@ -19,6 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     let userDefault = UserDefaults()
     
+    //launch app
+//    func launchApp(_ requireLogin:Bool) {
+//
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let loginVC: LogInViewController = LogInViewController()
+//        if let user = Auth.auth().currentUser {
+//            
+//        }
+//        window?.makeKeyAndVisible()
+//        let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+//        let splashVC = storyboard.instantiateViewController(withIdentifier: "splash")
+//        window?.rootViewController = splashVC
+//
+//    }
+    
     //didfinihslaunching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -43,9 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     //openurl
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url,
-                                                 sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: [:])
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
     }
     
     //signin handler

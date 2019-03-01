@@ -34,7 +34,7 @@ class UserTableViewController: UITableViewController {
     //Actions
     @IBAction func saveProfileTapped(_ sender: Any) {
         
-        Auth.auth().currentUser?.uid // get current auth ID
+       // Auth.auth().currentUser?.uid // get current auth ID
         guard let game = gameTextField.text else { return }
         guard let titleOfGroup = titleTextField.text else { return }
         guard let groupSize = groupSizeLabel.text else  { return }
@@ -45,10 +45,10 @@ class UserTableViewController: UITableViewController {
         
         
         
-        let user = Users(id: Int(arc4random_uniform(1000001)), game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
+        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
         let userRef = self.db.collection("profile")
         
-        userRef.document(String(user.id)).setData(user.dictionary){ err in
+        userRef.document(String(user.id)).updateData(user.dictionary){ err in
             if err != nil {
                 let alert1 = UIAlertController(title: "Not Saved", message: "Sorry, there was an error while trying to save your profile. Please try again.", preferredStyle: .alert)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in

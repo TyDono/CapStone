@@ -18,7 +18,7 @@ protocol DocumentUserSerializable {
 }
 
 struct Users {
-    var id: Int
+    var id: String
     var game: String
     var titleOfGroup: String
     var groupSize: String
@@ -43,7 +43,7 @@ struct Users {
 
 extension Users: DocumentUserSerializable {
     init?(dictionary: [String: Any]) {
-        guard let id = dictionary["id"] as? Int,
+        guard let id = dictionary["id"] as? String,
             let game = dictionary["game"] as? String,
             let titleOfGroup = dictionary["title of group"] as? String,
             let groupSize = dictionary["group size"] as? String,
