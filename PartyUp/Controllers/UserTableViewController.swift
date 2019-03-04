@@ -27,11 +27,26 @@ class UserTableViewController: UITableViewController {
     
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
+    var currentUser: Users?
+    var userId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         
+    }
+    
+    func profileInfo() {
+        
+       UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
+        gameTextField.text = ""
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
+            gameTextField.text = gameTextSaved
+        }
     }
     
     //Actions
@@ -63,6 +78,7 @@ class UserTableViewController: UITableViewController {
                     alert2.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert2, animated: true, completion: nil)
+                self.profileInfo()
                 print("Document Saved")
             }
         }

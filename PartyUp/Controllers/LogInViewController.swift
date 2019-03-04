@@ -15,18 +15,9 @@ import Firebase
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
-   
     var db: Firestore!
     var userId: String = ""
     let userDefault = UserDefaults.standard
-    
-//    var game: String = ""
-//    var titleOfGroup: String = ""
-//    var groupSize: String = ""
-//    var age: Int = 0
-//    var availability: String = ""
-//    var about: String = ""
-    
     
     //outlets
     @IBOutlet var createAccount: UIButton!
@@ -69,15 +60,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     //actions
     @IBAction func googleSignIn(_ sender: Any) {
-//        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
-//        let userRef = self.db.collection("profile")
-//        if Auth.auth().currentUser?.uid == nil {
-//            userRef.document(String(user.id)).updateData(user.dictionary)
-//            GIDSignIn.sharedInstance()?.uiDelegate = self
-//
-//        } else{
-//            GIDSignIn.sharedInstance()?.uiDelegate = self
-//        }
+
     }
     
     @IBAction func createAccountTapped(_ sender: Any) {

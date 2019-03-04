@@ -54,7 +54,12 @@ class MyFirebase {
             }
             else {
                 print("Logged In")
-                self.createData()
+                if self.currentAuthID == nil {
+                    self.createData()
+                    print("new data created")
+                } else {
+                    print("data already added")
+                }
                 self.currentUser = user
                 self.userId = (user?.uid)!
                 print("UserID: \(self.userId)")
