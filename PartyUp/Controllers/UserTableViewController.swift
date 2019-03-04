@@ -36,16 +36,43 @@ class UserTableViewController: UITableViewController {
         
     }
     
+    //methods
     func profileInfo() {
         
        UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
         gameTextField.text = ""
+        UserDefaults.standard.set(titleTextField.text, forKey: "myTitle")
+        titleTextField.text = ""
+        UserDefaults.standard.set(ageTextField.text, forKey: "myAge")
+        ageTextField.text = ""
+        UserDefaults.standard.set(availabilityTextField.text, forKey: "myAvailability")
+        availabilityTextField.text = ""
+        UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
+        aboutTextField.text = ""
+        UserDefaults.standard.set(groupSizeLabel.text, forKey: "mygroupSize")
+        groupSizeLabel.text = ""
+        //experianceSegmentedControl =
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
             gameTextField.text = gameTextSaved
+        }
+        if let titleTextSaved = UserDefaults.standard.object(forKey: "myTitle") as? String {
+            titleTextField.text = titleTextSaved
+        }
+        if let ageTextSaved = UserDefaults.standard.object(forKey: "myAge") as? String {
+            ageTextField.text = ageTextSaved
+        }
+        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "myAvailability") as? String {
+            availabilityTextField.text = availabilityTextSaved
+        }
+        if let aboutTextSaved = UserDefaults.standard.object(forKey: "myAbout") as? String {
+            aboutTextField.text = aboutTextSaved
+        }
+        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
+            groupSizeLabel.text = groupSizeTextSaved
         }
     }
     
