@@ -12,17 +12,26 @@ import Firebase
 
 class SearchResultsTableViewController: UITableViewController {
     
+//    @IBOutlet var gameLabel: UILabel!
+//    @IBOutlet var titleLabel: UILabel!
+//    @IBOutlet var experianceLabel: UILabel!
+//    @IBOutlet var ageLabel: UILabel!
+//    @IBOutlet var sizeLabel: UILabel!
+    
+    
     //variables
-    var users: Users?
+    var users: [Users] = []
+    var db: Firestore!
+//    let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2)
+//    let userRef = self.db.collection("profile")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var db = Firestore.firestore()
        
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -30,12 +39,15 @@ class SearchResultsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return users.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
+        
+        let user = users[indexPath.row]
+        
+        cell.updateCell(users: user)
 
         return cell
     }

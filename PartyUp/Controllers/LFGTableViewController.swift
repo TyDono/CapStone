@@ -15,15 +15,15 @@ import FirebaseAuth
 
 class LFGTableViewController: UITableViewController {
     
-    //basic info outlets
+    //MARK OUTLETS
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var searchAge: UITextField!
-    @IBOutlet var groupSizeNumber: UILabel!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
     @IBOutlet var searchOutlet: UIButton!
     @IBOutlet var logOut: UIBarButtonItem!
+    @IBOutlet var groupSize: UITextField!
     
-    //variables
+    //vMARK VARIABLES
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
@@ -32,7 +32,7 @@ class LFGTableViewController: UITableViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         checkLoacationServices()
-//        searchGame.delegate = self
+        searchGame.delegate = self
 //        searchAge.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -44,9 +44,13 @@ class LFGTableViewController: UITableViewController {
         searchAge.resignFirstResponder()
     }
     
+    func gameTextSearch() {
+        var gametext = searchGame.text
+    }
+    
     ///LOCATION MAPKIT
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 10000.0
+    let regionInMeters: Double = 100000.0
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -88,7 +92,7 @@ class LFGTableViewController: UITableViewController {
         }
     }
     
-    //basicInfoActions
+    //MARK ACTIONS
     @IBAction func searchButtonTapped(_ sender: Any) {
         // if requirements to search are not met
         if searchGame.text == "" {
@@ -106,15 +110,16 @@ class LFGTableViewController: UITableViewController {
             print("ok")
             
             //if requirements to search are met
-            db.collection("profile").whereField("game", isEqualTo: searchAge.text).getDocuments { (snapshop, error) in
+            db.collection("profile").whereField("game", isEqualTo: searchGame.text!).getDocuments { (snapshop, error) in
                 if error != nil {
-                    print(error)
+                    print(Error.self)
                 } else {
                     for document in (snapshop?.documents)! {
                         if let game = document.data()["game"] as? String {
                             if let age = document.data()["age"] as? Int {
                                 if let groupSize = document.data()["group size"] as? String {
                                     print(game, age, groupSize)
+                                    
                                 }
                             }
                         }
@@ -124,11 +129,6 @@ class LFGTableViewController: UITableViewController {
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
-    
-    //ACTIONS
-    @IBAction func groupSizeTapped(sender: UIStepper) {
-    groupSizeNumber.text = String(sender.value)
-}
     
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
         print("Logged Out")
@@ -141,7 +141,7 @@ class LFGTableViewController: UITableViewController {
 
 }
 
-//EXTENSIONS
+//MARK EXTENSIONS
 extension LFGTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

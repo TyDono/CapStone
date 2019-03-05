@@ -21,7 +21,7 @@ extension AppDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
         guard let user = MyFirebase.shared.currentUser else {
-            Auth.auth().signIn(with: credential) { (user, error) in
+            Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
                 if let error = error {
                     print(error)
                     return

@@ -16,14 +16,14 @@ import Firebase
 
 class UserTableViewController: UITableViewController {
     
-    //outlets
-    @IBOutlet var groupSizeLabel: UILabel!
+    //MARK outlets
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var experianceSegmentedControl: UISegmentedControl!
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
+    @IBOutlet var groupSizeTextField: UITextField!
     
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
@@ -36,7 +36,7 @@ class UserTableViewController: UITableViewController {
         
     }
     
-    //methods
+    //MARK methods
     func profileInfo() {
         
        UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
@@ -49,8 +49,8 @@ class UserTableViewController: UITableViewController {
         availabilityTextField.text = ""
         UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
         aboutTextField.text = ""
-        UserDefaults.standard.set(groupSizeLabel.text, forKey: "mygroupSize")
-        groupSizeLabel.text = ""
+        UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
+        groupSizeTextField.text = ""
         //experianceSegmentedControl =
         
     }
@@ -72,17 +72,17 @@ class UserTableViewController: UITableViewController {
             aboutTextField.text = aboutTextSaved
         }
         if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
-            groupSizeLabel.text = groupSizeTextSaved
+            groupSizeTextField.text = groupSizeTextSaved
         }
     }
     
-    //Actions
+    //MARK Actions
     @IBAction func saveProfileTapped(_ sender: Any) {
         
        // Auth.auth().currentUser?.uid // get current auth ID
         guard let game = gameTextField.text else { return }
         guard let titleOfGroup = titleTextField.text else { return }
-        guard let groupSize = groupSizeLabel.text else  { return }
+        guard let groupSize = groupSizeTextField.text else  { return }
         guard let experiance = experianceSegmentedControl else  { return }
         guard let age = Int(ageTextField.text ?? "") else  { return }
         guard let availability = availabilityTextField.text else  { return }
@@ -99,6 +99,7 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert1, animated: true, completion: nil)
                 print("Issue here")
+                moveToLFG()
             } else {
                 let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
                 alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -107,6 +108,7 @@ class UserTableViewController: UITableViewController {
                 self.present(alert2, animated: true, completion: nil)
                 self.profileInfo()
                 print("Document Saved")
+                
             }
         }
         
@@ -123,8 +125,6 @@ class UserTableViewController: UITableViewController {
         
     }
     
-    @IBAction func groupSize(_ sender: UIStepper) {
-        groupSizeLabel.text = String(sender.value)
-    }
+    //MARK Actions
     
 }

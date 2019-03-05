@@ -7,18 +7,45 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseFirestore
+import FirebaseAuth
+import Firebase
 
 class SearchResultsTableViewCell: UITableViewCell {
-
+    
+    //MARK outlets
+        @IBOutlet var gameLabel: UILabel!
+        @IBOutlet var titleLabel: UILabel!
+        @IBOutlet var experianceLabel: UILabel!
+        @IBOutlet var ageLabel: UILabel!
+        @IBOutlet var sizeLabel: UILabel!
+    
+    var currentAuthID = Auth.auth().currentUser?.uid
+    var currentUser: Users?
+    var db: Firestore!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        var db = Firestore.firestore()
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateCell(users: Users) {
+//        db.collection("profile").whereField("game", isEqualTo: LFGTableViewController.).getDocuments { (snapshop, error) in
+//            if error != nil {
+//                print(error)
+//            } else {
+//                for document in (snapshop?.documents)! {
+//                    if let game = document.data()["game"] as? String {
+//
+//                    }
+//                }
+//
+                        gameLabel.text = users.game
+//
+//            }
+//        }
+        
     }
-
 }
