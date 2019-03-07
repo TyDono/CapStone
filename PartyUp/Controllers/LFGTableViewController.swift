@@ -27,10 +27,13 @@ class LFGTableViewController: UITableViewController {
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
+    static let sharedController = LFGTableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
+        loadData()
+        
         checkLoacationServices()
         searchGame.delegate = self
 //        searchAge.delegate = self
@@ -92,6 +95,40 @@ class LFGTableViewController: UITableViewController {
         }
     }
     
+    // getting table in the TVC
+    func loadData() {
+        db.collection("profile").whereField("game", isEqualTo: searchGame.text!).getDocuments { (snapshop, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                for document in (snapshop?.documents)! {
+                    if let game = document.data()["game"] as? String {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+        //    func checkForUpdates() {
+        //        db.collection("profile").whereField("game", isEqualTo: )
+        //            .addSnapshotListener { (QuerySnapshot, Error?) in
+        //                guard let snapshot = QuerySnapshot else {return}
+        //                snapshot.documentChanges.forEach{
+        //                    diff in
+//                    if diff.type == .added {
+//                        self.users.append(Users(dictionary: diff.document.data()))
+//                        DispatchQueue.main.async {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                }
+//        }
+//    }
+    
     //MARK ACTIONS
     @IBAction func searchButtonTapped(_ sender: Any) {
         // if requirements to search are not met
@@ -109,32 +146,42 @@ class LFGTableViewController: UITableViewController {
         } else {
             print("ok")
             
+            
             //if requirements to search are met
-            db.collection("profile").whereField("game", isEqualTo: searchGame.text!).getDocuments { (snapshop, error) in
-                if error != nil {
-                    print(Error.self)
-                } else {
-                    for document in (snapshop?.documents)! {
-                        if let game = document.data()["game"] as? String {
-                            if let age = document.data()["age"] as? Int {
-                                if let groupSize = document.data()["group size"] as? String {
-                                    print(game, age, groupSize)
-                                    
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+//            db.collection("profile").whereField("game", isEqualTo: searchGame.text!).getDocuments { (snapshop, error) in
+//                if error != nil {
+//                    print(Error.self)
+//                } else {
+//                    for document in (snapshop?.documents)! {
+//                        if let game = document.data()["game"] as? String {
+//                            if let age = document.data()["age"] as? Int {
+//                                if let groupSize = document.data()["group size"] as? String {
+//                                    print(game, age, groupSize)
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
+    }
+    // tyler search prepare for segue, that may help you find what you want. searchvc. users
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         var users = [Users]()
+        if segue.identifier == "segueSearch", let searchResultsVC = segue.destination as? SearchResultsTableViewController {
+            
+            searchResultsVC.text = searchGame.text
+        }
+      print("")
     }
     
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
         print("Logged Out")
         self.currentUser = nil
         self.userId = ""
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             moveToLogIn()
         }
     }

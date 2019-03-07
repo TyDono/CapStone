@@ -468,10 +468,10 @@
             </objects>
             <point key="canvasLocation" x="-24447.200000000001" y="569.86506746626696"/>
         </scene>
-        <!--Search Results Table View Controller-->
+        <!--Search Results-->
         <scene sceneID="dxH-sF-D3l">
             <objects>
-                <tableViewController id="L4m-aT-Ugv" customClass="SearchResultsTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Search Results" id="L4m-aT-Ugv" customClass="SearchResultsTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IUk-wB-Nxi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -531,12 +531,13 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="L4m-aT-Ugv" id="kcT-Ma-5uu"/>
                             <outlet property="delegate" destination="L4m-aT-Ugv" id="7K9-cn-NbO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wl8-SQ-CTu"/>
+                    <navigationItem key="navigationItem" title="Search Results" id="wl8-SQ-CTu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoe-ck-2Ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

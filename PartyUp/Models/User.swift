@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 protocol Identifiable {
     var id: String? { get set }
@@ -25,6 +26,7 @@ struct Users {
     var age: Int
     var availability: String
     var about: String
+//    var experiance: Array = ["N/A", "Novice", "Journeyman", "Master"]
     
     var dictionary: [String: Any] {
         return [
@@ -35,7 +37,7 @@ struct Users {
             "age": age,
             "availability": availability,
             "about": about
-            
+ 
         ]
     }
     

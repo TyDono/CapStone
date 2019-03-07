@@ -108,6 +108,9 @@ class UserTableViewController: UITableViewController {
                 self.present(alert2, animated: true, completion: nil)
                 self.profileInfo()
                 print("Document Saved")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    moveToLFG()
+                }
                 
             }
         }
@@ -116,7 +119,7 @@ class UserTableViewController: UITableViewController {
         //            "game": game
         //        ]) { err in
         //            if let err = err {
-            //                print("Error updating document")
+        //                print("Error updating document")
         //            } else {
         //                print("Document updated!")
         //            }
