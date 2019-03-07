@@ -84,7 +84,7 @@ class UserTableViewController: UITableViewController {
         guard let titleOfGroup = titleTextField.text else { return }
         guard let groupSize = groupSizeTextField.text else  { return }
         guard let experiance = experianceSegmentedControl else  { return }
-        guard let age = Int(ageTextField.text ?? "") else  { return }
+        guard let age = ageTextField.text else  { return }
         guard let availability = availabilityTextField.text else  { return }
         guard let about = aboutTextField.text else  { return }
         

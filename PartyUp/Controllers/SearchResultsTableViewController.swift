@@ -62,7 +62,11 @@ class SearchResultsTableViewController: UITableViewController {
         
         if let users = users {
             let user = users[indexPath.row]
-            cell.gameLabel?.text = "\(user.game)"
+            cell.gameLabel?.text = "Game: \(user.game)"
+            cell.ageLabel?.text = "Age Group: \(user.age)"
+            cell.sizeLabel?.text = "Group Size: \(user.groupSize)"
+            cell.titleLabel?.text = "\(user.titleOfGroup)"
+           // cell.experianceLabel?.text = "\(user.experiance)"
             cell.updateCell(users: user)
         }
 

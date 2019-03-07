@@ -77,7 +77,7 @@ class MyFirebase {
         var game2: String = ""
         var titleOfGroup2: String = ""
         var groupSize2: String = ""
-        var age2: Int = 0
+        var age2: String = ""
         var availability2: String = ""
         var about2: String = ""
         

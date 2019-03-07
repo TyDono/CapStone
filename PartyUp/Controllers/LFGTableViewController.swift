@@ -109,14 +109,14 @@ class LFGTableViewController: UITableViewController {
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
-
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         var users = [Users]()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var users = [Users]()
         if segue.identifier == "segueSearch", let searchResultsVC = segue.destination as? SearchResultsTableViewController {
             
             searchResultsVC.text = searchGame.text
         }
-      print("")
+        print("")
     }
     
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
@@ -128,7 +128,7 @@ class LFGTableViewController: UITableViewController {
             moveToLogIn()
         }
     }
-
+    
 }
 
 //MARK EXTENSIONS
