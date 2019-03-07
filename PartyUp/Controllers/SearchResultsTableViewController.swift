@@ -18,8 +18,6 @@ class SearchResultsTableViewController: UITableViewController {
     var db: Firestore!
     var gameValue: String!
     var text: String?
-//    let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2)
-//    let userRef = self.db.collection("profile")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +65,7 @@ class SearchResultsTableViewController: UITableViewController {
             cell.gameLabel?.text = "\(user.game)"
             cell.updateCell(users: user)
         }
-        
-//        cell.gameLabel?.text = "\(user.game)"
-//
-//        cell.updateCell(users: user)
 
         return cell
     }
-
 }
