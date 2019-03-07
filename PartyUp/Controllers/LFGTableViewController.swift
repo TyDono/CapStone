@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Foundation
 import CoreLocation
+import GoogleSignIn
 import FirebaseFirestore
 import FirebaseAuth
 
@@ -105,24 +106,6 @@ class LFGTableViewController: UITableViewController {
         } else {
             print("ok")
             
-            
-            //if requirements to search are met
-//            db.collection("profile").whereField("game", isEqualTo: searchGame.text!).getDocuments { (snapshop, error) in
-//                if error != nil {
-//                    print(Error.self)
-//                } else {
-//                    for document in (snapshop?.documents)! {
-//                        if let game = document.data()["game"] as? String {
-//                            if let age = document.data()["age"] as? Int {
-//                                if let groupSize = document.data()["group size"] as? String {
-//                                    print(game, age, groupSize)
-//
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
@@ -140,6 +123,7 @@ class LFGTableViewController: UITableViewController {
         print("Logged Out")
         self.currentUser = nil
         self.userId = ""
+        try! Auth.auth().signOut()
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             moveToLogIn()
         }
