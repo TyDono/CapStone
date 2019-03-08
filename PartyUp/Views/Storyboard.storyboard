@@ -523,6 +523,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugy-pK-DAm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                            <connections>
+                                                <action selector="cellTapped:" destination="Swf-l5-FHK" eventType="touchUpInside" id="Bvc-LB-BRC"/>
+                                                <segue destination="xEe-Ug-wsV" kind="show" identifier="viewOtherProfileSegue" id="6JR-nY-jHk"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T15-qE-bGg">
                                             <rect key="frame" x="210" y="0.0" width="149" height="65"/>
                                             <constraints>
@@ -535,18 +542,22 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Ugy-pK-DAm" firstAttribute="top" secondItem="och-B8-BZ9" secondAttribute="top" id="54u-io-b1P"/>
                                         <constraint firstItem="eKd-7B-c8B" firstAttribute="leading" secondItem="BWu-xT-9CN" secondAttribute="trailing" constant="8" id="5B7-oo-epB"/>
                                         <constraint firstItem="Un6-gi-XSA" firstAttribute="leading" secondItem="eKd-7B-c8B" secondAttribute="trailing" constant="8" id="H9k-ym-AdD"/>
                                         <constraint firstItem="YLP-MZ-KmI" firstAttribute="top" secondItem="och-B8-BZ9" secondAttribute="top" id="KdO-qR-IYF"/>
                                         <constraint firstItem="eKd-7B-c8B" firstAttribute="top" secondItem="T15-qE-bGg" secondAttribute="bottom" constant="2" id="MCr-oL-Qte"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ugy-pK-DAm" secondAttribute="bottom" id="T3a-hq-e1D"/>
                                         <constraint firstItem="eKd-7B-c8B" firstAttribute="leading" secondItem="BWu-xT-9CN" secondAttribute="trailing" constant="8" id="T3z-ms-Qef"/>
                                         <constraint firstAttribute="trailing" secondItem="T15-qE-bGg" secondAttribute="trailing" constant="16" id="Ty4-ON-iLv"/>
                                         <constraint firstItem="BWu-xT-9CN" firstAttribute="top" secondItem="YLP-MZ-KmI" secondAttribute="bottom" constant="2" id="WOs-OK-PXj"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ugy-pK-DAm" secondAttribute="trailing" id="a1q-IO-WxQ"/>
                                         <constraint firstItem="BWu-xT-9CN" firstAttribute="leading" secondItem="och-B8-BZ9" secondAttribute="leading" constant="16" id="b40-aC-k1g"/>
                                         <constraint firstItem="Un6-gi-XSA" firstAttribute="top" secondItem="T15-qE-bGg" secondAttribute="bottom" constant="3" id="dsn-Un-igJ"/>
                                         <constraint firstItem="T15-qE-bGg" firstAttribute="leading" secondItem="YLP-MZ-KmI" secondAttribute="trailing" constant="8" id="fVy-iA-Umc"/>
                                         <constraint firstItem="T15-qE-bGg" firstAttribute="leading" secondItem="YLP-MZ-KmI" secondAttribute="trailing" constant="8" id="il7-iR-7Iq"/>
                                         <constraint firstAttribute="trailing" secondItem="Un6-gi-XSA" secondAttribute="trailing" constant="16" id="oAU-gt-vmE"/>
+                                        <constraint firstItem="Ugy-pK-DAm" firstAttribute="leading" secondItem="och-B8-BZ9" secondAttribute="leading" id="sRA-7E-sCe"/>
                                         <constraint firstItem="YLP-MZ-KmI" firstAttribute="leading" secondItem="och-B8-BZ9" secondAttribute="leading" constant="16" id="u3F-1T-kax"/>
                                         <constraint firstItem="Un6-gi-XSA" firstAttribute="leading" secondItem="eKd-7B-c8B" secondAttribute="trailing" constant="8" id="unK-Py-KbH"/>
                                         <constraint firstItem="eKd-7B-c8B" firstAttribute="top" secondItem="T15-qE-bGg" secondAttribute="bottom" constant="2" id="vK2-rm-2Io"/>
@@ -559,7 +570,6 @@
                                     <outlet property="gameLabel" destination="T15-qE-bGg" id="Zcv-cK-Gf2"/>
                                     <outlet property="sizeLabel" destination="Un6-gi-XSA" id="kSd-LJ-dn5"/>
                                     <outlet property="titleLabel" destination="YLP-MZ-KmI" id="Dyi-3K-Vwc"/>
-                                    <segue destination="xEe-Ug-wsV" kind="show" id="g7x-3A-jYh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -968,7 +978,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="oD3-XC-hc1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" rowHeight="60" id="oD3-XC-hc1">
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oD3-XC-hc1" id="jt6-jM-4hn">
@@ -1161,7 +1171,7 @@
                                                         <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="ContactMeTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="Svo-iS-FWl"/>
+                                                        <action selector="contactMeTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="8Wq-AU-iIn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

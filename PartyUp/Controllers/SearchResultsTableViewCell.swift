@@ -24,17 +24,27 @@ class SearchResultsTableViewCell: UITableViewCell {
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var db: Firestore!
+    var users: [Users]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         var db = Firestore.firestore()
-        
     }
     
     func updateCell(users: Users) {
-        
-        gameLabel.text = users.game
-        
     }
+    
+    @IBAction func cellTapped(_ sender: UIButton) {
+//        let profileRef = db.collection("profile").document()
+//        profileRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data: \(dataDescription)")
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+    }
+    
 }
 

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseAuth
+import Firebase
 
 class ViewOtherProfileTableViewController: UITableViewController {
     
@@ -20,12 +23,102 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var otherAboutLabel: UILabel!
     @IBOutlet var contactMe: UIButton!
     
+    var users: [Users]?
+    var db: Firestore!
+    var gameValue: String!
+    var text: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        var db = Firestore.firestore()
+        getDocument()
+        
     }
-
+    
+    func getDocument() {
+        
+        let docRef = db.collection("profile").document("3UMne2zHGZgd5vb4urjuI6IddFV2")
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let gameCell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as? OtherProfileTableViewCell else { return UITableViewCell() }
+        
+        if let users = users {
+            let user = users[indexPath.row]
+            otherGameLabel?.text = "Game: \(user.game)"
+        }
+        return gameCell
+    }
+    
+//    func updateOtherProfile() {
+//        if let users = users {
+//            let user = users
+//            otherAboutLabel?.text = "\(user.about)"
+//            otherAvailabilityLabel?.text = "\(user.availability)"
+//            otherGameLabel?.text = "Game: \(user.game)"
+//            otherAgeLabel?.text = "Group Age: \(user.age)"
+//            otherGroupSizeLabel?.text = "Group Size: \(user.groupSize)"
+//            otherTitleLabel?.text = "\(user.titleOfGroup)"
+//
+//        }
+//    }
+    
+//    func otherProfileInfo() {
+//
+//        UserDefaults.standard.set(otherGameLabel.text, forKey: "otherGame")
+//        otherGameLabel.text = ""
+//        UserDefaults.standard.set(otherTitleLabel.text, forKey: "otherTitle")
+//        otherTitleLabel.text = ""
+//        UserDefaults.standard.set(otherAgeLabel.text, forKey: "otherAge")
+//        otherAgeLabel.text = ""
+//        UserDefaults.standard.set(otherAvailabilityLabel.text, forKey: "otherAvailability")
+//        otherAvailabilityLabel.text = ""
+//        UserDefaults.standard.set(otherAboutLabel, forKey: "otherAbout")
+//        otherAboutLabel.text = ""
+//        UserDefaults.standard.set(otherGroupSizeLabel.text, forKey: "otherGroupSize")
+//        otherGroupSizeLabel.text = ""
+//        UserDefaults.standard.set(otherExperianceLabel, forKey: "otherExperiance")
+//        otherExperianceLabel.text = ""
+//
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        if let gameTextSaved = UserDefaults.standard.object(forKey: "otherGame") as? String {
+//            otherGameLabel.text = gameTextSaved
+//        }
+//        if let titleTextSaved = UserDefaults.standard.object(forKey: "otherTitle") as? String {
+//            otherTitleLabel.text = titleTextSaved
+//        }
+//        if let ageTextSaved = UserDefaults.standard.object(forKey: "otherAge") as? String {
+//            otherAgeLabel.text = ageTextSaved
+//        }
+//        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "otherAvailability") as? String {
+//            otherAvailabilityLabel.text = availabilityTextSaved
+//        }
+//        if let aboutTextSaved = UserDefaults.standard.object(forKey: "otherAbout") as? String {
+//            otherAboutLabel.text = aboutTextSaved
+//        }
+//        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "otherGroupSize") as? String {
+//            otherGroupSizeLabel.text = groupSizeTextSaved
+//        }
+//        if let otherExperianceSaved = UserDefaults.standard.object(forKey: "otherExperiance") as? String {
+//            otherExperianceLabel.text = otherExperianceSaved
+//        }
+//    }
+    
     //MARK Actions
     @IBAction func contactMeTapped(_ sender: Any) {
+        
     }
+    
 }

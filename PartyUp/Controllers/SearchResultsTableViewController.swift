@@ -36,7 +36,6 @@ class SearchResultsTableViewController: UITableViewController {
                         users.append(otherUser)
                     }
                     print("")
-                    
                 }
                 self.users = users
                 DispatchQueue.main.async {
@@ -66,10 +65,10 @@ class SearchResultsTableViewController: UITableViewController {
             cell.ageLabel?.text = "Age Group: \(user.age)"
             cell.sizeLabel?.text = "Group Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
-           // cell.experianceLabel?.text = "\(user.experiance)"
+            // cell.experianceLabel?.text = "\(user.experiance)"
             cell.updateCell(users: user)
         }
-
         return cell
     }
+
 }

@@ -114,18 +114,6 @@ class UserTableViewController: UITableViewController {
                 
             }
         }
-        
-        //        db.collection("profile").document(String(user.id)).updateData([
-        //            "game": game
-        //        ]) { err in
-        //            if let err = err {
-        //                print("Error updating document")
-        //            } else {
-        //                print("Document updated!")
-        //            }
-//
-//        }
-        
     }
     
     //MARK Actions
