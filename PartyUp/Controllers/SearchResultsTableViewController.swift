@@ -45,13 +45,7 @@ class SearchResultsTableViewController: UITableViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var users = [Users]()
-        if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
-            
-        }
-        print("prepare for segue called")
-    }
+    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,19 +58,35 @@ class SearchResultsTableViewController: UITableViewController {
         return users?.count ?? 0
     }
     
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
         tableView.rowHeight = 118
         if let users = users {
+            
             let user = users[indexPath.row]
             cell.gameLabel?.text = "Game: \(user.game)"
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
-            // cell.experianceLabel?.text = "\(user.experiance)"
+            cell.about = "\(user.about)"
+            cell.availability = "\(user.availability)"
+            // cell.experiance = "\(user.experioance)"
+            //call prepare for segue in here
+            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                var users = [Users]()
+                if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
+                    
+                }
+                print("prepare for viewUserSegue called")
+            }
             cell.updateCell(users: user)
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "viewUserSegue", sender: self)
     }
 
 }

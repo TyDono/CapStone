@@ -24,13 +24,15 @@ class SearchResultsTableViewCell: UITableViewCell {
     var currentUser: Users?
     var db: Firestore!
     var users: [Users]?
+    var experience: String = ""
+    var about: String = ""
+    var availability: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
         var db = Firestore.firestore()
     }
     
-  
     func updateCell(users: Users) {
     }
     

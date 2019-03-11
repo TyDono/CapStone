@@ -32,33 +32,33 @@ class ViewOtherProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var db = Firestore.firestore()
-        getUser()
+      //  getUser()
         
     }
     
-    func getUser() {
-        
-        guard let game = otherGameLabel.text else { return }
-        guard let titleOfGroup = otherTitleLabel.text else { return }
-        guard let groupSize = otherGroupSizeLabel.text else  { return }
-        guard let experiance = otherExperianceLabel else  { return }
-        guard let age = otherAgeLabel.text else  { return }
-        guard let availability = otherAvailabilityLabel.text else  { return }
-        guard let about = otherAboutLabel.text else  { return }
-        
-        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
-        let users = [Users]()
-        let userRef = db.collection("profile")
-        userRef.document().getDocument() { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("docuemnt data: \(dataDescription)")
-            } else {
-                print("ERROR, docuemnt does not exist")
-            }
-        }
-        
-    }
+//    func getUser() {
+//
+//        guard let game = otherGameLabel.text else { return }
+//        guard let titleOfGroup = otherTitleLabel.text else { return }
+//        guard let groupSize = otherGroupSizeLabel.text else  { return }
+//        guard let experiance = otherExperianceLabel else  { return }
+//        guard let age = otherAgeLabel.text else  { return }
+//        guard let availability = otherAvailabilityLabel.text else  { return }
+//        guard let about = otherAboutLabel.text else  { return }
+//
+//        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
+//        let users = [Users]()
+//        let userRef = db.collection("profile")
+//        userRef.document("3UMne2zHGZgd5vb4urjuI6IddFV2").getDocument() { (document, error) in
+//            if let document = document, document.exists {
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("docuemnt data: \(dataDescription)")
+//            } else {
+//                print("ERROR, docuemnt does not exist")
+//            }
+//        }
+//
+//    }
     
     //    var user: Users? {
     //        return Users.init(dictionary: <#T##[String : Any]#>)
@@ -101,48 +101,48 @@ class ViewOtherProfileTableViewController: UITableViewController {
 //        }
 //    }
     
-    func otherProfileInfo() {
-
-        UserDefaults.standard.set(otherGameLabel.text, forKey: "otherGame")
-        otherGameLabel.text = ""
-        UserDefaults.standard.set(otherTitleLabel.text, forKey: "otherTitle")
-        otherTitleLabel.text = ""
-        UserDefaults.standard.set(otherAgeLabel.text, forKey: "otherAge")
-        otherAgeLabel.text = ""
-        UserDefaults.standard.set(otherAvailabilityLabel.text, forKey: "otherAvailability")
-        otherAvailabilityLabel.text = ""
-        UserDefaults.standard.set(otherAboutLabel, forKey: "otherAbout")
-        otherAboutLabel.text = ""
-        UserDefaults.standard.set(otherGroupSizeLabel.text, forKey: "otherGroupSize")
-        otherGroupSizeLabel.text = ""
-        UserDefaults.standard.set(otherExperianceLabel, forKey: "otherExperiance")
-        otherExperianceLabel.text = ""
-
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        if let gameTextSaved = UserDefaults.standard.object(forKey: "otherGame") as? String {
-            otherGameLabel.text = gameTextSaved
-        }
-        if let titleTextSaved = UserDefaults.standard.object(forKey: "otherTitle") as? String {
-            otherTitleLabel.text = titleTextSaved
-        }
-        if let ageTextSaved = UserDefaults.standard.object(forKey: "otherAge") as? String {
-            otherAgeLabel.text = ageTextSaved
-        }
-        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "otherAvailability") as? String {
-            otherAvailabilityLabel.text = availabilityTextSaved
-        }
-        if let aboutTextSaved = UserDefaults.standard.object(forKey: "otherAbout") as? String {
-            otherAboutLabel.text = aboutTextSaved
-        }
-        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "otherGroupSize") as? String {
-            otherGroupSizeLabel.text = groupSizeTextSaved
-        }
-        if let otherExperianceSaved = UserDefaults.standard.object(forKey: "otherExperiance") as? String {
-            otherExperianceLabel.text = otherExperianceSaved
-        }
-    }
+//    func otherProfileInfo() {
+//
+//        UserDefaults.standard.set(otherGameLabel.text, forKey: "otherGame")
+//        otherGameLabel.text = ""
+//        UserDefaults.standard.set(otherTitleLabel.text, forKey: "otherTitle")
+//        otherTitleLabel.text = ""
+//        UserDefaults.standard.set(otherAgeLabel.text, forKey: "otherAge")
+//        otherAgeLabel.text = ""
+//        UserDefaults.standard.set(otherAvailabilityLabel.text, forKey: "otherAvailability")
+//        otherAvailabilityLabel.text = ""
+//        UserDefaults.standard.set(otherAboutLabel, forKey: "otherAbout")
+//        otherAboutLabel.text = ""
+//        UserDefaults.standard.set(otherGroupSizeLabel.text, forKey: "otherGroupSize")
+//        otherGroupSizeLabel.text = ""
+//        UserDefaults.standard.set(otherExperianceLabel, forKey: "otherExperiance")
+//        otherExperianceLabel.text = ""
+//
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        if let gameTextSaved = UserDefaults.standard.object(forKey: "otherGame") as? String {
+//            otherGameLabel.text = gameTextSaved
+//        }
+//        if let titleTextSaved = UserDefaults.standard.object(forKey: "otherTitle") as? String {
+//            otherTitleLabel.text = titleTextSaved
+//        }
+//        if let ageTextSaved = UserDefaults.standard.object(forKey: "otherAge") as? String {
+//            otherAgeLabel.text = ageTextSaved
+//        }
+//        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "otherAvailability") as? String {
+//            otherAvailabilityLabel.text = availabilityTextSaved
+//        }
+//        if let aboutTextSaved = UserDefaults.standard.object(forKey: "otherAbout") as? String {
+//            otherAboutLabel.text = aboutTextSaved
+//        }
+//        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "otherGroupSize") as? String {
+//            otherGroupSizeLabel.text = groupSizeTextSaved
+//        }
+//        if let otherExperianceSaved = UserDefaults.standard.object(forKey: "otherExperiance") as? String {
+//            otherExperianceLabel.text = otherExperianceSaved
+//        }
+//    }
     
     //MARK Actions
     @IBAction func contactMeTapped(_ sender: Any) {
