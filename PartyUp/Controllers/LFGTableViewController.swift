@@ -116,7 +116,7 @@ class LFGTableViewController: UITableViewController {
             
             searchResultsVC.text = searchGame.text
         }
-        print("")
+        print("prepare for segue called")
     }
     
     @IBAction func logOutTapped(sender: UIBarButtonItem) {

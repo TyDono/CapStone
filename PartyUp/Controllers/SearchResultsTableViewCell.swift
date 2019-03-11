@@ -17,7 +17,6 @@ class SearchResultsTableViewCell: UITableViewCell {
     //MARK outlets
     @IBOutlet var gameLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var experianceLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var sizeLabel: UILabel!
     
@@ -31,20 +30,11 @@ class SearchResultsTableViewCell: UITableViewCell {
         var db = Firestore.firestore()
     }
     
+  
     func updateCell(users: Users) {
     }
     
     @IBAction func cellTapped(_ sender: UIButton) {
-//        let profileRef = db.collection("profile").document()
-//        profileRef.getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                print("Document data: \(dataDescription)")
-//            } else {
-//                print("Document does not exist")
-//            }
-//        }
     }
-    
 }
 

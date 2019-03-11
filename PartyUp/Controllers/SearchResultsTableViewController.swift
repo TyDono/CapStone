@@ -44,6 +44,14 @@ class SearchResultsTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var users = [Users]()
+        if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
+            
+        }
+        print("prepare for segue called")
+    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,12 +66,12 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
-        
+        tableView.rowHeight = 118
         if let users = users {
             let user = users[indexPath.row]
             cell.gameLabel?.text = "Game: \(user.game)"
-            cell.ageLabel?.text = "Age Group: \(user.age)"
-            cell.sizeLabel?.text = "Group Size: \(user.groupSize)"
+            cell.ageLabel?.text = "Age: \(user.age)"
+            cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
             // cell.experianceLabel?.text = "\(user.experiance)"
             cell.updateCell(users: user)
