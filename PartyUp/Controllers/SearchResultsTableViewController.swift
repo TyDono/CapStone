@@ -78,18 +78,19 @@ class SearchResultsTableViewController: UITableViewController {
         return cell
     }
     
+    //pass in user.game and ect and have the labels print out it there.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let row = self.tableView.indexPathForSelectedRow?.row, let user = users?[row] {
             
             if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
                 
-                var otherVCGameLabel = otherProfileVC.otherGameLabel
-                if otherProfileVC != nil {
-                    otherVCGameLabel?.text = user.game
-                } else {
-                    print(Error.self)
-                }
+                otherProfileVC.gameValue = user.game
+                otherProfileVC.titleValue = user.game
+                otherProfileVC.ageValue = user.game
+                otherProfileVC.groupSizeValue = user.game
+                otherProfileVC.experianceValue = user.game
+                otherProfileVC.aboutValue = user.game
             }
             print("prepare for viewUserSegue called")
         }
@@ -98,5 +99,5 @@ class SearchResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "viewUserSegue", sender: self)
     }
-
+    
 }

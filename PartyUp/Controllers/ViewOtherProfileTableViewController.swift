@@ -25,13 +25,28 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     var users: [Users]?
     var db: Firestore!
-    var gameValue: String!
+    var gameValue: String = ""
+    var titleValue: String = ""
+    var ageValue: String = ""
+    var groupSizeValue: String = ""
+    var experianceValue: String = ""
+    var availabilityValue: String = ""
+    var aboutValue: String = ""
     var text: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var db = Firestore.firestore()
-        
+        updateOtherProfile()
+    }
+    
+    func updateOtherProfile() {
+        otherGameLabel.text = "Game: \(gameValue)"
+        otherTitleLabel.text = "\(titleValue)"
+        otherAgeLabel.text = "Age: \(ageValue)"
+        otherGroupSizeLabel.text = "Group Size: \(groupSizeValue)"
+        otherExperianceLabel.text = "Experiance: \(experianceValue)"
+        otherAboutLabel.text = "\(aboutValue)"
     }
     
 //    func getUser() {
