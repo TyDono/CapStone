@@ -8,8 +8,8 @@
 
 import UIKit
 import FirebaseStorage
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
 
 class ViewOtherProfileTableViewController: UITableViewController {
     
@@ -27,12 +27,10 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var db: Firestore!
     var gameValue: String!
     var text: String?
-    var currentAuthID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var db = Firestore.firestore()
-      //  getUser()
         
     }
     
@@ -85,12 +83,34 @@ class ViewOtherProfileTableViewController: UITableViewController {
 //            let user = users[indexPath.row]
 //            otherGameLabel?.text = "Game: \(user.game)"
 //        }
-//        return gameCell
+    //        return gameCell
+    //    }
+    // MARK: - Table view data source
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        return 6
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as? OtherProfileTableViewCell else { return UITableViewCell() }
+//
+//        if let users = users {
+//
+//            let user = users[indexPath.row]
+//            cell.otherGameLabel?.text = "Game: \(user.game)"
+//            cell.updateCell(users: user)
+//        }
+//        return cell
 //    }
     
-//    func updateOtherProfile() {
-//        if let users = users {
-//            let user = users
+    //    func updateOtherProfile() {
+    //        if let users = users {
+    //            let user = users
 //            otherAboutLabel?.text = "\(user.about)"
 //            otherAvailabilityLabel?.text = "\(user.availability)"
 //            otherGameLabel?.text = "Game: \(user.game)"

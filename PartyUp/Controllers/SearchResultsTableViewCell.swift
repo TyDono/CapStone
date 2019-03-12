@@ -36,7 +36,5 @@ class SearchResultsTableViewCell: UITableViewCell {
     func updateCell(users: Users) {
     }
     
-    @IBAction func cellTapped(_ sender: UIButton) {
-    }
 }
 

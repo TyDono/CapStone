@@ -58,7 +58,6 @@ class SearchResultsTableViewController: UITableViewController {
         return users?.count ?? 0
     }
     
-    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
         tableView.rowHeight = 118
@@ -73,16 +72,27 @@ class SearchResultsTableViewController: UITableViewController {
             cell.availability = "\(user.availability)"
             // cell.experiance = "\(user.experioance)"
             //call prepare for segue in here
-            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                var users = [Users]()
-                if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
-                    
-                }
-                print("prepare for viewUserSegue called")
-            }
+            
             cell.updateCell(users: user)
         }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let row = self.tableView.indexPathForSelectedRow?.row, let user = users?[row] {
+            
+            if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
+                
+                var otherVCGameLabel = otherProfileVC.otherGameLabel
+                if otherProfileVC != nil {
+                    otherVCGameLabel?.text = user.game
+                } else {
+                    print(Error.self)
+                }
+            }
+            print("prepare for viewUserSegue called")
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -530,7 +530,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Results" id="wl8-SQ-CTu"/>
                     <connections>
-                        <segue destination="xEe-Ug-wsV" kind="show" identifier="viewUserSegue" id="Xze-Oi-Aeh"/>
+                        <segue destination="xEe-Ug-wsV" kind="show" identifier="viewUserSegue" id="qYQ-cB-iY0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoe-ck-2Ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -903,7 +903,7 @@
                         <sections>
                             <tableViewSection headerTitle="Basic Info" id="zSo-ZP-8xm">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="BHg-Iz-j7t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="60" id="BHg-Iz-j7t">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BHg-Iz-j7t" id="BvL-LX-gg8">
@@ -957,7 +957,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="kNo-3O-9kF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ageCell" rowHeight="60" id="kNo-3O-9kF">
                                         <rect key="frame" x="0.0" y="148" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kNo-3O-9kF" id="Pwl-K7-T5d">
@@ -984,7 +984,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="mne-Ag-iBj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupSizeCell" rowHeight="60" id="mne-Ag-iBj">
                                         <rect key="frame" x="0.0" y="208" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mne-Ag-iBj" id="oLO-6Q-Dk6">
@@ -1011,7 +1011,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="UDp-eB-1bq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="experianceCell" rowHeight="60" id="UDp-eB-1bq">
                                         <rect key="frame" x="0.0" y="268" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UDp-eB-1bq" id="rrp-TK-wiX">
@@ -1042,7 +1042,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Availability" id="Bx7-Gb-pKf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="229" id="nY9-e5-Joo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="availabilityCell" rowHeight="229" id="nY9-e5-Joo">
                                         <rect key="frame" x="0.0" y="356" width="375" height="229"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nY9-e5-Joo" id="I8L-Xs-91W">
@@ -1074,7 +1074,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="7dB-qy-Aql">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="212" id="BfH-RF-tba">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" rowHeight="212" id="BfH-RF-tba">
                                         <rect key="frame" x="0.0" y="613" width="375" height="212"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BfH-RF-tba" id="3yz-5C-yIS">
@@ -1151,14 +1151,14 @@
                         <outlet property="otherAgeLabel" destination="Hl0-2h-DVo" id="WYM-6P-Mb3"/>
                         <outlet property="otherAvailabilityLabel" destination="3SA-Vn-ANp" id="7fX-qF-sVe"/>
                         <outlet property="otherExperianceLabel" destination="9EU-tc-6gE" id="ntR-Ds-kId"/>
-                        <outlet property="otherGameLabel" destination="RBa-3s-BM1" id="2iG-2U-DCp"/>
+                        <outlet property="otherGameLabel" destination="RBa-3s-BM1" id="6jy-m4-jyt"/>
                         <outlet property="otherGroupSizeLabel" destination="j5w-9W-cQ4" id="ynw-IQ-c7e"/>
                         <outlet property="otherTitleLabel" destination="d2D-gy-kVD" id="DME-iw-QPY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZw-O9-3dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22799.200000000001" y="-118.29085457271366"/>
+            <point key="canvasLocation" x="-22833" y="-500"/>
         </scene>
     </scenes>
     <resources>
