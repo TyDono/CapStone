@@ -26,16 +26,16 @@ class CreateAccountTableViewController: UITableViewController{
     //Actions
     @IBAction func createAccountTapped(_ sender: Any) {
         
-//        if let email = emailTextfield.text, let password = passwordTextField.text {
-//            Auth.auth().createUser(withEmail: email, password: password, completion: { user, error) in
-//
-//                if let firebaseError = error {
-//                    print(firebaseError.localizedDescription)
-//                    return
-//                }
-//                print("success!")
-//            })
-//        }
-//    }
-}
+        //        if let email = emailTextfield.text, let password = passwordTextField.text {
+        //            Auth.auth().createUser(withEmail: email, password: password, completion: { user, error) in
+        //
+        //                if let firebaseError = error {
+        //                    print(firebaseError.localizedDescription)
+        //                    return
+        //                }
+        //                print("success!")
+        //            })
+        //        }
+        //    }
+    }
 }

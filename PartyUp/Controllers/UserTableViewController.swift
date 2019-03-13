@@ -115,7 +115,5 @@ class UserTableViewController: UITableViewController {
             }
         }
     }
-    
-    //MARK Actions
-    
+ 
 }

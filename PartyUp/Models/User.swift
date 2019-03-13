@@ -37,10 +37,9 @@ struct Users {
             "age": age,
             "availability": availability,
             "about": about
- 
+            //"experaince": experiance
         ]
     }
-    
 }
 
 extension Users: DocumentUserSerializable {

@@ -9,5 +9,5 @@
 import Foundation
 
 struct Games {
-    
+    //I plan to use an API that will grab a large amount of games giveing the user an option to choose from them. this is later in the future if at all.
 }

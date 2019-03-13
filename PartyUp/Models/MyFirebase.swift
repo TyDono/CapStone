@@ -30,10 +30,6 @@ class MyFirebase {
     private var listenHandler: AuthStateDidChangeListenerHandle?
     var currentUpload:StorageUploadTask?
     
-    private init() {
-        
-    }
-    
     // if auth uid =  nil do nothing other wise make a document id for their acount
     //check to see if they are logged in, if they are move them to LFGVC, otherwise move them to LogInVC
     func addUserListender(loggedIn: Bool) {
@@ -74,12 +70,12 @@ class MyFirebase {
     
     func createData() {
         
-        var game2: String = ""
-        var titleOfGroup2: String = ""
-        var groupSize2: String = ""
-        var age2: String = ""
-        var availability2: String = ""
-        var about2: String = ""
+        let game2: String = ""
+        let titleOfGroup2: String = ""
+        let groupSize2: String = ""
+        let age2: String = ""
+        let availability2: String = ""
+        let about2: String = ""
         
         let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2)
         let userRef = self.db.collection("profile")

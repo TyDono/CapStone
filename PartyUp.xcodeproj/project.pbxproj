@@ -16,7 +16,6 @@
 		CB610C6C2214919400DBBAAE /* PartyUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C6B2214919400DBBAAE /* PartyUpUITests.swift */; };
 		CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */; };
 		CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */; };
-		CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */; };
 		CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C9F2215BAEC00DBBAAE /* TabController.swift */; };
 		CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */; };
 		CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */; };
@@ -81,7 +80,6 @@
 		CB610C6D2214919400DBBAAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB610C9C2215BAEC00DBBAAE /* CreateAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewController.swift; sourceTree = "<group>"; };
 		CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFGTableViewController.swift; sourceTree = "<group>"; };
-		CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		CB610C9F2215BAEC00DBBAAE /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CB610CA12215BAEC00DBBAAE /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CBBA886E221F2D490002C25E /* MessagesViewController.swift */,
-				CB610C9E2215BAEC00DBBAAE /* NetworkController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
 			path = Controllers;
@@ -541,7 +538,6 @@
 				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
 				CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */,
 				CBBA886F221F2D490002C25E /* MessagesViewController.swift in Sources */,
-				CB610CAB2215BAED00DBBAAE /* NetworkController.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,

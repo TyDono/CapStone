@@ -129,6 +129,15 @@ class LFGTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func loutOutButtonTapped(_ sender: Any) {
+        print("Logged Out Tapped")
+        self.currentUser = nil
+        self.userId = ""
+        try! Auth.auth().signOut()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            moveToLogIn()
+        }
+    }
 }
 
 //MARK EXTENSIONS

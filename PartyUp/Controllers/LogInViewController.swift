@@ -30,7 +30,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: "usersignedin") {
+        if userDefault.bool(forKey: "userSignedIn") {
             performSegue(withIdentifier: "segueToSearch", sender: self)
         }
     }
