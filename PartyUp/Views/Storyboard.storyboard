@@ -607,7 +607,7 @@
                                     <action selector="googleSignIn:" destination="VV9-QB-HDC" eventType="valueChanged" id="gaZ-0g-izP"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVi-zj-OC4">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVi-zj-OC4">
                                 <rect key="frame" x="75" y="273" width="225" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -820,7 +820,7 @@
                     <connections>
                         <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="hgk-wY-HbF" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
-                        <segue destination="3BE-ct-g6S" kind="relationship" relationship="viewControllers" id="g6Z-c9-tEc"/>
+                        <segue destination="kNB-ui-EDZ" kind="relationship" relationship="viewControllers" id="a3h-LO-ddG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -828,20 +828,20 @@
             <point key="canvasLocation" x="-25279" y="992"/>
         </scene>
         <!--Messages-->
-        <scene sceneID="cmo-i5-9Er">
+        <scene sceneID="Hrj-n8-0JH">
             <objects>
-                <viewController id="3BE-ct-g6S" customClass="MessagesViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="N0E-4r-feu">
+                <viewController id="kNB-ui-EDZ" customClass="MessageViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hc0-n7-aAd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xET-k0-QUb"/>
+                        <viewLayoutGuide key="safeArea" id="hl2-Ra-Yco"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" id="05E-N4-dQu"/>
+                    <tabBarItem key="tabBarItem" title="Messages" id="iX9-ge-SZZ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ohW-4h-kJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WQe-eO-hR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24516" y="1345"/>
+            <point key="canvasLocation" x="-24340" y="1252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
@@ -878,7 +878,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIg-ZE-Glv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25279.200000000001" y="-118.29085457271366"/>
+            <point key="canvasLocation" x="-25241" y="-118"/>
         </scene>
         <!--Loading-->
         <scene sceneID="ap7-4c-pQg">
@@ -1074,13 +1074,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="228.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SA-Vn-ANp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the useres default availability" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SA-Vn-ANp">
                                                     <rect key="frame" x="16" y="11" width="343" height="207"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="207" id="Myv-iY-D1x"/>
                                                         <constraint firstAttribute="width" constant="343" id="meC-zC-DpW"/>
                                                     </constraints>
-                                                    <string key="text">dfdfdfdfdfxdfsfdfxdfdfd df dsf dfdshfbdf gbdf dhfg dhf dhgf dgfhdgfyu fhdjf dgf jdgf jgf jfhg dhjgf dhjgf jdhsgf jdhgf jdhg fjdhg fdfg dfgfhjsd gfhjgfysr hdgfiu  ud d vhsgfug fg jdgv ihgvyrg zdbvhdfhgs dh ghjffjg  ufhvdfbvhchv8dfghjbfjvhdhfbvjhdfo;ugrjfhv </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1106,13 +1105,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="211.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-cY-0L5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the users default about" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-cY-0L5">
                                                     <rect key="frame" x="8" y="8.5" width="343" height="201"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="201" id="4YZ-Xu-Wse"/>
                                                         <constraint firstAttribute="width" constant="343" id="bvH-sP-cFx"/>
                                                     </constraints>
-                                                    <string key="text">dfgdyg urytu hvgzuytrugtr jxfhgurd uchhfjg vfh ufygiudf fytuidrytdvjh urdyt fug hyiuhg rvyt hjfgv udrygiufg fug udfyf jkf gjkdrty gfhv fhjygrdukyg urtfhgufxhvkjfhbiudrtysbvjkghhliurdhgu  ufh gkfh fiuh f</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

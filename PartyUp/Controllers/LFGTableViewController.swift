@@ -14,6 +14,7 @@ import GoogleSignIn
 import FirebaseFirestore
 import FirebaseAuth
 
+// I have shrunk the amount of tools they have to use a search to make it more simple since users I will have less users to start and dont want to inhibit
 class LFGTableViewController: UITableViewController {
     
     //MARK OUTLETS
@@ -24,7 +25,7 @@ class LFGTableViewController: UITableViewController {
     @IBOutlet var logOut: UIBarButtonItem!
     @IBOutlet var groupSize: UITextField!
     
-    //vMARK VARIABLES
+    //MARK VARIABLES
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""

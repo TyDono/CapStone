@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		296A4280FCEEB98B48C687E1 /* Pods_PartyUpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */; };
 		613807AC780F72066500FBF2 /* Pods_PartyUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */; };
+		CB58E8BE2239661A008CC665 /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BD2239661A008CC665 /* MessageDetail.swift */; };
+		CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BF223969DC008CC665 /* MessageViewController.swift */; };
+		CB58E8C222396C4F008CC665 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8C122396C4F008CC665 /* Message.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
@@ -34,7 +37,6 @@
 		CBBA886A221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886B221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886D221F02E30002C25E /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA886C221F02E30002C25E /* credentials.plist */; };
-		CBBA886F221F2D490002C25E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA886E221F2D490002C25E /* MessagesViewController.swift */; };
 		CBBA88902225A06B0002C25E /* AppDelegate+GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA888F2225A06B0002C25E /* AppDelegate+GoogleSignIn.swift */; };
 		CBBA88922225A20D0002C25E /* MyFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA88912225A20D0002C25E /* MyFirebase.swift */; };
 		CBBA88942225A58E0002C25E /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA88932225A58E0002C25E /* GlobalExtensions.swift */; };
@@ -67,6 +69,9 @@
 		954AA8DEA2613E3831F7B1B9 /* Pods-PartyUpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUpUITests.debug.xcconfig"; path = "Target Support Files/Pods-PartyUpUITests/Pods-PartyUpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB58E8BD2239661A008CC665 /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		CB58E8BF223969DC008CC665 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		CB58E8C122396C4F008CC665 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,7 +101,6 @@
 		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 		CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBBA886C221F02E30002C25E /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
-		CBBA886E221F2D490002C25E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		CBBA888F2225A06B0002C25E /* AppDelegate+GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+GoogleSignIn.swift"; sourceTree = "<group>"; };
 		CBBA88912225A20D0002C25E /* MyFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebase.swift; sourceTree = "<group>"; };
 		CBBA88932225A58E0002C25E /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
@@ -202,7 +206,7 @@
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
-				CBBA886E221F2D490002C25E /* MessagesViewController.swift */,
+				CB58E8BF223969DC008CC665 /* MessageViewController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
 			path = Controllers;
@@ -217,6 +221,8 @@
 				CB610CB92215BBBA00DBBAAE /* User.swift */,
 				CBBA87AC221C53610002C25E /* MapKit.swift */,
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
+				CB58E8C122396C4F008CC665 /* Message.swift */,
+				CB58E8BD2239661A008CC665 /* MessageDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -499,7 +505,11 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Scaledrone/Scaledrone.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -513,7 +523,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Scaledrone.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -537,8 +551,8 @@
 				CBBA88922225A20D0002C25E /* MyFirebase.swift in Sources */,
 				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
 				CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */,
-				CBBA886F221F2D490002C25E /* MessagesViewController.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
+				CB58E8BE2239661A008CC665 /* MessageDetail.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,
 				CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */,
@@ -548,7 +562,9 @@
 				CBBA87AD221C53610002C25E /* MapKit.swift in Sources */,
 				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
+				CB58E8C222396C4F008CC665 /* Message.swift in Sources */,
 				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,
+				CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */,
 				CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */,
 				CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */,
 				CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */,

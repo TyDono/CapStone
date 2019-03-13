@@ -43,9 +43,7 @@ class SearchResultsTableViewController: UITableViewController {
                 }
             }
         }
-    }
-    
-    
+    }    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,11 +84,11 @@ class SearchResultsTableViewController: UITableViewController {
             if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
                 
                 otherProfileVC.gameValue = user.game
-                otherProfileVC.titleValue = user.game
-                otherProfileVC.ageValue = user.game
-                otherProfileVC.groupSizeValue = user.game
+                otherProfileVC.titleValue = user.titleOfGroup
+                otherProfileVC.ageValue = user.age
+                otherProfileVC.groupSizeValue = user.groupSize
                 otherProfileVC.experianceValue = user.game
-                otherProfileVC.aboutValue = user.game
+                otherProfileVC.aboutValue = user.about
             }
             print("prepare for viewUserSegue called")
         }
