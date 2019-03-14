@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 import MessageKit
+import MessageInputBar
 
 class MessageViewController: MessagesViewController {
     
@@ -23,7 +26,7 @@ class MessageViewController: MessagesViewController {
         messageInputBar.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
     }
-
+    
 }
 
 //extensions
@@ -33,30 +36,30 @@ extension MessageViewController: MessagesDataSource {
         in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
-    
+
     func currentSender() -> Sender {
         return Sender(id: member.name, displayName: member.name)
     }
-    
+
     func messageForItem(
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        
+
         return messages[indexPath.section]
     }
-    
+
     func messageTopLabelHeight(
         for message: MessageType,
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        
+
         return 12
     }
-    
+
     func messageTopLabelAttributedText(
         for message: MessageType,
         at indexPath: IndexPath) -> NSAttributedString? {
-        
+
         return NSAttributedString(
             string: message.sender.displayName,
             attributes: [.font: UIFont.systemFont(ofSize: 12)])
@@ -69,7 +72,7 @@ extension MessageViewController: MessagesLayoutDelegate {
                            at indexPath: IndexPath,
                            with maxWidth: CGFloat,
                            in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        
+
         return 0
     }
 }
@@ -81,7 +84,7 @@ extension MessageViewController: MessagesDisplayDelegate {
         for message: MessageType,
         at indexPath: IndexPath,
         in messagesCollectionView: MessagesCollectionView) {
-        
+
         let message = messages[indexPath.section]
         let color = message.member.color
         avatarView.backgroundColor = color
@@ -90,15 +93,10 @@ extension MessageViewController: MessagesDisplayDelegate {
 
 //4
 extension MessageViewController: MessageInputBarDelegate {
-    func messageInputBar(
-        _ inputBar: MessageInputBar,
-        didPressSendButtonWith text: String) {
-        
-        let newMessage = Message(
-            member: member,
-            text: text,
-            messageId: UUID().uuidString)
-        
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+
+        let newMessage = Message(member: member, text: text, messageId: UUID().uuidString)
+
         messages.append(newMessage)
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
