@@ -20,7 +20,7 @@ class MessageViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        member = Member(name: "bluemoon", color: .blue)
+        member = Member(name: .randomName, color: .randomColor)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
@@ -94,12 +94,12 @@ extension MessageViewController: MessagesDisplayDelegate {
 //4
 extension MessageViewController: MessageInputBarDelegate {
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-
         let newMessage = Message(member: member, text: text, messageId: UUID().uuidString)
-
         messages.append(newMessage)
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
     }
 }
+
+//propertie sont eh nav or view controller. or hidue the nav bar when you do stuff.  a prepare for segue posibley? override the defualt behavior.
