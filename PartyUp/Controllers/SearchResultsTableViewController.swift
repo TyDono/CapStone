@@ -21,7 +21,7 @@ class SearchResultsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var db = Firestore.firestore()
+        let db = Firestore.firestore()
         var users = [Users]()
         db.collection("profile").whereField("game", isEqualTo: text!).getDocuments { (snapshot, error) in
             if error != nil {
@@ -68,8 +68,9 @@ class SearchResultsTableViewController: UITableViewController {
             cell.titleLabel?.text = "\(user.titleOfGroup)"
             cell.about = "\(user.about)"
             cell.availability = "\(user.availability)"
+            cell.userName = "\(user.name)"
+            //cell.userName = "\(user.name)"
             // cell.experiance = "\(user.experioance)"
-            //call prepare for segue in here
             
             cell.updateCell(users: user)
         }
@@ -89,6 +90,7 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.groupSizeValue = user.groupSize
                 otherProfileVC.experianceValue = user.game
                 otherProfileVC.aboutValue = user.about
+                otherProfileVC.nameValue = user.name
             }
             print("prepare for viewUserSegue called")
         }

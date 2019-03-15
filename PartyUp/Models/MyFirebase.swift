@@ -47,8 +47,7 @@ class MyFirebase {
                         moveToLogIn()
                     }
                 }
-            }
-            else {
+            } else {
                 print("Logged In")
                 if self.currentAuthID == nil {
                     self.createData()
@@ -68,6 +67,7 @@ class MyFirebase {
         }
     }
     
+    //if you log out and try to log in again it will crash. re launch the app and it wil have you re signed in. need to fix this
     func createData() {
         
         let game2: String = ""
@@ -76,8 +76,14 @@ class MyFirebase {
         let age2: String = ""
         let availability2: String = ""
         let about2: String = ""
+        let name2: String = ""
+       // let color2: UIColor = .red
+       // let authData: Any?
+        //let clientData: Any?
         
-        let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2)
+        
+       // let member = Member(name: name2, color: color2)
+        let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2, name: name2)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in

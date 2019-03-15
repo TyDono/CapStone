@@ -52,8 +52,8 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
                 self.userDefault.synchronize()
                 self.performSegue(withIdentifier: "segueToSearch", sender: self)
             } else {
-                print(error)
-                print(error?.localizedDescription)
+                print(error as Any)
+                print(error?.localizedDescription as Any)
             }
         }
     }

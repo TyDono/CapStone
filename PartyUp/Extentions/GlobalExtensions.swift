@@ -27,11 +27,20 @@ func moveToLogIn() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
     appDelegate.window?.makeKeyAndVisible()
-    let destinationVC = LogInViewController()
     
     let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
     let loginVC = storyboard.instantiateViewController(withIdentifier: "login")
     appDelegate.window?.rootViewController = loginVC
+}
+
+func moveToMssages() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+    appDelegate.window?.makeKeyAndVisible()
+    
+    let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+    let messagesVC = storyboard.instantiateViewController(withIdentifier: "chatLog")
+    appDelegate.window?.rootViewController = messagesVC
 }
 
 //ranime user name gen
@@ -95,21 +104,22 @@ extension UIColor {
     }
 }
 
-func createData() {
-    
-    Firestore.firestore().collection("Profile").addDocument(data: [
-        "game": "",
-        "title of group": "",
-        "age": "",
-        // experiance
-        "group size": "",
-        "availability": "",
-        "about": ""
-    ]) { (error) in
-        if let error = error {
-        print(error)
-    } else {
-        print("Added Data to Firestore")
-        }
-    }
-}
+//func createData() {
+//
+//    Firestore.firestore().collection("Profile").addDocument(data: [
+//        "game": "",
+//        "title of group": "",
+//        "age": "",
+//        // experiance
+//        "group size": "",
+//        "availability": "",
+//        "about": "",
+//        "name": ""
+//    ]) { (error) in
+//        if let error = error {
+//        print(error)
+//    } else {
+//        print("Added Data to Firestore")
+//        }
+//    }
+//}

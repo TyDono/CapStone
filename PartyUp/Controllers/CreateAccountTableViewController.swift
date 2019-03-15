@@ -14,7 +14,6 @@ class CreateAccountTableViewController: UITableViewController{
     //Outlets
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var orOlderLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     

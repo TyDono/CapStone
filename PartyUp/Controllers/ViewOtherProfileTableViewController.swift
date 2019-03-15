@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import FirebaseStorage
-import Firebase
-import FirebaseAuth
 
 class ViewOtherProfileTableViewController: UITableViewController {
     
@@ -22,9 +19,9 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var otherAvailabilityLabel: UILabel!
     @IBOutlet var otherAboutLabel: UILabel!
     @IBOutlet var contactMe: UIButton!
+    @IBOutlet var otherUserNameLabel: UILabel!
     
     var users: [Users]?
-    var db: Firestore!
     var gameValue: String = ""
     var titleValue: String = ""
     var ageValue: String = ""
@@ -33,10 +30,10 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var availabilityValue: String = ""
     var aboutValue: String = ""
     var text: String?
+    var nameValue: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var db = Firestore.firestore()
         updateOtherProfile()
     }
     
@@ -47,11 +44,12 @@ class ViewOtherProfileTableViewController: UITableViewController {
         otherGroupSizeLabel.text = "Group Size: \(groupSizeValue)"
         otherExperianceLabel.text = "Experiance: \(experianceValue)"
         otherAboutLabel.text = "\(aboutValue)"
+        otherUserNameLabel.text = "User Name: \(nameValue)"
     }
     
     //MARK Actions
     @IBAction func contactMeTapped(_ sender: Any) {
-        
+        moveToMssages()
     }
     
 }

@@ -11,7 +11,6 @@
 		613807AC780F72066500FBF2 /* Pods_PartyUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */; };
 		CB58E8BE2239661A008CC665 /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BD2239661A008CC665 /* MessageDetail.swift */; };
 		CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BF223969DC008CC665 /* MessageViewController.swift */; };
-		CB58E8C222396C4F008CC665 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8C122396C4F008CC665 /* Message.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
@@ -33,6 +32,8 @@
 		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
 		CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */; };
 		CBABC079223ABC94001F1737 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBABC078223ABC94001F1737 /* ChatService.swift */; };
+		CBABC07B223BF4FA001F1737 /* ChatLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBABC07A223BF4FA001F1737 /* ChatLog.swift */; };
+		CBABC07D223BF584001F1737 /* ChatLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBABC07C223BF584001F1737 /* ChatLogTableViewController.swift */; };
 		CBBA87AD221C53610002C25E /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA87AC221C53610002C25E /* MapKit.swift */; };
 		CBBA8869221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886A221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
@@ -72,7 +73,6 @@
 		B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB58E8BD2239661A008CC665 /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
 		CB58E8BF223969DC008CC665 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
-		CB58E8C122396C4F008CC665 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CBABC078223ABC94001F1737 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		CBABC07A223BF4FA001F1737 /* ChatLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLog.swift; sourceTree = "<group>"; };
+		CBABC07C223BF584001F1737 /* ChatLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogTableViewController.swift; sourceTree = "<group>"; };
 		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 		CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBBA886C221F02E30002C25E /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
+				CBABC07C223BF584001F1737 /* ChatLogTableViewController.swift */,
 				CB58E8BF223969DC008CC665 /* MessageViewController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
@@ -223,7 +226,7 @@
 				CB610CB92215BBBA00DBBAAE /* User.swift */,
 				CBBA87AC221C53610002C25E /* MapKit.swift */,
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
-				CB58E8C122396C4F008CC665 /* Message.swift */,
+				CBABC07A223BF4FA001F1737 /* ChatLog.swift */,
 				CBABC078223ABC94001F1737 /* ChatService.swift */,
 				CB58E8BD2239661A008CC665 /* MessageDetail.swift */,
 			);
@@ -556,17 +559,18 @@
 				CBABC079223ABC94001F1737 /* ChatService.swift in Sources */,
 				CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
+				CBABC07B223BF4FA001F1737 /* ChatLog.swift in Sources */,
 				CB58E8BE2239661A008CC665 /* MessageDetail.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,
 				CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */,
+				CBABC07D223BF584001F1737 /* ChatLogTableViewController.swift in Sources */,
 				CB610CB42215BAED00DBBAAE /* LFGTableViewCell.swift in Sources */,
 				CBBA88942225A58E0002C25E /* GlobalExtensions.swift in Sources */,
 				CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */,
 				CBBA87AD221C53610002C25E /* MapKit.swift in Sources */,
 				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
-				CB58E8C222396C4F008CC665 /* Message.swift in Sources */,
 				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,
 				CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */,
 				CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */,

@@ -24,6 +24,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
     @IBOutlet var groupSizeTextField: UITextField!
+    @IBOutlet var nameTextField: UITextField!
     
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
@@ -51,6 +52,8 @@ class UserTableViewController: UITableViewController {
         aboutTextField.text = ""
         UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
         groupSizeTextField.text = ""
+        UserDefaults.standard.set(nameTextField.text, forKey: "myName")
+        nameTextField.text = ""
         //experianceSegmentedControl =
         
     }
@@ -74,6 +77,9 @@ class UserTableViewController: UITableViewController {
         if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
             groupSizeTextField.text = groupSizeTextSaved
         }
+        if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
+            nameTextField.text = nameTextSaved
+        }
     }
     
     //MARK Actions
@@ -87,8 +93,9 @@ class UserTableViewController: UITableViewController {
         guard let age = ageTextField.text else  { return }
         guard let availability = availabilityTextField.text else  { return }
         guard let about = aboutTextField.text else  { return }
+        guard let name = nameTextField.text else { return }
         
-        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about)
+        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
@@ -99,7 +106,9 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert1, animated: true, completion: nil)
                 print("Issue here")
-                moveToLFG()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    moveToLFG()
+                }
             } else {
                 let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
                 alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
