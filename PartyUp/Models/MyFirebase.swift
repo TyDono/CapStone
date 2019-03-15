@@ -23,7 +23,7 @@ class MyFirebase {
     var db = Firestore.firestore()
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: User?
-    var userId: String?
+    var userId: String? = ""
     var dbRef: DatabaseReference! = Database.database().reference()
     var storage = Storage.storage().reference()
     
@@ -49,23 +49,30 @@ class MyFirebase {
                 }
             } else {
                 print("Logged In")
-                if self.currentAuthID == nil {
-                    self.createData()
-                    print("new data created")
-                } else {
-                    print("data already added")
-                }
-                self.currentUser = user
-                self.userId = (user?.uid)!
-                print("UserID: \(self.userId)")
-                //load data here
-                
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    moveToLFG()
+                let userReff = self.db.collection("profile").document("\(self.currentAuthID)")
+                userReff.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        print("data already added")
+                    } else {
+                        self.createData()
+                        print("document added to fireStore")
+                    }
+                    self.currentUser = user
+                    self.userId = (user?.uid)!
+                    print("UserID: \(self.userId)")
+                    //load data here
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        moveToLFG()
+                    }
                 }
             }
         }
     }
+    //                if self.db.collection("profile").document("\(self.currentAuthID)") == nil {
+    //                    self.createData()
+    //                    print("new data created")
+    
     
     //if you log out and try to log in again it will crash. re launch the app and it wil have you re signed in. need to fix this
     func createData() {
@@ -77,12 +84,12 @@ class MyFirebase {
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
-       // let color2: UIColor = .red
-       // let authData: Any?
+        // let color2: UIColor = .red
+        // let authData: Any?
         //let clientData: Any?
         
         
-       // let member = Member(name: name2, color: color2)
+        // let member = Member(name: name2, color: color2)
         let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2, name: name2)
         let userRef = self.db.collection("profile")
         
