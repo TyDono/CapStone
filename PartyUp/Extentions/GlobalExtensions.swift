@@ -11,6 +11,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
+// moveTo funcs will do as intedned. have the user move to what ever the VC it has as its destiantion
 func moveToLFG() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
@@ -43,7 +44,7 @@ func moveToMssages() {
     appDelegate.window?.rootViewController = messagesVC
 }
 
-//ranime user name gen
+//randome user name gen
 extension String {
     static var randomName: String {
         let adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless", "pasta"]
@@ -103,23 +104,3 @@ extension UIColor {
         )
     }
 }
-
-//func createData() {
-//
-//    Firestore.firestore().collection("Profile").addDocument(data: [
-//        "game": "",
-//        "title of group": "",
-//        "age": "",
-//        // experiance
-//        "group size": "",
-//        "availability": "",
-//        "about": "",
-//        "name": ""
-//    ]) { (error) in
-//        if let error = error {
-//        print(error)
-//    } else {
-//        print("Added Data to Firestore")
-//        }
-//    }
-//}

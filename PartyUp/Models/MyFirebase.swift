@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 import FirebaseCore
 import FirebaseAuth
-import FirebaseDatabase
-import FirebaseFirestore
 import GoogleSignIn
+import FirebaseFirestore
 import Firebase
 
 class MyFirebase {
@@ -48,11 +47,13 @@ class MyFirebase {
                     }
                 }
             } else {
+                // check for docuemnt named the same as their user id, if it does not exist it will create a document for them to use, otherwise nothing will happen. should should only be called once when they user logs in and never again unless their account is deleted.
                 print("Logged In")
-                let userReff = self.db.collection("profile").document("\(self.currentAuthID)")
+                let userReff = self.db.collection("profile").document("\(self.userId)")
                 userReff.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        print("data already added")
+                    if let document = document {
+                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        print("data already added: \(dataDescription)")
                     } else {
                         self.createData()
                         print("document added to fireStore")

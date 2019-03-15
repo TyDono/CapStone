@@ -358,14 +358,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Size/Solo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T2r-Tz-90s">
-                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Size/Solo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T2r-Tz-90s">
+                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T2r-Tz-90s" firstAttribute="leading" secondItem="XUp-Xm-WIH" secondAttribute="leading" constant="16" id="CNB-Gw-iE6"/>
+                                                <constraint firstAttribute="bottom" secondItem="T2r-Tz-90s" secondAttribute="bottom" constant="8" id="gOh-bP-Nyn"/>
+                                                <constraint firstAttribute="trailing" secondItem="T2r-Tz-90s" secondAttribute="trailing" constant="16" id="mbM-jq-NOy"/>
+                                                <constraint firstItem="T2r-Tz-90s" firstAttribute="top" secondItem="XUp-Xm-WIH" secondAttribute="top" constant="8" id="per-A7-p6Q"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -376,14 +381,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3O-dH-yBO">
-                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3O-dH-yBO">
+                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="X3O-dH-yBO" firstAttribute="leading" secondItem="vPC-7D-vVj" secondAttribute="leading" constant="16" id="HVh-m4-COA"/>
+                                                <constraint firstAttribute="bottom" secondItem="X3O-dH-yBO" secondAttribute="bottom" constant="8" id="Hto-Sg-G8X"/>
+                                                <constraint firstItem="X3O-dH-yBO" firstAttribute="top" secondItem="vPC-7D-vVj" secondAttribute="top" constant="8" id="VkM-CG-bN6"/>
+                                                <constraint firstAttribute="trailing" secondItem="X3O-dH-yBO" secondAttribute="trailing" constant="16" id="ajw-UD-B0l"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>

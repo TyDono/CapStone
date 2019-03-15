@@ -95,7 +95,12 @@ class LFGTableViewController: UITableViewController {
         // if requirements to search are not met
         if searchGame.text == "" {
             print("not ok")
-            searchGame.backgroundColor = .yellow
+//            UIView.animate(withDuration: 0.01) {
+//                self.searchGame.backgroundColor = .yellow
+//            }
+//            UIView.animate(withDuration: 5.0) {
+//                self.searchGame.backgroundColor = .white
+//            }
             UIView.animate(withDuration: 0.09, animations: {
                 let move = CGAffineTransform(translationX: 10, y: 0)
                 self.searchGame.transform = move

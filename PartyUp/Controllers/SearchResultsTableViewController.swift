@@ -23,6 +23,8 @@ class SearchResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         var users = [Users]()
+        
+        //this will search for profile documents with the same game name as what was typed in the textView in LFGVC
         db.collection("profile").whereField("game", isEqualTo: text!).getDocuments { (snapshot, error) in
             if error != nil {
                 print(Error.self)
