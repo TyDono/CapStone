@@ -847,28 +847,38 @@
                     <connections>
                         <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="hgk-wY-HbF" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
-                        <segue destination="kNB-ui-EDZ" kind="relationship" relationship="viewControllers" id="a3h-LO-ddG"/>
+                        <segue destination="9sw-QH-NKO" kind="relationship" relationship="viewControllers" id="jfX-Zo-paz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25279" y="992"/>
         </scene>
-        <!--Messages-->
-        <scene sceneID="Hrj-n8-0JH">
+        <!--Item-->
+        <scene sceneID="y0v-sj-OxO">
             <objects>
-                <viewController id="kNB-ui-EDZ" customClass="MessageViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hc0-n7-aAd">
+                <collectionViewController id="9sw-QH-NKO" customClass="ChatLogTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="htF-WC-9Ji">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hl2-Ra-Yco"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Messages" id="iX9-ge-SZZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WQe-eO-hR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y8Y-aT-5OM">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="9sw-QH-NKO" id="47J-zn-KjH"/>
+                            <outlet property="delegate" destination="9sw-QH-NKO" id="ugW-hu-pv8"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="OyT-p1-Au1"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rw4-wI-kIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24340" y="1252"/>
+            <point key="canvasLocation" x="-24487" y="1264"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">

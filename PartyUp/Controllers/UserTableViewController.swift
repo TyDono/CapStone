@@ -97,7 +97,13 @@ class UserTableViewController: UITableViewController {
         guard let about = aboutTextField.text else  { return }
         guard let name = nameTextField.text else { return }
         
-        let user = Users(id: currentAuthID!, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name)
+        let user = Users(id: currentAuthID!, game: game,
+                         titleOfGroup: titleOfGroup,
+                         groupSize: groupSize,
+                         age: age,
+                         availability: availability,
+                         about: about,
+                         name: name)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in

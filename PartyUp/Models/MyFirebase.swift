@@ -70,10 +70,6 @@ class MyFirebase {
             }
         }
     }
-    //                if self.db.collection("profile").document("\(self.currentAuthID)") == nil {
-    //                    self.createData()
-    //                    print("new data created")
-    
     
     //if you log out and try to log in again it will crash. re launch the app and it wil have you re signed in. need to fix this
     func createData() {
@@ -90,8 +86,13 @@ class MyFirebase {
         //let clientData: Any?
         
         
-        // let member = Member(name: name2, color: color2)
-        let user = Users(id: currentAuthID!, game: game2, titleOfGroup: titleOfGroup2, groupSize: groupSize2, age: age2, availability: availability2, about: about2, name: name2)
+        let user = Users(id: currentAuthID!, game: game2,
+                         titleOfGroup: titleOfGroup2,
+                         groupSize: groupSize2,
+                         age: age2,
+                         availability: availability2,
+                         about: about2,
+                         name: name2)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in

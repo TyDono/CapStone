@@ -10,7 +10,6 @@
 		296A4280FCEEB98B48C687E1 /* Pods_PartyUpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */; };
 		613807AC780F72066500FBF2 /* Pods_PartyUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */; };
 		CB58E8BE2239661A008CC665 /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BD2239661A008CC665 /* MessageDetail.swift */; };
-		CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB58E8BF223969DC008CC665 /* MessageViewController.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
@@ -72,7 +71,6 @@
 		B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB58E8BD2239661A008CC665 /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
-		CB58E8BF223969DC008CC665 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CBABC07C223BF584001F1737 /* ChatLogTableViewController.swift */,
-				CB58E8BF223969DC008CC665 /* MessageViewController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
 			path = Controllers;
@@ -572,7 +569,6 @@
 				CB610CAE2215BAED00DBBAAE /* UserProfileTableViewCell.swift in Sources */,
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
 				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,
-				CB58E8C0223969DC008CC665 /* MessageViewController.swift in Sources */,
 				CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */,
 				CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */,
 				CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */,
