@@ -15,6 +15,8 @@
 		CB2C18F5223DCCB2004FAA1F /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F1223DCCB1004FAA1F /* UIImage+Additions.swift */; };
 		CB2C18F6223DCCB2004FAA1F /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F2223DCCB2004FAA1F /* UICollectionView+Additions.swift */; };
 		CB2C18FC223F28E8004FAA1F /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18FB223F28E8004FAA1F /* MessagesTableViewController.swift */; };
+		CB2C18FE223F2E76004FAA1F /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */; };
+		CB2C1900223F2F61004FAA1F /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
@@ -78,6 +80,8 @@
 		CB2C18F1223DCCB1004FAA1F /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		CB2C18F2223DCCB2004FAA1F /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		CB2C18FB223F28E8004FAA1F /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
+		CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610CA42215BAEC00DBBAAE /* OtherProfileTableViewCell.swift */,
 				CB2C18FB223F28E8004FAA1F /* MessagesTableViewController.swift */,
+				CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
 			path = ViewControllers;
@@ -236,6 +241,7 @@
 				CB610CB92215BBBA00DBBAAE /* User.swift */,
 				CBBA87AC221C53610002C25E /* MapKit.swift */,
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
+				CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -570,7 +576,9 @@
 				CBBA88922225A20D0002C25E /* MyFirebase.swift in Sources */,
 				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
 				CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */,
+				CB2C1900223F2F61004FAA1F /* MessageDetail.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
+				CB2C18FE223F2E76004FAA1F /* MessagesTableViewCell.swift in Sources */,
 				CB2C18FC223F28E8004FAA1F /* MessagesTableViewController.swift in Sources */,
 				CB2C18F3223DCCB2004FAA1F /* UIColor+Additions.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,

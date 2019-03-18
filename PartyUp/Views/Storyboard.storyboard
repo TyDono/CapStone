@@ -847,7 +847,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="bfZ-UD-tlC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="60" id="bfZ-UD-tlC" customClass="MessagesTableViewCell" customModule="PartyUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfZ-UD-tlC" id="kya-JB-zAJ">
@@ -855,7 +855,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-Lf-aeZ">
-                                            <rect key="frame" x="106" y="0.0" width="261" height="20.5"/>
+                                            <rect key="frame" x="106" y="0.0" width="261" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="261" id="gnH-6y-Rvm"/>
                                             </constraints>
@@ -864,7 +864,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v43-Yu-egL">
-                                            <rect key="frame" x="106" y="28.5" width="261" height="23"/>
+                                            <rect key="frame" x="106" y="29" width="261" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="261" id="Aye-rO-q1c"/>
                                             </constraints>
@@ -872,17 +872,30 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-g6-CYG">
+                                            <rect key="frame" x="17" y="2" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="v4c-rF-5cp"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JvW-Lf-aeZ" firstAttribute="top" secondItem="kya-JB-zAJ" secondAttribute="top" id="0gz-72-LF1"/>
                                         <constraint firstAttribute="trailing" secondItem="JvW-Lf-aeZ" secondAttribute="trailing" constant="8" id="1YY-hM-xtS"/>
+                                        <constraint firstItem="oDC-g6-CYG" firstAttribute="top" secondItem="kya-JB-zAJ" secondAttribute="top" constant="2" id="6Nj-7y-iv5"/>
                                         <constraint firstItem="v43-Yu-egL" firstAttribute="top" secondItem="JvW-Lf-aeZ" secondAttribute="bottom" constant="8" id="6rc-5X-C78"/>
                                         <constraint firstItem="v43-Yu-egL" firstAttribute="leading" secondItem="kya-JB-zAJ" secondAttribute="leading" constant="106" id="Dm1-SY-p4B"/>
+                                        <constraint firstItem="oDC-g6-CYG" firstAttribute="leading" secondItem="kya-JB-zAJ" secondAttribute="leadingMargin" constant="1" id="Nxd-de-xVw"/>
+                                        <constraint firstAttribute="bottom" secondItem="oDC-g6-CYG" secondAttribute="bottom" constant="3" id="TLM-Uc-EO6"/>
+                                        <constraint firstItem="JvW-Lf-aeZ" firstAttribute="leading" secondItem="oDC-g6-CYG" secondAttribute="trailing" constant="29" id="a4D-GK-4PL"/>
                                         <constraint firstAttribute="bottom" secondItem="v43-Yu-egL" secondAttribute="bottom" constant="8" id="hVT-iL-CJh"/>
                                         <constraint firstAttribute="trailing" secondItem="v43-Yu-egL" secondAttribute="trailing" constant="8" id="oUj-0f-wTu"/>
-                                        <constraint firstItem="JvW-Lf-aeZ" firstAttribute="leading" secondItem="kya-JB-zAJ" secondAttribute="leading" constant="106" id="sxg-xX-s2H"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="chatPreview" destination="v43-Yu-egL" id="JZg-sf-8vC"/>
+                                    <outlet property="name" destination="JvW-Lf-aeZ" id="2nc-MD-cnT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
