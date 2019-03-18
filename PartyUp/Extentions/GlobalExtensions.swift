@@ -34,13 +34,13 @@ func moveToLogIn() {
     appDelegate.window?.rootViewController = loginVC
 }
 
-func moveToMssages() {
+func moveToMessages() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
     appDelegate.window?.makeKeyAndVisible()
     
     let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
-    let messagesVC = storyboard.instantiateViewController(withIdentifier: "chatLog")
+    let messagesVC = storyboard.instantiateViewController(withIdentifier: "chatLogs")
     appDelegate.window?.rootViewController = messagesVC
 }
 

@@ -49,7 +49,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     //MARK Actions
     @IBAction func contactMeTapped(_ sender: Any) {
-        moveToMssages()
+        moveToMessages()
     }
     
 }
