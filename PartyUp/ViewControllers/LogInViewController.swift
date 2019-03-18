@@ -9,11 +9,12 @@
 import UIKit
 import GoogleSignIn
 import FirebaseAuth
-import FirebaseFirestore
-import FirebaseCore
 import Firebase
+import SwiftKeychainWrapper
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
+    @IBOutlet var emailTextView: UITextField!
+    @IBOutlet var passwordTextView: UITextField!
     
     var db: Firestore!
     var userId: String = ""
@@ -50,7 +51,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
                 print("User Signed In")
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
-                self.performSegue(withIdentifier: "segueToSearch", sender: self)
+                moveToLFG()
             } else {
                 print(error as Any)
                 print(error?.localizedDescription as Any)
@@ -69,6 +70,20 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func logInTapped(_ sender: Any) {
         
+        if let email = emailTextView.text, let password = passwordTextView.text {
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                
+                if error == nil {
+                    self.userDefault.set(true, forKey: "uid")
+                    self.userDefault.synchronize()
+                    moveToLFG()
+                } else {
+                    print(error as Any)
+                    print(error?.localizedDescription as Any)
+                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
+                }
+            })
+        }
     }
     
 }

@@ -13,6 +13,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import Firebase
+import GoogleSignIn
 
 class UserTableViewController: UITableViewController {
     
@@ -130,6 +131,17 @@ class UserTableViewController: UITableViewController {
                 }
                 
             }
+        }
+    }
+    
+    @IBAction func loutOutButtonTapped(_ sender: Any) {
+        print("Logged Out Tapped")
+        self.currentUser = nil
+        self.userId = ""
+        try! Auth.auth().signOut()
+        GIDSignIn.sharedInstance()?.signIn()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            moveToLogIn()
         }
     }
  

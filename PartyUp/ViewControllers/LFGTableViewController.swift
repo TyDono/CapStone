@@ -141,9 +141,9 @@ class LFGTableViewController: UITableViewController {
         self.userId = ""
         try! Auth.auth().signOut()
         GIDSignIn.sharedInstance()?.signIn()
-//        DispatchQueue.main.asyncAfter(deadline: .now()) {
-//            moveToLogIn()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            moveToLogIn()
+        }
     }
 }
 
