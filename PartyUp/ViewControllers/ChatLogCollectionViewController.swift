@@ -15,11 +15,13 @@ class ChatLogCollectionViewController: UICollectionViewController {
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var sendButton: UIButton!
     
+    var user: Users!
+    var nameValueChat: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
         
     }
     
@@ -54,16 +56,19 @@ class ChatLogCollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
 
     //MARK actions
     @IBAction func sendButtonTapped(_ sender: Any) {
         
         let db = Database.database().reference().child("messages")
         let childRef = db.childByAutoId()
-        let values = ["text": inputTextField.text!]
+        let values = ["text": inputTextField.text!, "name": "jim"]
         childRef.updateChildValues(values)
         
         print(inputTextField.text)
+        
+        
         
     }
     

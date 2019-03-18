@@ -134,17 +134,6 @@ class LFGTableViewController: UITableViewController {
             moveToLogIn()
         }
     }
-    
-    @IBAction func loutOutButtonTapped(_ sender: Any) {
-        print("Logged Out Tapped")
-        self.currentUser = nil
-        self.userId = ""
-        try! Auth.auth().signOut()
-        GIDSignIn.sharedInstance()?.signIn()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            moveToLogIn()
-        }
-    }
 }
 
 //MARK EXTENSIONS

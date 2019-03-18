@@ -21,6 +21,10 @@
 		CB2C1904223F392C004FAA1F /* MessageDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C1903223F392C004FAA1F /* MessageDetailTableViewCell.swift */; };
 		CB2C1906223F3AE7004FAA1F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C1905223F3AE7004FAA1F /* Message.swift */; };
 		CB2C1908223F3D6A004FAA1F /* ChatLogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C1907223F3D6A004FAA1F /* ChatLogCollectionViewController.swift */; };
+		CB2C190A223F552C004FAA1F /* NewMessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C1909223F552C004FAA1F /* NewMessageTableViewController.swift */; };
+		CB2C190C223F5646004FAA1F /* NewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C190B223F5646004FAA1F /* NewMessageTableViewCell.swift */; };
+		CB2C190E223F783B004FAA1F /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C190D223F783B004FAA1F /* MessageTableViewCell.swift */; };
+		CB2C1910223F784C004FAA1F /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C190F223F784C004FAA1F /* MessageTableViewController.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
 		CB610C532214919400DBBAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB610C522214919400DBBAAE /* Assets.xcassets */; };
 		CB610C562214919400DBBAAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610C542214919400DBBAAE /* LaunchScreen.storyboard */; };
@@ -90,6 +94,10 @@
 		CB2C1903223F392C004FAA1F /* MessageDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CB2C1905223F3AE7004FAA1F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CB2C1907223F3D6A004FAA1F /* ChatLogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogCollectionViewController.swift; sourceTree = "<group>"; };
+		CB2C1909223F552C004FAA1F /* NewMessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageTableViewController.swift; sourceTree = "<group>"; };
+		CB2C190B223F5646004FAA1F /* NewMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageTableViewCell.swift; sourceTree = "<group>"; };
+		CB2C190D223F783B004FAA1F /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		CB2C190F223F784C004FAA1F /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* PartyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB610C4B2214919200DBBAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB610C522214919400DBBAAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +181,10 @@
 				CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */,
 				CB2C1901223F3910004FAA1F /* MessageDetailTableViewController.swift */,
 				CB2C1903223F392C004FAA1F /* MessageDetailTableViewCell.swift */,
+				CB2C190F223F784C004FAA1F /* MessageTableViewController.swift */,
+				CB2C190D223F783B004FAA1F /* MessageTableViewCell.swift */,
+				CB2C1909223F552C004FAA1F /* NewMessageTableViewController.swift */,
+				CB2C190B223F5646004FAA1F /* NewMessageTableViewCell.swift */,
 				CB2C1907223F3D6A004FAA1F /* ChatLogCollectionViewController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
@@ -582,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2C190C223F5646004FAA1F /* NewMessageTableViewCell.swift in Sources */,
 				CB610CB12215BAED00DBBAAE /* OtherProfileTableViewCell.swift in Sources */,
 				CBBA88902225A06B0002C25E /* AppDelegate+GoogleSignIn.swift in Sources */,
 				CB610CB02215BAED00DBBAAE /* ViewOtherProfileTableViewController.swift in Sources */,
@@ -609,10 +622,13 @@
 				CB610CBB2215BBBA00DBBAAE /* Map.swift in Sources */,
 				CB610CB32215BAED00DBBAAE /* SearchResultsTableViewController.swift in Sources */,
 				CB610CB22215BAED00DBBAAE /* UserTableViewController.swift in Sources */,
+				CB2C190E223F783B004FAA1F /* MessageTableViewCell.swift in Sources */,
 				CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */,
+				CB2C190A223F552C004FAA1F /* NewMessageTableViewController.swift in Sources */,
 				CB2C18F5223DCCB2004FAA1F /* UIImage+Additions.swift in Sources */,
 				CB2C18E0223DCA4B004FAA1F /* AppSettings.swift in Sources */,
 				CB610CA92215BAED00DBBAAE /* CreateAccountTableViewController.swift in Sources */,
+				CB2C1910223F784C004FAA1F /* MessageTableViewController.swift in Sources */,
 				CB2C18F6223DCCB2004FAA1F /* UICollectionView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
