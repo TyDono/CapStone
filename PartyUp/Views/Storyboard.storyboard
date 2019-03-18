@@ -853,6 +853,9 @@
                                     <rect key="frame" x="310" y="579" width="57" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Send"/>
+                                    <connections>
+                                        <action selector="sendButtonTapped:" destination="aih-oO-fTe" eventType="touchUpInside" id="05Y-M7-TdU"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -873,6 +876,10 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Chat" id="Ohl-dx-15n"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="PbQ-LV-ZbK" id="358-Jm-pem"/>
+                        <outlet property="sendButton" destination="T2Q-3p-8cS" id="TdA-tS-whx"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYf-bu-bru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "Cell"
 
 class ChatLogCollectionViewController: UICollectionViewController {
-
+    @IBOutlet var inputTextField: UITextField!
+    @IBOutlet var sendButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,35 +55,17 @@ class ChatLogCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    //MARK actions
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        
+        let db = Database.database().reference().child("messages")
+        let childRef = db.childByAutoId()
+        let values = ["text": inputTextField.text!]
+        childRef.updateChildValues(values)
+        
+        print(inputTextField.text)
+        
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
-
+    
 }
