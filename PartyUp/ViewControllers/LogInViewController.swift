@@ -27,7 +27,13 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
+        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
+        whiteStatusBar()
         
+    }
+    
+    func whiteStatusBar() -> UIStatusBarStyle{
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidAppear(_ animated: Bool) {

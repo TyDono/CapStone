@@ -35,6 +35,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateOtherProfile()
+        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
     }
     
     func updateOtherProfile() {

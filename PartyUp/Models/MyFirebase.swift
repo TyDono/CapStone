@@ -19,6 +19,7 @@ class MyFirebase {
     //variables
     static let shared = MyFirebase()
     
+    var dataBse = Database.database().reference().child("messages")
     var db = Firestore.firestore()
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: User?
@@ -56,6 +57,7 @@ class MyFirebase {
                         print("data already added: \(dataDescription)")
                     } else {
                         self.createData()
+                        self.createDataBase()
                         print("document added to fireStore")
                     }
                     self.currentUser = user
@@ -71,7 +73,38 @@ class MyFirebase {
         }
     }
     
-    //if you log out and try to log in again it will crash. re launch the app and it wil have you re signed in. need to fix this
+    func createDataBase() {
+        
+        let dataRef = Database.database().reference()
+        let game2: String = ""
+        let titleOfGroup2: String = ""
+        let groupSize2: String = ""
+        let age2: String = ""
+        let availability2: String = ""
+        let about2: String = ""
+        let name2: String = ""
+        let value = ["name": name2, "titleOfGroup": titleOfGroup2]
+        
+        let user = Users(id: currentAuthID!, game: game2,
+                         titleOfGroup: titleOfGroup2,
+                         groupSize: groupSize2,
+                         age: age2,
+                         availability: availability2,
+                         about: about2,
+                         name: name2)
+        let userRef = dataRef.child("messages")
+        
+        userRef.updateChildValues(value, withCompletionBlock: { (err, ref) in
+            
+            if err != nil {
+                print(err!)
+                return
+            } else {
+                print("databse for messages added")
+            }
+        })
+    }
+    
     func createData() {
         
         let game2: String = ""

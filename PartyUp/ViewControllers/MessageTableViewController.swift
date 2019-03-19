@@ -23,28 +23,6 @@ class MessageTableViewController: UITableViewController {
         db = Firestore.firestore()
         var users = [Users]()
         
-        func checkIfUserIsLoggedIn() {
-            db.collection("profile").whereField("game", isEqualTo: "DnD").getDocuments { (snapshot, error) in
-                if error != nil {
-                    print(Error.self)
-                } else {
-                    guard let snapshot = snapshot else {
-                        print("could not unrwap snapshot")
-                        return
-                    }
-                    for document in (snapshot.documents) {
-                        if let userResult = document.data() as? [String: Any], let otherUser = Users.init(dictionary: userResult) {
-                            users.append(otherUser)
-                        }
-                        print("")
-                    }
-                    self.users = users
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
     }
     
 

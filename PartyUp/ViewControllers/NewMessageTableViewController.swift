@@ -12,14 +12,15 @@ import FirebaseFirestore
 
 class NewMessageTableViewController: UITableViewController {
     
-    var users: [Users]?
+    var users = [User]()
     var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         var users = [Users]()
-        
+       // fetchUser()
+        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
     }
 
     // MARK: - Table view data source
@@ -30,20 +31,17 @@ class NewMessageTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return users?.count ?? 0
+        return users.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newMessageCell", for: indexPath) as? NewMessageTableViewCell else { return UITableViewCell() }
 
-        if let users = users {
-            
-            let user = users[indexPath.row]
-        cell.name.text = user.name
+        let user = users[indexPath.row]
+        cell.textLabel?.text = user.displayName
+        cell.detailTextLabel?.text = user.email
         
-        }
-
         return cell
     }
     
@@ -52,16 +50,34 @@ class NewMessageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "segueToChat", sender: self)
-        let user = self.users?[indexPath.row]
+//        performSegue(withIdentifier: "segueToChat", sender: self)
+        let user = self.users[indexPath.row]
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let row = self.tableView.indexPathForSelectedRow?.row, let user = users?[row] {
-            if segue.identifier == "segueToChat", let chatCellVC = segue.destination as? ChatLogCollectionViewController {
-            }
-        }
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let row = self.tableView.indexPathForSelectedRow?.row, let user = users?[row] {
+//            if segue.identifier == "segueToChat", let chatCellVC = segue.destination as? ChatLogCollectionViewController {
+//            }
+//        }
+//
+//    }
+    
+//    func fetchUser() {
+//        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+//
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                var user = Users(dictionary: dictionary)
+//                user?.id = snapshot.key
+//                self.users.append(user)
+//
+//                //this will crash because of background thread, so lets use dispatch_async to fix
+//                DispatchQueue.main.async(execute: {
+//                    self.tableView.reloadData()
+//                })
+//
+//            }
+//
+//        }, withCancel: nil)
+//    }
     
 }

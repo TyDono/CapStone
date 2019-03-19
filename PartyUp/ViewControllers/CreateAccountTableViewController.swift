@@ -33,10 +33,9 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
         super.viewDidLoad()
         
         imagePicker = UIImagePickerController()
-        
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        
         imagePicker.allowsEditing = true
+        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

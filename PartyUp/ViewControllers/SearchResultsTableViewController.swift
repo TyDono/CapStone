@@ -23,7 +23,7 @@ class SearchResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         var users = [Users]()
-        
+        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
         //this will search for profile documents with the same game name as what was typed in the textView in LFGVC
         db.collection("profile").whereField("game", isEqualTo: text!).getDocuments { (snapshot, error) in
             if error != nil {

@@ -68,9 +68,6 @@ class ChatLogCollectionViewController: UICollectionViewController {
         
         print(inputTextField.text)
         
-        
-        
     }
-    
     
 }
