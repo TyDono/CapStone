@@ -71,6 +71,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func createAccountTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toSignUp", sender: nil)
         
     }
     

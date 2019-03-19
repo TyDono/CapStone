@@ -50,7 +50,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     //MARK Actions
     @IBAction func contactMeTapped(_ sender: Any) {
-        let newMessagesVC = 
         
         moveToMessages()
     }
