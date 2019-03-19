@@ -11,7 +11,6 @@
 		613807AC780F72066500FBF2 /* Pods_PartyUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */; };
 		CB2C18E0223DCA4B004FAA1F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18DF223DCA4B004FAA1F /* AppSettings.swift */; };
 		CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18EF223DCCB0004FAA1F /* UIColor.swift */; };
-		CB2C18F4223DCCB2004FAA1F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F0223DCCB1004FAA1F /* UIView.swift */; };
 		CB2C18F5223DCCB2004FAA1F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F1223DCCB1004FAA1F /* UIImage.swift */; };
 		CB2C18FC223F28E8004FAA1F /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18FB223F28E8004FAA1F /* MessagesTableViewController.swift */; };
 		CB2C18FE223F2E76004FAA1F /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */; };
@@ -80,7 +79,6 @@
 		B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2C18DF223DCA4B004FAA1F /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		CB2C18EF223DCCB0004FAA1F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		CB2C18F0223DCCB1004FAA1F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CB2C18F1223DCCB1004FAA1F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CB2C18FB223F28E8004FAA1F /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		CB2C18FD223F2E76004FAA1F /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				CBBA88932225A58E0002C25E /* GlobalExtensions.swift */,
 				CB2C18EF223DCCB0004FAA1F /* UIColor.swift */,
 				CB2C18F1223DCCB1004FAA1F /* UIImage.swift */,
-				CB2C18F0223DCCB1004FAA1F /* UIView.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -607,7 +604,6 @@
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,
 				CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */,
-				CB2C18F4223DCCB2004FAA1F /* UIView.swift in Sources */,
 				CBBA88942225A58E0002C25E /* GlobalExtensions.swift in Sources */,
 				CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */,
 				CB2C1906223F3AE7004FAA1F /* Message.swift in Sources */,

@@ -47,8 +47,8 @@ func moveToMessages() {
 //randome user name gen
 extension String {
     static var randomName: String {
-        let adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless", "pasta"]
-        let nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning", "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter", "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook", "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly", "feather", "grass", "haze", "mountain", "night", "pond", "darkness", "snowflake", "silence", "sound", "sky", "shape", "surf", "thunder", "violet", "water", "wildflower", "wave", "water", "resonance", "sun", "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper", "frog", "smoke", "star", "pasta"]
+        let adjectives = ["ravioli", "cavatelli", "ziti", "vermicelli", "manicotti", "paccheri", "dry", "dark", "farfalle", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "fusilli", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "agnolotti", "withered", "wild", "penne", "young", "holy", "liguine", "fragrant", "aged", "snowy", "proud", "rigatoni", "pappardelle", "divine", "capellini", "ancient", "purple", "macaroni", "spaghetti", "pasta"]
+        let nouns = ["farfalle", "agnolotti", "vermicelli", "moon", "fusilli", "wind", "sea", "morning", "snow", "lake", "sunset", "pine", "shadow", "leaf", "penne", "glitter", "forest", "hill", "cloud", "orzo", "sun", "rotini", "bird", "ziti", "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly", "feather", "grass", "haze", "mountain", "night", "pond", "darkness", "manicotti", "pappardelle", "sound", "capellini", "shape", "surf", "thunder", "violet", "water", "wildflower", "cavatelli", "water", "resonance", "sun", "wood", "dream", "cherry", "rigatoni", "fog", "macaroni", "ravioli", "paper", "liguine", "smoke", "spaghetti", "pasta"]
         
         return adjectives.randomElement()! + nouns.randomElement()!
     }
@@ -120,11 +120,4 @@ extension UIScrollView {
         return scrollViewBottomOffset
     }
     
-}
-
-//nice Blue color
-extension UIColor {
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat){
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
-    }
 }

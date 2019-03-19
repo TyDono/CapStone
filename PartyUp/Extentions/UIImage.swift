@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
+//used when i have forebasestorage unstood for profile iamges
 extension UIImage {
   
   var scaledToSafeUploadSize: UIImage? {
