@@ -26,7 +26,8 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var aboutTextField: UITextView!
     @IBOutlet var groupSizeTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
-    
+    @IBOutlet var emailTextField: UITextField!
+    //add a field for their email.
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
@@ -56,6 +57,8 @@ class UserTableViewController: UITableViewController {
         groupSizeTextField.text = ""
         UserDefaults.standard.set(nameTextField.text, forKey: "myName")
         nameTextField.text = ""
+        UserDefaults.standard.set((emailTextField.text), forKey: "email")
+        emailTextField.text = ""
         //experianceSegmentedControl =
         
     }
@@ -82,6 +85,9 @@ class UserTableViewController: UITableViewController {
         if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
             nameTextField.text = nameTextSaved
         }
+        if let emailTextSaved = UserDefaults.standard.object(forKey: "email") as? String {
+            emailTextField.text = emailTextSaved
+        }
     }
     
     //MARK Actions
@@ -98,6 +104,7 @@ class UserTableViewController: UITableViewController {
         guard let availability = availabilityTextField.text else  { return }
         guard let about = aboutTextField.text else  { return }
         guard let name = nameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
         
         let user = Users(id: currentAuthID!, game: game,
                          titleOfGroup: titleOfGroup,
@@ -105,7 +112,7 @@ class UserTableViewController: UITableViewController {
                          age: age,
                          availability: availability,
                          about: about,
-                         name: name)
+                         name: name, email: email)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in

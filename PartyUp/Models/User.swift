@@ -28,6 +28,7 @@ struct Users {
     var availability: String
     var about: String
     var name: String
+    var email: String
    // let color: UIColor
    // let authData: Any?
   //  let clientData: Any?
@@ -42,7 +43,8 @@ struct Users {
             "age": age,
             "availability": availability,
             "about": about,
-            "name": name
+            "name": name,
+            "email": email
            // "color": color,
             //"authData": authData,
             //"clientData": clientData
@@ -60,11 +62,12 @@ extension Users: DocumentUserSerializable {
             let age = dictionary["age"] as? String,
             let availability = dictionary["availability"] as? String,
             let about = dictionary["about"] as? String,
-            let name = dictionary["name"] as? String  else {return nil}
+            let name = dictionary["name"] as? String,
+            let email = dictionary["name"] as? String else {return nil}
         //    let color  = dictionary["color"] as? UIColor
         //let authData = dictionary["authData"] as? Any?,
         //let clientData = dictionary["clientData"] as? Any? else { return nil }
-        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name)
+        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name, email: email)
     }
     
 }

@@ -41,7 +41,7 @@
 	<key>NSAppleEventsUsageDescription</key>
 	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to help you find fellow comrads near you!</string>
+	<string>We need your location to find others near you.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

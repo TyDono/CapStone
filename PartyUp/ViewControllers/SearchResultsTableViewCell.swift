@@ -24,6 +24,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     var availability: String = ""
     var userName: String = ""
     var name: String = ""
+    var email: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()

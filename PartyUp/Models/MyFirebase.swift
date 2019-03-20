@@ -83,6 +83,7 @@ class MyFirebase {
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
+        let email2: String = ""
         let value = ["name": name2, "titleOfGroup": titleOfGroup2]
         
         let user = Users(id: currentAuthID!, game: game2,
@@ -91,7 +92,7 @@ class MyFirebase {
                          age: age2,
                          availability: availability2,
                          about: about2,
-                         name: name2)
+                         name: name2, email: email2)
         let userRef = dataRef.child("messages")
         
         userRef.updateChildValues(value, withCompletionBlock: { (err, ref) in
@@ -114,6 +115,7 @@ class MyFirebase {
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
+        let email2: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
         //let clientData: Any?
@@ -125,7 +127,7 @@ class MyFirebase {
                          age: age2,
                          availability: availability2,
                          about: about2,
-                         name: name2)
+                         name: name2, email: email2)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in

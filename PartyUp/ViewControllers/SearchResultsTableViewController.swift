@@ -71,6 +71,7 @@ class SearchResultsTableViewController: UITableViewController {
             cell.about = "\(user.about)"
             cell.availability = "\(user.availability)"
             cell.userName = "\(user.name)"
+            cell.email = "\(user.email)"
             //cell.userName = "\(user.name)"
             // cell.experiance = "\(user.experioance)"
             
@@ -93,6 +94,7 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.experianceValue = user.game
                 otherProfileVC.aboutValue = user.about
                 otherProfileVC.nameValue = user.name
+                otherProfileVC.emailValue = user.email
             }
             print("prepare for viewUserSegue called")
         }
