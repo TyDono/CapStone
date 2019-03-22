@@ -10,7 +10,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-import SwiftKeychainWrapper
 
 class CreateAccountTableViewController: UITableViewController, UIImagePickerControllerDelegate{
     
@@ -18,7 +17,6 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var orOlderLabel: UILabel!
-    @IBOutlet var userImagePicker: UIImageView!
     
     var userId: String = ""
     var emailField: String = ""
@@ -40,30 +38,14 @@ class CreateAccountTableViewController: UITableViewController, UIImagePickerCont
     
     override func viewDidDisappear(_ animated: Bool) {
         
-        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
-            moveToLFG()
-        }
     }
     
-    
+    // if requirements to search are not met
     
     //Actions
     @IBAction func createAccountTapped(_ sender: Any) {
+    
         
-        Auth.auth().createUser(withEmail: emailField, password: passwordField, completion: { (user, error) in
-            
-            if error != nil {
-                
-                print("Cant create user")
-            } else {
-                
-                if user != nil {
-                    
-                    self.userDefault.synchronize()
-                }
-            }
-            
-        })
     }
         
         //        if let email = emailTextfield.text, let password = passwordTextField.text {

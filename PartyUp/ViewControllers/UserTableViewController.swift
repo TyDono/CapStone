@@ -27,6 +27,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var groupSizeTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
+    
     //add a field for their email.
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid

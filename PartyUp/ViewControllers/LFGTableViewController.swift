@@ -118,7 +118,7 @@ class LFGTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var users = [Users]()
+        
         if segue.identifier == "segueSearch", let searchResultsVC = segue.destination as? SearchResultsTableViewController {
             
             searchResultsVC.text = searchGame.text

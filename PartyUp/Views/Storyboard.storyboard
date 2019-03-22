@@ -892,7 +892,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r1w-aM-n0m">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="chatMessageCollectionViewCell" id="r1w-aM-n0m">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -916,7 +916,7 @@
             </objects>
             <point key="canvasLocation" x="-22508" y="992"/>
         </scene>
-        <!--Messages-->
+        <!--New Message Table View Controller-->
         <scene sceneID="twi-0s-lYg">
             <objects>
                 <tableViewController storyboardIdentifier="chatLogs" id="8tH-ty-oyK" customClass="NewMessageTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -952,7 +952,7 @@
                             <outlet property="delegate" destination="8tH-ty-oyK" id="38a-Mo-5ua"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Messages" id="63d-mZ-V6R"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="63d-mZ-V6R"/>
                     <connections>
                         <segue destination="aih-oO-fTe" kind="show" identifier="segueToChat" id="iTh-xh-Y1F"/>
                     </connections>
@@ -1019,7 +1019,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-Lf-aeZ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-Lf-aeZ">
                                             <rect key="frame" x="106" y="0.0" width="261" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="261" id="gnH-6y-Rvm"/>
@@ -1028,7 +1028,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v43-Yu-egL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v43-Yu-egL">
                                             <rect key="frame" x="106" y="29" width="261" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="261" id="Aye-rO-q1c"/>
@@ -1092,11 +1092,11 @@
             </objects>
             <point key="canvasLocation" x="-26722" y="-118"/>
         </scene>
-        <!--LFG-->
+        <!--Navigation Controller-->
         <scene sceneID="UNg-9S-eSk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6gU-xz-Shp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="LFG" id="PPz-JP-Lc9"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="PPz-JP-Lc9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KIa-jZ-hoz">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
