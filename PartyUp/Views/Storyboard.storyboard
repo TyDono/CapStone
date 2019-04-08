@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KXu-hj-bYf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KXu-hj-bYf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -239,7 +239,7 @@
             </objects>
             <point key="canvasLocation" x="-24340" y="-118.29085457271366"/>
         </scene>
-        <!--Profile-->
+        <!--User Table View Controller-->
         <scene sceneID="eJa-Ed-5i0">
             <objects>
                 <tableViewController id="hgk-wY-HbF" customClass="UserTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -496,7 +496,7 @@
                             <outlet property="delegate" destination="hgk-wY-HbF" id="gm3-OY-1j8"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Profile" id="j5U-do-y9V"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="j5U-do-y9V"/>
                     <connections>
                         <outlet property="aboutTextField" destination="zz7-25-QJf" id="nhv-BJ-EI1"/>
                         <outlet property="ageTextField" destination="EYH-79-fBl" id="68Q-kT-3r9"/>
@@ -689,6 +689,7 @@
                         <outlet property="emailTextView" destination="mXk-n6-Q1Y" id="Xb4-Lb-ZYo"/>
                         <outlet property="passwordTextView" destination="wj1-se-Y05" id="46G-tu-9fw"/>
                         <segue destination="64t-Sc-8uo" kind="show" identifier="toSignUp" id="3Qp-Ec-Wa0"/>
+                        <segue destination="lQV-Vs-KLX" kind="presentation" identifier="moveToTabVC" id="cyt-YB-OjK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJD-kp-9Bt" sceneMemberID="firstResponder"/>
@@ -833,7 +834,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDS-eQ-x45" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26034" y="586"/>
+            <point key="canvasLocation" x="-26180" y="681"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">

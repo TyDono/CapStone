@@ -66,6 +66,8 @@ class MyFirebase {
                     //load data here
                     
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    
+                       // performSegue(withIdentifier: "moveToTabVC", sender: nil)
                         moveToLFG()
                     }
                 }
@@ -119,7 +121,6 @@ class MyFirebase {
         // let color2: UIColor = .red
         // let authData: Any?
         //let clientData: Any?
-        
         
         let user = Users(id: currentAuthID!, game: game2,
                          titleOfGroup: titleOfGroup2,

@@ -5,7 +5,7 @@
 //  Created by Tyler Donohue on 2/11/19.
 //  Copyright © 2019 Tyler Donohue. All rights reserved.
 //
-
+//add segue to tabbar controller show modually, wotn mak a back button. willf ix the move to ugly issue
 import UIKit
 import GoogleSignIn
 import FirebaseAuth
@@ -28,7 +28,6 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
         view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
-        whiteStatusBar()
         
     }
     
