@@ -22,7 +22,14 @@ class MessageTableViewController: UITableViewController {
         
         db = Firestore.firestore()
         var users = [Users]()
-        
+        changeBackground()
+    }
+    
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.tableView.backgroundView = backgroundImage
     }
     
 

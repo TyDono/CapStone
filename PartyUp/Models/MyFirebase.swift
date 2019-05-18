@@ -57,7 +57,6 @@ class MyFirebase {
                         print("data already added: \(dataDescription)")
                     } else {
                         self.createData()
-                        self.createDataBase()
                         print("document added to fireStore")
                     }
                     self.currentUser = user
@@ -73,39 +72,6 @@ class MyFirebase {
                 }
             }
         }
-    }
-    
-    func createDataBase() {
-        
-        let dataRef = Database.database().reference()
-        let game2: String = ""
-        let titleOfGroup2: String = ""
-        let groupSize2: String = ""
-        let age2: String = ""
-        let availability2: String = ""
-        let about2: String = ""
-        let name2: String = ""
-        let email2: String = ""
-        let value = ["name": name2, "titleOfGroup": titleOfGroup2]
-        
-        let user = Users(id: currentAuthID!, game: game2,
-                         titleOfGroup: titleOfGroup2,
-                         groupSize: groupSize2,
-                         age: age2,
-                         availability: availability2,
-                         about: about2,
-                         name: name2, email: email2)
-        let userRef = dataRef.child("messages")
-        
-        userRef.updateChildValues(value, withCompletionBlock: { (err, ref) in
-            
-            if err != nil {
-                print(err!)
-                return
-            } else {
-                print("databse for messages added")
-            }
-        })
     }
     
     func createData() {

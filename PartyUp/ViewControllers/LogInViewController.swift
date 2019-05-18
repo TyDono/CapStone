@@ -10,7 +10,6 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 import Firebase
-import SwiftKeychainWrapper
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet var emailTextView: UITextField!
@@ -27,8 +26,15 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
-        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
+        changeBackground()
         
+    }
+    
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     func whiteStatusBar() -> UIStatusBarStyle{
@@ -54,7 +60,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error == nil {
                 print("User Signed In")
-                self.userDefault.set(true, forKey: "usersignedin")
+                self.userDefault.set(true, forKey: "userSignedIn")
                 self.userDefault.synchronize()
                 moveToLFG()
             } else {

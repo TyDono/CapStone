@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Search" id="xsF-vF-Y5V">
@@ -50,7 +51,7 @@
                                                 <constraint firstItem="xor-7K-lAo" firstAttribute="bottom" secondItem="Zgo-vz-YrK" secondAttribute="bottomMargin" id="w3p-ac-AaP"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568627450979" green="0.35686274509803922" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -86,7 +87,7 @@
                                                 <constraint firstItem="Ixy-tC-FSY" firstAttribute="top" secondItem="Dw8-UN-vAf" secondAttribute="top" constant="6" id="gD0-RD-bmY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="mWu-cO-wPB">
                                         <rect key="frame" x="0.0" y="166" width="375" height="72"/>
@@ -125,7 +126,7 @@
                                                 <constraint firstItem="Bct-5C-haG" firstAttribute="top" secondItem="ivp-hs-EP5" secondAttribute="bottom" constant="1" id="pkV-D3-0ah"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kUr-iJ-JHP">
                                         <rect key="frame" x="0.0" y="238" width="375" height="44"/>
@@ -148,7 +149,7 @@
                                                 <constraint firstItem="I36-qW-3bB" firstAttribute="leading" secondItem="6Dd-NN-T96" secondAttribute="leading" constant="16" id="kb5-ok-WE2"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="73d-e3-4un">
                                         <rect key="frame" x="0.0" y="282" width="375" height="44"/>
@@ -170,7 +171,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="frc-s4-aS3" secondAttribute="bottom" constant="7.5" id="sT8-0r-3q2"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="eyi-p4-0bv">
                                         <rect key="frame" x="0.0" y="326" width="375" height="72"/>
@@ -207,7 +208,7 @@
                                                 <constraint firstItem="jUf-7g-0gn" firstAttribute="trailing" secondItem="x89-Vw-xaC" secondAttribute="trailingMargin" id="yhn-Ue-LlO"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -247,6 +248,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="yOF-xe-qeE">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -290,7 +292,7 @@
                                                 <constraint firstItem="GSz-qU-4gn" firstAttribute="leading" secondItem="vaa-oK-nar" secondAttribute="leading" constant="16" id="Z16-7u-dFT"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileGamecell" id="LHR-SP-T42">
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
@@ -313,7 +315,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="qMJ-3o-XGD" secondAttribute="bottom" constant="7.5" id="ipk-h0-7Q0"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileAgeCell" id="Cxq-e1-Fsj">
                                         <rect key="frame" x="0.0" y="160" width="375" height="44"/>
@@ -336,7 +338,7 @@
                                                 <constraint firstItem="EYH-79-fBl" firstAttribute="top" secondItem="qwz-k4-Idn" secondAttribute="top" constant="6" id="oal-5c-Jxj"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileSizeCell" id="iX0-Gt-TyL">
                                         <rect key="frame" x="0.0" y="204" width="375" height="44"/>
@@ -359,7 +361,7 @@
                                                 <constraint firstItem="T2r-Tz-90s" firstAttribute="top" secondItem="XUp-Xm-WIH" secondAttribute="top" constant="8" id="per-A7-p6Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileNameCell" id="Iyy-j4-Xa6">
                                         <rect key="frame" x="0.0" y="248" width="375" height="44"/>
@@ -382,7 +384,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="X3O-dH-yBO" secondAttribute="trailing" constant="16" id="ajw-UD-B0l"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileEmailCell" id="iWy-GW-j4X">
                                         <rect key="frame" x="0.0" y="292" width="375" height="44"/>
@@ -405,7 +407,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="iTP-Ft-gm9" secondAttribute="bottom" constant="8" id="zH2-Qu-6yF"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileExperianceCell" rowHeight="81" id="eWz-lx-nK9">
                                         <rect key="frame" x="0.0" y="336" width="375" height="81"/>
@@ -432,7 +434,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -459,7 +461,7 @@
                                                 <constraint firstItem="Pcy-7y-Rjh" firstAttribute="bottom" secondItem="hkw-cg-JvW" secondAttribute="bottomMargin" id="aiT-Wc-zYk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -486,7 +488,7 @@
                                                 <constraint firstItem="zz7-25-QJf" firstAttribute="top" secondItem="cXS-Q2-GuA" secondAttribute="topMargin" id="yPF-gS-6Xk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -521,6 +523,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultsCell" rowHeight="118" id="Swf-l5-FHK" customClass="SearchResultsTableViewCell" customModule="PartyUp" customModuleProvider="target">
@@ -560,7 +563,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="ageLabel" destination="eKd-7B-c8B" id="1lc-by-vHy"/>
                                     <outlet property="gameLabel" destination="T15-qE-bGg" id="Zcv-cK-Gf2"/>
@@ -695,34 +698,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJD-kp-9Bt" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26034.400000000001" y="-118.29085457271366"/>
-        </scene>
-        <!--Chat Log Table View Controller-->
-        <scene sceneID="JZj-qE-kb9">
-            <objects>
-                <tableViewController storyboardIdentifier="chatLog" id="iBY-9h-WE3" customClass="ChatLogTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JRw-bl-6L6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatLogCell" id="zZm-ea-h00">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zZm-ea-h00" id="NMJ-x0-WJA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="iBY-9h-WE3" id="gFT-9f-BrM"/>
-                            <outlet property="delegate" destination="iBY-9h-WE3" id="ukA-uW-4eZ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dzL-aR-AhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-26826" y="1356"/>
         </scene>
         <!--Create Account Table View Controller-->
         <scene sceneID="vtm-VO-lEh">
@@ -988,7 +963,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4d-8w-R2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23428" y="1258"/>
+            <point key="canvasLocation" x="-23534" y="1828"/>
         </scene>
         <!--Messages-->
         <scene sceneID="kpQ-99-2bl">
@@ -1073,7 +1048,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1U-ac-NA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23428" y="1898"/>
+            <point key="canvasLocation" x="-22980" y="1933"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
@@ -1157,6 +1132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Basic Info" id="zSo-ZP-8xm">
                                 <cells>
@@ -1185,7 +1161,7 @@
                                                 <constraint firstItem="d2D-gy-kVD" firstAttribute="bottom" secondItem="BvL-LX-gg8" secondAttribute="bottomMargin" id="s9x-dd-2Sh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" rowHeight="60" id="oD3-XC-hc1">
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
@@ -1212,7 +1188,7 @@
                                                 <constraint firstItem="RBa-3s-BM1" firstAttribute="top" secondItem="jt6-jM-4hn" secondAttribute="topMargin" id="RKW-RD-DuP"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ageCell" rowHeight="60" id="kNo-3O-9kF">
                                         <rect key="frame" x="0.0" y="148" width="375" height="60"/>
@@ -1239,7 +1215,7 @@
                                                 <constraint firstItem="Hl0-2h-DVo" firstAttribute="leading" secondItem="Pwl-K7-T5d" secondAttribute="leadingMargin" id="poq-zh-VAb"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupSizeCell" rowHeight="60" id="mne-Ag-iBj">
                                         <rect key="frame" x="0.0" y="208" width="375" height="60"/>
@@ -1266,7 +1242,7 @@
                                                 <constraint firstItem="j5w-9W-cQ4" firstAttribute="top" secondItem="oLO-6Q-Dk6" secondAttribute="topMargin" id="sSt-tJ-9eu"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="experianceCell" rowHeight="60" id="UDp-eB-1bq">
                                         <rect key="frame" x="0.0" y="268" width="375" height="60"/>
@@ -1293,7 +1269,7 @@
                                                 <constraint firstItem="9EU-tc-6gE" firstAttribute="bottom" secondItem="rrp-TK-wiX" secondAttribute="bottomMargin" id="cx5-m8-BTv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" rowHeight="60" id="yKo-VM-7zh">
                                         <rect key="frame" x="0.0" y="328" width="375" height="60"/>
@@ -1320,7 +1296,7 @@
                                                 <constraint firstItem="Fwv-G4-oes" firstAttribute="trailing" secondItem="xyn-rp-PEn" secondAttribute="trailingMargin" id="znb-x9-szt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emailCell" rowHeight="60" id="BDv-D2-KwT">
                                         <rect key="frame" x="0.0" y="388" width="375" height="60"/>
@@ -1347,7 +1323,7 @@
                                                 <constraint firstItem="1cR-wp-wKo" firstAttribute="bottom" secondItem="KUm-5H-aWb" secondAttribute="bottomMargin" id="XKH-Mj-jcA"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1378,7 +1354,7 @@
                                                 <constraint firstItem="3SA-Vn-ANp" firstAttribute="top" secondItem="I8L-Xs-91W" secondAttribute="topMargin" id="wCx-Fx-OfB"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1409,7 +1385,7 @@
                                                 <constraint firstItem="gtR-cY-0L5" firstAttribute="top" secondItem="3yz-5C-yIS" secondAttribute="topMargin" id="vHM-II-umc"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1443,7 +1419,7 @@
                                                 <constraint firstItem="tIJ-Od-fqL" firstAttribute="leading" secondItem="cLf-xu-t60" secondAttribute="leading" constant="8" id="gj2-gU-GNj"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1469,7 +1445,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZw-O9-3dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22833" y="-500"/>
+            <point key="canvasLocation" x="-22719" y="-118"/>
         </scene>
     </scenes>
     <resources>

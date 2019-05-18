@@ -23,7 +23,7 @@ class SearchResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         var users = [Users]()
-        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
+        changeBackground()
         //this will search for profile documents with the same game name as what was typed in the textView in LFGVC
         db.collection("profile").whereField("game", isEqualTo: text!).getDocuments { (snapshot, error) in
             if error != nil {
@@ -45,7 +45,14 @@ class SearchResultsTableViewController: UITableViewController {
                 }
             }
         }
-    }    
+    }
+    
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.tableView.backgroundView = backgroundImage
+    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,7 +67,7 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
-        tableView.rowHeight = 118
+        tableView.rowHeight = 75
         if let users = users {
             
             let user = users[indexPath.row]
@@ -73,7 +80,7 @@ class SearchResultsTableViewController: UITableViewController {
             cell.userName = "\(user.name)"
             cell.email = "\(user.email)"
             //cell.userName = "\(user.name)"
-            // cell.experiance = "\(user.experioance)"
+            //cell.experiance = "\(user.experioance)"
             
             cell.updateCell(users: user)
         }

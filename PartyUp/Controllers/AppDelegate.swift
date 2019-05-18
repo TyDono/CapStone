@@ -59,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         application.registerForRemoteNotifications()
         
-        
         return true
     }
     

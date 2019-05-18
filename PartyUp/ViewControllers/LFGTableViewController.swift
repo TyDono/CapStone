@@ -39,8 +39,15 @@ class LFGTableViewController: UITableViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
-        view.backgroundColor = UIColor(displayP3Red: 61/255, green: 91/255, blue: 151/255, alpha: 1)
+        changeBackground()
         
+    }
+    
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.tableView.backgroundView = backgroundImage
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
