@@ -24,7 +24,6 @@ class MyFirebase {
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: User?
     var userId: String? = ""
-    var dbRef: DatabaseReference! = Database.database().reference()
     var storage = Storage.storage().reference()
     
     private var listenHandler: AuthStateDidChangeListenerHandle?

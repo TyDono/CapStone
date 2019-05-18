@@ -154,7 +154,6 @@ class UserTableViewController: UITableViewController {
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()
-        GIDSignIn.sharedInstance()?.signIn()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             moveToLogIn()
         }
