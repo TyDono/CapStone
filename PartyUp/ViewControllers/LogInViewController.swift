@@ -72,7 +72,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     //actions
     @IBAction func googleSignIn(_ sender: Any) {
-
+        performSegue(withIdentifier: "moveToTabVC", sender: nil)
     }
     
     @IBAction func createAccountTapped(_ sender: Any) {
@@ -97,5 +97,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
             })
         }
     }
+    
+    @IBAction func unwindToLogIn(_ sender: UIStoryboardSegue) {}
     
 }

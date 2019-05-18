@@ -45,65 +45,65 @@ func moveToMessages() {
 }
 
 //randome user name gen
-extension String {
-    static var randomName: String {
-        let adjectives = ["ravioli", "cavatelli", "ziti", "vermicelli", "manicotti", "paccheri", "dry", "dark", "farfalle", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "fusilli", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "agnolotti", "withered", "wild", "penne", "young", "holy", "liguine", "fragrant", "aged", "snowy", "proud", "rigatoni", "pappardelle", "divine", "capellini", "ancient", "purple", "macaroni", "spaghetti", "pasta"]
-        let nouns = ["farfalle", "agnolotti", "vermicelli", "moon", "fusilli", "wind", "sea", "morning", "snow", "lake", "sunset", "pine", "shadow", "leaf", "penne", "glitter", "forest", "hill", "cloud", "orzo", "sun", "rotini", "bird", "ziti", "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly", "feather", "grass", "haze", "mountain", "night", "pond", "darkness", "manicotti", "pappardelle", "sound", "capellini", "shape", "surf", "thunder", "violet", "water", "wildflower", "cavatelli", "water", "resonance", "sun", "wood", "dream", "cherry", "rigatoni", "fog", "macaroni", "ravioli", "paper", "liguine", "smoke", "spaghetti", "pasta"]
-        
-        return adjectives.randomElement()! + nouns.randomElement()!
-    }
-}
+//extension String {
+//    static var randomName: String {
+//        let adjectives = ["ravioli", "cavatelli", "ziti", "vermicelli", "manicotti", "paccheri", "dry", "dark", "farfalle", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "fusilli", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "agnolotti", "withered", "wild", "penne", "young", "holy", "liguine", "fragrant", "aged", "snowy", "proud", "rigatoni", "pappardelle", "divine", "capellini", "ancient", "purple", "macaroni", "spaghetti", "pasta"]
+//        let nouns = ["farfalle", "agnolotti", "vermicelli", "moon", "fusilli", "wind", "sea", "morning", "snow", "lake", "sunset", "pine", "shadow", "leaf", "penne", "glitter", "forest", "hill", "cloud", "orzo", "sun", "rotini", "bird", "ziti", "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly", "feather", "grass", "haze", "mountain", "night", "pond", "darkness", "manicotti", "pappardelle", "sound", "capellini", "shape", "surf", "thunder", "violet", "water", "wildflower", "cavatelli", "water", "resonance", "sun", "wood", "dream", "cherry", "rigatoni", "fog", "macaroni", "ravioli", "paper", "liguine", "smoke", "spaghetti", "pasta"]
+//
+//        return adjectives.randomElement()! + nouns.randomElement()!
+//    }
+//}
 
 //random color gen
-extension UIColor {
-    static var randomColor: UIColor {
-        return UIColor(
-            red: CGFloat.random(in: 0...1),
-            green: CGFloat.random(in: 0...1),
-            blue: CGFloat.random(in: 0...1),
-            alpha: 1)
-    }
-}
+//extension UIColor {
+//    static var randomColor: UIColor {
+//        return UIColor(
+//            red: CGFloat.random(in: 0...1),
+//            green: CGFloat.random(in: 0...1),
+//            blue: CGFloat.random(in: 0...1),
+//            alpha: 1)
+//    }
+//}
 
 //hexadecimal color codes
-extension UIColor {
-    convenience init(hex: String) {
-        var hex = hex
-        if hex.hasPrefix("#") {
-            hex.remove(at: hex.startIndex)
-        }
-        
-        var rgb: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&rgb)
-        
-        let r = (rgb & 0xff0000) >> 16
-        let g = (rgb & 0xff00) >> 8
-        let b = rgb & 0xff
-        
-        self.init(
-            red: CGFloat(r) / 0xff,
-            green: CGFloat(g) / 0xff,
-            blue: CGFloat(b) / 0xff,
-            alpha: 1
-        )
-    }
-    
-    var hexString: String {
-        var r: CGFloat = 0
-        var g: CGFloat = 0
-        var b: CGFloat = 0
-        var a: CGFloat = 0
-        
-        self.getRed(&r, green: &g, blue: &b, alpha: &a)
-        
-        return String(
-            format: "#%02X%02X%02X",
-            Int(r * 0xff),
-            Int(g * 0xff),
-            Int(b * 0xff)
-        )
-    }
-}
+//extension UIColor {
+//    convenience init(hex: String) {
+//        var hex = hex
+//        if hex.hasPrefix("#") {
+//            hex.remove(at: hex.startIndex)
+//        }
+//        
+//        var rgb: UInt64 = 0
+//        Scanner(string: hex).scanHexInt64(&rgb)
+//        
+//        let r = (rgb & 0xff0000) >> 16
+//        let g = (rgb & 0xff00) >> 8
+//        let b = rgb & 0xff
+//        
+//        self.init(
+//            red: CGFloat(r) / 0xff,
+//            green: CGFloat(g) / 0xff,
+//            blue: CGFloat(b) / 0xff,
+//            alpha: 1
+//        )
+//    }
+//    
+//    var hexString: String {
+//        var r: CGFloat = 0
+//        var g: CGFloat = 0
+//        var b: CGFloat = 0
+//        var a: CGFloat = 0
+//        
+//        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+//        
+//        return String(
+//            format: "#%02X%02X%02X",
+//            Int(r * 0xff),
+//            Int(g * 0xff),
+//            Int(b * 0xff)
+//        )
+//    }
+//}
 
 //scrollview constraints
 extension UIScrollView {
