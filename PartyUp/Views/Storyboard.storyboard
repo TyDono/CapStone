@@ -210,7 +210,7 @@
             </objects>
             <point key="canvasLocation" x="-24340" y="-118.29085457271366"/>
         </scene>
-        <!--User Table View Controller-->
+        <!--Account-->
         <scene sceneID="eJa-Ed-5i0">
             <objects>
                 <tableViewController id="hgk-wY-HbF" customClass="UserTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -468,7 +468,7 @@
                             <outlet property="delegate" destination="hgk-wY-HbF" id="gm3-OY-1j8"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="j5U-do-y9V"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="icons8-user-50" landscapeImage="icons8-user-50" id="j5U-do-y9V"/>
                     <connections>
                         <outlet property="aboutTextField" destination="zz7-25-QJf" id="nhv-BJ-EI1"/>
                         <outlet property="ageTextField" destination="EYH-79-fBl" id="68Q-kT-3r9"/>
@@ -1199,5 +1199,6 @@
     </scenes>
     <resources>
         <image name="Tyler_Title_Screen" width="154.5" height="268"/>
+        <image name="icons8-user-50" width="25" height="25"/>
     </resources>
 </document>
