@@ -35,12 +35,13 @@ class UserTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         db = Firestore.firestore()
         changeBackground()
-        
     }
     
     func changeBackground() {
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Gradient")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
@@ -130,6 +131,7 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert1, animated: true, completion: nil)
                 print("Issue here")
+                print(err)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     moveToLFG()
                 }
