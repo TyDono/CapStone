@@ -67,7 +67,7 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
-        tableView.rowHeight = 75
+        //tableView.rowHeight = 75
         if let users = users {
             
             let user = users[indexPath.row]
