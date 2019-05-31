@@ -94,31 +94,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kUr-iJ-JHP">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kUr-iJ-JHP" id="6Dd-NN-T96">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I36-qW-3bB">
-                                                    <rect key="frame" x="16" y="6" width="269" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="I36-qW-3bB" firstAttribute="top" secondItem="6Dd-NN-T96" secondAttribute="top" constant="6" id="H4J-mv-NSP"/>
-                                                <constraint firstAttribute="bottom" secondItem="I36-qW-3bB" secondAttribute="bottom" constant="7.5" id="YFK-Uf-Hqi"/>
-                                                <constraint firstAttribute="trailing" secondItem="I36-qW-3bB" secondAttribute="trailing" constant="90" id="YhH-SD-x6k"/>
-                                                <constraint firstItem="I36-qW-3bB" firstAttribute="leading" secondItem="6Dd-NN-T96" secondAttribute="leading" constant="16" id="kb5-ok-WE2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="73d-e3-4un">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="73d-e3-4un" id="o2a-rB-KPR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -135,43 +112,6 @@
                                                 <constraint firstItem="frc-s4-aS3" firstAttribute="top" secondItem="o2a-rB-KPR" secondAttribute="top" constant="6" id="VTN-cv-b11"/>
                                                 <constraint firstItem="frc-s4-aS3" firstAttribute="leading" secondItem="o2a-rB-KPR" secondAttribute="leading" constant="16" id="hOn-JF-QKM"/>
                                                 <constraint firstAttribute="bottom" secondItem="frc-s4-aS3" secondAttribute="bottom" constant="7.5" id="sT8-0r-3q2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="eyi-p4-0bv">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="72"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eyi-p4-0bv" id="x89-Vw-xaC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jUf-7g-0gn">
-                                                    <rect key="frame" x="16" y="33" width="343" height="29"/>
-                                                    <segments>
-                                                        <segment title="N/A"/>
-                                                        <segment title="Novice"/>
-                                                        <segment title="Journeyman"/>
-                                                        <segment title="Master"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How experianced?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-Hp-Ig3">
-                                                    <rect key="frame" x="16" y="11" width="141" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="oJL-X8-3LJ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="VRA-Hp-Ig3" firstAttribute="leading" secondItem="x89-Vw-xaC" secondAttribute="leadingMargin" id="2EU-4G-g4O"/>
-                                                <constraint firstItem="VRA-Hp-Ig3" firstAttribute="leading" secondItem="jUf-7g-0gn" secondAttribute="leading" id="KMp-8z-Ym5"/>
-                                                <constraint firstItem="jUf-7g-0gn" firstAttribute="top" secondItem="VRA-Hp-Ig3" secondAttribute="bottom" constant="1" id="YA9-Az-XHO"/>
-                                                <constraint firstItem="jUf-7g-0gn" firstAttribute="bottom" secondItem="x89-Vw-xaC" secondAttribute="bottomMargin" id="j8w-lk-ciO"/>
-                                                <constraint firstItem="VRA-Hp-Ig3" firstAttribute="top" secondItem="x89-Vw-xaC" secondAttribute="topMargin" id="oes-dJ-O99"/>
-                                                <constraint firstItem="jUf-7g-0gn" firstAttribute="trailing" secondItem="x89-Vw-xaC" secondAttribute="trailingMargin" id="yhn-Ue-LlO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,7 +141,6 @@
                         <outlet property="distanceSegmentation" destination="Bct-5C-haG" id="nQs-WS-f19"/>
                         <outlet property="groupSize" destination="frc-s4-aS3" id="lhv-4i-dcV"/>
                         <outlet property="logOut" destination="GQa-Fi-3kY" id="4N6-d0-V0f"/>
-                        <outlet property="searchAge" destination="I36-qW-3bB" id="dPl-9H-iUD"/>
                         <outlet property="searchGame" destination="Ixy-tC-FSY" id="x6s-tY-TPe"/>
                         <segue destination="L4m-aT-Ugv" kind="show" identifier="segueSearch" id="qpR-gm-Exs"/>
                     </connections>
