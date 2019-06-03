@@ -185,4 +185,33 @@ override func viewDidAppear(_ animated: Bool) {
         }
     }
  
+    @IBAction func clearAccountButtonTapped(_ sender: UIButton) {
+        
+        let game = ""
+        let titleOfGroup = ""
+        let groupSize = ""
+        let experiance = ""
+        let age = ""
+        let availability = ""
+        let about = ""
+        let name = ""
+        let email = ""
+        let user = Users(id: currentAuthID!, game: game,
+                         titleOfGroup: titleOfGroup,
+                         groupSize: groupSize,
+                         age: age,
+                         availability: availability,
+                         about: about,
+                         name: name, email: email)
+        let userRef = self.db.collection("profile")
+        userRef.document(String(user.id)).updateData(user.dictionary){ err in
+         if err == nil {
+            print("document cleared")
+            
+         } else {
+            print("document not clearned, ERROR")
+            
+            }
+        }
+    }
 }
