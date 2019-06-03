@@ -49,55 +49,79 @@ class UserTableViewController: UITableViewController {
     }
     
     //MARK methods
-    func profileInfo() {
-        
-       UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
-        gameTextField.text = ""
-        UserDefaults.standard.set(titleTextField.text, forKey: "myTitle")
-        titleTextField.text = ""
-        UserDefaults.standard.set(ageTextField.text, forKey: "myAge")
-        ageTextField.text = ""
-        UserDefaults.standard.set(availabilityTextField.text, forKey: "myAvailability")
-        availabilityTextField.text = ""
-        UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
-        aboutTextField.text = ""
-        UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
-        groupSizeTextField.text = ""
-        UserDefaults.standard.set(nameTextField.text, forKey: "myName")
-        nameTextField.text = ""
-        UserDefaults.standard.set((emailTextField.text), forKey: "email")
-        emailTextField.text = ""
-        //experianceSegmentedControl =
-        
-    }
+//    func profileInfo() {
+//
+//       UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
+//        gameTextField.text = ""
+//        UserDefaults.standard.set(titleTextField.text, forKey: "myTitle")
+//        titleTextField.text = ""
+//        UserDefaults.standard.set(ageTextField.text, forKey: "myAge")
+//        ageTextField.text = ""
+//        UserDefaults.standard.set(availabilityTextField.text, forKey: "myAvailability")
+//        availabilityTextField.text = ""
+//        UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
+//        aboutTextField.text = ""
+//        UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
+//        groupSizeTextField.text = ""
+//        UserDefaults.standard.set(nameTextField.text, forKey: "myName")
+//        nameTextField.text = ""
+//        UserDefaults.standard.set((emailTextField.text), forKey: "email")
+//        emailTextField.text = ""
+//        //experianceSegmentedControl =
+//
+  //  }
+
+override func viewDidAppear(_ animated: Bool) {
     
-    override func viewDidAppear(_ animated: Bool) {
-        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
-            gameTextField.text = gameTextSaved
-        }
-        if let titleTextSaved = UserDefaults.standard.object(forKey: "myTitle") as? String {
-            titleTextField.text = titleTextSaved
-        }
-        if let ageTextSaved = UserDefaults.standard.object(forKey: "myAge") as? String {
-            ageTextField.text = ageTextSaved
-        }
-        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "myAvailability") as? String {
-            availabilityTextField.text = availabilityTextSaved
-        }
-        if let aboutTextSaved = UserDefaults.standard.object(forKey: "myAbout") as? String {
-            aboutTextField.text = aboutTextSaved
-        }
-        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
-            groupSizeTextField.text = groupSizeTextSaved
-        }
-        if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
-            nameTextField.text = nameTextSaved
-        }
-        if let emailTextSaved = UserDefaults.standard.object(forKey: "email") as? String {
-            emailTextField.text = emailTextSaved
+    guard let uid: String = self.currentAuthID else { return }
+    print("this is my uid i really like my uid \(uid)")
+    let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
+    profileRef.getDocuments { (snapshot, error) in
+        if error != nil {
+            print(error as Any)
+        } else {
+            for document in (snapshot?.documents)! {
+                if let game = document.data()["name"] as? String {
+                    if let title = document.data()["email"] as? String {
+                        if let age = document.data()["phoneNumber"] as? String {
+                            
+                            self.gameTextField.text = game
+                            self.titleTextField.text = title
+                            self.ageTextField.text = age
+                        }
+                    }
+                }
+            }
         }
     }
-    
+}
+
+//        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
+//            gameTextField.text = gameTextSaved
+//        }
+//        if let titleTextSaved = UserDefaults.standard.object(forKey: "myTitle") as? String {
+//            titleTextField.text = titleTextSaved
+//        }
+//        if let ageTextSaved = UserDefaults.standard.object(forKey: "myAge") as? String {
+//            ageTextField.text = ageTextSaved
+//        }
+//        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "myAvailability") as? String {
+//            availabilityTextField.text = availabilityTextSaved
+//        }
+//        if let aboutTextSaved = UserDefaults.standard.object(forKey: "myAbout") as? String {
+//            aboutTextField.text = aboutTextSaved
+//        }
+//        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
+//            groupSizeTextField.text = groupSizeTextSaved
+//        }
+//        if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
+//            nameTextField.text = nameTextSaved
+//        }
+//        if let emailTextSaved = UserDefaults.standard.object(forKey: "email") as? String {
+//            emailTextField.text = emailTextSaved
+//        }
+//    }
+//
     //MARK Actions
     
     //updates the users profile based on their auth Id. once saved it will give an alert and move them to LFG, other wise it will tell them an error occured and move them to LFG. I move them because the textView dissapears and only re appears if the user re enters their profile. this is to make them not freak out thinking nothing saved. once they go back to their vie profile they will se their VC filled with their info they entered
@@ -141,7 +165,7 @@ class UserTableViewController: UITableViewController {
                     alert2.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert2, animated: true, completion: nil)
-                self.profileInfo()
+                //self.profileInfo()
                 print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     moveToLFG()
