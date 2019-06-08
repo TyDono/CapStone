@@ -81,13 +81,28 @@ class UserTableViewController: UITableViewController {
                 print(error as Any)
             } else {
                 for document in (snapshot?.documents)! {
-                    if let game = document.data()["name"] as? String {
-                        if let title = document.data()["email"] as? String {
-                            if let age = document.data()["phoneNumber"] as? String {
-                                
-                                self.gameTextField.text = game
-                                self.titleTextField.text = title
-                                self.ageTextField.text = age
+                    if let game = document.data()["game"] as? String {
+                        if let title = document.data()["title"] as? String {
+                            if let age = document.data()["age"] as? String {
+                                if let availability = document.data()["availability"] as? String {
+                                    if let about = document.data()["about"] as? String {
+                                        if let groupSize = document.data()["group size"] as? String {
+                                            if let name = document.data()["availability"] as? String {
+                                                if let email = document.data()["availability"] as? String {
+                                                    
+                                                    self.gameTextField.text = game
+                                                    self.titleTextField.text = title
+                                                    self.ageTextField.text = age
+                                                    self.availabilityTextField.text = availability
+                                                    self.aboutTextField.text = about
+                                                    self.groupSizeTextField.text = groupSize
+                                                    self.nameTextField.text = name
+                                                    self.emailTextField.text = email
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -95,7 +110,7 @@ class UserTableViewController: UITableViewController {
             }
         }
     }
-    
+        
     //        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
     //            gameTextField.text = gameTextSaved
     //        }
