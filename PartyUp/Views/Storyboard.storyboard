@@ -401,24 +401,18 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Clear Account" id="mfk-jz-dJE">
+                            <tableViewSection id="mfk-jz-dJE">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileAboutCell" rowHeight="132" id="2Nr-N3-68R">
-                                        <rect key="frame" x="0.0" y="942" width="375" height="132"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileAboutCell" rowHeight="67" id="2Nr-N3-68R">
+                                        <rect key="frame" x="0.0" y="914" width="375" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Nr-N3-68R" id="sH8-TX-o2z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning!!! This will clear your account, making you not appear in any searches, you can always come back : )" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlW-3C-AMK">
-                                                    <rect key="frame" x="8" y="8" width="359" height="68.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pki-Ev-E7C">
-                                                    <rect key="frame" x="8" y="84.5" width="359" height="41"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="8" y="13" width="359" height="41"/>
+                                                    <color key="backgroundColor" red="0.84269907994923854" green="0.09921626243486989" blue="0.16724306824180613" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <state key="normal" title="CLEAR ACCOUNT">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -429,14 +423,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NlW-3C-AMK" firstAttribute="top" secondItem="sH8-TX-o2z" secondAttribute="topMargin" id="028-FG-ohD"/>
-                                                <constraint firstItem="pki-Ev-E7C" firstAttribute="top" secondItem="NlW-3C-AMK" secondAttribute="bottom" constant="8" id="33t-a9-gqw"/>
-                                                <constraint firstItem="NlW-3C-AMK" firstAttribute="trailing" secondItem="sH8-TX-o2z" secondAttribute="trailingMargin" id="7IH-0p-NxF"/>
                                                 <constraint firstAttribute="trailing" secondItem="pki-Ev-E7C" secondAttribute="trailing" constant="8" id="MVP-Ih-pPd"/>
                                                 <constraint firstItem="pki-Ev-E7C" firstAttribute="leading" secondItem="sH8-TX-o2z" secondAttribute="leading" constant="8" id="eG9-jL-jaA"/>
-                                                <constraint firstAttribute="bottom" secondItem="pki-Ev-E7C" secondAttribute="bottom" constant="6" id="n2c-GQ-ne7"/>
-                                                <constraint firstItem="pki-Ev-E7C" firstAttribute="top" secondItem="NlW-3C-AMK" secondAttribute="bottom" constant="8" id="sOj-df-iXt"/>
-                                                <constraint firstItem="NlW-3C-AMK" firstAttribute="leading" secondItem="sH8-TX-o2z" secondAttribute="leadingMargin" id="wct-B2-QPK"/>
+                                                <constraint firstAttribute="bottom" secondItem="pki-Ev-E7C" secondAttribute="bottom" constant="12.5" id="n2c-GQ-ne7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

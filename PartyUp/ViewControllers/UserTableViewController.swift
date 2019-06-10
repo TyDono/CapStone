@@ -78,39 +78,34 @@ class UserTableViewController: UITableViewController {
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
+                
                 print(error as Any)
             } else {
+                
                 for document in (snapshot?.documents)! {
-                    if let game = document.data()["game"] as? String {
-                        if let title = document.data()["title"] as? String {
-                            if let age = document.data()["age"] as? String {
-                                if let availability = document.data()["availability"] as? String {
-                                    if let about = document.data()["about"] as? String {
-                                        if let groupSize = document.data()["group size"] as? String {
-                                            if let name = document.data()["availability"] as? String {
-                                                if let email = document.data()["availability"] as? String {
-                                                    
-                                                    self.gameTextField.text = game
-                                                    self.titleTextField.text = title
-                                                    self.ageTextField.text = age
-                                                    self.availabilityTextField.text = availability
-                                                    self.aboutTextField.text = about
-                                                    self.groupSizeTextField.text = groupSize
-                                                    self.nameTextField.text = name
-                                                    self.emailTextField.text = email
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    if let game = document.data()["game"] as? String,
+                        let email = document.data()["email"] as? String,
+                        let name = document.data()["name"] as? String,
+                        let groupSize = document.data()["group size"] as? String,
+                        let about = document.data()["about"] as? String,
+                        let availability = document.data()["availability"] as? String,
+                        let age = document.data()["age"] as? String,
+                        let title = document.data()["title"] as? String {
+                        
+                        self.gameTextField.text = game
+                        self.titleTextField.text = title
+                        self.ageTextField.text = age
+                        self.availabilityTextField.text = availability
+                        self.aboutTextField.text = about
+                        self.groupSizeTextField.text = groupSize
+                        self.nameTextField.text = name
+                        self.emailTextField.text = email
                     }
                 }
             }
         }
     }
-        
+    
     //        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
     //            gameTextField.text = gameTextSaved
     //        }
@@ -171,9 +166,6 @@ class UserTableViewController: UITableViewController {
                 self.present(alert1, animated: true, completion: nil)
                 print("Issue here")
                 print(err)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    moveToLFG()
-                }
             } else {
                 let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
                 alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
