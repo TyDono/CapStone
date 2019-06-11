@@ -51,7 +51,7 @@ class MyFirebase {
                 print("Logged In")
                 let userReff = self.db.collection("profile").document("\(self.userId)")
                 userReff.getDocument { (document, error) in
-                    if let document = document {
+                    if let document = document, document.exists {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         print("data already added: \(dataDescription)")
                     } else {
@@ -83,6 +83,7 @@ class MyFirebase {
         let about2: String = ""
         let name2: String = ""
         let email2: String = ""
+        // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
         //let clientData: Any?
