@@ -55,7 +55,7 @@ class MyFirebase {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         print("data already added: \(dataDescription)")
                     } else {
-                        self.createData()
+                        //self.createData()
                         print("document added to fireStore")
                     }
                     self.currentUser = user

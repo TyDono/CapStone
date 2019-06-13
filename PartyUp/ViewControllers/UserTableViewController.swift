@@ -38,6 +38,7 @@ class UserTableViewController: UITableViewController {
         
         db = Firestore.firestore()
         changeBackground()
+        getPersonalData()
     }
     
     func changeBackground() {
@@ -71,7 +72,7 @@ class UserTableViewController: UITableViewController {
     //
     //  }
     
-    override func viewDidAppear(_ animated: Bool) {
+    func getPersonalData() {
         
         guard let uid: String = self.currentAuthID else { return }
         print("this is my uid i really like my uid \(uid)")
