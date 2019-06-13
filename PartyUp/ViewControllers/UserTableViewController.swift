@@ -91,9 +91,10 @@ class UserTableViewController: UITableViewController {
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
                         let age = document.data()["age"] as? String,
-                        let title = document.data()["title"] as? String {
+                        let title = document.data()["title of group"] as? String {
                         
                         self.gameTextField.text = game
+                        print(game)
                         self.titleTextField.text = title
                         self.ageTextField.text = age
                         self.availabilityTextField.text = availability
@@ -176,7 +177,6 @@ class UserTableViewController: UITableViewController {
                 //self.profileInfo()
                 print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    moveToLFG()
                 }
             }
         }
