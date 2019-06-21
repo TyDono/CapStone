@@ -2744,11 +2744,12 @@ Copyright 2018 Google
    limitations under the License.
 
 
-## MessageInputBar
+## InputBarAccessoryView
 
-MIT License
 
-Copyright (c) 2017-2018 MessageKit
+The MIT License (MIT)
+
+Copyright (c) Nathan Tannar <nathantannar4@gmail.com> 2017-2019
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2773,7 +2774,7 @@ SOFTWARE.
 
 MIT License
 
-Copyright (c) 2017-2018 MessageKit
+Copyright (c) 2017-2019 MessageKit
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

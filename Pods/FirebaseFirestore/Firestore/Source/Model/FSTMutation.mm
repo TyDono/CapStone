@@ -17,6 +17,7 @@
 #import "Firestore/Source/Model/FSTMutation.h"
 
 #include <memory>
+#include <set>
 #include <string>
 #include <utility>
 #include <vector>
@@ -27,6 +28,7 @@
 #import "Firestore/Source/Model/FSTFieldValue.h"
 #import "Firestore/Source/Util/FSTClasses.h"
 
+#include "Firestore/core/include/firebase/firestore/timestamp.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
@@ -35,6 +37,7 @@
 #include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
+using firebase::Timestamp;
 using firebase::firestore::model::ArrayTransform;
 using firebase::firestore::model::DocumentKey;
 using firebase::firestore::model::FieldMask;
@@ -91,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable FSTMaybeDocument *)applyToLocalDocument:(nullable FSTMaybeDocument *)maybeDoc
                                        baseDocument:(nullable FSTMaybeDocument *)baseDoc
-                                     localWriteTime:(FIRTimestamp *)localWriteTime {
+                                     localWriteTime:(const Timestamp &)localWriteTime {
   @throw FSTAbstractMethodException();  // NOLINT
 }
 
@@ -101,6 +104,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (const firebase::firestore::model::Precondition &)precondition {
   return _precondition;
+}
+
+- (BOOL)idempotent {
+  @throw FSTAbstractMethodException();  // NOLINT
+}
+
+- (nullable const FieldMask *)fieldMask {
+  @throw FSTAbstractMethodException();  // NOLINT
 }
 
 - (void)verifyKeyMatches:(nullable FSTMaybeDocument *)maybeDoc {
@@ -157,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable FSTMaybeDocument *)applyToLocalDocument:(nullable FSTMaybeDocument *)maybeDoc
                                        baseDocument:(nullable FSTMaybeDocument *)baseDoc
-                                     localWriteTime:(FIRTimestamp *)localWriteTime {
+                                     localWriteTime:(const Timestamp &)localWriteTime {
   [self verifyKeyMatches:maybeDoc];
 
   if (!self.precondition.IsValidFor(maybeDoc)) {
@@ -185,6 +196,15 @@ NS_ASSUME_NONNULL_BEGIN
                                version:mutationResult.version
                                  state:FSTDocumentStateCommittedMutations];
 }
+
+- (nullable const FieldMask *)fieldMask {
+  return nullptr;
+}
+
+- (BOOL)idempotent {
+  return YES;
+}
+
 @end
 
 #pragma mark - FSTPatchMutation
@@ -205,8 +225,8 @@ NS_ASSUME_NONNULL_BEGIN
   return self;
 }
 
-- (const firebase::firestore::model::FieldMask &)fieldMask {
-  return _fieldMask;
+- (const FieldMask *)fieldMask {
+  return &_fieldMask;
 }
 
 - (BOOL)isEqual:(id)other {
@@ -218,18 +238,18 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
   FSTPatchMutation *otherMutation = (FSTPatchMutation *)other;
-  return self.key == otherMutation.key && self.fieldMask == otherMutation.fieldMask &&
+  return self.key == otherMutation.key && _fieldMask == *(otherMutation.fieldMask) &&
          [self.value isEqual:otherMutation.value] &&
          self.precondition == otherMutation.precondition;
 }
 
 - (NSUInteger)hash {
-  return Hash(self.key, self.precondition, self.fieldMask, [self.value hash]);
+  return Hash(self.key, self.precondition, _fieldMask, [self.value hash]);
 }
 
 - (NSString *)description {
   return [NSString stringWithFormat:@"<FSTPatchMutation key=%s mask=%s value=%@ precondition=%@>",
-                                    self.key.ToString().c_str(), self.fieldMask.ToString().c_str(),
+                                    self.key.ToString().c_str(), _fieldMask.ToString().c_str(),
                                     self.value, self.precondition.description()];
 }
 
@@ -249,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable FSTMaybeDocument *)applyToLocalDocument:(nullable FSTMaybeDocument *)maybeDoc
                                        baseDocument:(nullable FSTMaybeDocument *)baseDoc
-                                     localWriteTime:(FIRTimestamp *)localWriteTime {
+                                     localWriteTime:(const Timestamp &)localWriteTime {
   [self verifyKeyMatches:maybeDoc];
 
   if (!self.precondition.IsValidFor(maybeDoc)) {
@@ -288,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (FSTObjectValue *)patchObjectValue:(FSTObjectValue *)objectValue {
   FSTObjectValue *result = objectValue;
-  for (const FieldPath &fieldPath : self.fieldMask) {
+  for (const FieldPath &fieldPath : _fieldMask) {
     if (!fieldPath.empty()) {
       FSTFieldValue *newValue = [self.value valueForPath:fieldPath];
       if (newValue) {
@@ -301,11 +321,16 @@ NS_ASSUME_NONNULL_BEGIN
   return result;
 }
 
+- (BOOL)idempotent {
+  return YES;
+}
+
 @end
 
 @implementation FSTTransformMutation {
   /** The field transforms to use when transforming the document. */
   std::vector<FieldTransform> _fieldTransforms;
+  FieldMask _fieldMask;
 }
 
 - (instancetype)initWithKey:(DocumentKey)key
@@ -315,6 +340,13 @@ NS_ASSUME_NONNULL_BEGIN
   // end up with an existing document.
   if (self = [super initWithKey:std::move(key) precondition:Precondition::Exists(true)]) {
     _fieldTransforms = std::move(fieldTransforms);
+
+    std::set<FieldPath> fields;
+    for (const auto &transform : _fieldTransforms) {
+      fields.insert(transform.path());
+    }
+
+    _fieldMask = FieldMask(std::move(fields));
   }
   return self;
 }
@@ -357,7 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable FSTMaybeDocument *)applyToLocalDocument:(nullable FSTMaybeDocument *)maybeDoc
                                        baseDocument:(nullable FSTMaybeDocument *)baseDoc
-                                     localWriteTime:(FIRTimestamp *)localWriteTime {
+                                     localWriteTime:(const Timestamp &)localWriteTime {
   [self verifyKeyMatches:maybeDoc];
 
   if (!self.precondition.IsValidFor(maybeDoc)) {
@@ -452,9 +484,9 @@ NS_ASSUME_NONNULL_BEGIN
  * FSTServerTimestampValues).
  * @return The transform results array.
  */
-- (NSArray<FSTFieldValue *> *)localTransformResultsWithBaseDocument:
-                                  (nullable FSTMaybeDocument *)baseDocument
-                                                          writeTime:(FIRTimestamp *)localWriteTime {
+- (NSArray<FSTFieldValue *> *)
+    localTransformResultsWithBaseDocument:(nullable FSTMaybeDocument *)baseDocument
+                                writeTime:(const Timestamp &)localWriteTime {
   NSMutableArray<FSTFieldValue *> *transformResults = [NSMutableArray array];
   for (const FieldTransform &fieldTransform : self.fieldTransforms) {
     const TransformOperation &transform = fieldTransform.transformation();
@@ -480,6 +512,19 @@ NS_ASSUME_NONNULL_BEGIN
     objectValue = [objectValue objectBySettingValue:transformResults[i] forPath:fieldPath];
   }
   return objectValue;
+}
+
+- (nullable const FieldMask *)fieldMask {
+  return &_fieldMask;
+}
+
+- (BOOL)idempotent {
+  for (const auto &transform : self.fieldTransforms) {
+    if (!transform.idempotent()) {
+      return NO;
+    }
+  }
+  return YES;
 }
 
 @end
@@ -511,7 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable FSTMaybeDocument *)applyToLocalDocument:(nullable FSTMaybeDocument *)maybeDoc
                                        baseDocument:(nullable FSTMaybeDocument *)baseDoc
-                                     localWriteTime:(FIRTimestamp *)localWriteTime {
+                                     localWriteTime:(const Timestamp &)localWriteTime {
   [self verifyKeyMatches:maybeDoc];
 
   if (!self.precondition.IsValidFor(maybeDoc)) {
@@ -540,6 +585,14 @@ NS_ASSUME_NONNULL_BEGIN
   return [FSTDeletedDocument documentWithKey:self.key
                                      version:mutationResult.version
                        hasCommittedMutations:YES];
+}
+
+- (nullable const FieldMask *)fieldMask {
+  return nullptr;
+}
+
+- (BOOL)idempotent {
+  return YES;
 }
 
 @end
