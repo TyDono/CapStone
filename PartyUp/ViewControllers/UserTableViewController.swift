@@ -94,7 +94,6 @@ class UserTableViewController: UITableViewController {
                         let title = document.data()["title of group"] as? String {
                         
                         self.gameTextField.text = game
-                        print(game)
                         self.titleTextField.text = title
                         self.ageTextField.text = age
                         self.availabilityTextField.text = availability

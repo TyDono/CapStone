@@ -24,14 +24,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="50x-Tr-XQD"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9ue-cG-wMK"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DRN-SK-UkR"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P1K-l6-akR"/>
-                            <constraint firstAttribute="trailing" secondItem="PZm-I3-DeO" secondAttribute="trailing" id="adm-78-KeS"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dr3-CJ-J75"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gDD-wS-Pj7"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t9b-Br-I2E"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3d8-kA-Cxa"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="643-9K-0b9"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OtA-HO-8wQ"/>
+                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c3J-aU-PQ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

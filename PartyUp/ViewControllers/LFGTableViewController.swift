@@ -19,9 +19,7 @@ class LFGTableViewController: UITableViewController {
     
     //MARK OUTLETS
     @IBOutlet var searchGame: UITextField!
-    @IBOutlet var searchAge: UITextField!
     @IBOutlet var distanceSegmentation: UISegmentedControl!
-    @IBOutlet var searchOutlet: UIButton!
     @IBOutlet var logOut: UIBarButtonItem!
     @IBOutlet var groupSize: UITextField!
     
@@ -51,7 +49,7 @@ class LFGTableViewController: UITableViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchAge.resignFirstResponder()
+        searchGame.resignFirstResponder()
     }
     
     ///LOCATION MAPKIT
@@ -77,6 +75,7 @@ class LFGTableViewController: UITableViewController {
             
             let goToSettingsAction = UIAlertAction(title: "Settings", style: .default, handler: { action in UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             })
+                locationAlert.addAction(goToSettingsAction)
             present(locationAlert, animated: true, completion: nil)
         }
     }
