@@ -32,6 +32,7 @@ class UserTableViewController: UITableViewController {
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
+    var locationSpot: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,6 +149,7 @@ class UserTableViewController: UITableViewController {
         guard let about = aboutTextField.text else  { return }
         guard let name = nameTextField.text else { return }
         guard let email = emailTextField.text else { return }
+        guard let location = locationSpot else { return }
         
         let user = Users(id: currentAuthID!, game: game,
                          titleOfGroup: titleOfGroup,
@@ -155,7 +157,7 @@ class UserTableViewController: UITableViewController {
                          age: age,
                          availability: availability,
                          about: about,
-                         name: name, email: email)
+                         name: name, email: email, location: location)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
@@ -206,6 +208,7 @@ class UserTableViewController: UITableViewController {
             let about = ""
             let name = ""
             let email = ""
+            let location = ""
             // let currentUID = self.currentAuthID
             let user = Users(id: self.currentAuthID!, game: game,
                              titleOfGroup: titleOfGroup,
@@ -213,7 +216,7 @@ class UserTableViewController: UITableViewController {
                              age: age,
                              availability: availability,
                              about: about,
-                             name: name, email: email)
+                             name: name, email: email, location: location)
             let userRef = self.db.collection("profile")
             userRef.document(String(user.id)).updateData(user.dictionary){ err in
                 if err == nil {

@@ -49,7 +49,7 @@ class MyFirebase {
             } else {
                 // check for docuemnt named the same as their user id, if it does not exist it will create a document for them to use, otherwise nothing will happen. should should only be called once when they user logs in and never again unless their account is deleted.
                 print("Logged In")
-                let userReff = self.db.collection("profile").document("\(self.userId)")
+                let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
                 userReff.getDocument { (document, error) in
                     if let document = document, document.exists {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
@@ -60,7 +60,7 @@ class MyFirebase {
                     }
                     self.currentUser = user
                     self.userId = (user?.uid)!
-                    print("UserID: \(self.userId)")
+                    print("UserID: \(self.userId ?? "no ID")")
                     //load data here
                     
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -83,6 +83,7 @@ class MyFirebase {
         let about2: String = ""
         let name2: String = ""
         let email2: String = ""
+        let location: String = ""
         // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
@@ -94,7 +95,7 @@ class MyFirebase {
                          age: age2,
                          availability: availability2,
                          about: about2,
-                         name: name2, email: email2)
+                         name: name2, email: email2, location: location)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).setData(user.dictionary){ err in
