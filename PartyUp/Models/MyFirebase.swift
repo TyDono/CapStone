@@ -16,10 +16,10 @@ import Firebase
 
 class MyFirebase {
     
-    //variables
+    // Variables
     static let shared = MyFirebase()
     
-    var dataBse = Database.database().reference().child("messages")
+    //var dataBse = Database.database().reference().child("messages")
     var db = Firestore.firestore()
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: User?

@@ -18,14 +18,19 @@
 
 #include <vector>
 
-#import "Firestore/Source/Local/FSTLRUGarbageCollector.h"
-
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
+#include "Firestore/core/src/firebase/firestore/local/local_view_changes.h"
+#include "Firestore/core/src/firebase/firestore/local/local_write_result.h"
+#include "Firestore/core/src/firebase/firestore/local/lru_garbage_collector.h"
+#include "Firestore/core/src/firebase/firestore/local/query_data.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
+#include "Firestore/core/src/firebase/firestore/model/mutation.h"
+#include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
+#include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 
 namespace firebase {
 namespace firestore {
@@ -37,18 +42,13 @@ class RemoteEvent;
 }  // namespace firestore
 }  // namespace firebase
 
-@class FSTLocalViewChanges;
-@class FSTLocalWriteResult;
-@class FSTMutation;
-@class FSTMutationBatch;
-@class FSTMutationBatchResult;
-@class FSTQuery;
-@class FSTQueryData;
 @protocol FSTPersistence;
 
 namespace auth = firebase::firestore::auth;
+namespace core = firebase::firestore::core;
 namespace local = firebase::firestore::local;
 namespace model = firebase::firestore::model;
+namespace nanopb = firebase::firestore::nanopb;
 namespace remote = firebase::firestore::remote;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -108,10 +108,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::MaybeDocumentMap)userDidChange:(const auth::User &)user;
 
 /** Accepts locally generated Mutations and commits them to storage. */
-- (FSTLocalWriteResult *)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations;
+- (local::LocalWriteResult)locallyWriteMutations:(std::vector<model::Mutation> &&)mutations;
 
 /** Returns the current value of a document with a given key, or nil if not found. */
-- (nullable FSTMaybeDocument *)readDocument:(const model::DocumentKey &)key;
+- (absl::optional<model::MaybeDocument>)readDocument:(const model::DocumentKey &)key;
 
 /**
  * Acknowledges the given batch.
@@ -126,7 +126,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return The resulting (modified) documents.
  */
-- (model::MaybeDocumentMap)acknowledgeBatchWithResult:(FSTMutationBatchResult *)batchResult;
+- (model::MaybeDocumentMap)acknowledgeBatchWithResult:
+    (const model::MutationBatchResult &)batchResult;
 
 /**
  * Removes mutations from the MutationQueue for the specified batch. LocalDocuments will be
@@ -137,14 +138,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::MaybeDocumentMap)rejectBatchID:(model::BatchId)batchID;
 
 /** Returns the last recorded stream token for the current user. */
-- (nullable NSData *)lastStreamToken;
+- (nanopb::ByteString)lastStreamToken;
 
 /**
  * Sets the stream token for the current user without acknowledging any mutation batch. This is
  * usually only useful after a stream handshake or in response to an error that requires clearing
  * the stream token.
  */
-- (void)setLastStreamToken:(nullable NSData *)streamToken;
+- (void)setLastStreamToken:(const nanopb::ByteString &)streamToken;
 
 /**
  * Returns the last consistent snapshot processed (used by the RemoteStore to determine whether to
@@ -171,16 +172,16 @@ NS_ASSUME_NONNULL_BEGIN
  * Assigns @a query an internal ID so that its results can be pinned so they don't get GC'd.
  * A query must be allocated in the local store before the store can be used to manage its view.
  */
-- (FSTQueryData *)allocateQuery:(FSTQuery *)query;
+- (local::QueryData)allocateQuery:(core::Query)query;
 
 /** Unpin all the documents associated with @a query. */
-- (void)releaseQuery:(FSTQuery *)query;
+- (void)releaseQuery:(const core::Query &)query;
 
 /** Runs @a query against all the documents in the local store and returns the results. */
-- (model::DocumentMap)executeQuery:(FSTQuery *)query;
+- (model::DocumentMap)executeQuery:(const core::Query &)query;
 
 /** Notify the local store of the changed views to locally pin / unpin documents. */
-- (void)notifyLocalViewChanges:(NSArray<FSTLocalViewChanges *> *)viewChanges;
+- (void)notifyLocalViewChanges:(const std::vector<local::LocalViewChanges> &)viewChanges;
 
 /**
  * Gets the mutation batch after the passed in batchId in the mutation queue or nil if empty.
@@ -188,9 +189,15 @@ NS_ASSUME_NONNULL_BEGIN
  * @param batchID The batch to search after, or -1 for the first mutation in the queue.
  * @return the next mutation or nil if there wasn't one.
  */
-- (nullable FSTMutationBatch *)nextMutationBatchAfterBatchID:(model::BatchId)batchID;
+- (absl::optional<model::MutationBatch>)nextMutationBatchAfterBatchID:(model::BatchId)batchID;
 
-- (local::LruResults)collectGarbage:(FSTLRUGarbageCollector *)garbageCollector;
+/**
+ * Returns the largest (latest) batch id in mutation queue that is pending server response.
+ * Returns `kBatchIdUnknown` if the queue is empty.
+ */
+- (model::BatchId)getHighestUnacknowledgedBatchId;
+
+- (local::LruResults)collectGarbage:(local::LruGarbageCollector *)garbageCollector;
 
 @end
 

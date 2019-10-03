@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PartyUp
+//@testable import PartyUp
 
 class PartyUpTests: XCTestCase {
 

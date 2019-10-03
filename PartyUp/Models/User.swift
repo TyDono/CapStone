@@ -66,7 +66,7 @@ extension Users: DocumentUserSerializable {
             let about = dictionary["about"] as? String,
             let name = dictionary["name"] as? String,
             let email = dictionary["name"] as? String,
-        let location = dictionary["location"] as? String else {return nil}
+            let location = dictionary["location"] as? String else {return nil}
         //    let color  = dictionary["color"] as? UIColor
         //let authData = dictionary["authData"] as? Any?,
         //let clientData = dictionary["clientData"] as? Any? else { return nil }

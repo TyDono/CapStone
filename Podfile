@@ -9,14 +9,12 @@ target 'PartyUp' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'GoogleSignIn'
+pod 'GoogleSignIn', '< 5.0.0'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'MessageKit'
-pod 'Scaledrone', '~> 0.3.0'
 pod 'Firebase/Messaging'
-pod 'SwiftKeychainWrapper'
 
   target 'PartyUpTests' do
     inherit! :search_paths
