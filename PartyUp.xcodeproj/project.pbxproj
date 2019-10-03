@@ -355,13 +355,16 @@
 				TargetAttributes = {
 					CB610C472214919200DBBAAE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 					CB610C5B2214919400DBBAAE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 						TestTargetID = CB610C472214919200DBBAAE;
 					};
 					CB610C662214919400DBBAAE = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 						TestTargetID = CB610C472214919200DBBAAE;
 					};
 				};
@@ -755,7 +758,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -773,7 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -793,7 +796,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyUp.app/PartyUp";
 			};
@@ -814,7 +817,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyUp.app/PartyUp";
 			};
@@ -834,7 +837,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PartyUp;
 			};
@@ -854,7 +857,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PartyUp;
 			};

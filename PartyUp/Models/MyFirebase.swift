@@ -119,7 +119,7 @@ class MyFirebase {
     }
     
     func liknCredential(credential: AuthCredential) {
-        currentUser?.linkAndRetrieveData(with: credential) {
+        currentUser?.link(with: credential) {
             (user, error) in
             
             if let error = error {
