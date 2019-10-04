@@ -34,6 +34,7 @@
 		CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CB92215BBBA00DBBAAE /* User.swift */; };
 		CB610CBD2215BBBA00DBBAAE /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610CBA2215BBBA00DBBAAE /* Games.swift */; };
 		CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */; };
+		CB9167A3234798AD00FFBB82 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9167A2234798AD00FFBB82 /* SettingsViewController.swift */; };
 		CBBA87AD221C53610002C25E /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA87AC221C53610002C25E /* MapKit.swift */; };
 		CBBA8869221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
 		CBBA886A221EF23E0002C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */; };
@@ -102,6 +103,7 @@
 		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		CB9167A2234798AD00FFBB82 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = /Users/tydon/Desktop/CapStone/PartyUp/PartyUp/ViewControllers/SettingsViewController.swift; sourceTree = "<absolute>"; };
 		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 		CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBBA886C221F02E30002C25E /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
 				CB610C9D2215BAEC00DBBAAE /* LFGTableViewController.swift */,
 				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
+				CB9167A2234798AD00FFBB82 /* SettingsViewController.swift */,
 				CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */,
 				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
@@ -581,6 +584,7 @@
 				CB2C190E223F783B004FAA1F /* MessageTableViewCell.swift in Sources */,
 				CB610CAA2215BAED00DBBAAE /* LFGTableViewController.swift in Sources */,
 				CB2C190A223F552C004FAA1F /* NewMessageTableViewController.swift in Sources */,
+				CB9167A3234798AD00FFBB82 /* SettingsViewController.swift in Sources */,
 				CB2C18F5223DCCB2004FAA1F /* UIImage.swift in Sources */,
 				CB2C1910223F784C004FAA1F /* MessageTableViewController.swift in Sources */,
 			);
