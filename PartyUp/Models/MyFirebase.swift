@@ -51,20 +51,18 @@ class MyFirebase {
                 print("Logged In")
                 let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
                 userReff.getDocument { (document, error) in
-                    if let document = document, document.exists {
+                    if let document = document {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         print("data already added: \(dataDescription)")
                     } else {
-                        //self.createData()
+                        self.createData()
                         print("document added to fireStore")
                     }
                     self.currentUser = user
                     self.userId = (user?.uid)!
                     print("UserID: \(self.userId ?? "no ID")")
                     //load data here
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    
                        // performSegue(withIdentifier: "moveToTabVC", sender: nil)
                         moveToLFG()
                     }
@@ -97,10 +95,9 @@ class MyFirebase {
                          about: about2,
                          name: name2, email: email2, location: location)
         let userRef = self.db.collection("profile")
-        
-        userRef.document(String(user.id)).setData(user.dictionary){ err in
-            if err != nil {
-                print(Error.self)
+        userRef.document(String(user.id)).setData(user.dictionary) { err in
+            if let err = err {
+                print(err)
             } else {
                 print("Added Data")
             }

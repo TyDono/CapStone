@@ -161,7 +161,7 @@ class UserTableViewController: UITableViewController {
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
-            if err != nil {
+            if let err = err {
                 let alert1 = UIAlertController(title: "Not Saved", message: "Sorry, there was an error while trying to save your profile. Please try again.", preferredStyle: .alert)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert1.dismiss(animated: true, completion: nil)
