@@ -11,12 +11,13 @@ import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
+        var emailValue: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
