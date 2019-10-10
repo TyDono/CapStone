@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
@@ -22,6 +23,26 @@ class SettingsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    func configureMailController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setPreferredSendingEmailAddress(emailValue)
+        return mailComposerVC
+    }
+    
+    func showMailError() {
+        let sendMailErrorAlert = UIAlertController(title: "Failed to send email", message: "Your device failed to send the email", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     @IBAction func clearAccountButtonTapped(_ sender: UIButton) {
@@ -80,5 +101,15 @@ class SettingsViewController: UIViewController {
         self.present(alerController, animated: true) {
         }
     }
+    
+    @IBAction func contactUsButtonTapped(_ sender: UIButton) {
+        let mailComposeViewcontroller = configureMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewcontroller, animated: true, completion: nil)
+        } else {
+            showMailError()
+        }
+    }
+    
     
 }
