@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
-        var emailValue: String = ""
+    var emailValue: String = "TyDonoCode@gmail.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     @IBAction func clearAccountButtonTapped(_ sender: UIButton) {
         
