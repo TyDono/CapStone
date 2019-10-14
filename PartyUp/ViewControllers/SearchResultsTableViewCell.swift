@@ -28,8 +28,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+
     }
     
     func updateCell(users: Users) {
