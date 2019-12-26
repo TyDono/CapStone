@@ -136,9 +136,6 @@ class UserTableViewController: UITableViewController {
     //
     //MARK Actions
     
-    //updates the users profile based on their auth Id. once saved it will give an alert and move them to LFG, other wise it will tell them an error occured and move them to LFG. I move them because the textView dissapears and only re appears if the user re enters their profile. this is to make them not freak out thinking nothing saved. once they go back to their vie profile they will se their VC filled with their info they entered
-    
-    
     @IBAction func settingBarButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
