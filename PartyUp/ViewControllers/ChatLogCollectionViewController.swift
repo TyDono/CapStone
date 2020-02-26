@@ -61,12 +61,12 @@ class ChatLogCollectionViewController: UICollectionViewController {
     //MARK actions
     @IBAction func sendButtonTapped(_ sender: Any) {
         
-        let db = Database.database().reference().child("messages")
-        let childRef = db.childByAutoId()
-        let values = ["text": inputTextField.text!, "name": "jim"]
-        childRef.updateChildValues(values)
-        
-        print(inputTextField.text)
+//        let db = Database.database().reference().child("messages") i no longer use data base shud use firestore
+//        let childRef = db.childByAutoId()
+//        let values = ["text": inputTextField.text!, "name": "jim"]
+//        childRef.updateChildValues(values)
+//        
+//        print(inputTextField.text)
         
     }
     

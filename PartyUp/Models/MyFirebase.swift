@@ -51,6 +51,7 @@ class MyFirebase {
                 print("Logged In")
                 let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
                 userReff.getDocument { (document, error) in
+                    print(document)
                     if let document = document {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         print("data already added: \(dataDescription)")

@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 target 'PartyUp' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for PartyUp
@@ -12,7 +12,6 @@ pod 'Firebase/Auth'
 pod 'GoogleSignIn', '< 5.0.0'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
-pod 'Firebase/Database'
 pod 'MessageKit'
 pod 'Firebase/Messaging'
 
@@ -22,7 +21,6 @@ pod 'Firebase/Messaging'
   end
 
   target 'PartyUpUITests' do
-    inherit! :search_paths
     # Pods for testing
   end
 

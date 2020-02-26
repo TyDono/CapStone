@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		296A4280FCEEB98B48C687E1 /* Pods_PartyUpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */; };
+		57AC63972D85A81B539E5BBF /* Pods_PartyUp_PartyUpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4C19B1C5DE0EAC5DE8CD8 /* Pods_PartyUp_PartyUpUITests.framework */; };
 		613807AC780F72066500FBF2 /* Pods_PartyUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */; };
 		CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18EF223DCCB0004FAA1F /* UIColor.swift */; };
 		CB2C18F5223DCCB2004FAA1F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F1223DCCB1004FAA1F /* UIImage.swift */; };
@@ -66,9 +66,11 @@
 
 /* Begin PBXFileReference section */
 		1E56216A0C91F6C4D10FBA17 /* Pods-PartyUpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUpUITests.release.xcconfig"; path = "Target Support Files/Pods-PartyUpUITests/Pods-PartyUpUITests.release.xcconfig"; sourceTree = "<group>"; };
+		38C4C19B1C5DE0EAC5DE8CD8 /* Pods_PartyUp_PartyUpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp_PartyUpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3F67C8F3727784B906906D /* Pods-PartyUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUpTests.debug.xcconfig"; path = "Target Support Files/Pods-PartyUpTests/Pods-PartyUpTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F567A498AFBA194BDEE02E1 /* Pods-PartyUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp.debug.xcconfig"; path = "Target Support Files/Pods-PartyUp/Pods-PartyUp.debug.xcconfig"; sourceTree = "<group>"; };
 		720A74FA2A04BC0B33E2129C /* Pods-PartyUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUpTests.release.xcconfig"; path = "Target Support Files/Pods-PartyUpTests/Pods-PartyUpTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F36466503D88A07D2374CCC /* Pods-PartyUp-PartyUpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp-PartyUpUITests.debug.xcconfig"; path = "Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		954AA8DEA2613E3831F7B1B9 /* Pods-PartyUpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUpUITests.debug.xcconfig"; path = "Target Support Files/Pods-PartyUpUITests/Pods-PartyUpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 		CB610CB92215BBBA00DBBAAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB610CBA2215BBBA00DBBAAE /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		CB610CC22215CF6400DBBAAE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		CB89B91E2404AC8E00724301 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CBBA87AC221C53610002C25E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 		CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBBA886C221F02E30002C25E /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -112,7 +115,7 @@
 		CBBA88932225A58E0002C25E /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		CBBA88952225A6860002C25E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE0E75CAB76A70F668E85D49 /* Pods-PartyUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp.release.xcconfig"; path = "Target Support Files/Pods-PartyUp/Pods-PartyUp.release.xcconfig"; sourceTree = "<group>"; };
-		D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyUpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA21435C5EC18A7150509370 /* Pods-PartyUp-PartyUpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp-PartyUpUITests.release.xcconfig"; path = "Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				296A4280FCEEB98B48C687E1 /* Pods_PartyUpUITests.framework in Frameworks */,
+				57AC63972D85A81B539E5BBF /* Pods_PartyUp_PartyUpUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +274,8 @@
 				720A74FA2A04BC0B33E2129C /* Pods-PartyUpTests.release.xcconfig */,
 				954AA8DEA2613E3831F7B1B9 /* Pods-PartyUpUITests.debug.xcconfig */,
 				1E56216A0C91F6C4D10FBA17 /* Pods-PartyUpUITests.release.xcconfig */,
+				8F36466503D88A07D2374CCC /* Pods-PartyUp-PartyUpUITests.debug.xcconfig */,
+				DA21435C5EC18A7150509370 /* Pods-PartyUp-PartyUpUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -278,9 +283,10 @@
 		FBFA7A9B5469F68C38A2E061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB89B91E2404AC8E00724301 /* UIKit.framework */,
 				B177D7289F98BF4BE264F359 /* Pods_PartyUp.framework */,
 				B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */,
-				D7234ED1C623AFE17D0152CC /* Pods_PartyUpUITests.framework */,
+				38C4C19B1C5DE0EAC5DE8CD8 /* Pods_PartyUp_PartyUpUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,6 +341,8 @@
 				CB610C632214919400DBBAAE /* Sources */,
 				CB610C642214919400DBBAAE /* Frameworks */,
 				CB610C652214919400DBBAAE /* Resources */,
+				77C103AFD3D366139CA71A80 /* [CP] Embed Pods Frameworks */,
+				3A437FFDBF126722348BB46F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,6 +454,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3A437FFDBF126722348BB46F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77C103AFD3D366139CA71A80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		93FE727021D08ED3ED5FD89E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,16 +516,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -505,7 +542,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PartyUpUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PartyUp-PartyUpUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -518,36 +555,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
-				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-PartyUp/Pods-PartyUp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -831,7 +843,7 @@
 		};
 		CB610C772214919400DBBAAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 954AA8DEA2613E3831F7B1B9 /* Pods-PartyUpUITests.debug.xcconfig */;
+			baseConfigurationReference = 8F36466503D88A07D2374CCC /* Pods-PartyUp-PartyUpUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -851,7 +863,7 @@
 		};
 		CB610C782214919400DBBAAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E56216A0C91F6C4D10FBA17 /* Pods-PartyUpUITests.release.xcconfig */;
+			baseConfigurationReference = DA21435C5EC18A7150509370 /* Pods-PartyUp-PartyUpUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 class SearchResultsTableViewController: UITableViewController {
     
@@ -18,6 +19,8 @@ class SearchResultsTableViewController: UITableViewController {
     var db: Firestore!
     var gameValue: String!
     var text: String?
+    var cellIsHidden: Bool? = false
+    let currentUserId = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +72,11 @@ class SearchResultsTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
         //tableView.rowHeight = 75
         if let users = users {
-            
             let user = users[indexPath.row]
+            if self.currentUserId == user.id {
+                cell.isHidden = true
+                self.cellIsHidden = true
+            }
             cell.gameLabel?.text = "Game: \(user.game)"
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
@@ -85,6 +91,13 @@ class SearchResultsTableViewController: UITableViewController {
             cell.updateCell(users: user)
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        var rowHeight:CGFloat = 0.0
+        self.cellIsHidden == true ? (rowHeight = 0.0): (rowHeight = 135.0)
+        return rowHeight
     }
     
     //pass in user.game and ect and have the labels print out it there.

@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Title_Screen")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-        self.tableView.backgroundView = backgroundImage
+      //  self.tableView.backgroundView = backgroundImage
     }
     
     func configureMailController() -> MFMailComposeViewController {
