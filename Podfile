@@ -14,6 +14,8 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'MessageKit'
 pod 'Firebase/Messaging'
+pod 'Firebase/Database'
+pod 'JSQMessagesViewController'
 
   target 'PartyUpTests' do
     inherit! :search_paths

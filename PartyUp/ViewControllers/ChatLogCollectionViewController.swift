@@ -57,7 +57,6 @@ class ChatLogCollectionViewController: UICollectionViewController {
         return cell
     }
     
-
     //MARK actions
     @IBAction func sendButtonTapped(_ sender: Any) {
         
@@ -65,7 +64,7 @@ class ChatLogCollectionViewController: UICollectionViewController {
 //        let childRef = db.childByAutoId()
 //        let values = ["text": inputTextField.text!, "name": "jim"]
 //        childRef.updateChildValues(values)
-//        
+//
 //        print(inputTextField.text)
         
     }

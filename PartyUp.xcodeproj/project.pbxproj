@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,6 +44,8 @@
 		CBBA88922225A20D0002C25E /* MyFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA88912225A20D0002C25E /* MyFirebase.swift */; };
 		CBBA88942225A58E0002C25E /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA88932225A58E0002C25E /* GlobalExtensions.swift */; };
 		CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBA88952225A6860002C25E /* SplashViewController.swift */; };
+		CBC068DA24066AA10039890F /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC068D924066AA10039890F /* ChatLogViewController.swift */; };
+		CBC068DC2406747D0039890F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC068DB2406747D0039890F /* Constants.swift */; };
 		E4056C5557C1D1E7E96B1ACF /* Pods_PartyUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B176EA8D72D73B2627448B7E /* Pods_PartyUpTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,8 @@
 		CBBA88912225A20D0002C25E /* MyFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebase.swift; sourceTree = "<group>"; };
 		CBBA88932225A58E0002C25E /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		CBBA88952225A6860002C25E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		CBC068D924066AA10039890F /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		CBC068DB2406747D0039890F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE0E75CAB76A70F668E85D49 /* Pods-PartyUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp.release.xcconfig"; path = "Target Support Files/Pods-PartyUp/Pods-PartyUp.release.xcconfig"; sourceTree = "<group>"; };
 		DA21435C5EC18A7150509370 /* Pods-PartyUp-PartyUpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyUp-PartyUpUITests.release.xcconfig"; path = "Target Support Files/Pods-PartyUp-PartyUpUITests/Pods-PartyUp-PartyUpUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,7 @@
 				CB2C1909223F552C004FAA1F /* NewMessageTableViewController.swift */,
 				CB2C190B223F5646004FAA1F /* NewMessageTableViewCell.swift */,
 				CB2C1907223F3D6A004FAA1F /* ChatLogCollectionViewController.swift */,
+				CBC068D924066AA10039890F /* ChatLogViewController.swift */,
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
 				CBBA88952225A6860002C25E /* SplashViewController.swift */,
 			);
@@ -241,6 +246,7 @@
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
 				CB2C1905223F3AE7004FAA1F /* Message.swift */,
 				CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */,
+				CBC068DB2406747D0039890F /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -579,10 +585,12 @@
 				CBBA88922225A20D0002C25E /* MyFirebase.swift in Sources */,
 				CB610CAC2215BAED00DBBAAE /* TabController.swift in Sources */,
 				CBBA88962225A6860002C25E /* SplashViewController.swift in Sources */,
+				CBC068DA24066AA10039890F /* ChatLogViewController.swift in Sources */,
 				CB2C1900223F2F61004FAA1F /* MessageDetail.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
 				CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */,
 				CB2C1908223F3D6A004FAA1F /* ChatLogCollectionViewController.swift in Sources */,
+				CBC068DC2406747D0039890F /* Constants.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */,
 				CB610CAF2215BAED00DBBAAE /* SearchResultsTableViewCell.swift in Sources */,

@@ -683,11 +683,55 @@
                         <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="ACh-D7-C4y" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
                         <segue destination="8tH-ty-oyK" kind="relationship" relationship="viewControllers" id="0XW-x5-KGO"/>
+                        <segue destination="ZJH-4f-4gx" kind="relationship" relationship="viewControllers" id="e0V-ZC-7cT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25279" y="992"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="e8u-rR-TDL">
+            <objects>
+                <viewController id="3rR-Pg-vkm" customClass="ChatLogViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ANd-I8-O8m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="A1f-Kb-IFN"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="N2I-Tz-xQB"/>
+                    <navigationItem key="navigationItem" id="TBm-9O-icB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZB-ge-cWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23086" y="2150"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="lqz-5o-gMc">
+            <objects>
+                <viewController id="ZJH-4f-4gx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GMu-Q6-LXk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-X9-NlC">
+                                <rect key="frame" x="34" y="137" width="341" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="3rR-Pg-vkm" kind="show" id="tuM-Wo-HQh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="BUM-of-UVr"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="8Nu-Em-FJF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nbj-pK-MKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24234.400000000001" y="2149.4752623688159"/>
         </scene>
         <!--Chat-->
         <scene sceneID="vfL-Q2-fKs">
@@ -792,7 +836,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1om-40-NKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24234" y="1418"/>
+            <point key="canvasLocation" x="-23794" y="1481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
@@ -1231,5 +1275,6 @@
     <resources>
         <image name="Title_Screen" width="154.5" height="268"/>
         <image name="icons8-user-50" width="25" height="25"/>
+        <image name="message.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>
