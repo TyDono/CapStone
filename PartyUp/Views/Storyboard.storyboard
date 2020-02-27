@@ -716,7 +716,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="MI9-ck-cVF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="MI9-ck-cVF" customClass="ContactsTableViewCell" customModule="PartyUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MI9-ck-cVF" id="RpH-aG-Je8">
@@ -748,6 +748,10 @@
                                         <constraint firstItem="PaU-CR-Vk9" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="t8H-4W-jeX"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contactNameLabel" destination="e71-AW-cas" id="tyq-wM-HMu"/>
+                                    <outlet property="contactProfileImage" destination="PaU-CR-Vk9" id="Ptm-gV-O0l"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

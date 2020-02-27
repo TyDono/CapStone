@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class ContactsTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,17 +29,13 @@ class ContactsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
+        
         return cell
     }
-    */
-
+    
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
