@@ -143,16 +143,17 @@ class UserTableViewController: UITableViewController {
     @IBAction func saveProfileTapped(_ sender: Any) {
         
         // Auth.auth().currentUser?.uid // get current auth ID
-        guard let game = gameTextField.text else { return }
-        guard let titleOfGroup = titleTextField.text else { return }
-        guard let groupSize = groupSizeTextField.text else  { return }
-        guard let experiance = experianceSegmentedControl else  { return }
-        guard let age = ageTextField.text else  { return }
-        guard let availability = availabilityTextField.text else  { return }
-        guard let about = aboutTextField.text else  { return }
-        guard let name = nameTextField.text else { return }
-        guard let email = emailTextField.text else { return }
-        guard let location = locationSpot else { return }
+        guard let game = gameTextField.text,
+            let titleOfGroup = titleTextField.text,
+            let groupSize = groupSizeTextField.text,
+            let experiance = experianceSegmentedControl,
+            let age = ageTextField.text,
+            let availability = availabilityTextField.text,
+            let about = aboutTextField.text,
+            let name = nameTextField.text,
+            let email = emailTextField.text,
+            let location = locationSpot else { return }
+            let contacts = [""]// make this the array of contacts that you get when you pull it down
         
         let user = Users(id: currentAuthID!, game: game,
                          titleOfGroup: titleOfGroup,
@@ -160,7 +161,9 @@ class UserTableViewController: UITableViewController {
                          age: age,
                          availability: availability,
                          about: about,
-                         name: name, email: email, location: location)
+                         name: name, email: email,
+                         location: location,
+                         contacts: contacts)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in

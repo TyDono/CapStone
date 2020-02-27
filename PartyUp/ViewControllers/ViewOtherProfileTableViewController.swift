@@ -8,6 +8,10 @@
 
 import UIKit
 import MessageUI
+import FirebaseDatabase
+import JSQMessagesViewController
+import FirebaseAuth
+import FirebaseFirestore
 
 class ViewOtherProfileTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -34,9 +38,20 @@ class ViewOtherProfileTableViewController: UITableViewController, MFMailComposeV
     var text: String?
     var nameValue: String = ""
     var emailValue: String = ""
+    var userId: String?
+    var dbRef = Database.database().reference()
+    var messages = [JSQMessage]()
+    var chatRoomIdString: String?
+    let currentUserId = Auth.auth().currentUser?.uid
+    var yourCurrentUserName: String?
+    var db: Firestore!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
+        dbRef = Database.database().reference()
         updateOtherProfile()
         changeBackground()
     }
@@ -61,6 +76,38 @@ class ViewOtherProfileTableViewController: UITableViewController, MFMailComposeV
     
     //MARK Actions, change to bring up and email to email the user
     @IBAction func contactMeTapped(_ sender: Any) {
+        guard let unwrappedChatRoomIdString: String = self.chatRoomIdString else { return }
+        print(unwrappedChatRoomIdString)
+        let query = self.dbRef.child("\(unwrappedChatRoomIdString)").queryLimited(toLast: 10)
+        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+            if  let data = snapshot.value as? [String: String],
+                let id = data["sender_id"],
+                let name = data["name"],
+                let text = data["text"],
+                !text.isEmpty {
+                if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+                    self?.messages.append(message)
+                    
+                }
+            }
+        })
+        guard let uid: String = self.currentUserId else { return }
+        let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
+        profileRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                
+                print(error as Any)
+            } else {
+                
+                for document in (snapshot?.documents)! {
+                    guard let name = document.data()["name"] as? String else { return }
+                    self.yourCurrentUserName = name
+                }
+            }
+        }
+        let ref = self.dbRef.child("\(unwrappedChatRoomIdString)").childByAutoId() // call
+        let message = ["sender_id": self.currentUserId, "name": self.yourCurrentUserName, "text": ""]
+        ref.setValue(message)
 //        let mailComposeViewcontroller = configureMailController()
 //        if MFMailComposeViewController.canSendMail() {
 //            self.present(mailComposeViewcontroller, animated: true, completion: nil)

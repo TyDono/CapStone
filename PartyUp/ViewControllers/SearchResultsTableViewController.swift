@@ -73,18 +73,19 @@ class SearchResultsTableViewController: UITableViewController {
         //tableView.rowHeight = 75
         if let users = users {
             let user = users[indexPath.row]
-            if self.currentUserId == user.id {
-                cell.isHidden = true
-                self.cellIsHidden = true
-            }
+//            if self.currentUserId == user.id {
+//                cell.isHidden = true
+//                self.cellIsHidden = true
+//            }
             cell.gameLabel?.text = "Game: \(user.game)"
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
-            cell.about = "\(user.about)"
-            cell.availability = "\(user.availability)"
-            cell.userName = "\(user.name)"
-            cell.email = "\(user.email)"
+            cell.about = user.about
+            cell.availability = user.availability
+            cell.userName = user.name
+            cell.email = user.email
+            cell.userId = user.id
             //cell.userName = "\(user.name)"
             //cell.experiance = "\(user.experioance)"
             
@@ -93,12 +94,12 @@ class SearchResultsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        var rowHeight:CGFloat = 0.0
-        self.cellIsHidden == true ? (rowHeight = 0.0): (rowHeight = 135.0)
-        return rowHeight
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        var rowHeight:CGFloat = 0.0
+//        self.cellIsHidden == true ? (rowHeight = 0.0): (rowHeight = 135.0)
+//        return rowHeight
+//    }
     
     //pass in user.game and ect and have the labels print out it there.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,6 +116,8 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.aboutValue = user.about
                 otherProfileVC.nameValue = user.name
                 otherProfileVC.emailValue = user.email
+                otherProfileVC.userId = user.id
+                otherProfileVC.chatRoomIdString = "\(self.currentUserId)" + "\(user.id)"
             }
             print("prepare for viewUserSegue called")
         }

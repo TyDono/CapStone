@@ -682,7 +682,6 @@
                     <connections>
                         <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="ACh-D7-C4y" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
-                        <segue destination="ZJH-4f-4gx" kind="relationship" relationship="viewControllers" id="e0V-ZC-7cT"/>
                         <segue destination="W8j-Zq-AT6" kind="relationship" relationship="viewControllers" id="qAJ-WY-UZH"/>
                     </connections>
                 </tabBarController>
@@ -707,7 +706,7 @@
             </objects>
             <point key="canvasLocation" x="-23086" y="2150"/>
         </scene>
-        <!--Item-->
+        <!--Contacts-->
         <scene sceneID="jZx-RS-04R">
             <objects>
                 <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -759,7 +758,7 @@
                             <outlet property="delegate" destination="W8j-Zq-AT6" id="XdA-Yr-Khg"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="YFN-Xg-mqF"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="YFN-Xg-mqF"/>
                     <connections>
                         <segue destination="3rR-Pg-vkm" kind="show" identifier="segueToMessages" id="RRp-hb-Axc"/>
                     </connections>
@@ -773,7 +772,7 @@
             <objects>
                 <viewController id="ZJH-4f-4gx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GMu-Q6-LXk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-X9-NlC">
@@ -1269,7 +1268,7 @@
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Contact Me!">
+                                                    <state key="normal" title="Add to Contacts">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>

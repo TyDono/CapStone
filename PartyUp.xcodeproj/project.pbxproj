@@ -248,8 +248,6 @@
 				CB610CB92215BBBA00DBBAAE /* User.swift */,
 				CBBA87AC221C53610002C25E /* MapKit.swift */,
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
-				CB2C1905223F3AE7004FAA1F /* Message.swift */,
-				CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */,
 				CBC068DB2406747D0039890F /* Constants.swift */,
 				CBBDDEE82407B6E700345F5E /* Contacts.swift */,
 			);
@@ -284,6 +282,8 @@
 				CB2C1909223F552C004FAA1F /* NewMessageTableViewController.swift */,
 				CB2C190B223F5646004FAA1F /* NewMessageTableViewCell.swift */,
 				CB2C1907223F3D6A004FAA1F /* ChatLogCollectionViewController.swift */,
+				CB2C1905223F3AE7004FAA1F /* Message.swift */,
+				CB2C18FF223F2F61004FAA1F /* MessageDetail.swift */,
 			);
 			path = "old message code";
 			sourceTree = "<group>";

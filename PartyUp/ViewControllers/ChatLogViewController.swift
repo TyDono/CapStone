@@ -18,7 +18,8 @@ class ChatLogViewController: JSQMessagesViewController {
     var currentUserName: String? = "Jim"
     var messages = [JSQMessage]()
     var db: Firestore!
-    var dbref = Database.database().reference()
+    var dbRef = Database.database().reference()
+    var chatDatabaseName: String?
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -30,7 +31,7 @@ class ChatLogViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dbref = Database.database().reference()
+        dbRef = Database.database().reference()
         db = Firestore.firestore()
         getPersonalData()
         
@@ -82,7 +83,7 @@ class ChatLogViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        let ref = Constants.refs.databaseChats.childByAutoId()
+        let ref = Constants.refs.databaseChats.childByAutoId() // call dbref.databaseRoot.child("chatDatabaseName") chatDatabaseName location is the string in which  the 2 users will connect with, a new one for every 2 ppl.
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         ref.setValue(message)
         finishSendingMessage()

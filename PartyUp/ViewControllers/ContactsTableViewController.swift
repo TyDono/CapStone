@@ -15,6 +15,7 @@ class ContactsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // relord Table View data every time
         
     }
 
