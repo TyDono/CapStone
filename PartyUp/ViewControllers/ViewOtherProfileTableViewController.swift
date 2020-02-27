@@ -61,31 +61,32 @@ class ViewOtherProfileTableViewController: UITableViewController, MFMailComposeV
     
     //MARK Actions, change to bring up and email to email the user
     @IBAction func contactMeTapped(_ sender: Any) {
-        let mailComposeViewcontroller = configureMailController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewcontroller, animated: true, completion: nil)
-        } else {
-            showMailError()
-        }
+//        let mailComposeViewcontroller = configureMailController()
+//        if MFMailComposeViewController.canSendMail() {
+//            self.present(mailComposeViewcontroller, animated: true, completion: nil)
+//        } else {
+//            showMailError()
+//        }
     }
     
-    func configureMailController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
-        
-        mailComposerVC.setPreferredSendingEmailAddress(emailValue)
-        return mailComposerVC
-    }
-    
-    func showMailError() {
-        let sendMailErrorAlert = UIAlertController(title: "Failed to send email", message: "Your device failed to send the email", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-        sendMailErrorAlert.addAction(dismiss)
-        self.present(sendMailErrorAlert, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
+    //old mail function
+//    func configureMailController() -> MFMailComposeViewController {
+//        let mailComposerVC = MFMailComposeViewController()
+//        mailComposerVC.mailComposeDelegate = self
+//
+//        mailComposerVC.setPreferredSendingEmailAddress(emailValue)
+//        return mailComposerVC
+//    }
+//
+//    func showMailError() {
+//        let sendMailErrorAlert = UIAlertController(title: "Failed to send email", message: "Your device failed to send the email", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        sendMailErrorAlert.addAction(dismiss)
+//        self.present(sendMailErrorAlert, animated: true, completion: nil)
+//    }
+//
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
     
 }

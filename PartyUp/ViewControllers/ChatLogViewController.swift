@@ -18,6 +18,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var currentUserName: String? = "Jim"
     var messages = [JSQMessage]()
     var db: Firestore!
+    var dbref = Database.database().reference()
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -29,31 +30,31 @@ class ChatLogViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dbref = Database.database().reference()
         db = Firestore.firestore()
         getPersonalData()
         
         senderId = self.currentAuthID
-        senderDisplayName = currentUserName
+        senderDisplayName = self.currentUserName
+        title = "Chat: \(senderDisplayName!)"
+        
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
-            if  let data        = snapshot.value as? [String: String],
-                let id          = data["sender_id"],
-                let name        = data["name"],
-                let text        = data["text"],
+            if  let data = snapshot.value as? [String: String],
+                let id = data["sender_id"],
+                let name = data["name"],
+                let text = data["text"],
                 !text.isEmpty {
                 if let message = JSQMessage(senderId: id, displayName: name, text: text) {
                     self?.messages.append(message)
-
                     self?.finishReceivingMessage()
                 }
             }
         })
-
-        
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -66,7 +67,7 @@ class ChatLogViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
-    }
+    } // chesk to see who is sending message.
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
@@ -89,7 +90,6 @@ class ChatLogViewController: JSQMessagesViewController {
     
     func getPersonalData() {
         guard let uid: String = self.currentAuthID else { return }
-        print("this is my uid i really like my uid \(uid)")
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
