@@ -48,8 +48,9 @@ class MyFirebase {
                 }
             } else {
                 // check for docuemnt named the same as their user id, if it does not exist it will create a document for them to use, otherwise nothing will happen. should should only be called once when they user logs in and never again unless their account is deleted.
+                let currentUserId: String = self.currentAuthID ?? "no current auth Id detected"
                 print("Logged In")
-                let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
+                let userReff = self.db.collection("profile").document("\(String(describing: currentUserId))")
                 userReff.getDocument { (document, error) in
                     print(document)
                     guard let document = document?.exists else { return }
