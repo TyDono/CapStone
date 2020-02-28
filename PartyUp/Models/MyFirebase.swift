@@ -79,6 +79,7 @@ class MyFirebase {
     
     func createData() {
         
+        let currentUserId: String = self.currentAuthID ?? "no current auth Id detected"
         let game2: String = ""
         let titleOfGroup2: String = ""
         let groupSize2: String = ""
@@ -94,7 +95,7 @@ class MyFirebase {
         // let authData: Any?
         //let clientData: Any?
         
-        let user = Users(id: currentAuthID!,
+        let user = Users(id: currentUserId,
                          game: game2,
                          titleOfGroup: titleOfGroup2,
                          groupSize: groupSize2,
