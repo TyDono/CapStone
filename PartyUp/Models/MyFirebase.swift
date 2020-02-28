@@ -52,9 +52,9 @@ class MyFirebase {
                 let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
                 userReff.getDocument { (document, error) in
                     print(document)
-                    if let document = document {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("data already added: \(dataDescription)")
+                    guard let document = document?.exists else { return }
+                    if document == true {
+                        print("data already added: \(document)")
                     } else {
                         self.createData()
                         print("document added to fireStore")
@@ -71,6 +71,11 @@ class MyFirebase {
             }
         }
     }
+    
+//    func createContactList() {
+//        let contactList: [String] = [""]
+//        let contactListOwnerId: String = ""
+//    }
     
     func createData() {
         
@@ -89,13 +94,15 @@ class MyFirebase {
         // let authData: Any?
         //let clientData: Any?
         
-        let user = Users(id: currentAuthID!, game: game2,
+        let user = Users(id: currentAuthID!,
+                         game: game2,
                          titleOfGroup: titleOfGroup2,
                          groupSize: groupSize2,
                          age: age2,
                          availability: availability2,
                          about: about2,
-                         name: name2, email: email2,
+                         name: name2,
+                         email: email2,
                          location: location,
                          contacts: contacts)
         let userRef = self.db.collection("profile")

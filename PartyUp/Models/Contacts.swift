@@ -10,6 +10,7 @@ import Foundation
 
 struct Contacts {
     var contactList: [String]
+    var contactListOwnerId: String
 }
 
 /*

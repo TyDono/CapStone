@@ -20,6 +20,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var db: Firestore!
     var dbRef = Database.database().reference()
     var chatDatabaseName: String?
+    var chatId: String = ""
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -43,7 +44,8 @@ class ChatLogViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        let newQuery = dbRef.child("Messages").child(self.chatId)
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 10) //this will be getting newQuery
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if  let data = snapshot.value as? [String: String],
                 let id = data["sender_id"],

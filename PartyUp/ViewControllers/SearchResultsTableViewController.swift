@@ -116,8 +116,10 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.aboutValue = user.about
                 otherProfileVC.nameValue = user.name
                 otherProfileVC.emailValue = user.email
-                otherProfileVC.userId = user.id
+                otherProfileVC.userIdValue = user.id
                 otherProfileVC.chatRoomIdString = "\(self.currentUserId)" + "\(user.id)"
+                otherProfileVC.locationValue = user.location
+                otherProfileVC.contactsValue = user.contacts
             }
             print("prepare for viewUserSegue called")
         }
