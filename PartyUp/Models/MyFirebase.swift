@@ -90,7 +90,7 @@ class MyFirebase {
         let name2: String = ""
         let email2: String = ""
         let location: String = ""
-        let contacts: [String] = [""]
+        let contacts: [String] = []
         // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
