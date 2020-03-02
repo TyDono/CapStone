@@ -11,7 +11,7 @@
         <!--Looking For Group-->
         <scene sceneID="gHu-S8-pHw">
             <objects>
-                <tableViewController id="8mv-yD-Xrl" customClass="LFGTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="8mv-yD-Xrl" customClass="LFGTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="626-G3-jhm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
         <!--Your Profile-->
         <scene sceneID="eJa-Ed-5i0">
             <objects>
-                <tableViewController id="hgk-wY-HbF" customClass="UserTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hgk-wY-HbF" customClass="UserTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KBV-7r-myQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,7 +442,7 @@
         <!--Settings and Help-->
         <scene sceneID="Fu5-tb-sXB">
             <objects>
-                <viewController id="wAk-ZX-HAh" customClass="SettingsViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wAk-ZX-HAh" customClass="SettingsViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DFa-aG-ovZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,7 +508,7 @@
         <!--Search Results-->
         <scene sceneID="dxH-sF-D3l">
             <objects>
-                <tableViewController title="Search Results" id="L4m-aT-Ugv" customClass="SearchResultsTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Search Results" id="L4m-aT-Ugv" customClass="SearchResultsTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IUk-wB-Nxi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,7 +516,7 @@
                         <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultsCell" rowHeight="135" id="SKJ-4D-iym" customClass="SearchResultsTableViewCell" customModule="PartyUp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultsCell" rowHeight="135" id="SKJ-4D-iym" customClass="SearchResultsTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SKJ-4D-iym" id="4I8-Jo-k3q">
@@ -593,7 +593,7 @@
         <!--Log In-->
         <scene sceneID="zM7-OX-eMB">
             <objects>
-                <viewController storyboardIdentifier="login" id="VV9-QB-HDC" customClass="LogInViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="VV9-QB-HDC" customClass="LogInViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kfx-3v-Bbb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -672,7 +672,7 @@
         <!--Tab Controller-->
         <scene sceneID="JTy-pd-Seo">
             <objects>
-                <tabBarController storyboardIdentifier="lfg" automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="lfg" automaticallyAdjustsScrollViewInsets="NO" id="lQV-Vs-KLX" customClass="TabController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dN3-m5-hDa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -692,7 +692,7 @@
         <!--Chat-->
         <scene sceneID="e8u-rR-TDL">
             <objects>
-                <viewController id="3rR-Pg-vkm" customClass="ChatLogViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3rR-Pg-vkm" customClass="ChatLogViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ANd-I8-O8m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -709,13 +709,13 @@
         <!--Contacts-->
         <scene sceneID="jZx-RS-04R">
             <objects>
-                <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W5i-Cz-gug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="MI9-ck-cVF" customClass="ContactsTableViewCell" customModule="PartyUp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="MI9-ck-cVF" customClass="ContactsTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MI9-ck-cVF" id="RpH-aG-Je8">
@@ -724,7 +724,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e71-AW-cas">
                                             <rect key="frame" x="77" y="11" width="282" height="53"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -768,35 +768,9 @@
             <point key="canvasLocation" x="-24946.400000000001" y="2237.6311844077964"/>
         </scene>
         <!--Chat-->
-        <scene sceneID="lqz-5o-gMc">
-            <objects>
-                <viewController id="ZJH-4f-4gx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GMu-Q6-LXk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-X9-NlC">
-                                <rect key="frame" x="34" y="137" width="341" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="3rR-Pg-vkm" kind="show" id="tuM-Wo-HQh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="BUM-of-UVr"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="8Nu-Em-FJF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nbj-pK-MKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-24234.400000000001" y="2149.4752623688159"/>
-        </scene>
-        <!--Chat-->
         <scene sceneID="vfL-Q2-fKs">
             <objects>
-                <collectionViewController id="aih-oO-fTe" customClass="ChatLogCollectionViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="aih-oO-fTe" customClass="ChatLogCollectionViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IBv-Bo-Um9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -856,16 +830,16 @@
         <!--New Message Table View Controller-->
         <scene sceneID="twi-0s-lYg">
             <objects>
-                <tableViewController storyboardIdentifier="chatLogs" id="8tH-ty-oyK" customClass="NewMessageTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="chatLogs" id="8tH-ty-oyK" customClass="NewMessageTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZAU-6u-DQc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newMessageCell" id="ulS-Ow-nB3" customClass="NewMessageTableViewCell" customModule="PartyUp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newMessageCell" id="ulS-Ow-nB3" customClass="NewMessageTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ulS-Ow-nB3" id="Kub-Sb-FJP" customClass="NewMessageTableViewCell" customModule="PartyUp" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ulS-Ow-nB3" id="Kub-Sb-FJP" customClass="NewMessageTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -938,7 +912,7 @@
         <!--Loading-->
         <scene sceneID="ap7-4c-pQg">
             <objects>
-                <viewController storyboardIdentifier="splash" title="Loading" id="dUa-QL-EiY" customClass="SplashViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="splash" title="Loading" id="dUa-QL-EiY" customClass="SplashViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEw-2o-8Qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -965,7 +939,7 @@
         <!--Profile-->
         <scene sceneID="BJU-Cp-8ad">
             <objects>
-                <tableViewController id="xEe-Ug-wsV" customClass="ViewOtherProfileTableViewController" customModule="PartyUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xEe-Ug-wsV" customClass="ViewOtherProfileTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y6U-um-qNp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1337,7 +1311,4 @@
         <image name="icons8-user-50" width="25" height="25"/>
         <image name="message.fill" catalog="system" width="64" height="56"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="RRp-hb-Axc"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,8 @@ import FirebaseFirestore
 
 class ContactsTableViewController: UITableViewController {
     
-    var contactList = [String?]()
+    var contactListId = [String?]()
+    var contactsName = [String?]()
     var currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
     
@@ -40,13 +41,15 @@ class ContactsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         getPersonalData()
-        return contactList.count
+        return contactListId.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
-        let contact = contactList[indexPath.row]
-        cell.contactNameLabel.text = contact
+        let contactId = contactListId[indexPath.row]
+        let contactName = contactsName[indexPath.row]
+        cell.contactId = contactId
+        cell.contactNameLabel.text = contactName
         return cell
     }
     
@@ -72,10 +75,9 @@ class ContactsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToMessages", let messagesTVC = segue.destination as? ChatLogViewController {
-            if let row = self.tableView.indexPathForSelectedRow?.row, let contact = contactList[row] {
-                messagesTVC.chatId = contact
+            if let row = self.tableView.indexPathForSelectedRow?.row, let contactId = contactListId[row] {
+                messagesTVC.chatId = contactId
             }
-            
         }
     }
     
@@ -91,8 +93,8 @@ class ContactsTableViewController: UITableViewController {
                 print(error as Any)
             } else {
                 for document in (snapshot?.documents)! {
-                    guard let contactList = document.data()["contacts"] as? [String] else { return }
-                    self.contactList = contactList // getting the list
+                    guard let contactList = document.data()["contactsId"] as? [String] else { return }
+                    self.contactListId = contactList // getting the list
                 }
             }
         }

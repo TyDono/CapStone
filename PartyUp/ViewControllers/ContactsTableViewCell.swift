@@ -12,6 +12,8 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var contactProfileImage: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     
+    var contactId: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

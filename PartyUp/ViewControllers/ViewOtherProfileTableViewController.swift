@@ -28,6 +28,13 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var otherEmailLabel: UILabel!
     
     var users: [Users]?
+    var dbRef = Database.database().reference()
+    var messages = [JSQMessage]()
+    var chatRoomIdString: String?
+    let currentUserId = Auth.auth().currentUser?.uid
+    var yourCurrentUserName: String?
+    var db: Firestore!
+    
     var gameValue: String = ""
     var titleValue: String = ""
     var ageValue: String = ""
@@ -40,13 +47,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var emailValue: String = ""
     var userIdValue: String = ""
     var locationValue: String = ""
-    var contactsValue: [String] = [""]
-    var dbRef = Database.database().reference()
-    var messages = [JSQMessage]()
-    var chatRoomIdString: String?
-    let currentUserId = Auth.auth().currentUser?.uid
-    var yourCurrentUserName: String?
-    var db: Firestore!
+    var contactsIdValue: [String] = [""]
+    var contactsNameValue: [String] = [""]
     
     var yourId: String = ""
     var yourGame: String = ""
@@ -58,7 +60,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourName: String = ""
     var yourEmail: String = ""
     var yourLocation: String = ""
-    var yourContacts: [String] = [""]
+    var yourContactsId: [String] = [""]
+    var yourContactsName: [String] = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +101,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          name: yourName,
                          email: yourEmail,
                          location: yourLocation,
-                         contacts: yourContacts)
+                         contactsId: yourContactsId,
+                         contactsName: yourContactsName)
         let userRef = self.db.collection("profile")
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
             if let err = err {
@@ -134,7 +138,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          name: nameValue,
                          email: emailValue,
                          location: locationValue,
-                         contacts: contactsValue)
+                         contactsId: contactsIdValue,
+                         contactsName: yourContactsName)
         let userRef2 = self.db.collection("profile")
         userRef2.document(String(user2.id)).updateData(user2.dictionary){ err in
             if let err = err {
@@ -187,7 +192,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let availability = document.data()["availability"] as? String,
                         let age = document.data()["age"] as? String,
                         let title = document.data()["title of group"] as? String,
-                        let contacts = document.data()["contacts"] as? [String] else { return }
+                        let contactsId = document.data()["contactsId"] as? [String],
+                        let contactsName = document.data()["contactsName"]as? [String] else { return }
                     self.yourCurrentUserName = name
                     self.yourId = id
                     self.yourGame = game
@@ -198,9 +204,11 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourAvailability = availability
                     self.yourAge = age
                     self.yourTitleOfGroup = title
-                    self.yourContacts = contacts
-                    self.yourContacts.append(unwrappedChatRoomIdString)
-                    self.contactsValue.append(unwrappedChatRoomIdString)
+                    self.yourContactsId = contactsId
+                    self.yourContactsName = contactsName
+                    self.yourContactsId.append(unwrappedChatRoomIdString)
+                    self.contactsIdValue.append(unwrappedChatRoomIdString)
+                    self.contactsNameValue.append(unwrappedChatRoomIdString)
                 }
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()

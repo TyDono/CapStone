@@ -33,6 +33,8 @@ class UserTableViewController: UITableViewController {
     var currentUser: Users?
     var userId: String?
     var locationSpot: String? = ""
+    var contactsName = [""]
+    var contactsId = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +94,9 @@ class UserTableViewController: UITableViewController {
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
                         let age = document.data()["age"] as? String,
-                        let title = document.data()["title of group"] as? String {
+                        let title = document.data()["title of group"] as? String,
+                        let contactsId = document.data()["contactsId"] as? [String],
+                        let contactsName = document.data()["contactsName"] as? [String] {
                         
                         self.gameTextField.text = game
                         self.titleTextField.text = title
@@ -102,6 +106,8 @@ class UserTableViewController: UITableViewController {
                         self.groupSizeTextField.text = groupSize
                         self.nameTextField.text = name
                         self.emailTextField.text = email
+                        self.contactsId = contactsId
+                        self.contactsName = contactsName
                     }
                 }
             }
@@ -153,7 +159,8 @@ class UserTableViewController: UITableViewController {
             let name = nameTextField.text,
             let email = emailTextField.text,
             let location = locationSpot else { return }
-            let contacts = [""]// make this the array of contacts that you get when you pull it down
+        let contactsId = [""]
+        let contactsName = [""]
         
         let user = Users(id: currentAuthID!, game: game,
                          titleOfGroup: titleOfGroup,
@@ -163,7 +170,8 @@ class UserTableViewController: UITableViewController {
                          about: about,
                          name: name, email: email,
                          location: location,
-                         contacts: contacts)
+                         contactsId: contactsId,
+                         contactsName: contactsName)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in

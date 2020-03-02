@@ -90,7 +90,8 @@ class MyFirebase {
         let name2: String = ""
         let email2: String = ""
         let location: String = ""
-        let contacts: [String] = []
+        let contactsId: [String] = []
+        let contactsName: [String] = []
         // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
@@ -106,7 +107,8 @@ class MyFirebase {
                          name: name2,
                          email: email2,
                          location: location,
-                         contacts: contacts)
+                         contactsId: contactsId,
+                         contactsName: contactsName)
         let userRef = self.db.collection("profile")
         userRef.document(String(user.id)).setData(user.dictionary) { err in
             if let err = err {
