@@ -24,22 +24,27 @@ class ContactsTableViewController: UITableViewController {
             self.getPersonalData()
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getPersonalData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        getPersonalData()
         return contactList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
-        
         let contact = contactList[indexPath.row]
         cell.contactNameLabel.text = contact
         return cell
@@ -86,8 +91,8 @@ class ContactsTableViewController: UITableViewController {
                 print(error as Any)
             } else {
                 for document in (snapshot?.documents)! {
-                    guard let contactList = document.data()["contactList"] as? [String] else { return }
-                    self.contactList = contactList
+                    guard let contactList = document.data()["contacts"] as? [String] else { return }
+                    self.contactList = contactList // getting the list
                 }
             }
         }
