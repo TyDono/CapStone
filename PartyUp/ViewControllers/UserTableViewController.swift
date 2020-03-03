@@ -25,9 +25,8 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var aboutTextField: UITextView!
     @IBOutlet var groupSizeTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var locationTextField: UITextField!
     
-    //add a field for their email.
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
@@ -88,7 +87,6 @@ class UserTableViewController: UITableViewController {
                 
                 for document in (snapshot?.documents)! {
                     if let game = document.data()["game"] as? String,
-                        let email = document.data()["email"] as? String,
                         let name = document.data()["name"] as? String,
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
@@ -105,7 +103,6 @@ class UserTableViewController: UITableViewController {
                         self.aboutTextField.text = about
                         self.groupSizeTextField.text = groupSize
                         self.nameTextField.text = name
-                        self.emailTextField.text = email
                         self.contactsId = contactsId
                         self.contactsName = contactsName
                     }
@@ -147,7 +144,6 @@ class UserTableViewController: UITableViewController {
     }
     
     @IBAction func saveProfileTapped(_ sender: Any) {
-        
         // Auth.auth().currentUser?.uid // get current auth ID
         guard let game = gameTextField.text,
             let titleOfGroup = titleTextField.text,
@@ -157,7 +153,6 @@ class UserTableViewController: UITableViewController {
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
-            let email = emailTextField.text,
             let location = locationSpot else { return }
         let contactsId = [""]
         let contactsName = [""]
@@ -168,7 +163,7 @@ class UserTableViewController: UITableViewController {
                          age: age,
                          availability: availability,
                          about: about,
-                         name: name, email: email,
+                         name: name,
                          location: location,
                          contactsId: contactsId,
                          contactsName: contactsName)
@@ -181,7 +176,7 @@ class UserTableViewController: UITableViewController {
                     alert1.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert1, animated: true, completion: nil)
-                print("Issue here")
+                print("Issue: saveProfileTapped() has failed")
                 print(err)
             } else {
                 let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
@@ -190,7 +185,6 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert2, animated: true, completion: nil)
                 //self.profileInfo()
-                print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 }
             }
@@ -198,7 +192,6 @@ class UserTableViewController: UITableViewController {
     }
     
     @IBAction func loutOutButtonTapped(_ sender: Any) {
-        print("Logged Out Tapped")
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()

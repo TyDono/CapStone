@@ -15,6 +15,7 @@ import FirebaseDatabase
 class ChatLogViewController: JSQMessagesViewController {
     @IBOutlet var reportChatPopOver: UIView!
     @IBOutlet weak var reportChatButton: UIBarButtonItem!
+    @IBOutlet weak var reportCommentsTextView: UITextView!
     
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUserName: String? = "Jim"
@@ -99,10 +100,8 @@ class ChatLogViewController: JSQMessagesViewController {
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
-                
                 print(error as Any)
             } else {
-                
                 for document in (snapshot?.documents)! {
                     guard let name = document.data()["name"] as? String else { return }
                     self.currentUserName = name
@@ -126,8 +125,7 @@ class ChatLogViewController: JSQMessagesViewController {
             self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.reportChatPopOver.alpha = 0.0;
             }, completion:{(finished : Bool)  in
-                if (finished)
-                {
+                if (finished) {
                     self.reportChatPopOver.removeFromSuperview()
                 }
         });
@@ -135,11 +133,12 @@ class ChatLogViewController: JSQMessagesViewController {
     
     func createReportData() {
         guard let creatorId = self.currentAuthID,
+            let reason = reportCommentsTextView.text,
             let chatId = self.chatDatabaseName,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
         let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
-                                    reason: "add comments for report option",
+                                    reason: reason,
                                     creatorId: creatorId,
                                     chatId: chatId,
                                     dateSent: dateSent,

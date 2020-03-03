@@ -25,9 +25,10 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var otherAboutLabel: UILabel!
     @IBOutlet var contactMe: UIButton!
     @IBOutlet var otherUserNameLabel: UILabel!
-    @IBOutlet var otherEmailLabel: UILabel!
+    @IBOutlet var otherLocationLabel: UILabel!
     @IBOutlet var reportAccountPopOver: UIView!
     @IBOutlet weak var reportAccountButton: UIBarButtonItem!
+    @IBOutlet weak var reportCommentsTextView: UITextView!
     
     var users: [Users]?
     var dbRef = Database.database().reference()
@@ -48,7 +49,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var aboutValue: String = ""
     var text: String?
     var nameValue: String = ""
-    var emailValue: String = ""
     var userIdValue: String = ""
     var locationValue: String = ""
     var contactsIdValue: [String] = [""]
@@ -62,7 +62,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourAvailability: String = ""
     var yourAbout: String = ""
     var yourName: String = ""
-    var yourEmail: String = ""
     var yourLocation: String = ""
     var yourContactsId: [String] = [""]
     var yourContactsName: [String] = [""]
@@ -92,7 +91,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
         otherExperianceLabel.text = "Experiance: \(experianceValue)"
         otherAboutLabel.text = "\(aboutValue)"
         otherUserNameLabel.text = "User Name: \(nameValue)"
-        otherEmailLabel.text = "Email: \(emailValue)"
+        otherLocationLabel.text = "User Location: \(locationValue)"
     }
     
     func UpdateUserContacts() {
@@ -104,7 +103,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          availability: yourAvailability,
                          about:yourAbout,
                          name: yourName,
-                         email: yourEmail,
                          location: yourLocation,
                          contactsId: yourContactsId,
                          contactsName: yourContactsName)
@@ -116,7 +114,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     alert1.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert1, animated: true, completion: nil)
-                print("Issue here")
+                print("Issue: UpdateUserContacts() has failed")
                 print(err)
             } else {
                 let alert2 = UIAlertController(title: "Contact Added", message: "Your have added them to your contacts", preferredStyle: .alert)
@@ -125,7 +123,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 }))
                 self.present(alert2, animated: true, completion: nil)
                 //self.profileInfo()
-                print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 }
             }
@@ -141,7 +138,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          availability: availabilityValue,
                          about: aboutValue,
                          name: nameValue,
-                         email: emailValue,
                          location: locationValue,
                          contactsId: contactsIdValue,
                          contactsName: yourContactsName)
@@ -153,10 +149,9 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     alert1.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert1, animated: true, completion: nil)
-                print("Issue here")
+                print("Issue: updateOtherUserContacts() has failed")
                 print(err)
             } else {
-                print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 }
             }
@@ -178,8 +173,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
             self.reportAccountPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.reportAccountPopOver.alpha = 0.0;
             }, completion:{(finished : Bool)  in
-                if (finished)
-                {
+                if (finished) {
                     self.reportAccountPopOver.removeFromSuperview()
                 }
         });
@@ -188,10 +182,11 @@ class ViewOtherProfileTableViewController: UITableViewController {
     func createReportData() {
         guard let creatorId = self.currentAuthID,
             let chatId = self.chatId, // there will be no chatId on user reports as it is just user being reported, not their chat
+            let reason = reportCommentsTextView.text,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
         let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
-                                    reason: "add comments for report option",
+                                    reason: reason,
                                     creatorId: creatorId,
                                     chatId: chatId,
                                     dateSent: dateSent,
@@ -242,24 +237,23 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     guard let name = document.data()["name"] as? String,
                         let id = document.data()["id"] as? String,
                         let game = document.data()["game"] as? String,
-                        let email = document.data()["email"] as? String,
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
                         let age = document.data()["age"] as? String,
                         let title = document.data()["title of group"] as? String,
+                        let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
                         let contactsName = document.data()["contactsName"]as? [String] else { return }
                     self.yourCurrentUserName = name
                     self.yourId = id
                     self.yourGame = game
-                    self.yourEmail = email
-                    self.yourEmail = email
                     self.yourGroupSize = groupSize
                     self.yourAbout = about
                     self.yourAvailability = availability
                     self.yourAge = age
                     self.yourTitleOfGroup = title
+                    self.yourLocation = location
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
                     self.yourContactsId.append(unwrappedChatRoomIdString)

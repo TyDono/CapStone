@@ -65,7 +65,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let availability = ""
             let about = ""
             let name = ""
-            let email = ""
             let location = ""
             let contactsId = [""]
             let contactsName = [""]
@@ -75,7 +74,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
                              age: age,
                              availability: availability,
                              about: about,
-                             name: name, email: email,
+                             name: name,
                              location: location,
                              contactsId: contactsId,
                              contactsName: contactsName)
@@ -122,8 +121,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let userRef = self.db.collection("profile")
             userRef.document(String(userId)).delete(){ err in
                 if err == nil {
-                    
-                    print("Logged Out Tapped")
                     self.currentUser = nil
                     self.userId = ""
                     try! Auth.auth().signOut()

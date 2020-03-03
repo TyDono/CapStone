@@ -84,7 +84,6 @@ class SearchResultsTableViewController: UITableViewController {
             cell.about = user.about
             cell.availability = user.availability
             cell.userName = user.name
-            cell.email = user.email
             cell.userId = user.id
             //cell.userName = "\(user.name)"
             //cell.experiance = "\(user.experioance)"
@@ -115,14 +114,12 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.experianceValue = user.game
                 otherProfileVC.aboutValue = user.about
                 otherProfileVC.nameValue = user.name
-                otherProfileVC.emailValue = user.email
                 otherProfileVC.userIdValue = user.id
                 otherProfileVC.chatRoomIdString = "\(self.currentUserId)" + "\(user.id)"
                 otherProfileVC.locationValue = user.location
                 otherProfileVC.contactsIdValue = user.contactsId
                 otherProfileVC.contactsNameValue = user.contactsName
             }
-            print("prepare for viewUserSegue called")
         }
     }
     

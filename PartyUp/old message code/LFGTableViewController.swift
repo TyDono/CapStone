@@ -102,7 +102,6 @@ class LFGTableViewController: UITableViewController {
     @IBAction func searchButtonTapped(_ sender: Any) {
         // if requirements to search are not met
         if searchGame.text == "" {
-            print("not ok")
 //            UIView.animate(withDuration: 0.01) {
 //                self.searchGame.backgroundColor = .yellow
 //            }
@@ -118,8 +117,6 @@ class LFGTableViewController: UITableViewController {
                 })
             }
         } else {
-            print("ok")
-            
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
@@ -130,11 +127,9 @@ class LFGTableViewController: UITableViewController {
             
             searchResultsVC.text = searchGame.text
         }
-        print("prepare for segueSearch called")
     }
     
     @IBAction func logOutTapped(sender: UIBarButtonItem) {
-        print("Logged Out")
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()

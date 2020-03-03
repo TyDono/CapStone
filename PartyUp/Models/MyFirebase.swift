@@ -88,7 +88,6 @@ class MyFirebase {
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
-        let email2: String = ""
         let location: String = ""
         let contactsId: [String] = []
         let contactsName: [String] = []
@@ -105,7 +104,6 @@ class MyFirebase {
                          availability: availability2,
                          about: about2,
                          name: name2,
-                         email: email2,
                          location: location,
                          contactsId: contactsId,
                          contactsName: contactsName)
