@@ -70,7 +70,8 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-    //actions
+    // MARK: - Actions
+    
     @IBAction func googleSignIn(_ sender: Any) {
         performSegue(withIdentifier: "moveToTabVC", sender: nil)
     }

@@ -26,6 +26,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var contactMe: UIButton!
     @IBOutlet var otherUserNameLabel: UILabel!
     @IBOutlet var otherEmailLabel: UILabel!
+    @IBOutlet var reportAccountPopOver: UIView!
+    @IBOutlet weak var reportAccountButton: UIBarButtonItem!
     
     var users: [Users]?
     var dbRef = Database.database().reference()
@@ -66,6 +68,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.reportAccountPopOver.layer.cornerRadius = 10
         db = Firestore.firestore()
         dbRef = Database.database().reference()
         updateOtherProfile()
@@ -158,7 +161,50 @@ class ViewOtherProfileTableViewController: UITableViewController {
         }
     }
     
-    //MARK Actions
+    func showPopOverAnimate() {
+        self.reportAccountPopOver.center = self.view.center
+        self.reportAccountPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.reportAccountPopOver.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.reportAccountPopOver.alpha = 1.0
+            self.reportAccountPopOver.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
+    }
+    
+    func removePopOverAnimate() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.reportAccountPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.reportAccountPopOver.alpha = 0.0;
+            }, completion:{(finished : Bool)  in
+                if (finished)
+                {
+                    self.reportAccountPopOver.removeFromSuperview()
+                }
+        });
+    }
+    
+    func createReportData() {
+        let userReportId: String = UUID().uuidString
+        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID", reason: reportCommentsTextView.text, creatorId: creatorId!, graveId: currentGraveId!, storyId: "")
+        let userReportRef = self.db.collection("userReports")
+        userReportRef.document(userReportId).setData(userReport.dictionary) { err in
+            if let err = err {
+                let reportGraveFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                reportGraveFailAlert.addAction(dismiss)
+                self.present(reportGraveFailAlert, animated: true, completion: nil)
+                print(err)
+            } else {
+                let graveReportAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                graveReportAlertSucceed.addAction(dismiss)
+                self.removePopOverAnimate()
+                self.present(graveReportAlertSucceed, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func contactMeTapped(_ sender: Any) {
         guard let unwrappedChatRoomIdString: String = self.chatRoomIdString else { return }
@@ -217,6 +263,19 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 ref.setValue(message)
             }
         }
+    }
+    
+    @IBAction func reportAccountButtonTapped(_ sender: Any) {
+        showPopOverAnimate()
+    }
+    
+    
+    @IBAction func cencelReportButtonTapped(_ sender: UIButton) {
+        removePopOverAnimate()
+    }
+    
+    @IBAction func submitReportButtonTapped(_ sender: UIButton) {
+        createReportData()
     }
     
 }

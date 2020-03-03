@@ -97,7 +97,8 @@ class LFGTableViewController: UITableViewController {
         }
     }
     
-    //MARK ACTIONS
+    // MARK: - Actions
+    
     @IBAction func searchButtonTapped(_ sender: Any) {
         // if requirements to search are not met
         if searchGame.text == "" {

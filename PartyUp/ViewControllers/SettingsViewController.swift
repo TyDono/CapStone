@@ -49,6 +49,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         controller.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Actions
+    
     @IBAction func clearAccountButtonTapped(_ sender: UIButton) {
         let alerController = UIAlertController(title: "WARNING!", message: "This will clear your profile information and deactivate your account, making you not appear in any future searches by other users!", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

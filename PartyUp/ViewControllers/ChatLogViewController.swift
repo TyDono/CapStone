@@ -13,6 +13,8 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 class ChatLogViewController: JSQMessagesViewController {
+    @IBOutlet var reportChatPopOver: UIView!
+    @IBOutlet weak var reportChatButton: UIBarButtonItem!
     
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUserName: String? = "Jim"
@@ -32,6 +34,7 @@ class ChatLogViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.reportChatButton.layer.cornerRadius = 10
         dbRef = Database.database().reference()
         db = Firestore.firestore()
         getPersonalData()
@@ -107,5 +110,62 @@ class ChatLogViewController: JSQMessagesViewController {
             }
         }
     }
-
+    
+    func showPopOverAnimate() {
+        self.reportChatPopOver.center = self.view.center
+        self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.reportChatPopOver.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.reportChatPopOver.alpha = 1.0
+            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
+    }
+    
+    func removePopOverAnimate() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.reportChatPopOver.alpha = 0.0;
+            }, completion:{(finished : Bool)  in
+                if (finished)
+                {
+                    self.reportChatPopOver.removeFromSuperview()
+                }
+        });
+    }
+    
+    func createReportData() {
+        let userReportId: String = UUID().uuidString
+        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID", reason: reportCommentsTextView.text, creatorId: creatorId!, graveId: currentGraveId!, storyId: "")
+        let userReportRef = self.db.collection("userReports")
+        userReportRef.document(userReportId).setData(userReport.dictionary) { err in
+            if let err = err {
+                let reportGraveFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                reportGraveFailAlert.addAction(dismiss)
+                self.present(reportGraveFailAlert, animated: true, completion: nil)
+                print(err)
+            } else {
+                let graveReportAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                graveReportAlertSucceed.addAction(dismiss)
+                self.removePopOverAnimate()
+                self.present(graveReportAlertSucceed, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func reportChatButtonTapped(_ sender: Any) {
+        showPopOverAnimate()
+    }
+    
+    @IBAction func cancelReportButtonTapped(_ sender: Any) {
+        removePopOverAnimate()
+    }
+    
+    @IBAction func submitReportButtonTapped(_ sender: UIButton) {
+        createReportData()
+    }
+    
 }
