@@ -23,6 +23,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var dbRef = Database.database().reference()
     var chatDatabaseName: String?
     var chatId: String = ""
+    var currentDate: Date?
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -33,8 +34,7 @@ class ChatLogViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.reportChatButton.layer.cornerRadius = 10
+        self.reportChatPopOver.layer.cornerRadius = 10
         dbRef = Database.database().reference()
         db = Firestore.firestore()
         getPersonalData()
@@ -134,22 +134,30 @@ class ChatLogViewController: JSQMessagesViewController {
     }
     
     func createReportData() {
-        let userReportId: String = UUID().uuidString
-        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID", reason: reportCommentsTextView.text, creatorId: creatorId!, graveId: currentGraveId!, storyId: "")
+        guard let creatorId = self.currentAuthID,
+            let chatId = self.chatDatabaseName,
+            let dateSent = self.currentDate else { return }
+        let userReportUID: String = UUID().uuidString
+        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
+                                    reason: "add comments for report option",
+                                    creatorId: creatorId,
+                                    chatId: chatId,
+                                    dateSent: dateSent,
+                                    reportId: userReportUID)
         let userReportRef = self.db.collection("userReports")
-        userReportRef.document(userReportId).setData(userReport.dictionary) { err in
+        userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
             if let err = err {
-                let reportGraveFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let reportChatFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                reportGraveFailAlert.addAction(dismiss)
-                self.present(reportGraveFailAlert, animated: true, completion: nil)
+                reportChatFailAlert.addAction(dismiss)
+                self.present(reportChatFailAlert, animated: true, completion: nil)
                 print(err)
             } else {
-                let graveReportAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                graveReportAlertSucceed.addAction(dismiss)
+                reportChatAlertSucceed.addAction(dismiss)
                 self.removePopOverAnimate()
-                self.present(graveReportAlertSucceed, animated: true, completion: nil)
+                self.present(reportChatAlertSucceed, animated: true, completion: nil)
             }
         }
     }

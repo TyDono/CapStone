@@ -22,7 +22,8 @@ struct UserReport {
     var reason: String
     var creatorId: String
     var chatId: String
-    var storyId: String
+    var dateSent: Date
+    var reportId: String
     
     var dictionary: [String: Any] {
         return [
@@ -30,7 +31,8 @@ struct UserReport {
             "reason": reason,
             "creatorId": creatorId,
             "chatId:": chatId,
-            "storyId": storyId
+            "dateSent": dateSent,
+            "reportId": reportId
         ]
     }
 }
@@ -40,9 +42,10 @@ extension UserReport: DocumentSerializableUserReport {
         guard let reporterCreatorId = dictionary["reporterCreatorId"] as? String,
             let reason = dictionary["reason"] as? String,
             let creatorId = dictionary["creatorId"] as? String,
-            let graveId = dictionary["chatId:"] as? String,
-            let storyId = dictionary["storyId"] as? String else {return nil}
-        self.init(reporterCreatorId: reporterCreatorId, reason: reason, creatorId: creatorId, graveId: graveId, storyId: storyId)
+            let chatId = dictionary["chatId"] as? String,
+            let dateSent = dictionary["dateSent"] as? Date,
+            let reportId = dictionary["reportId"] as? String else {return nil}
+        self.init(reporterCreatorId: reporterCreatorId, reason: reason, creatorId: creatorId, chatId: chatId, dateSent: dateSent, reportId: reportId)
     }
     
 }

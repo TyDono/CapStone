@@ -33,9 +33,11 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var dbRef = Database.database().reference()
     var messages = [JSQMessage]()
     var chatRoomIdString: String?
-    let currentUserId = Auth.auth().currentUser?.uid
+    let currentAuthID = Auth.auth().currentUser?.uid
     var yourCurrentUserName: String?
     var db: Firestore!
+    var currentDate: Date?
+    var chatId: String? = "no chat Id"
     
     var gameValue: String = ""
     var titleValue: String = ""
@@ -184,22 +186,30 @@ class ViewOtherProfileTableViewController: UITableViewController {
     }
     
     func createReportData() {
-        let userReportId: String = UUID().uuidString
-        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID", reason: reportCommentsTextView.text, creatorId: creatorId!, graveId: currentGraveId!, storyId: "")
+        guard let creatorId = self.currentAuthID,
+            let chatId = self.chatId, // there will be no chatId on user reports as it is just user being reported, not their chat
+            let dateSent = self.currentDate else { return }
+        let userReportUID: String = UUID().uuidString
+        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
+                                    reason: "add comments for report option",
+                                    creatorId: creatorId,
+                                    chatId: chatId,
+                                    dateSent: dateSent,
+                                    reportId: userReportUID)
         let userReportRef = self.db.collection("userReports")
-        userReportRef.document(userReportId).setData(userReport.dictionary) { err in
+        userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
             if let err = err {
-                let reportGraveFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let reportUserFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                reportGraveFailAlert.addAction(dismiss)
-                self.present(reportGraveFailAlert, animated: true, completion: nil)
+                reportUserFailAlert.addAction(dismiss)
+                self.present(reportUserFailAlert, animated: true, completion: nil)
                 print(err)
             } else {
-                let graveReportAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let reportUserAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                graveReportAlertSucceed.addAction(dismiss)
+                reportUserAlertSucceed.addAction(dismiss)
                 self.removePopOverAnimate()
-                self.present(graveReportAlertSucceed, animated: true, completion: nil)
+                self.present(reportUserAlertSucceed, animated: true, completion: nil)
             }
         }
     }
@@ -222,7 +232,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
             }
         })
         //gets your info
-        guard let uid: String = self.currentUserId else { return }
+        guard let uid: String = self.currentAuthID else { return }
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
@@ -259,7 +269,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()
                 let ref = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId() // call
-                let message = ["sender_id": self.currentUserId, "name": self.yourCurrentUserName, "text": ""]
+                let message = ["sender_id": self.currentAuthID, "name": self.yourCurrentUserName, "text": ""]
                 ref.setValue(message)
             }
         }
