@@ -156,8 +156,8 @@ class UserTableViewController: UITableViewController {
             let about = aboutTextField.text,
             let name = nameTextField.text,
             let location = locationTextField.text else { return }
-        let contactsId = [""]
-        let contactsName = [""]
+        let contactsId = self.contactsId
+        let contactsName = self.contactsName
         
         let user = Users(id: currentAuthID!,
                          game: game,

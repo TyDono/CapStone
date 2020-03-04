@@ -22,7 +22,7 @@ class ContactsTableViewController: UITableViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-           // self.getPersonalData()
+            self.getPersonalData()
         }
     }
     
@@ -40,7 +40,6 @@ class ContactsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        getPersonalData()
         return contactListId.count
     }
     
