@@ -27,7 +27,7 @@ class LFGViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        searchGame.delegate = self
+        searchGame.delegate = self as? UITextFieldDelegate
 //        checkLoacationServices()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.startUpdatingLocation()
@@ -40,7 +40,7 @@ class LFGViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Gradient")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-        self.tableView.backgroundView = backgroundImage
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -117,9 +117,7 @@ class LFGViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "segueSearch", let searchResultsVC = segue.destination as? SearchResultsTableViewController {
-            
             searchResultsVC.text = searchGame.text
         }
     }

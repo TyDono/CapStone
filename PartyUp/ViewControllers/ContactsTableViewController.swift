@@ -46,6 +46,7 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
+        guard contactListId.count == 0 else { return cell }
         let contactId = contactListId[indexPath.row]
         let contactName = contactsName[indexPath.row]
         cell.contactId = contactId

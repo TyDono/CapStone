@@ -73,10 +73,10 @@ class SearchResultsTableViewController: UITableViewController {
         //tableView.rowHeight = 75
         if let users = users {
             let user = users[indexPath.row]
-//            if self.currentUserId == user.id {
-//                cell.isHidden = true
-//                self.cellIsHidden = true
-//            }
+            if self.currentUserId == user.id {
+                cell.isHidden = true
+                self.cellIsHidden = true
+            }
             cell.gameLabel?.text = "Game: \(user.game)"
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
@@ -93,20 +93,23 @@ class SearchResultsTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        var rowHeight:CGFloat = 0.0
-//        self.cellIsHidden == true ? (rowHeight = 0.0): (rowHeight = 135.0)
-//        return rowHeight
-//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var rowHeight:CGFloat = 135.0
+        if let users = users {
+            let user = users[indexPath.row]
+            if self.currentUserId == user.id {
+//                var rowHeight:CGFloat = 0.0
+                //                self.cellIsHidden == true ? (rowHeight = 0.0): (rowHeight = 135.0)
+                return rowHeight
+            }
+        }
+        return rowHeight
+    }
     
     //pass in user.game and ect and have the labels print out it there.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let row = self.tableView.indexPathForSelectedRow?.row, let user = users?[row] {
-            
             if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
-                
                 otherProfileVC.gameValue = user.game
                 otherProfileVC.titleValue = user.titleOfGroup
                 otherProfileVC.ageValue = user.age

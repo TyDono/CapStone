@@ -93,6 +93,7 @@ class UserTableViewController: UITableViewController {
                         let availability = document.data()["availability"] as? String,
                         let age = document.data()["age"] as? String,
                         let title = document.data()["title of group"] as? String,
+                        let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
                         let contactsName = document.data()["contactsName"] as? [String] {
                         
@@ -103,6 +104,7 @@ class UserTableViewController: UITableViewController {
                         self.aboutTextField.text = about
                         self.groupSizeTextField.text = groupSize
                         self.nameTextField.text = name
+                        self.locationTextField.text = location
                         self.contactsId = contactsId
                         self.contactsName = contactsName
                     }
@@ -153,11 +155,12 @@ class UserTableViewController: UITableViewController {
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
-            let location = locationSpot else { return }
+            let location = locationTextField.text else { return }
         let contactsId = [""]
         let contactsName = [""]
         
-        let user = Users(id: currentAuthID!, game: game,
+        let user = Users(id: currentAuthID!,
+                         game: game,
                          titleOfGroup: titleOfGroup,
                          groupSize: groupSize,
                          age: age,
