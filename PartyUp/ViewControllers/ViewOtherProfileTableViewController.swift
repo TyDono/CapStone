@@ -51,8 +51,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var nameValue: String = ""
     var userIdValue: String = ""
     var locationValue: String = ""
-    var contactsIdValue: [String] = [""]
-    var contactsNameValue: [String] = [""]
+    var contactsIdValue: [String] = []
+    var contactsNameValue: [String] = []
     
     var yourId: String = ""
     var yourGame: String = ""
@@ -63,8 +63,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourAbout: String = ""
     var yourName: String = ""
     var yourLocation: String = ""
-    var yourContactsId: [String] = [""]
-    var yourContactsName: [String] = [""]
+    var yourContactsId: [String] = []
+    var yourContactsName: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,6 +213,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     @IBAction func contactMeTapped(_ sender: Any) {
         guard let unwrappedChatRoomIdString: String = self.chatRoomIdString else { return }
+        guard let unwrappedContactName: String = self.nameValue else { return }
         print(unwrappedChatRoomIdString)
         let query = self.dbRef.child("\(unwrappedChatRoomIdString)").queryLimited(toLast: 10)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
@@ -256,9 +257,11 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourLocation = location
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
+                    guard let unwrappedOtherContactName: String = name else { return }
                     self.yourContactsId.append(unwrappedChatRoomIdString)
                     self.contactsIdValue.append(unwrappedChatRoomIdString)
-                    self.contactsNameValue.append(unwrappedChatRoomIdString)
+                    self.yourContactsName.append(unwrappedContactName)
+                    self.contactsNameValue.append(unwrappedOtherContactName)
                 }
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()
@@ -272,7 +275,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBAction func reportAccountButtonTapped(_ sender: Any) {
         showPopOverAnimate()
     }
-    
     
     @IBAction func cencelReportButtonTapped(_ sender: UIButton) {
         removePopOverAnimate()

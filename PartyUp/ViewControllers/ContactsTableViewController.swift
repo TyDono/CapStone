@@ -22,12 +22,12 @@ class ContactsTableViewController: UITableViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.getPersonalData()
+           // self.getPersonalData()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getPersonalData()
+        //getPersonalData()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -46,12 +46,16 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
-        guard contactListId.count == 0 else { return cell }
-        let contactId = contactListId[indexPath.row]
-        let contactName = contactsName[indexPath.row]
-        cell.contactId = contactId
-        cell.contactNameLabel.text = contactName
-        return cell
+        getPersonalData()
+        if contactListId.count == 0 {
+            return cell
+        } else {
+            let contactId = contactListId[indexPath.row]
+            let contactName = contactsName[indexPath.row]
+            cell.contactId = contactId
+            cell.contactNameLabel.text = contactName
+            return cell
+        }
     }
     
     /*
@@ -94,8 +98,10 @@ class ContactsTableViewController: UITableViewController {
                 print(error as Any)
             } else {
                 for document in (snapshot?.documents)! {
-                    guard let contactList = document.data()["contactsId"] as? [String] else { return }
+                    guard let contactList = document.data()["contactsId"] as? [String],
+                        let contactName = document.data()["contactsName"] as? [String] else { return }
                     self.contactListId = contactList // getting the list
+                    self.contactsName = contactName
                 }
             }
         }
