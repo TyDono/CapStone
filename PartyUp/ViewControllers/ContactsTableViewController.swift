@@ -15,21 +15,20 @@ class ContactsTableViewController: UITableViewController {
     
     var contactListId = [String?]()
     var contactsName = [String?]()
+    var cellIsHidden: Bool? = false
+    var cog: Bool? = true
     var currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.getPersonalData()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //getPersonalData()
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.getPersonalData()
         }
     }
 
@@ -44,18 +43,29 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() }
-        getPersonalData()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactsTableViewCell else { return UITableViewCell() } // not getting called
         if contactListId.count == 0 {
             return cell
         } else {
             let contactId = contactListId[indexPath.row]
             let contactName = contactsName[indexPath.row]
+            if contactId == "" {
+                cell.isHidden = true
+                self.cellIsHidden = true
+            }
             cell.contactId = contactId
             cell.contactNameLabel.text = contactName
             return cell
         }
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        var rowHeight:CGFloat = 75.0
+//        if self.cellIsHidden == true {
+//            indexPath.row == 1 ? (rowHeight = 0.0): (rowHeight = 75.0)
+//        }
+//        return rowHeight
+//    }
     
     /*
     // Override to support editing the table view.
@@ -101,6 +111,7 @@ class ContactsTableViewController: UITableViewController {
                         let contactName = document.data()["contactsName"] as? [String] else { return }
                     self.contactListId = contactList // getting the list
                     self.contactsName = contactName
+                    self.tableView.reloadData()
                 }
             }
         }

@@ -40,7 +40,7 @@ class MyFirebase {
                 self.currentUser = nil
                 self.userId = ""
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    if loggedIn {
+                    if loggedIn == true {
                         moveToLFG()
                     } else {
                         moveToLogIn()
@@ -48,7 +48,7 @@ class MyFirebase {
                 }
             } else {
                 // check for docuemnt named the same as their user id, if it does not exist it will create a document for them to use, otherwise nothing will happen. should should only be called once when they user logs in and never again unless their account is deleted.
-                let currentUserId: String = self.currentAuthID ?? "no current auth Id detected"
+                guard let currentUserId: String = user?.uid else { return }
                 print("Logged In")
                 let userReff = self.db.collection("profile").document("\(String(describing: currentUserId))")
                 userReff.getDocument { (document, error) in

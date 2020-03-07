@@ -44,7 +44,6 @@ class UserTableViewController: UITableViewController {
     }
     
     func changeBackground() {
-        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Gradient")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
@@ -81,10 +80,8 @@ class UserTableViewController: UITableViewController {
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
-                
                 print(error as Any)
             } else {
-                
                 for document in (snapshot?.documents)! {
                     if let game = document.data()["game"] as? String,
                         let name = document.data()["name"] as? String,
