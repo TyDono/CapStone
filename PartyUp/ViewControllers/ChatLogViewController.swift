@@ -48,9 +48,9 @@ class ChatLogViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let newQuery = dbRef.child("Messages").child(self.chatId)
+        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 16)
         let query = Constants.refs.databaseChats.queryLimited(toLast: 10) //this will be getting newQuery
-        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+        _ = newQuery.observe(.childAdded, with: { [weak self] snapshot in
             if  let data = snapshot.value as? [String: String],
                 let id = data["sender_id"],
                 let name = data["name"],
@@ -89,9 +89,10 @@ class ChatLogViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        let newRef = dbRef.child("Messages").child(self.chatId).childByAutoId()
         let ref = Constants.refs.databaseChats.childByAutoId() // call dbref.databaseRoot.child("chatDatabaseName") chatDatabaseName location is the string in which  the 2 users will connect with, a new one for every 2 ppl.
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
-        ref.setValue(message)
+        newRef.setValue(message)
         finishSendingMessage()
     }
     

@@ -109,7 +109,7 @@ class ContactsTableViewController: UITableViewController {
                 for document in (snapshot?.documents)! {
                     guard let contactList = document.data()["contactsId"] as? [String],
                         let contactName = document.data()["contactsName"] as? [String] else { return }
-                    self.contactListId = contactList // getting the list
+                    self.contactListId = contactList
                     self.contactsName = contactName
                     self.tableView.reloadData()
                 }
