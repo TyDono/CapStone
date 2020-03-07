@@ -8,7 +8,6 @@
 
 
 
-// make enum for segemned control
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -16,7 +15,7 @@ import GoogleSignIn
 
 class UserTableViewController: UITableViewController {
     
-    //MARK outlets
+    // MARK: - Outlets
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
@@ -27,6 +26,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var locationTextField: UITextField!
     
+    // MARK: - Propeties
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
@@ -35,6 +35,8 @@ class UserTableViewController: UITableViewController {
     var contactsName = [""]
     var contactsId = [""]
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,8 @@ class UserTableViewController: UITableViewController {
         changeBackground()
         getPersonalData()
     }
+    
+    // MARK: - Functions
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -136,7 +140,8 @@ class UserTableViewController: UITableViewController {
     //        }
     //    }
     //
-    //MARK Actions
+    
+    // MARK: - Actions
     
     @IBAction func settingBarButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settingsSegue", sender: nil)

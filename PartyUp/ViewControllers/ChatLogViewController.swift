@@ -13,9 +13,14 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 class ChatLogViewController: JSQMessagesViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet var reportChatPopOver: UIView!
     @IBOutlet weak var reportChatButton: UIBarButtonItem!
     @IBOutlet weak var reportCommentsTextView: UITextView!
+    
+    // MARK: - Propeties
     
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUserName: String? = "Jim"
@@ -33,6 +38,8 @@ class ChatLogViewController: JSQMessagesViewController {
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
 
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reportChatPopOver.layer.cornerRadius = 10
@@ -95,6 +102,8 @@ class ChatLogViewController: JSQMessagesViewController {
         newRef.setValue(message)
         finishSendingMessage()
     }
+    
+    // MARK: - Functions
     
     func getPersonalData() {
         guard let uid: String = self.currentAuthID else { return }

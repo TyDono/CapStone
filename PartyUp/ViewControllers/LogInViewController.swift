@@ -13,22 +13,32 @@ import FirebaseFirestore
 import Firebase
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
+    
+    // MARK: - Outlets
+    
     @IBOutlet var emailTextView: UITextField!
     @IBOutlet var passwordTextView: UITextField!
+    @IBOutlet var createAccount: UIButton!
+    
+    // MARK: - Propeties
     
     var db: Firestore!
     var userId: String = ""
     let userDefault = UserDefaults.standard
     
-    //outlets
-    @IBOutlet var createAccount: UIButton!
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
         changeBackground()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if userDefault.bool(forKey: "userSignedIn") {
+            performSegue(withIdentifier: "segueToSearch", sender: self)
+        }
     }
     
     func changeBackground() {
@@ -42,11 +52,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         return UIStatusBarStyle.lightContent
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: "userSignedIn") {
-            performSegue(withIdentifier: "segueToSearch", sender: self)
-        }
-    }
+    // MARK: - Functions
     
     func createUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in

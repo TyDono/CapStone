@@ -13,16 +13,21 @@ import GoogleSignIn
 
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+    // MARK: - Propeties
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
     var emailValue: String = "TyDonoCode@gmail.com"
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeBackground()
     }
+    
+    // MARK: - Functions
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

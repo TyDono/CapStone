@@ -15,7 +15,8 @@ import FirebaseFirestore
 
 class ViewOtherProfileTableViewController: UITableViewController {
     
-    //MARK Outlets
+    // MARK: - Outlets
+    
     @IBOutlet var otherTitleLabel: UILabel!
     @IBOutlet var otherGameLabel: UILabel!
     @IBOutlet var otherAgeLabel: UILabel!
@@ -29,6 +30,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var reportAccountPopOver: UIView!
     @IBOutlet weak var reportAccountButton: UIBarButtonItem!
     @IBOutlet weak var reportCommentsTextView: UITextView!
+    
+    // MARK: - Propeties
     
     var users: [Users]?
     var dbRef = Database.database().reference()
@@ -66,6 +69,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourContactsId: [String] = []
     var yourContactsName: [String] = []
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +80,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
         updateOtherProfile()
         changeBackground()
     }
+    
+    // MARK: - Functions
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

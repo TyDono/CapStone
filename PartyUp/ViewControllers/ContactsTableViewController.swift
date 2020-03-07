@@ -13,12 +13,15 @@ import FirebaseFirestore
 
 class ContactsTableViewController: UITableViewController {
     
+    // MARK: - Propeties
     var contactListId = [String?]()
     var contactsName = [String?]()
     var cellIsHidden: Bool? = false
     var cog: Bool? = true
     var currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +101,8 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segueToMessages", sender: self)
     }
+    
+    // MARK: - Functions
     
     func getPersonalData() {
         guard let uid: String = self.currentAuthID else { return }

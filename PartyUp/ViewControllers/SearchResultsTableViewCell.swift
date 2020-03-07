@@ -11,13 +11,13 @@ import UIKit
 
 class SearchResultsTableViewCell: UITableViewCell {
     
-    //MARK outlets
+    // MARK: - Outlets
     @IBOutlet var gameLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var sizeLabel: UILabel!
     
-    
+    // MARK: - Propeties
     var users: [Users]?
     var experience: String = ""
     var about: String = ""
@@ -26,10 +26,14 @@ class SearchResultsTableViewCell: UITableViewCell {
     var name: String = ""
     var userId: String = ""
     
+    // MARK: - View Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
     }
+    
+    // MARK: - Functions
     
     func updateCell(users: Users) {
     }

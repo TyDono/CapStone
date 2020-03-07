@@ -15,14 +15,19 @@ import FirebaseAuth
 
 class LFGViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var logOut: UIBarButtonItem!
     
-    //MARK VARIABLES
+    // MARK: - Propeties
+    
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
     static let sharedController = LFGTableViewController()
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +41,17 @@ class LFGViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchGame.resignFirstResponder()
+    }
+    
+    // MARK: - Functions
+    
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Gradient")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchGame.resignFirstResponder()
     }
     
     ///LOCATION MAPKIT

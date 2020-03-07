@@ -14,7 +14,7 @@ import GoogleSignIn
 
 class SearchResultsTableViewController: UITableViewController {
     
-    //variables
+    // MARK: - Propeties
     var users: [Users]?
     var db: Firestore!
     var gameValue: String!
@@ -22,6 +22,8 @@ class SearchResultsTableViewController: UITableViewController {
     var cellIsHidden: Bool? = false
     let currentUserId = Auth.auth().currentUser?.uid
 
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let db = Firestore.firestore()
@@ -49,15 +51,9 @@ class SearchResultsTableViewController: UITableViewController {
             }
         }
     }
-    
-    func changeBackground() {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Gradient")
-        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-        self.tableView.backgroundView = backgroundImage
-    }
 
     // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -128,6 +124,15 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "viewUserSegue", sender: self)
+    }
+    
+    // MARK: - Functions
+    
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.tableView.backgroundView = backgroundImage
     }
     
 }

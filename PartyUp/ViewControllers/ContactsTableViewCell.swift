@@ -9,10 +9,17 @@
 import UIKit
 
 class ContactsTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var contactProfileImage: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     
+    // MARK: - Propeties
+    
     var contactId: String?
+    
+    // MARK: - View Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()

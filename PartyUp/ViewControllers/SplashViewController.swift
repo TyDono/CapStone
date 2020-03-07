@@ -10,7 +10,9 @@ import UIKit
 
 //The laoding VC
 class SplashViewController: UIViewController {
-
+    
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
