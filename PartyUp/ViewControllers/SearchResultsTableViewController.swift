@@ -55,12 +55,10 @@ class SearchResultsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return users?.count ?? 0
     }
     
@@ -74,7 +72,7 @@ class SearchResultsTableViewController: UITableViewController {
                 self.cellIsHidden = true
             }
             cell.gameLabel?.text = "Game: \(user.game)"
-            cell.ageLabel?.text = "Age: \(user.age)"
+            cell.ageLabel?.text = "Age: \(user.yourAge)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
             cell.about = user.about
@@ -108,7 +106,8 @@ class SearchResultsTableViewController: UITableViewController {
             if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
                 otherProfileVC.gameValue = user.game
                 otherProfileVC.titleValue = user.titleOfGroup
-                otherProfileVC.ageValue = user.age
+                otherProfileVC.ageValue = user.yourAge
+                otherProfileVC.ageDesiredValue = user.ageDesired
                 otherProfileVC.groupSizeValue = user.groupSize
                 otherProfileVC.experianceValue = user.game
                 otherProfileVC.aboutValue = user.about

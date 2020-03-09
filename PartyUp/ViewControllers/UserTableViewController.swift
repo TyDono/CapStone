@@ -18,8 +18,8 @@ class UserTableViewController: UITableViewController {
     // MARK: - Outlets
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var ageTextField: UITextField!
-    @IBOutlet var experianceSegmentedControl: UISegmentedControl!
+    @IBOutlet var yourAgeTextField: UITextField!
+    @IBOutlet var ageDesired: UITextField!
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
     @IBOutlet var groupSizeTextField: UITextField!
@@ -92,7 +92,8 @@ class UserTableViewController: UITableViewController {
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let age = document.data()["age"] as? String,
+                        let yourAge = document.data()["yourAge"] as? String,
+                        let ageDesired = document.data()["ageDesired"] as? String,
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
@@ -100,7 +101,8 @@ class UserTableViewController: UITableViewController {
                         
                         self.gameTextField.text = game
                         self.titleTextField.text = title
-                        self.ageTextField.text = age
+                        self.yourAgeTextField.text = yourAge
+                        self.ageDesired.text = ageDesired
                         self.availabilityTextField.text = availability
                         self.aboutTextField.text = about
                         self.groupSizeTextField.text = groupSize
@@ -152,8 +154,8 @@ class UserTableViewController: UITableViewController {
         guard let game = gameTextField.text,
             let titleOfGroup = titleTextField.text,
             let groupSize = groupSizeTextField.text,
-            let experiance = experianceSegmentedControl,
-            let age = ageTextField.text,
+            let yourAge = yourAgeTextField.text,
+            let ageDesired = ageDesired.text,
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
@@ -165,7 +167,8 @@ class UserTableViewController: UITableViewController {
                          game: game,
                          titleOfGroup: titleOfGroup,
                          groupSize: groupSize,
-                         age: age,
+                         yourAge: yourAge,
+                         ageDesired: ageDesired,
                          availability: availability,
                          about: about,
                          name: name,

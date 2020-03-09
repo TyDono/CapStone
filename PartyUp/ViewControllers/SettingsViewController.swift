@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let user = Users(id: self.currentAuthID!, game: game,
                              titleOfGroup: titleOfGroup,
                              groupSize: groupSize,
-                             age: age,
+                             yourAge: age,
                              availability: availability,
                              about: about,
                              name: name,
