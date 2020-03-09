@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import MessageKit
 import FirebaseFirestore
 
 protocol Identifiable {

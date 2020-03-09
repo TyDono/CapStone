@@ -12,10 +12,11 @@ pod 'Firebase/Auth'
 pod 'GoogleSignIn', '< 5.0.0'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
-pod 'MessageKit'
 pod 'Firebase/Messaging'
 pod 'Firebase/Database'
 pod 'JSQMessagesViewController'
+pod 'Firebase/Analytics'
+pod 'Firebase/AdMob'
 
   target 'PartyUpTests' do
     inherit! :search_paths

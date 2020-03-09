@@ -55,7 +55,7 @@ class ChatLogViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 16)
+        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 10)
         let query = Constants.refs.databaseChats.queryLimited(toLast: 10) //this will be getting newQuery
         _ = newQuery.observe(.childAdded, with: { [weak self] snapshot in
             if  let data = snapshot.value as? [String: String],
