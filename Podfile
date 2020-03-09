@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'PartyUp' do
+target 'Gaming Wizard' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for PartyUp
+  # Pods for Gaming Wizard
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
@@ -18,12 +18,12 @@ pod 'JSQMessagesViewController'
 pod 'Firebase/Analytics'
 pod 'Firebase/AdMob'
 
-  target 'PartyUpTests' do
+  target 'Gaming WizardTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'PartyUpUITests' do
+  target 'Gaming WizardUITests' do
     # Pods for testing
   end
 
