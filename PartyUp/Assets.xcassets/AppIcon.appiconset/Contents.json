@@ -3,108 +3,109 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage40x40.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW40x40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage60x60.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW60x60.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage58x58.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW58x58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage87x87.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW87x87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage80x80.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW80x80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage120x120.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW120x120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage120x120-1.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW120x120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Tylersappimage180x180.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW180x180.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW20X20.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage40x40-1.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW40x40-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage29x29.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW29x29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage58x58-1.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW58x58-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage40x40-2.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW40x40-2.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage80x80-1.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW80x80-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage76x76.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW76x76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage152x152.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW152x152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Tylersappimage167x167.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW165x165.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Tylersappimage.png",
+      "filename" : "TylersWizardICONWITHGRADIANTRAW1024.png",
       "scale" : "1x"
     }
   ],

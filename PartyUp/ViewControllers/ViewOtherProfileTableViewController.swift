@@ -264,11 +264,11 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourLocation = location
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
-                    guard let unwrappedOtherContactName: String = name else { return }
+                    let theOtherContactName: String = name
                     self.yourContactsId.append(unwrappedChatRoomIdString)
                     self.contactsIdValue.append(unwrappedChatRoomIdString)
                     self.yourContactsName.append(unwrappedContactName)
-                    self.contactsNameValue.append(unwrappedOtherContactName)
+                    self.contactsNameValue.append(theOtherContactName)
                 }
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()
