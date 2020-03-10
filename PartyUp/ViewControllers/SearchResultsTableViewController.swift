@@ -72,7 +72,7 @@ class SearchResultsTableViewController: UITableViewController {
                 self.cellIsHidden = true
             }
             cell.gameLabel?.text = "Game: \(user.game)"
-            cell.ageLabel?.text = "Age: \(user.yourAge)"
+            cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
             cell.about = user.about
@@ -106,8 +106,7 @@ class SearchResultsTableViewController: UITableViewController {
             if segue.identifier == "viewUserSegue", let otherProfileVC = segue.destination as? ViewOtherProfileTableViewController {
                 otherProfileVC.gameValue = user.game
                 otherProfileVC.titleValue = user.titleOfGroup
-                otherProfileVC.ageValue = user.yourAge
-                otherProfileVC.ageDesiredValue = user.ageDesired
+                otherProfileVC.ageValue = user.age
                 otherProfileVC.groupSizeValue = user.groupSize
                 otherProfileVC.experianceValue = user.game
                 otherProfileVC.aboutValue = user.about

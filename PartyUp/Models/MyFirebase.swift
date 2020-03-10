@@ -85,7 +85,6 @@ class MyFirebase {
         let titleOfGroup2: String = ""
         let groupSize2: String = ""
         let age2: String = ""
-        let ageDesired: String = ""
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
@@ -101,8 +100,7 @@ class MyFirebase {
                          game: game2,
                          titleOfGroup: titleOfGroup2,
                          groupSize: groupSize2,
-                         yourAge: age2,
-                         ageDesired: ageDesired,
+                         age: age2,
                          availability: availability2,
                          about: about2,
                          name: name2,

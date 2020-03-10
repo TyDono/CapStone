@@ -47,7 +47,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var gameValue: String = ""
     var titleValue: String = ""
     var ageValue: String = ""
-    var ageDesiredValue: String = ""
     var groupSizeValue: String = ""
     var experianceValue: String = ""
     var availabilityValue: String = ""
@@ -64,7 +63,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourTitleOfGroup: String = ""
     var yourGroupSize: String = ""
     var yourAge: String = ""
-    var yourAgeDesired: String = ""
     var yourAvailability: String = ""
     var yourAbout: String = ""
     var yourName: String = ""
@@ -109,8 +107,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          game: yourGame,
                          titleOfGroup: yourTitleOfGroup,
                          groupSize: yourGroupSize,
-                         yourAge: yourAge,
-                         ageDesired: yourAgeDesired,
+                         age: yourAge,
                          availability: yourAvailability,
                          about:yourAbout,
                          name: yourName,
@@ -145,8 +142,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          game: gameValue,
                          titleOfGroup: titleValue,
                          groupSize: groupSizeValue,
-                         yourAge: ageValue,
-                         ageDesired: ageDesiredValue,
+                         age: ageValue,
                          availability: availabilityValue,
                          about: aboutValue,
                          name: nameValue,
@@ -253,8 +249,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let yourAge = document.data()["yourAge"] as? String,
-                        let ageDesired = document.data()["ageDesired"] as? String,
+                        let age = document.data()["age"] as? String,
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
@@ -265,8 +260,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourGroupSize = groupSize
                     self.yourAbout = about
                     self.yourAvailability = availability
-                    self.yourAge = yourAge
-                    self.ageDesiredValue = ageDesired
+                    self.yourAge = age
                     self.yourTitleOfGroup = title
                     self.yourLocation = location
                     self.yourContactsId = contactsId
