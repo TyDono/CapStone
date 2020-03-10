@@ -74,7 +74,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = self.titleValue
         self.reportAccountPopOver.layer.cornerRadius = 10
         db = Firestore.firestore()
         dbRef = Database.database().reference()
@@ -86,7 +86,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.image = UIImage(named: "Page")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.tableView.backgroundView = backgroundImage
     }
@@ -96,7 +96,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
         otherTitleLabel.text = "\(titleValue)"
         otherAgeLabel.text = "Age: \(ageValue)"
         otherGroupSizeLabel.text = "Group Size: \(groupSizeValue)"
-        otherExperianceLabel.text = "Experiance: \(experianceValue)"
         otherAboutLabel.text = "\(aboutValue)"
         otherUserNameLabel.text = "User Name: \(nameValue)"
         otherLocationLabel.text = "User Location: \(locationValue)"

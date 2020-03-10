@@ -128,7 +128,7 @@ class SearchResultsTableViewController: UITableViewController {
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.image = UIImage(named: "Wood")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.tableView.backgroundView = backgroundImage
     }
