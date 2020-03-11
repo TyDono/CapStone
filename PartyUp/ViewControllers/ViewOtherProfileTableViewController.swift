@@ -151,7 +151,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
         let userRef2 = self.db.collection("profile")
         userRef2.document(String(user2.id)).updateData(user2.dictionary){ err in
             if let err = err {
-                let alert1 = UIAlertController(title: "Contact failed to accept", message: "Sorry, there was an error while trying to add you to their contact list. Please check your internet connection and try again.", preferredStyle: .alert)
+                let alert1 = UIAlertController(title: "Contact Failed", message: "Sorry, there was an error while trying to add you to their contact list. Please check your internet connection and try again.", preferredStyle: .alert)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert1.dismiss(animated: true, completion: nil)
                 }))
@@ -223,7 +223,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
         guard let unwrappedContactName: String = self.nameValue else { return }
         let realTimeDatabaseRef = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId()
         
-        
         //gets your info
         guard let uid: String = self.currentAuthID else { return }
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
@@ -255,6 +254,18 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
                     let theOtherContactName: String = name //come back to this and do soem work on this line
+                    
+                    for contactId in self.yourContactsId {
+                        if contactId == unwrappedChatRoomIdString {
+                            let alert1 = UIAlertController(title: "Contact Already Added", message: "This User is already in your contacts", preferredStyle: .alert)
+                            alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                alert1.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(alert1, animated: true, completion: nil)
+                            return
+                        }
+                    }
+                    
                     self.yourContactsId.append(unwrappedChatRoomIdString)
                     self.contactsIdValue.append(unwrappedChatRoomIdString)
                     self.yourContactsName.append(unwrappedContactName)

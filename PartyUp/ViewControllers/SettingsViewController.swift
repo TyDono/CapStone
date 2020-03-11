@@ -65,7 +65,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let game = ""
             let titleOfGroup = ""
             let groupSize = ""
-            let experiance = ""
             let age = ""
             let availability = ""
             let about = ""
