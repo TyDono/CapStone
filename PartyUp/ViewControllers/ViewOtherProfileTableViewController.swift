@@ -20,9 +20,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     @IBOutlet var otherTitleLabel: UILabel!
     @IBOutlet var otherGameLabel: UILabel!
     @IBOutlet var otherAgeLabel: UILabel!
-    @IBOutlet weak var otherAgeDesiredLabel: UILabel!
     @IBOutlet var otherGroupSizeLabel: UILabel!
-    @IBOutlet var otherExperianceLabel: UILabel!
     @IBOutlet var otherAvailabilityLabel: UILabel!
     @IBOutlet var otherAboutLabel: UILabel!
     @IBOutlet var contactMe: UIButton!
@@ -39,7 +37,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var messages = [JSQMessage]()
     var chatRoomIdString: String?
     let currentAuthID = Auth.auth().currentUser?.uid
-    var yourCurrentUserName: String?
     var db: Firestore!
     var currentDate: Date?
     var chatId: String? = "no chat Id"
@@ -48,7 +45,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var titleValue: String = ""
     var ageValue: String = ""
     var groupSizeValue: String = ""
-    var experianceValue: String = ""
     var availabilityValue: String = ""
     var aboutValue: String = ""
     var text: String?
@@ -147,7 +143,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          name: nameValue,
                          location: locationValue,
                          contactsId: contactsIdValue,
-                         contactsName: yourContactsName)
+                         contactsName: contactsNameValue)
         let userRef2 = self.db.collection("profile")
         userRef2.document(String(user2.id)).updateData(user2.dictionary){ err in
             if let err = err {
@@ -242,7 +238,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
                         let contactsName = document.data()["contactsName"]as? [String] else { return }
-                    self.yourCurrentUserName = name
+                    self.yourName = name
                     self.yourId = id
                     self.yourGame = game
                     self.yourGroupSize = groupSize
@@ -274,7 +270,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()
 //                let ref = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId()
-                let message = ["sender_id": self.currentAuthID, "name": self.yourCurrentUserName, "text": ""]
+                let message = ["sender_id": self.currentAuthID, "name": self.yourName, "text": ""]
                 realTimeDatabaseRef.setValue(message)
             }
         }

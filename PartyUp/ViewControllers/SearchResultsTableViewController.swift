@@ -108,7 +108,7 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.titleValue = user.titleOfGroup
                 otherProfileVC.ageValue = user.age
                 otherProfileVC.groupSizeValue = user.groupSize
-                otherProfileVC.experianceValue = user.game
+                otherProfileVC.availabilityValue = user.availability
                 otherProfileVC.aboutValue = user.about
                 otherProfileVC.nameValue = user.name
                 otherProfileVC.userIdValue = user.id
