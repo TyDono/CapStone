@@ -851,7 +851,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title_Screen" highlightedImage="Title_Screen" translatesAutoresizingMaskIntoConstraints="NO" id="eXN-H0-n8a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WizardICONWITHGRADIANTRAW1024" highlightedImage="WizardICONWITHGRADIANTRAW1024" translatesAutoresizingMaskIntoConstraints="NO" id="eXN-H0-n8a">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <accessibility key="accessibilityConfiguration" identifier="splash"/>
                             </imageView>
@@ -1259,7 +1259,7 @@
     </scenes>
     <resources>
         <image name="Page" width="617" height="500"/>
-        <image name="Title_Screen" width="154.5" height="268"/>
+        <image name="WizardICONWITHGRADIANTRAW1024" width="1024" height="1024"/>
         <image name="icons8-user-50" width="25" height="25"/>
         <image name="message.fill" catalog="system" width="64" height="56"/>
         <image name="xmark.octagon.fill" catalog="system" width="64" height="56"/>

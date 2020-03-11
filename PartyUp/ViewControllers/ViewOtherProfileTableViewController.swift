@@ -222,18 +222,18 @@ class ViewOtherProfileTableViewController: UITableViewController {
         guard let unwrappedChatRoomIdString: String = self.chatRoomIdString else { return }
         guard let unwrappedContactName: String = self.nameValue else { return }
         print(unwrappedChatRoomIdString)
-        let query = self.dbRef.child("\(unwrappedChatRoomIdString)").queryLimited(toLast: 10)
-        _ = query.observe(.childAdded, with: { [weak self] snapshot in
-            if  let data = snapshot.value as? [String: String],
-                let senderId = data["sender_id"],
-                let name = data["name"],
-                let text = data["text"],
-                !text.isEmpty {
-                if let message = JSQMessage(senderId: senderId, displayName: name, text: text) {
-                    self?.messages.append(message)
-                }
-            }
-        })
+//        let query = self.dbRef.child("\(unwrappedChatRoomIdString)").queryLimited(toLast: 10)
+//        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+//            if  let data = snapshot.value as? [String: String],
+//                let senderId = data["sender_id"],
+//                let name = data["name"],
+//                let text = data["text"],
+//                !text.isEmpty {
+//                if let message = JSQMessage(senderId: senderId, displayName: name, text: text) {
+//                    self?.messages.append(message)
+//                }
+//            }
+//        })
         //gets your info
         guard let uid: String = self.currentAuthID else { return }
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
@@ -264,7 +264,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourLocation = location
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
-                    let theOtherContactName: String = name
+                    let theOtherContactName: String = name //come back to this and do soem work on this line
                     self.yourContactsId.append(unwrappedChatRoomIdString)
                     self.contactsIdValue.append(unwrappedChatRoomIdString)
                     self.yourContactsName.append(unwrappedContactName)
@@ -272,7 +272,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 }
                 self.UpdateUserContacts()
                 self.updateOtherUserContacts()
-                let ref = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId() // call
+                let ref = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId()
                 let message = ["sender_id": self.currentAuthID, "name": self.yourCurrentUserName, "text": ""]
                 ref.setValue(message)
             }

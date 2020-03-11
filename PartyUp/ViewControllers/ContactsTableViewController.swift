@@ -20,6 +20,7 @@ class ContactsTableViewController: UITableViewController {
     var cog: Bool? = true
     var currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
+    var currentUserName: String?
     
     // MARK: - View Lifecycle
     
@@ -29,7 +30,7 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //getPersonalData()
+        changeBackground()
         DispatchQueue.main.async {
             self.getPersonalData()
         }
@@ -94,6 +95,7 @@ class ContactsTableViewController: UITableViewController {
         if segue.identifier == "segueToMessages", let messagesTVC = segue.destination as? ChatLogViewController {
             if let row = self.tableView.indexPathForSelectedRow?.row, let contactId = contactListId[row] {
                 messagesTVC.chatId = contactId
+                messagesTVC.currentUserName = self.currentUserName
             }
         }
     }
@@ -104,6 +106,13 @@ class ContactsTableViewController: UITableViewController {
     
     // MARK: - Functions
     
+    func changeBackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.tableView.backgroundView = backgroundImage
+    }
+    
     func getPersonalData() {
         guard let uid: String = self.currentAuthID else { return }
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
@@ -113,9 +122,11 @@ class ContactsTableViewController: UITableViewController {
             } else {
                 for document in (snapshot?.documents)! {
                     guard let contactList = document.data()["contactsId"] as? [String],
+                        let name = document.data()["name"] as? String,
                         let contactName = document.data()["contactsName"] as? [String] else { return }
                     self.contactListId = contactList
                     self.contactsName = contactName
+                    self.currentUserName = name
                     self.tableView.reloadData()
                 }
             }

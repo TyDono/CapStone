@@ -23,7 +23,7 @@ class ChatLogViewController: JSQMessagesViewController {
     // MARK: - Propeties
     
     var currentAuthID = Auth.auth().currentUser?.uid
-    var currentUserName: String? = "Jim"
+    var currentUserName: String? = ""
     var messages = [JSQMessage]()
     var db: Firestore!
     var dbRef = Database.database().reference()
@@ -45,7 +45,6 @@ class ChatLogViewController: JSQMessagesViewController {
         self.reportChatPopOver.layer.cornerRadius = 10
         dbRef = Database.database().reference()
         db = Firestore.firestore()
-        getPersonalData()
         
         senderId = self.currentAuthID
         senderDisplayName = self.currentUserName
@@ -76,7 +75,7 @@ class ChatLogViewController: JSQMessagesViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count - 1
+        return messages.count
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -101,24 +100,10 @@ class ChatLogViewController: JSQMessagesViewController {
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         newRef.setValue(message)
         finishSendingMessage()
+        //finishSendingMessage()
     }
     
     // MARK: - Functions
-    
-    func getPersonalData() {
-        guard let uid: String = self.currentAuthID else { return }
-        let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
-        profileRef.getDocuments { (snapshot, error) in
-            if error != nil {
-                print(error as Any)
-            } else {
-                for document in (snapshot?.documents)! {
-                    guard let name = document.data()["name"] as? String else { return }
-                    self.currentUserName = name
-                }
-            }
-        }
-    }
     
     func showPopOverAnimate() {
         self.reportChatPopOver.center = self.view.center
