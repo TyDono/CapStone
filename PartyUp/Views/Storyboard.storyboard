@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Enter in a game name-->
+        <!--Looking For Group-->
         <scene sceneID="Bea-NV-eZx">
             <objects>
                 <viewController id="y5O-Ud-gfu" customClass="LFGViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,35 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psG-DY-f5L">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Looking For Group" id="pmN-WH-H4m">
-                                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="uMh-GU-qx1"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Search" id="vs5-nX-vqG"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-JI-Yto">
-                                <rect key="frame" x="16" y="67" width="343" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter in a Game Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zTf-bj-LUA">
+                                <rect key="frame" x="16" y="64" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="9Yo-IL-72j"/>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="psG-DY-f5L" secondAttribute="bottom" constant="23" id="HMO-R2-ZVd"/>
-                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="tcd-JI-Yto" secondAttribute="trailing" constant="16" id="Kb1-ur-EeZ"/>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="centerX" secondItem="psG-DY-f5L" secondAttribute="centerX" id="NUY-db-08O"/>
-                            <constraint firstItem="gVh-NL-AUU" firstAttribute="bottom" secondItem="tcd-JI-Yto" secondAttribute="bottom" constant="497" id="OB0-RG-aLa"/>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="11" id="cDH-u0-Z1q"/>
-                            <constraint firstItem="psG-DY-f5L" firstAttribute="top" secondItem="Iz0-8R-ZSu" secondAttribute="topMargin" constant="-56" id="iI6-Df-2ei"/>
-                            <constraint firstItem="psG-DY-f5L" firstAttribute="leading" secondItem="Iz0-8R-ZSu" secondAttribute="leadingMargin" constant="-16" id="rKJ-VJ-TSh"/>
+                            <constraint firstItem="zTf-bj-LUA" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="7ac-Gf-dyY"/>
+                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="zTf-bj-LUA" secondAttribute="trailing" constant="16" id="9m9-83-IPz"/>
+                            <constraint firstItem="zTf-bj-LUA" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="8" id="TiH-2L-XUB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVh-NL-AUU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Enter in a game name" id="8h4-Ac-Kyh">
+                    <navigationItem key="navigationItem" title="Looking For Group" id="8h4-Ac-Kyh">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="YQd-oh-VGF">
                             <connections>
                                 <action selector="logOutTappedWithSender:" destination="y5O-Ud-gfu" id="1OP-qU-rfu"/>
@@ -58,13 +44,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="logOut" destination="YQd-oh-VGF" id="sur-J9-cFH"/>
-                        <outlet property="searchGame" destination="tcd-JI-Yto" id="gKQ-xJ-sag"/>
+                        <outlet property="searchGame" destination="zTf-bj-LUA" id="DUF-2K-I9R"/>
                         <segue destination="L4m-aT-Ugv" kind="show" identifier="segueSearch" id="hLs-CY-Pot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fue-vM-TJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24234" y="-851"/>
+            <point key="canvasLocation" x="-24234.400000000001" y="-851.42428785607206"/>
         </scene>
         <!--Your Profile-->
         <scene sceneID="eJa-Ed-5i0">
