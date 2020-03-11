@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Enter in a game name-->
         <scene sceneID="Bea-NV-eZx">
             <objects>
                 <viewController id="y5O-Ud-gfu" customClass="LFGViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psG-DY-f5L">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psG-DY-f5L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Looking For Group" id="pmN-WH-H4m">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="uMh-GU-qx1"/>
@@ -26,31 +25,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What game are you looking for freinds to play with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-aA-QFf">
-                                <rect key="frame" x="16" y="64" width="343" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-JI-Yto">
-                                <rect key="frame" x="16" y="113" width="343" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-JI-Yto">
+                                <rect key="frame" x="16" y="67" width="343" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="hrI-aA-QFf" secondAttribute="bottom" constant="8" id="0gc-Ew-3Fq"/>
                             <constraint firstItem="tcd-JI-Yto" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="9Yo-IL-72j"/>
+                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="psG-DY-f5L" secondAttribute="bottom" constant="23" id="HMO-R2-ZVd"/>
                             <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="tcd-JI-Yto" secondAttribute="trailing" constant="16" id="Kb1-ur-EeZ"/>
-                            <constraint firstItem="hrI-aA-QFf" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="Pbf-ac-r9K"/>
-                            <constraint firstItem="hrI-aA-QFf" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="8" id="icQ-p2-gcr"/>
-                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="hrI-aA-QFf" secondAttribute="trailing" constant="16" id="xiA-Lh-lLh"/>
-                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="hrI-aA-QFf" secondAttribute="bottom" constant="8" id="yoe-Sx-5dd"/>
+                            <constraint firstItem="tcd-JI-Yto" firstAttribute="centerX" secondItem="psG-DY-f5L" secondAttribute="centerX" id="NUY-db-08O"/>
+                            <constraint firstItem="gVh-NL-AUU" firstAttribute="bottom" secondItem="tcd-JI-Yto" secondAttribute="bottom" constant="497" id="OB0-RG-aLa"/>
+                            <constraint firstItem="tcd-JI-Yto" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="11" id="cDH-u0-Z1q"/>
+                            <constraint firstItem="psG-DY-f5L" firstAttribute="top" secondItem="Iz0-8R-ZSu" secondAttribute="topMargin" constant="-56" id="iI6-Df-2ei"/>
+                            <constraint firstItem="psG-DY-f5L" firstAttribute="leading" secondItem="Iz0-8R-ZSu" secondAttribute="leadingMargin" constant="-16" id="rKJ-VJ-TSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVh-NL-AUU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8h4-Ac-Kyh">
+                    <navigationItem key="navigationItem" title="Enter in a game name" id="8h4-Ac-Kyh">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="YQd-oh-VGF">
                             <connections>
                                 <action selector="logOutTappedWithSender:" destination="y5O-Ud-gfu" id="1OP-qU-rfu"/>
