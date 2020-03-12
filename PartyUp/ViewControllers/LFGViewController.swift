@@ -25,7 +25,6 @@ class LFGViewController: UIViewController {
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
-    static let sharedController = LFGTableViewController()
     
     // MARK: - View Lifecycle
     

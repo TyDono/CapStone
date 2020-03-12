@@ -18,16 +18,14 @@ protocol DocumentSerializableUserReport {
 
 struct UserReport {
     
-    var reporterCreatorId: String
     var reason: String
     var creatorId: String
     var chatId: String
-    var dateSent: Date
+    var dateSent: String
     var reportId: String
     
     var dictionary: [String: Any] {
         return [
-            "reporterCreatorId": reporterCreatorId,
             "reason": reason,
             "creatorId": creatorId,
             "chatId:": chatId,
@@ -39,13 +37,12 @@ struct UserReport {
 
 extension UserReport: DocumentSerializableUserReport {
     init?(dictionary: [String: Any]) {
-        guard let reporterCreatorId = dictionary["reporterCreatorId"] as? String,
-            let reason = dictionary["reason"] as? String,
+        guard let reason = dictionary["reason"] as? String,
             let creatorId = dictionary["creatorId"] as? String,
             let chatId = dictionary["chatId"] as? String,
-            let dateSent = dictionary["dateSent"] as? Date,
+            let dateSent = dictionary["dateSent"] as? String,
             let reportId = dictionary["reportId"] as? String else {return nil}
-        self.init(reporterCreatorId: reporterCreatorId, reason: reason, creatorId: creatorId, chatId: chatId, dateSent: dateSent, reportId: reportId)
+        self.init(reason: reason, creatorId: creatorId, chatId: chatId, dateSent: dateSent, reportId: reportId)
     }
     
 }

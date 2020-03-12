@@ -195,8 +195,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
             let reason = reportCommentsTextView.text,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
-        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
-                                    reason: reason,
+        let userReport = UserReport(reason: reason,
                                     creatorId: creatorId,
                                     chatId: chatId,
                                     dateSent: dateSent,

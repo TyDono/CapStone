@@ -634,7 +634,7 @@
                     <connections>
                         <segue destination="6gU-xz-Shp" kind="relationship" relationship="viewControllers" id="Syc-at-i7Y"/>
                         <segue destination="ACh-D7-C4y" kind="relationship" relationship="viewControllers" id="mw3-mN-cKS"/>
-                        <segue destination="oNm-Gi-gix" kind="relationship" relationship="viewControllers" id="qAJ-WY-UZH"/>
+                        <segue destination="W8j-Zq-AT6" kind="relationship" relationship="viewControllers" id="zz9-wJ-olh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-3f-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,15 +652,14 @@
                         <viewLayoutGuide key="safeArea" id="A1f-Kb-IFN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="N2I-Tz-xQB"/>
-                    <navigationItem key="navigationItem" id="3xR-JG-QW1">
-                        <barButtonItem key="rightBarButtonItem" title="Report" id="5S1-Wj-C5h">
+                    <navigationItem key="navigationItem" title="Chat" id="pLh-Le-ez4">
+                        <barButtonItem key="rightBarButtonItem" title="Report Chat" id="44K-d5-Z56">
                             <connections>
-                                <action selector="reportChatButtonTapped:" destination="3rR-Pg-vkm" id="Pwz-yd-bF0"/>
+                                <action selector="reportChatButtonTapped:" destination="3rR-Pg-vkm" id="tRN-f1-pM1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="reportChatButton" destination="5S1-Wj-C5h" id="K9O-fB-GN8"/>
                         <outlet property="reportChatPopOver" destination="g4T-wO-USW" id="zdx-Bc-0CO"/>
                         <outlet property="reportCommentsTextView" destination="rlG-x5-KUy" id="Kxk-Gb-EKj"/>
                     </connections>
@@ -724,9 +723,9 @@
                     <viewLayoutGuide key="safeArea" id="aFN-P7-vGc"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-23367" y="1773"/>
+            <point key="canvasLocation" x="-22676" y="1772.5637181409297"/>
         </scene>
-        <!--Contacts Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="jZx-RS-04R">
             <objects>
                 <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
@@ -742,6 +741,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-V4-p6W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e71-AW-cas">
                                             <rect key="frame" x="77" y="11" width="282" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -757,13 +759,17 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="top" id="B0f-Or-iBY"/>
                                         <constraint firstItem="e71-AW-cas" firstAttribute="trailing" secondItem="RpH-aG-Je8" secondAttribute="trailingMargin" id="HBa-SH-AfH"/>
                                         <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="JUg-eh-6Lm"/>
                                         <constraint firstItem="e71-AW-cas" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="O0W-vw-wNO"/>
+                                        <constraint firstAttribute="bottom" secondItem="YuA-V4-p6W" secondAttribute="bottom" id="Ocx-jI-JWs"/>
                                         <constraint firstItem="PaU-CR-Vk9" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leadingMargin" id="PkU-Ld-HVt"/>
+                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leading" id="RdL-38-hsx"/>
                                         <constraint firstItem="PaU-CR-Vk9" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="dIe-Lw-Rkl"/>
                                         <constraint firstItem="e71-AW-cas" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="eLn-dp-b76"/>
                                         <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="nEF-Cz-u5f"/>
+                                        <constraint firstAttribute="trailing" secondItem="YuA-V4-p6W" secondAttribute="trailing" id="qbm-5D-zCB"/>
                                         <constraint firstItem="PaU-CR-Vk9" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="t8H-4W-jeX"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -778,6 +784,7 @@
                             <outlet property="delegate" destination="W8j-Zq-AT6" id="XdA-Yr-Khg"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="xNb-Mz-tYR"/>
                     <navigationItem key="navigationItem" id="LzT-V4-pMf"/>
                     <connections>
                         <segue destination="3rR-Pg-vkm" kind="show" identifier="segueToMessages" id="RRp-hb-Axc"/>
@@ -785,7 +792,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFw-d2-19C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24234" y="1773"/>
+            <point key="canvasLocation" x="-23615.200000000001" y="1772.5637181409297"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We6-61-0AC">
@@ -1238,25 +1245,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGI-sR-zXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-24234.400000000001" y="680.5097451274363"/>
-        </scene>
-        <!--Contacts-->
-        <scene sceneID="8oi-dF-4CA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oNm-Gi-gix" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="YFN-Xg-mqF"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bEp-UO-zgb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="W8j-Zq-AT6" kind="relationship" relationship="rootViewController" id="tHQ-NR-sK6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xaZ-eO-6JQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-25279" y="1773"/>
         </scene>
     </scenes>
     <resources>

@@ -54,8 +54,7 @@ class ChatLogViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 10)
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10) //this will be getting newQuery
+        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 53)
         _ = newQuery.observe(.childAdded, with: { [weak self] snapshot in
             if  let data = snapshot.value as? [String: String],
                 let id = data["sender_id"],
@@ -96,11 +95,9 @@ class ChatLogViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let newRef = dbRef.child("Messages").child(self.chatId).childByAutoId()
-        let ref = Constants.refs.databaseChats.childByAutoId() // call dbref.databaseRoot.child("chatDatabaseName") chatDatabaseName location is the string in which  the 2 users will connect with, a new one for every 2 ppl.
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         newRef.setValue(message)
         finishSendingMessage()
-        //finishSendingMessage()
     }
     
     // MARK: - Functions
@@ -135,13 +132,12 @@ class ChatLogViewController: JSQMessagesViewController {
     
     func createReportData() {
         getCurrentDate()
+        let chatId = self.chatId
         guard let creatorId = self.currentAuthID,
             let reason = reportCommentsTextView.text,
-            let chatId = self.chatDatabaseName,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
-        let userReport = UserReport(reporterCreatorId: currentAuthID ?? "No Creator ID",
-                                    reason: reason,
+        let userReport = UserReport(reason: reason,
                                     creatorId: creatorId,
                                     chatId: chatId,
                                     dateSent: dateSent,
