@@ -47,7 +47,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var groupSizeValue: String = ""
     var availabilityValue: String = ""
     var aboutValue: String = ""
-    var text: String?
     var nameValue: String = ""
     var userIdValue: String = ""
     var locationValue: String = ""

@@ -16,6 +16,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var sizeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     
     // MARK: - Propeties
     var users: [Users]?
@@ -25,6 +26,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     var userName: String = ""
     var name: String = ""
     var userId: String = ""
+    var location: String = ""
     
     // MARK: - View Lifecycle
     
