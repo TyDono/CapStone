@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C47CE58D984E56E4F3B9F38 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0C4889E8C231F33D9FDE69 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */; };
-		904F65B5EC59512FFFE263F0 /* Pods_Gaming_Wizard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B5A0268A4BED28C7EEF742 /* Pods_Gaming_Wizard.framework */; };
-		A4D1FC9DF85E1C01DA42D28E /* Pods_Gaming_WizardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C4255FC60551D5D577F462 /* Pods_Gaming_WizardTests.framework */; };
+		127E049DDCA4DD222FB1DE1C /* Pods_Gaming_WizardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD92091FA395D1EA348B26E5 /* Pods_Gaming_WizardTests.framework */; };
+		6960126A8C7DDE57B13639F1 /* Pods_Gaming_Wizard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5CC5D15002B4DA2D142118 /* Pods_Gaming_Wizard.framework */; };
+		B003E0E8A40CC63CC7B9592F /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB18F2397B571FB991A08B5 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */; };
 		CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18EF223DCCB0004FAA1F /* UIColor.swift */; };
 		CB2C18F5223DCCB2004FAA1F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F1223DCCB1004FAA1F /* UIImage.swift */; };
 		CB4F2C052360EFE300584D12 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F2C042360EFE300584D12 /* SettingsViewController.swift */; };
@@ -63,12 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E0E534C1621F7C49531975D /* Pods-Gaming Wizard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.release.xcconfig"; sourceTree = "<group>"; };
-		5752F7FBBB8C8DE807C51B3A /* Pods-Gaming Wizard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.debug.xcconfig"; sourceTree = "<group>"; };
-		60C4255FC60551D5D577F462 /* Pods_Gaming_WizardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_WizardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6742D0A6085A5342F4B94B85 /* Pods-Gaming WizardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming WizardTests.release.xcconfig"; path = "Target Support Files/Pods-Gaming WizardTests/Pods-Gaming WizardTests.release.xcconfig"; sourceTree = "<group>"; };
-		A0B5A0268A4BED28C7EEF742 /* Pods_Gaming_Wizard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A37C70E2F42823BF25393304 /* Pods-Gaming WizardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming WizardTests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming WizardTests/Pods-Gaming WizardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A2F01CD15AB0818D33EAB83 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5DB18F2397B571FB991A08B5 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard_Gaming_WizardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5CC5D15002B4DA2D142118 /* Pods_Gaming_Wizard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A98413F01AF8ABA34E2896D /* Pods-Gaming Wizard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.release.xcconfig"; sourceTree = "<group>"; };
+		A165124578D7373777D79F1E /* Pods-Gaming WizardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming WizardTests.release.xcconfig"; path = "Target Support Files/Pods-Gaming WizardTests/Pods-Gaming WizardTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD92091FA395D1EA348B26E5 /* Pods_Gaming_WizardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_WizardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36D1B8D7B2274AA36CDE1DD /* Pods-Gaming Wizard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.debug.xcconfig"; sourceTree = "<group>"; };
+		C9075C110B5789EB92C2AC83 /* Pods-Gaming WizardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming WizardTests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming WizardTests/Pods-Gaming WizardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB2C18EF223DCCB0004FAA1F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CB2C18F1223DCCB1004FAA1F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CB4F2C042360EFE300584D12 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -107,9 +109,7 @@
 		CBBDDEEA2407B7E600345F5E /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		CBC068D924066AA10039890F /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		CBE461B0240EB598004CCD25 /* LFGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGViewController.swift; sourceTree = "<group>"; };
-		DD0C4889E8C231F33D9FDE69 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard_Gaming_WizardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9C99EDD3D9BC936BAC40597 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EFE751AC4EBF56E118FC01D3 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD042229725AA2184F83D770 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				904F65B5EC59512FFFE263F0 /* Pods_Gaming_Wizard.framework in Frameworks */,
+				6960126A8C7DDE57B13639F1 /* Pods_Gaming_Wizard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D1FC9DF85E1C01DA42D28E /* Pods_Gaming_WizardTests.framework in Frameworks */,
+				127E049DDCA4DD222FB1DE1C /* Pods_Gaming_WizardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C47CE58D984E56E4F3B9F38 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework in Frameworks */,
+				B003E0E8A40CC63CC7B9592F /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,12 +260,12 @@
 		E96D8D6B4F796293CD4F4517 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5752F7FBBB8C8DE807C51B3A /* Pods-Gaming Wizard.debug.xcconfig */,
-				1E0E534C1621F7C49531975D /* Pods-Gaming Wizard.release.xcconfig */,
-				E9C99EDD3D9BC936BAC40597 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */,
-				EFE751AC4EBF56E118FC01D3 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */,
-				A37C70E2F42823BF25393304 /* Pods-Gaming WizardTests.debug.xcconfig */,
-				6742D0A6085A5342F4B94B85 /* Pods-Gaming WizardTests.release.xcconfig */,
+				C36D1B8D7B2274AA36CDE1DD /* Pods-Gaming Wizard.debug.xcconfig */,
+				9A98413F01AF8ABA34E2896D /* Pods-Gaming Wizard.release.xcconfig */,
+				FD042229725AA2184F83D770 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */,
+				0A2F01CD15AB0818D33EAB83 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */,
+				C9075C110B5789EB92C2AC83 /* Pods-Gaming WizardTests.debug.xcconfig */,
+				A165124578D7373777D79F1E /* Pods-Gaming WizardTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -274,9 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				CB89B91E2404AC8E00724301 /* UIKit.framework */,
-				A0B5A0268A4BED28C7EEF742 /* Pods_Gaming_Wizard.framework */,
-				DD0C4889E8C231F33D9FDE69 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */,
-				60C4255FC60551D5D577F462 /* Pods_Gaming_WizardTests.framework */,
+				7A5CC5D15002B4DA2D142118 /* Pods_Gaming_Wizard.framework */,
+				5DB18F2397B571FB991A08B5 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */,
+				BD92091FA395D1EA348B26E5 /* Pods_Gaming_WizardTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,12 +288,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB610C702214919400DBBAAE /* Build configuration list for PBXNativeTarget "Gaming Wizard" */;
 			buildPhases = (
-				192251F9F2B8EAF04D226C49 /* [CP] Check Pods Manifest.lock */,
+				82781ADA0E691DB2C46AE2EB /* [CP] Check Pods Manifest.lock */,
 				CB610C442214919200DBBAAE /* Sources */,
 				CB610C452214919200DBBAAE /* Frameworks */,
 				CB610C462214919200DBBAAE /* Resources */,
-				B252E78B4604064856D4C180 /* [CP] Embed Pods Frameworks */,
-				D8D827A8CF2F72FDBFDDD311 /* [CP] Copy Pods Resources */,
+				7882793A9F7A2569FA55ECCD /* [CP] Embed Pods Frameworks */,
+				FB2B72D5F113B4C5B66D4DC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,7 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB610C732214919400DBBAAE /* Build configuration list for PBXNativeTarget "Gaming WizardTests" */;
 			buildPhases = (
-				8A68D776DF93B05C296510F3 /* [CP] Check Pods Manifest.lock */,
+				5A6E196548BA50848A8F42E9 /* [CP] Check Pods Manifest.lock */,
 				CB610C582214919400DBBAAE /* Sources */,
 				CB610C592214919400DBBAAE /* Frameworks */,
 				CB610C5A2214919400DBBAAE /* Resources */,
@@ -327,12 +327,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB610C762214919400DBBAAE /* Build configuration list for PBXNativeTarget "Gaming WizardUITests" */;
 			buildPhases = (
-				419E2E25E7FE2233AF547AB1 /* [CP] Check Pods Manifest.lock */,
+				C8BAD2C9E7C969D66EA5C552 /* [CP] Check Pods Manifest.lock */,
 				CB610C632214919400DBBAAE /* Sources */,
 				CB610C642214919400DBBAAE /* Frameworks */,
 				CB610C652214919400DBBAAE /* Resources */,
-				9402209DF803BCC0DADA1932 /* [CP] Embed Pods Frameworks */,
-				5B79E81459516F4B4267CF1A /* [CP] Copy Pods Resources */,
+				F0AECB024E4AF2F224566D83 /* [CP] Embed Pods Frameworks */,
+				E38C0A6B15CBF87568F7A44F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -422,68 +422,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		192251F9F2B8EAF04D226C49 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gaming Wizard-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		419E2E25E7FE2233AF547AB1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gaming Wizard-Gaming WizardUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B79E81459516F4B4267CF1A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A68D776DF93B05C296510F3 /* [CP] Check Pods Manifest.lock */ = {
+		5A6E196548BA50848A8F42E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -505,24 +444,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9402209DF803BCC0DADA1932 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B252E78B4604064856D4C180 /* [CP] Embed Pods Frameworks */ = {
+		7882793A9F7A2569FA55ECCD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,7 +461,85 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8D827A8CF2F72FDBFDDD311 /* [CP] Copy Pods Resources */ = {
+		82781ADA0E691DB2C46AE2EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gaming Wizard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8BAD2C9E7C969D66EA5C552 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gaming Wizard-Gaming WizardUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E38C0A6B15CBF87568F7A44F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0AECB024E4AF2F224566D83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB2B72D5F113B4C5B66D4DC1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -751,7 +751,7 @@
 		};
 		CB610C712214919400DBBAAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5752F7FBBB8C8DE807C51B3A /* Pods-Gaming Wizard.debug.xcconfig */;
+			baseConfigurationReference = C36D1B8D7B2274AA36CDE1DD /* Pods-Gaming Wizard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -770,7 +770,7 @@
 		};
 		CB610C722214919400DBBAAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E0E534C1621F7C49531975D /* Pods-Gaming Wizard.release.xcconfig */;
+			baseConfigurationReference = 9A98413F01AF8ABA34E2896D /* Pods-Gaming Wizard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -789,7 +789,7 @@
 		};
 		CB610C742214919400DBBAAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A37C70E2F42823BF25393304 /* Pods-Gaming WizardTests.debug.xcconfig */;
+			baseConfigurationReference = C9075C110B5789EB92C2AC83 /* Pods-Gaming WizardTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -810,7 +810,7 @@
 		};
 		CB610C752214919400DBBAAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6742D0A6085A5342F4B94B85 /* Pods-Gaming WizardTests.release.xcconfig */;
+			baseConfigurationReference = A165124578D7373777D79F1E /* Pods-Gaming WizardTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -831,7 +831,7 @@
 		};
 		CB610C772214919400DBBAAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9C99EDD3D9BC936BAC40597 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */;
+			baseConfigurationReference = FD042229725AA2184F83D770 /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -851,7 +851,7 @@
 		};
 		CB610C782214919400DBBAAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE751AC4EBF56E118FC01D3 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */;
+			baseConfigurationReference = 0A2F01CD15AB0818D33EAB83 /* Pods-Gaming Wizard-Gaming WizardUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

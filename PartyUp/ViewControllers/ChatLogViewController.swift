@@ -102,77 +102,78 @@ class ChatLogViewController: JSQMessagesViewController {
     
     // MARK: - Functions
     
-    func getCurrentDate() {
-        let formatter : DateFormatter = DateFormatter()
-        formatter.dateFormat = "d/M/yy"
-        let myDate : String = formatter.string(from:   NSDate.init(timeIntervalSinceNow: 0) as Date)
-        self.currentDate = myDate
-    }
-    
-    func showPopOverAnimate() {
-        self.reportChatPopOver.center = self.view.center
-        self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.reportChatPopOver.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.reportChatPopOver.alpha = 1.0
-            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-    }
-    
-    func removePopOverAnimate() {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.reportChatPopOver.alpha = 0.0;
-            }, completion:{(finished : Bool)  in
-                if (finished) {
-                    self.reportChatPopOver.removeFromSuperview()
-                }
-        });
-    }
-    
-    func createReportData() {
-        getCurrentDate()
-        let chatId = self.chatId
-        guard let creatorId = self.currentAuthID,
-            let reason = reportCommentsTextView.text,
-            let dateSent = self.currentDate else { return }
-        let userReportUID: String = UUID().uuidString
-        let userReport = UserReport(reason: reason,
-                                    creatorId: creatorId,
-                                    chatId: chatId,
-                                    dateSent: dateSent,
-                                    reportId: userReportUID)
-        let userReportRef = self.db.collection("userReports")
-        userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
-            if let err = err {
-                let reportChatFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
-                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                reportChatFailAlert.addAction(dismiss)
-                self.present(reportChatFailAlert, animated: true, completion: nil)
-                print(err)
-            } else {
-                let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
-                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                reportChatAlertSucceed.addAction(dismiss)
-                self.removePopOverAnimate()
-                self.present(reportChatAlertSucceed, animated: true, completion: nil)
-            }
-        }
-    }
+//    func getCurrentDate() {
+//        let formatter : DateFormatter = DateFormatter()
+//        formatter.dateFormat = "d/M/yy"
+//        let myDate : String = formatter.string(from:   NSDate.init(timeIntervalSinceNow: 0) as Date)
+//        self.currentDate = myDate
+//    }
+//    
+//    func showPopOverAnimate() {
+//        self.reportChatPopOver.center = self.view.center
+//        self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//        self.reportChatPopOver.alpha = 0.0;
+//        UIView.animate(withDuration: 0.25, animations: {
+//            self.reportChatPopOver.alpha = 1.0
+//            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//        });
+//    }
+//    
+//    func removePopOverAnimate() {
+//        UIView.animate(withDuration: 0.25, animations: {
+//            self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//            self.reportChatPopOver.alpha = 0.0;
+//            }, completion:{(finished : Bool)  in
+//                if (finished) {
+//                    self.reportChatPopOver.removeFromSuperview()
+//                }
+//        });
+//    }
+//    
+//    func createReportData() {
+//        getCurrentDate()
+//        let chatId = self.chatId
+//        guard let creatorId = self.currentAuthID,
+//            let reason = reportCommentsTextView.text,
+//            let dateSent = self.currentDate else { return }
+//        let userReportUID: String = UUID().uuidString
+//        let userReport = UserReport(reason: reason,
+//                                    creatorId: creatorId,
+//                                    chatId: chatId,
+//                                    dateSent: dateSent,
+//                                    reportId: userReportUID,
+//                                    userReportedId: userReportedId)
+//        let userReportRef = self.db.collection("userReports")
+//        userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
+//            if let err = err {
+//                let reportChatFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+//                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                reportChatFailAlert.addAction(dismiss)
+//                self.present(reportChatFailAlert, animated: true, completion: nil)
+//                print(err)
+//            } else {
+//                let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+//                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                reportChatAlertSucceed.addAction(dismiss)
+//                self.removePopOverAnimate()
+//                self.present(reportChatAlertSucceed, animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     // MARK: - Actions
     
-    @IBAction func reportChatButtonTapped(_ sender: Any) {
-        self.view.addSubview(reportChatPopOver)
-        showPopOverAnimate()
-    }
-    
-    @IBAction func cancelReportButtonTapped(_ sender: Any) {
-        removePopOverAnimate()
-    }
-    
-    @IBAction func submitReportButtonTapped(_ sender: UIButton) {
-        createReportData()
-    }
+//    @IBAction func reportChatButtonTapped(_ sender: Any) {
+//        self.view.addSubview(reportChatPopOver)
+//        showPopOverAnimate()
+//    }
+//
+//    @IBAction func cancelReportButtonTapped(_ sender: Any) {
+//        removePopOverAnimate()
+//    }
+//
+//    @IBAction func submitReportButtonTapped(_ sender: UIButton) {
+//        createReportData()
+//    }
     
 }

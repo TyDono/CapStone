@@ -190,8 +190,9 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     func createReportData() {
         getCurrentDate()
+        let userReportedId = self.userIdValue
         guard let creatorId = self.currentAuthID,
-            let chatId = self.chatId, // there will be no chatId on user reports as it is just user being reported, not their chat
+            let chatId = self.chatId,
             let reason = reportCommentsTextView.text,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
@@ -199,7 +200,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                                     creatorId: creatorId,
                                     chatId: chatId,
                                     dateSent: dateSent,
-                                    reportId: userReportUID)
+                                    reportId: userReportUID,
+                                    userReportedId: userReportedId)
         let userReportRef = self.db.collection("userReports")
         userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
             if let err = err {

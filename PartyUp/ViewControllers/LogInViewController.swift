@@ -16,8 +16,6 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: - Outlets
     
-    @IBOutlet var emailTextView: UITextField!
-    @IBOutlet var passwordTextView: UITextField!
     @IBOutlet var createAccount: UIButton!
     
     // MARK: - Propeties
@@ -54,28 +52,28 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: - Functions
     
-    func createUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if error == nil {
-            print("User Created")
-                self.signInUser(email: email, password: password)
-            }
-        }
-    }
-    
-    func signInUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if error == nil {
-                print("User Signed In")
-                self.userDefault.set(true, forKey: "userSignedIn")
-                self.userDefault.synchronize()
-                moveToLFG()
-            } else {
-                print(error as Any)
-                print(error?.localizedDescription as Any)
-            }
-        }
-    }
+//    func createUser(email: String, password: String) {
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//            if error == nil {
+//            print("User Created")
+//                self.signInUser(email: email, password: password)
+//            }
+//        }
+//    }
+//
+//    func signInUser(email: String, password: String) {
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//            if error == nil {
+//                print("User Signed In")
+//                self.userDefault.set(true, forKey: "userSignedIn")
+//                self.userDefault.synchronize()
+//                moveToLFG()
+//            } else {
+//                print(error as Any)
+//                print(error?.localizedDescription as Any)
+//            }
+//        }
+//    }
     
     // MARK: - Actions
     
@@ -83,28 +81,28 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         performSegue(withIdentifier: "moveToTabVC", sender: nil)
     }
     
-    @IBAction func createAccountTapped(_ sender: Any) {
-        performSegue(withIdentifier: "toSignUp", sender: nil)
-        
-    }
+//    @IBAction func createAccountTapped(_ sender: Any) {
+//        performSegue(withIdentifier: "toSignUp", sender: nil)
+//
+//    }
     
-    @IBAction func logInTapped(_ sender: Any) {
-        
-        if let email = emailTextView.text, let password = passwordTextView.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                
-                if error == nil {
-                    self.userDefault.set(true, forKey: "uid")
-                    self.userDefault.synchronize()
-                    moveToLFG()
-                } else {
-                    print(error as Any)
-                    print(error?.localizedDescription as Any)
-                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
-                }
-            })
-        }
-    }
+//    @IBAction func logInTapped(_ sender: Any) {
+//
+//        if let email = emailTextView.text, let password = passwordTextView.text {
+//            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+//
+//                if error == nil {
+//                    self.userDefault.set(true, forKey: "uid")
+//                    self.userDefault.synchronize()
+//                    moveToLFG()
+//                } else {
+//                    print(error as Any)
+//                    print(error?.localizedDescription as Any)
+//                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
+//                }
+//            })
+//        }
+//    }
     
     @IBAction func unwindToLogIn(_ sender: UIStoryboardSegue) {}
     

@@ -651,8 +651,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="A1f-Kb-IFN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="N2I-Tz-xQB"/>
                     <navigationItem key="navigationItem" title="Chat" id="pLh-Le-ez4">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="IEl-dJ-S7P">
+                            <connections>
+                                <segue destination="vjj-4p-r2T" kind="unwind" unwindAction="unwindToContacts:" id="FKH-8y-0TW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Report Chat" id="44K-d5-Z56">
                             <connections>
                                 <action selector="reportChatButtonTapped:" destination="3rR-Pg-vkm" id="tRN-f1-pM1"/>
@@ -661,10 +665,95 @@
                     </navigationItem>
                     <connections>
                         <outlet property="reportChatPopOver" destination="g4T-wO-USW" id="zdx-Bc-0CO"/>
-                        <outlet property="reportCommentsTextView" destination="rlG-x5-KUy" id="Kxk-Gb-EKj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZB-ge-cWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vjj-4p-r2T" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-22820" y="1773"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="jZx-RS-04R">
+            <objects>
+                <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W5i-Cz-gug">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="MI9-ck-cVF" customClass="ContactsTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MI9-ck-cVF" id="RpH-aG-Je8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-V4-p6W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e71-AW-cas">
+                                            <rect key="frame" x="77" y="11" width="228" height="53"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-CR-Vk9">
+                                            <rect key="frame" x="16" y="11" width="53" height="53"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="53" id="1Ai-H1-Mrt"/>
+                                                <constraint firstAttribute="height" constant="53" id="wGD-YC-AhT"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue8-qY-8NB">
+                                            <rect key="frame" x="313" y="11" width="46" height="58"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="Report">
+                                                <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="reportChatButtonTapped:" destination="W8j-Zq-AT6" eventType="touchUpInside" id="yYn-Dq-51y"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ue8-qY-8NB" secondAttribute="bottom" constant="6" id="2fJ-bZ-ESz"/>
+                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="top" id="B0f-Or-iBY"/>
+                                        <constraint firstAttribute="trailing" secondItem="ue8-qY-8NB" secondAttribute="trailing" constant="16" id="Ehc-Sb-TOb"/>
+                                        <constraint firstItem="e71-AW-cas" firstAttribute="trailing" secondItem="RpH-aG-Je8" secondAttribute="trailingMargin" constant="-54" id="HBa-SH-AfH"/>
+                                        <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="JUg-eh-6Lm"/>
+                                        <constraint firstItem="ue8-qY-8NB" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="top" constant="11" id="N4Q-iD-tTS"/>
+                                        <constraint firstItem="e71-AW-cas" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="O0W-vw-wNO"/>
+                                        <constraint firstAttribute="bottom" secondItem="YuA-V4-p6W" secondAttribute="bottom" id="Ocx-jI-JWs"/>
+                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leadingMargin" id="PkU-Ld-HVt"/>
+                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leading" id="RdL-38-hsx"/>
+                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="dIe-Lw-Rkl"/>
+                                        <constraint firstItem="e71-AW-cas" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="eLn-dp-b76"/>
+                                        <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="nEF-Cz-u5f"/>
+                                        <constraint firstAttribute="trailing" secondItem="YuA-V4-p6W" secondAttribute="trailing" id="qbm-5D-zCB"/>
+                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="t8H-4W-jeX"/>
+                                        <constraint firstItem="ue8-qY-8NB" firstAttribute="leading" secondItem="e71-AW-cas" secondAttribute="trailing" constant="8" id="u3u-ls-cDd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contactNameLabel" destination="e71-AW-cas" id="tyq-wM-HMu"/>
+                                    <outlet property="contactProfileImage" destination="PaU-CR-Vk9" id="Ptm-gV-O0l"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="W8j-Zq-AT6" id="Z4p-ue-Wz9"/>
+                            <outlet property="delegate" destination="W8j-Zq-AT6" id="XdA-Yr-Khg"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="xNb-Mz-tYR"/>
+                    <navigationItem key="navigationItem" id="LzT-V4-pMf"/>
+                    <connections>
+                        <outlet property="reportChatPopOver" destination="g4T-wO-USW" id="X1e-RA-Gdf"/>
+                        <outlet property="reportCommentsTextView" destination="rlG-x5-KUy" id="Lou-bf-JwD"/>
+                        <segue destination="3rR-Pg-vkm" kind="show" identifier="segueToMessages" id="3q4-oN-m4X"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFw-d2-19C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="g4T-wO-USW">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -677,7 +766,7 @@
                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </state>
                             <connections>
-                                <action selector="submitReportButtonTapped:" destination="3rR-Pg-vkm" eventType="touchUpInside" id="4v6-cn-y8X"/>
+                                <action selector="submitReportButtonTapped:" destination="W8j-Zq-AT6" eventType="touchUpInside" id="Dea-B1-tEK"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDh-9v-qDb">
@@ -688,7 +777,7 @@
                             </constraints>
                             <state key="normal" image="xmark.octagon.fill" catalog="system"/>
                             <connections>
-                                <action selector="cancelReportButtonTapped:" destination="3rR-Pg-vkm" eventType="touchUpInside" id="PgR-Ud-cNo"/>
+                                <action selector="cancelReportButtonTapped:" destination="W8j-Zq-AT6" eventType="touchUpInside" id="Het-Fe-238"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a reason for the report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-xn-f2o">
@@ -722,75 +811,6 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="aFN-P7-vGc"/>
                 </view>
-            </objects>
-            <point key="canvasLocation" x="-22676" y="1772.5637181409297"/>
-        </scene>
-        <!--Contacts-->
-        <scene sceneID="jZx-RS-04R">
-            <objects>
-                <tableViewController id="W8j-Zq-AT6" customClass="ContactsTableViewController" customModule="Gaming_Wizard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W5i-Cz-gug">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="MI9-ck-cVF" customClass="ContactsTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MI9-ck-cVF" id="RpH-aG-Je8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-V4-p6W">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e71-AW-cas">
-                                            <rect key="frame" x="77" y="11" width="282" height="53"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-CR-Vk9">
-                                            <rect key="frame" x="16" y="11" width="53" height="53"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="53" id="1Ai-H1-Mrt"/>
-                                                <constraint firstAttribute="height" constant="53" id="wGD-YC-AhT"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="top" id="B0f-Or-iBY"/>
-                                        <constraint firstItem="e71-AW-cas" firstAttribute="trailing" secondItem="RpH-aG-Je8" secondAttribute="trailingMargin" id="HBa-SH-AfH"/>
-                                        <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="JUg-eh-6Lm"/>
-                                        <constraint firstItem="e71-AW-cas" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="O0W-vw-wNO"/>
-                                        <constraint firstAttribute="bottom" secondItem="YuA-V4-p6W" secondAttribute="bottom" id="Ocx-jI-JWs"/>
-                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leadingMargin" id="PkU-Ld-HVt"/>
-                                        <constraint firstItem="YuA-V4-p6W" firstAttribute="leading" secondItem="RpH-aG-Je8" secondAttribute="leading" id="RdL-38-hsx"/>
-                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="dIe-Lw-Rkl"/>
-                                        <constraint firstItem="e71-AW-cas" firstAttribute="bottom" secondItem="RpH-aG-Je8" secondAttribute="bottomMargin" id="eLn-dp-b76"/>
-                                        <constraint firstItem="e71-AW-cas" firstAttribute="leading" secondItem="PaU-CR-Vk9" secondAttribute="trailing" constant="8" id="nEF-Cz-u5f"/>
-                                        <constraint firstAttribute="trailing" secondItem="YuA-V4-p6W" secondAttribute="trailing" id="qbm-5D-zCB"/>
-                                        <constraint firstItem="PaU-CR-Vk9" firstAttribute="top" secondItem="RpH-aG-Je8" secondAttribute="topMargin" id="t8H-4W-jeX"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="contactNameLabel" destination="e71-AW-cas" id="tyq-wM-HMu"/>
-                                    <outlet property="contactProfileImage" destination="PaU-CR-Vk9" id="Ptm-gV-O0l"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="W8j-Zq-AT6" id="Z4p-ue-Wz9"/>
-                            <outlet property="delegate" destination="W8j-Zq-AT6" id="XdA-Yr-Khg"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="xNb-Mz-tYR"/>
-                    <navigationItem key="navigationItem" id="LzT-V4-pMf"/>
-                    <connections>
-                        <segue destination="3rR-Pg-vkm" kind="show" identifier="segueToMessages" id="RRp-hb-Axc"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RFw-d2-19C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23615.200000000001" y="1772.5637181409297"/>
         </scene>
