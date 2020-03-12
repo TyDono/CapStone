@@ -17,15 +17,15 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet var otherTitleLabel: UILabel!
-    @IBOutlet var otherGameLabel: UILabel!
-    @IBOutlet var otherAgeLabel: UILabel!
-    @IBOutlet var otherGroupSizeLabel: UILabel!
-    @IBOutlet var otherAvailabilityLabel: UILabel!
-    @IBOutlet var otherAboutLabel: UILabel!
+    @IBOutlet weak var otherTitleLabel: UILabel!
+    @IBOutlet weak var otherGameLabel: UILabel!
+    @IBOutlet weak var otherAgeLabel: UILabel!
+    @IBOutlet weak var otherGroupSizeLabel: UILabel!
+    @IBOutlet weak var otherAvailabilityLabel: UILabel!
+    @IBOutlet weak var otherAboutLabel: UILabel!
     @IBOutlet var contactMe: UIButton!
-    @IBOutlet var otherUserNameLabel: UILabel!
-    @IBOutlet var otherLocationLabel: UILabel!
+    @IBOutlet weak var otherUserNameLabel: UILabel!
+    @IBOutlet weak var otherLocationLabel: UILabel!
     @IBOutlet var reportAccountPopOver: UIView!
     @IBOutlet weak var reportAccountButton: UIBarButtonItem!
     @IBOutlet weak var reportCommentsTextView: UITextView!
@@ -38,7 +38,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var chatRoomIdString: String?
     let currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
-    var currentDate: Date?
+    var currentDate: String?
     var chatId: String? = "no chat Id"
     
     var gameValue: String = ""
@@ -78,6 +78,13 @@ class ViewOtherProfileTableViewController: UITableViewController {
     }
     
     // MARK: - Functions
+    
+    func getCurrentDate() {
+        let formatter : DateFormatter = DateFormatter()
+        formatter.dateFormat = "d/M/yy"
+        let myDate : String = formatter.string(from:   NSDate.init(timeIntervalSinceNow: 0) as Date)
+        self.currentDate = myDate
+    }
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -182,6 +189,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     }
     
     func createReportData() {
+        getCurrentDate()
         guard let creatorId = self.currentAuthID,
             let chatId = self.chatId, // there will be no chatId on user reports as it is just user being reported, not their chat
             let reason = reportCommentsTextView.text,
@@ -276,6 +284,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     }
     
     @IBAction func reportAccountButtonTapped(_ sender: Any) {
+        self.view.addSubview(reportAccountPopOver)
         showPopOverAnimate()
     }
     

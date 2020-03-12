@@ -653,7 +653,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="N2I-Tz-xQB"/>
                     <navigationItem key="navigationItem" id="3xR-JG-QW1">
-                        <barButtonItem key="rightBarButtonItem" title="Report" id="5S1-Wj-C5h"/>
+                        <barButtonItem key="rightBarButtonItem" title="Report" id="5S1-Wj-C5h">
+                            <connections>
+                                <action selector="reportChatButtonTapped:" destination="3rR-Pg-vkm" id="Pwz-yd-bF0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="reportChatButton" destination="5S1-Wj-C5h" id="K9O-fB-GN8"/>
@@ -674,7 +678,7 @@
                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </state>
                             <connections>
-                                <action selector="submitReportButtonTapped:" destination="3rR-Pg-vkm" eventType="touchUpInside" id="poD-c9-psb"/>
+                                <action selector="submitReportButtonTapped:" destination="3rR-Pg-vkm" eventType="touchUpInside" id="4v6-cn-y8X"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDh-9v-qDb">
@@ -688,14 +692,14 @@
                                 <action selector="cancelReportButtonTapped:" destination="3rR-Pg-vkm" eventType="touchUpInside" id="PgR-Ud-cNo"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type in reason for report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-xn-f2o">
-                            <rect key="frame" x="33" y="1" width="191" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a reason for the report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-xn-f2o">
+                            <rect key="frame" x="33" y="1" width="191" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rlG-x5-KUy">
-                            <rect key="frame" x="16" y="30" width="208" height="140"/>
+                            <rect key="frame" x="16" y="26" width="208" height="144"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1166,6 +1170,9 @@
                                 <constraint firstAttribute="height" constant="25" id="dq8-wp-zf0"/>
                             </constraints>
                             <state key="normal" image="xmark.octagon.fill" catalog="system"/>
+                            <connections>
+                                <action selector="cencelReportButtonTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="ST2-Pa-OIq"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMF-Q0-zZf">
                             <rect key="frame" x="16" y="178" width="208" height="42"/>
@@ -1175,8 +1182,7 @@
                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </state>
                             <connections>
-                                <action selector="cencelReportButtonTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="JeB-44-DJu"/>
-                                <action selector="submitReportButtonTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="9VR-L9-shE"/>
+                                <action selector="submitReportButtonTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="HKp-hz-U6v"/>
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wbp-kU-S56">

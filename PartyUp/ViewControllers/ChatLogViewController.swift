@@ -29,7 +29,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var dbRef = Database.database().reference()
     var chatDatabaseName: String?
     var chatId: String = ""
-    var currentDate: Date?
+    var currentDate: String?
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -105,6 +105,13 @@ class ChatLogViewController: JSQMessagesViewController {
     
     // MARK: - Functions
     
+    func getCurrentDate() {
+        let formatter : DateFormatter = DateFormatter()
+        formatter.dateFormat = "d/M/yy"
+        let myDate : String = formatter.string(from:   NSDate.init(timeIntervalSinceNow: 0) as Date)
+        self.currentDate = myDate
+    }
+    
     func showPopOverAnimate() {
         self.reportChatPopOver.center = self.view.center
         self.reportChatPopOver.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -127,6 +134,7 @@ class ChatLogViewController: JSQMessagesViewController {
     }
     
     func createReportData() {
+        getCurrentDate()
         guard let creatorId = self.currentAuthID,
             let reason = reportCommentsTextView.text,
             let chatId = self.chatDatabaseName,
@@ -159,6 +167,7 @@ class ChatLogViewController: JSQMessagesViewController {
     // MARK: - Actions
     
     @IBAction func reportChatButtonTapped(_ sender: Any) {
+        self.view.addSubview(reportChatPopOver)
         showPopOverAnimate()
     }
     

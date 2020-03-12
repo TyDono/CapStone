@@ -75,12 +75,13 @@ class SearchResultsTableViewController: UITableViewController {
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
             cell.titleLabel?.text = "\(user.titleOfGroup)"
-            cell.about = user.about
-            cell.availability = user.availability
-            cell.userName = user.name
-            cell.userId = user.id
-            //cell.userName = "\(user.name)"
-            //cell.experiance = "\(user.experioance)"
+            cell.locationLabel?.text = user.location
+//            cell.about = user.about
+//            cell.availability = user.availability
+//            cell.userName = user.name
+//            cell.userId = user.id
+//            cell.userName = "\(user.name)"
+//            cell.experiance = "\(user.experioance)"
             
             cell.updateCell(users: user)
         }
