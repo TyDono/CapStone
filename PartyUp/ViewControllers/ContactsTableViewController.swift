@@ -14,7 +14,7 @@ import FirebaseFirestore
 class ContactsTableViewController: UITableViewController {
     
     @IBOutlet var reportChatPopOver: UIView!
-        @IBOutlet weak var reportCommentsTextView: UITextView!
+    @IBOutlet weak var reportCommentsTextView: UITextView!
     
     // MARK: - Propeties
     var contactListId = [String?]()
@@ -26,12 +26,12 @@ class ContactsTableViewController: UITableViewController {
     var currentUserName: String?
     var chatId: String?
     var currentDate: String?
-    var userReportedId: String?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reportChatPopOver.layer.cornerRadius = 10
         db = Firestore.firestore()
     }
     
@@ -170,10 +170,10 @@ class ContactsTableViewController: UITableViewController {
     
     func createReportData() {
         getCurrentDate()
+        let userReportedId = "chat was reported"
         guard let creatorId = self.currentAuthID,
             let reason = reportCommentsTextView.text,
             let chatId = self.chatId,
-            let userReportedId = self.userReportedId,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
         let userReport = UserReport(reason: reason,
@@ -190,6 +190,7 @@ class ContactsTableViewController: UITableViewController {
                 reportChatFailAlert.addAction(dismiss)
                 self.present(reportChatFailAlert, animated: true, completion: nil)
                 print(err)
+                self.removePopOverAnimate()
             } else {
                 let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)

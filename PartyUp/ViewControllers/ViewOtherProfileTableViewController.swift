@@ -39,7 +39,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
     let currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
     var currentDate: String?
-    var chatId: String? = "no chat Id"
     
     var gameValue: String = ""
     var titleValue: String = ""
@@ -190,9 +189,9 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     func createReportData() {
         getCurrentDate()
+        let chatId = "no chat Id, a user was reported"
         let userReportedId = self.userIdValue
         guard let creatorId = self.currentAuthID,
-            let chatId = self.chatId,
             let reason = reportCommentsTextView.text,
             let dateSent = self.currentDate else { return }
         let userReportUID: String = UUID().uuidString
@@ -210,6 +209,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 reportUserFailAlert.addAction(dismiss)
                 self.present(reportUserFailAlert, animated: true, completion: nil)
                 print(err)
+                self.removePopOverAnimate()
             } else {
                 let reportUserAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)

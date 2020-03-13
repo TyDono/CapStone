@@ -42,7 +42,6 @@ class ChatLogViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reportChatPopOver.layer.cornerRadius = 10
         dbRef = Database.database().reference()
         db = Firestore.firestore()
         
@@ -54,7 +53,7 @@ class ChatLogViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 53)
+        let newQuery = dbRef.child("Messages").child(self.chatId).queryLimited(toLast: 12)
         _ = newQuery.observe(.childAdded, with: { [weak self] snapshot in
             if  let data = snapshot.value as? [String: String],
                 let id = data["sender_id"],
