@@ -93,13 +93,14 @@ class ViewOtherProfileTableViewController: UITableViewController {
     }
     
     func updateOtherProfile() {
+        title = self.nameValue
         otherGameLabel.text = "Game: \(gameValue)"
         otherTitleLabel.text = "\(titleValue)"
         otherAgeLabel.text = "Age: \(ageValue)"
         otherGroupSizeLabel.text = "Group Size: \(groupSizeValue)"
         otherAboutLabel.text = "\(aboutValue)"
-        otherUserNameLabel.text = "User Name: \(nameValue)"
-        otherLocationLabel.text = "User Location: \(locationValue)"
+        otherUserNameLabel.text = "Username: \(nameValue)"
+        otherLocationLabel.text = "Location: \(locationValue)"
     }
     
     func UpdateUserContacts() {
