@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
         let splashVC = storyboard.instantiateViewController(withIdentifier: "splash")
         window?.rootViewController = splashVC
-    
         FirebaseApp.configure()
         
         let storage = Storage.storage()
@@ -58,6 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         application.registerForRemoteNotifications()
+        
+        // Initialize the Google Mobile Ads SDK.
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         return true
     }

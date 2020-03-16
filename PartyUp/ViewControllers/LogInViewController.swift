@@ -9,25 +9,34 @@
 import UIKit
 import GoogleSignIn
 import FirebaseAuth
+import FirebaseFirestore
 import Firebase
 
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
-    @IBOutlet var emailTextView: UITextField!
-    @IBOutlet var passwordTextView: UITextField!
+    
+    // MARK: - Outlets
+    
+    @IBOutlet var createAccount: UIButton!
+    
+    // MARK: - Propeties
     
     var db: Firestore!
     var userId: String = ""
     let userDefault = UserDefaults.standard
     
-    //outlets
-    @IBOutlet var createAccount: UIButton!
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
         changeBackground()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if userDefault.bool(forKey: "userSignedIn") {
+            performSegue(withIdentifier: "segueToSearch", sender: self)
+        }
     }
     
     func changeBackground() {
@@ -41,62 +50,59 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         return UIStatusBarStyle.lightContent
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: "userSignedIn") {
-            performSegue(withIdentifier: "segueToSearch", sender: self)
-        }
-    }
+    // MARK: - Functions
     
-    func createUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if error == nil {
-            print("User Created")
-                self.signInUser(email: email, password: password)
-            }
-        }
-    }
+//    func createUser(email: String, password: String) {
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//            if error == nil {
+//            print("User Created")
+//                self.signInUser(email: email, password: password)
+//            }
+//        }
+//    }
+//
+//    func signInUser(email: String, password: String) {
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//            if error == nil {
+//                print("User Signed In")
+//                self.userDefault.set(true, forKey: "userSignedIn")
+//                self.userDefault.synchronize()
+//                moveToLFG()
+//            } else {
+//                print(error as Any)
+//                print(error?.localizedDescription as Any)
+//            }
+//        }
+//    }
     
-    func signInUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if error == nil {
-                print("User Signed In")
-                self.userDefault.set(true, forKey: "userSignedIn")
-                self.userDefault.synchronize()
-                moveToLFG()
-            } else {
-                print(error as Any)
-                print(error?.localizedDescription as Any)
-            }
-        }
-    }
+    // MARK: - Actions
     
-    //actions
     @IBAction func googleSignIn(_ sender: Any) {
         performSegue(withIdentifier: "moveToTabVC", sender: nil)
     }
     
-    @IBAction func createAccountTapped(_ sender: Any) {
-        performSegue(withIdentifier: "toSignUp", sender: nil)
-        
-    }
+//    @IBAction func createAccountTapped(_ sender: Any) {
+//        performSegue(withIdentifier: "toSignUp", sender: nil)
+//
+//    }
     
-    @IBAction func logInTapped(_ sender: Any) {
-        
-        if let email = emailTextView.text, let password = passwordTextView.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                
-                if error == nil {
-                    self.userDefault.set(true, forKey: "uid")
-                    self.userDefault.synchronize()
-                    moveToLFG()
-                } else {
-                    print(error as Any)
-                    print(error?.localizedDescription as Any)
-                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
-                }
-            })
-        }
-    }
+//    @IBAction func logInTapped(_ sender: Any) {
+//
+//        if let email = emailTextView.text, let password = passwordTextView.text {
+//            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+//
+//                if error == nil {
+//                    self.userDefault.set(true, forKey: "uid")
+//                    self.userDefault.synchronize()
+//                    moveToLFG()
+//                } else {
+//                    print(error as Any)
+//                    print(error?.localizedDescription as Any)
+//                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
+//                }
+//            })
+//        }
+//    }
     
     @IBAction func unwindToLogIn(_ sender: UIStoryboardSegue) {}
     

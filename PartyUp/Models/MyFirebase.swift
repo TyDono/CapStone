@@ -40,7 +40,7 @@ class MyFirebase {
                 self.currentUser = nil
                 self.userId = ""
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    if loggedIn {
+                    if loggedIn == true {
                         moveToLFG()
                     } else {
                         moveToLogIn()
@@ -48,12 +48,14 @@ class MyFirebase {
                 }
             } else {
                 // check for docuemnt named the same as their user id, if it does not exist it will create a document for them to use, otherwise nothing will happen. should should only be called once when they user logs in and never again unless their account is deleted.
+                guard let currentUserId: String = user?.uid else { return }
                 print("Logged In")
-                let userReff = self.db.collection("profile").document("\(String(describing: self.userId))")
+                let userReff = self.db.collection("profile").document("\(String(describing: currentUserId))")
                 userReff.getDocument { (document, error) in
-                    if let document = document {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("data already added: \(dataDescription)")
+                    print(document)
+                    guard let document = document?.exists else { return }
+                    if document == true {
+                        print("data already added: \(document)")
                     } else {
                         self.createData()
                         print("document added to fireStore")
@@ -71,8 +73,14 @@ class MyFirebase {
         }
     }
     
+//    func createContactList() {
+//        let contactList: [String] = [""]
+//        let contactListOwnerId: String = ""
+//    }
+    
     func createData() {
         
+        let currentUserId: String = self.currentAuthID ?? "no current auth Id detected"
         let game2: String = ""
         let titleOfGroup2: String = ""
         let groupSize2: String = ""
@@ -80,20 +88,25 @@ class MyFirebase {
         let availability2: String = ""
         let about2: String = ""
         let name2: String = ""
-        let email2: String = ""
         let location: String = ""
+        let contactsId: [String] = []
+        let contactsName: [String] = []
         // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
         //let clientData: Any?
         
-        let user = Users(id: currentAuthID!, game: game2,
+        let user = Users(id: currentUserId,
+                         game: game2,
                          titleOfGroup: titleOfGroup2,
                          groupSize: groupSize2,
                          age: age2,
                          availability: availability2,
                          about: about2,
-                         name: name2, email: email2, location: location)
+                         name: name2,
+                         location: location,
+                         contactsId: contactsId,
+                         contactsName: contactsName)
         let userRef = self.db.collection("profile")
         userRef.document(String(user.id)).setData(user.dictionary) { err in
             if let err = err {

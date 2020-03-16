@@ -8,7 +8,6 @@
 
 
 
-// make enum for segemned control
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -16,23 +15,26 @@ import GoogleSignIn
 
 class UserTableViewController: UITableViewController {
     
-    //MARK outlets
+    // MARK: - Outlets
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var ageTextField: UITextField!
-    @IBOutlet var experianceSegmentedControl: UISegmentedControl!
+    @IBOutlet var yourAgeTextField: UITextField!
     @IBOutlet var availabilityTextField: UITextView!
     @IBOutlet var aboutTextField: UITextView!
     @IBOutlet var groupSizeTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var locationTextField: UITextField!
     
-    //add a field for their email.
+    // MARK: - Propeties
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
     var locationSpot: String? = ""
+    var contactsName = [""]
+    var contactsId = [""]
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +44,15 @@ class UserTableViewController: UITableViewController {
         getPersonalData()
     }
     
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+    
+    // MARK: - Functions
+    
     func changeBackground() {
-        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.image = UIImage(named: "Page")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.tableView.backgroundView = backgroundImage
     }
@@ -80,28 +87,30 @@ class UserTableViewController: UITableViewController {
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
-                
                 print(error as Any)
             } else {
-                
                 for document in (snapshot?.documents)! {
                     if let game = document.data()["game"] as? String,
-                        let email = document.data()["email"] as? String,
                         let name = document.data()["name"] as? String,
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let age = document.data()["age"] as? String,
-                        let title = document.data()["title of group"] as? String {
+                        let yourAge = document.data()["age"] as? String,
+                        let title = document.data()["title of group"] as? String,
+                        let location = document.data()["location"] as? String,
+                        let contactsId = document.data()["contactsId"] as? [String],
+                        let contactsName = document.data()["contactsName"] as? [String] {
                         
                         self.gameTextField.text = game
                         self.titleTextField.text = title
-                        self.ageTextField.text = age
+                        self.yourAgeTextField.text = yourAge
                         self.availabilityTextField.text = availability
                         self.aboutTextField.text = about
                         self.groupSizeTextField.text = groupSize
                         self.nameTextField.text = name
-                        self.emailTextField.text = email
+                        self.locationTextField.text = location
+                        self.contactsId = contactsId
+                        self.contactsName = contactsName
                     }
                 }
             }
@@ -134,36 +143,37 @@ class UserTableViewController: UITableViewController {
     //        }
     //    }
     //
-    //MARK Actions
     
-    //updates the users profile based on their auth Id. once saved it will give an alert and move them to LFG, other wise it will tell them an error occured and move them to LFG. I move them because the textView dissapears and only re appears if the user re enters their profile. this is to make them not freak out thinking nothing saved. once they go back to their vie profile they will se their VC filled with their info they entered
-    
+    // MARK: - Actions
     
     @IBAction func settingBarButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
     
     @IBAction func saveProfileTapped(_ sender: Any) {
-        
         // Auth.auth().currentUser?.uid // get current auth ID
-        guard let game = gameTextField.text else { return }
-        guard let titleOfGroup = titleTextField.text else { return }
-        guard let groupSize = groupSizeTextField.text else  { return }
-        guard let experiance = experianceSegmentedControl else  { return }
-        guard let age = ageTextField.text else  { return }
-        guard let availability = availabilityTextField.text else  { return }
-        guard let about = aboutTextField.text else  { return }
-        guard let name = nameTextField.text else { return }
-        guard let email = emailTextField.text else { return }
-        guard let location = locationSpot else { return }
+        guard let game = gameTextField.text,
+            let titleOfGroup = titleTextField.text,
+            let groupSize = groupSizeTextField.text,
+            let yourAge = yourAgeTextField.text,
+            let availability = availabilityTextField.text,
+            let about = aboutTextField.text,
+            let name = nameTextField.text,
+            let location = locationTextField.text else { return }
+        let contactsId = self.contactsId
+        let contactsName = self.contactsName
         
-        let user = Users(id: currentAuthID!, game: game,
+        let user = Users(id: currentAuthID!,
+                         game: game,
                          titleOfGroup: titleOfGroup,
                          groupSize: groupSize,
-                         age: age,
+                         age: yourAge,
                          availability: availability,
                          about: about,
-                         name: name, email: email, location: location)
+                         name: name,
+                         location: location,
+                         contactsId: contactsId,
+                         contactsName: contactsName)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
@@ -173,7 +183,7 @@ class UserTableViewController: UITableViewController {
                     alert1.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert1, animated: true, completion: nil)
-                print("Issue here")
+                print("Issue: saveProfileTapped() has failed")
                 print(err)
             } else {
                 let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
@@ -182,7 +192,6 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert2, animated: true, completion: nil)
                 //self.profileInfo()
-                print("Document Saved")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 }
             }
@@ -190,7 +199,6 @@ class UserTableViewController: UITableViewController {
     }
     
     @IBAction func loutOutButtonTapped(_ sender: Any) {
-        print("Logged Out Tapped")
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()

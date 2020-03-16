@@ -17,34 +17,31 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MUTATION_QUEUE_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MUTATION_QUEUE_H_
 
-#if !defined(__OBJC__)
-#error "For now, this file must only be included by ObjC source files."
-#endif  // !defined(__OBJC__)
-
-#import <Foundation/Foundation.h>
-
 #include <vector>
 
-#include "Firestore/core/include/firebase/firestore/timestamp.h"
-#include "Firestore/core/src/firebase/firestore/core/query.h"
-#include "Firestore/core/src/firebase/firestore/model/document_key.h"
-#include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
-#include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
+#include "Firestore/core/src/firebase/firestore/model/model_fwd.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
-#include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 #include "absl/types/optional.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 namespace firebase {
+class Timestamp;
+
 namespace firestore {
+
+namespace core {
+class Query;
+}  // namespace core
+
+namespace nanopb {
+class ByteString;
+}  // namespace nanopb
+
 namespace local {
 
 /** A queue of mutations to apply to the remote store. */
 class MutationQueue {
  public:
-  virtual ~MutationQueue() {
-  }
+  virtual ~MutationQueue() = default;
 
   /**
    * Starts the mutation queue, performing any initial reads that might be
@@ -139,8 +136,8 @@ class MutationQueue {
       model::BatchId batch_id) = 0;
 
   /**
-   * Gets the first unacknowledged mutation batch after the passed in batchId in
-   * the mutation queue or nil if empty.
+   * Gets the first unacknowledged mutation batch after the passed in batch_id
+   * in the mutation queue or nil if empty.
    *
    * @param batch_id The batch to search after, or kBatchIdUnknown for the first
    * mutation in the queue.
@@ -170,13 +167,11 @@ class MutationQueue {
   virtual nanopb::ByteString GetLastStreamToken() = 0;
 
   /** Sets the stream token for this mutation queue. */
-  virtual void SetLastStreamToken(const nanopb::ByteString& stream_token) = 0;
+  virtual void SetLastStreamToken(nanopb::ByteString stream_token) = 0;
 };
 
 }  // namespace local
 }  // namespace firestore
 }  // namespace firebase
-
-NS_ASSUME_NONNULL_END
 
 #endif  // FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MUTATION_QUEUE_H_

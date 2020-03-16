@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C0AB8F071E6EFE1606FAABC9FEFB134"
+               BlueprintIdentifier = "9307B7A119490930CF70393AB529AAC1"
                BuildableName = "leveldb.framework"
                BlueprintName = "leveldb-library"
                ReferencedContainer = "container:Pods.xcodeproj">

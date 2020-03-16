@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,7 @@
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
-#include "Firestore/core/src/firebase/firestore/util/status.h"
-#include "Firestore/core/src/firebase/firestore/util/statusor_callback.h"
+#include "Firestore/core/src/firebase/firestore/util/status_fwd.h"
 #include "absl/types/optional.h"
 
 namespace firebase {
@@ -41,39 +40,24 @@ class QueryListener {
   static std::shared_ptr<QueryListener> Create(
       Query query,
       ListenOptions options,
-      ViewSnapshot::SharedListener&& listener) {
-    return std::make_shared<QueryListener>(std::move(query), std::move(options),
-                                           std::move(listener));
-  }
+      ViewSnapshotSharedListener&& listener);
 
   static std::shared_ptr<QueryListener> Create(
-      Query query, ViewSnapshot::SharedListener&& listener) {
-    return Create(std::move(query), ListenOptions::DefaultOptions(),
-                  std::move(listener));
-  }
+      Query query, ViewSnapshotSharedListener&& listener);
 
   static std::shared_ptr<QueryListener> Create(
       Query query,
       ListenOptions options,
-      util::StatusOrCallback<ViewSnapshot>&& listener) {
-    auto event_listener =
-        EventListener<ViewSnapshot>::Create(std::move(listener));
-    return Create(std::move(query), std::move(options),
-                  std::move(event_listener));
-  }
+      util::StatusOrCallback<ViewSnapshot>&& listener);
 
   static std::shared_ptr<QueryListener> Create(
-      Query query, util::StatusOrCallback<ViewSnapshot>&& listener) {
-    return Create(std::move(query), ListenOptions::DefaultOptions(),
-                  std::move(listener));
-  }
+      Query query, util::StatusOrCallback<ViewSnapshot>&& listener);
 
   QueryListener(Query query,
                 ListenOptions options,
-                ViewSnapshot::SharedListener&& listener);
+                ViewSnapshotSharedListener&& listener);
 
-  virtual ~QueryListener() {
-  }
+  virtual ~QueryListener() = default;
 
   const Query& query() const {
     return query_;
@@ -84,9 +68,18 @@ class QueryListener {
     return snapshot_;
   }
 
-  virtual void OnViewSnapshot(ViewSnapshot snapshot);
+  /**
+   * Applies the new ViewSnapshot to this listener, raising a user-facing event
+   * if applicable (depending on what changed, whether the user has opted into
+   * metadata-only changes, etc.). Returns true if a user-facing event was
+   * indeed raised.
+   */
+  virtual bool OnViewSnapshot(ViewSnapshot snapshot);
+
   virtual void OnError(util::Status error);
-  virtual void OnOnlineStateChanged(model::OnlineState online_state);
+
+  /** Returns whether a snapshot was raised. */
+  virtual bool OnOnlineStateChanged(model::OnlineState online_state);
 
  private:
   bool ShouldRaiseInitialEvent(const ViewSnapshot& snapshot,
@@ -101,7 +94,7 @@ class QueryListener {
    * The EventListener that will process ViewSnapshots associated with this
    * query listener.
    */
-  ViewSnapshot::SharedListener listener_;
+  ViewSnapshotSharedListener listener_;
 
   /**
    * Initial snapshots (e.g. from cache) may not be propagated to the

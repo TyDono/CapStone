@@ -19,6 +19,7 @@
 #if defined(__APPLE__)
 
 #include "Firestore/core/src/firebase/firestore/util/error_apple.h"
+#include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "Firestore/core/src/firebase/firestore/util/string_format.h"
 #include "absl/memory/memory.h"
 
@@ -110,6 +111,8 @@ Status Status::FromNSError(NSError* error) {
 
 NSError* Status::ToNSError() const {
   if (ok()) return nil;
+  // Early exit because `state_` is moved.
+  if (IsMovedFrom()) return MakeNSError(code(), error_message());
 
   NSError* error = UnderlyingNSError::Recover(state_->platform_error);
   if (error) return error;
