@@ -775,6 +775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "Gaming Wizard";
 				SWIFT_VERSION = 5.0;
@@ -794,6 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "Gaming Wizard";
 				SWIFT_VERSION = 5.0;

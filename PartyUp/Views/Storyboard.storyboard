@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Luminari-Regular.ttf">
+            <string>Luminari-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Looking For Group-->
         <scene sceneID="Bea-NV-eZx">
@@ -917,13 +922,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <accessibility key="accessibilityConfiguration" identifier="splash"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Gaming Wizard..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-jF-cSo">
+                                <rect key="frame" x="16" y="634" width="343" height="23"/>
+                                <fontDescription key="fontDescription" name="Luminari-Regular" family="Luminari" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="p7f-jF-cSo" firstAttribute="leading" secondItem="hIY-VY-V8y" secondAttribute="leading" constant="16" id="0tZ-ZH-4TD"/>
                             <constraint firstItem="eXN-H0-n8a" firstAttribute="top" secondItem="hIY-VY-V8y" secondAttribute="top" id="6aW-y2-Zwm"/>
                             <constraint firstItem="eXN-H0-n8a" firstAttribute="bottom" secondItem="hIY-VY-V8y" secondAttribute="bottom" id="RCC-8s-PWG"/>
+                            <constraint firstItem="hIY-VY-V8y" firstAttribute="bottom" secondItem="p7f-jF-cSo" secondAttribute="bottom" constant="10" id="RcX-8b-oZj"/>
                             <constraint firstItem="eXN-H0-n8a" firstAttribute="leading" secondItem="TEw-2o-8Qt" secondAttribute="leading" id="eX0-Lb-9oY"/>
                             <constraint firstAttribute="trailing" secondItem="eXN-H0-n8a" secondAttribute="trailing" id="iU5-D3-LnU"/>
+                            <constraint firstItem="hIY-VY-V8y" firstAttribute="trailing" secondItem="p7f-jF-cSo" secondAttribute="trailing" constant="16" id="ndM-kv-7ZZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hIY-VY-V8y"/>
                     </view>
@@ -1229,23 +1243,24 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="97" id="x61-fJ-82h">
-                                        <rect key="frame" x="0.0" y="574" width="375" height="97"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="117" id="x61-fJ-82h">
+                                        <rect key="frame" x="0.0" y="574" width="375" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x61-fJ-82h" id="cLf-xu-t60">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIJ-Od-fqL">
-                                                    <rect key="frame" x="8" y="21" width="359" height="55.5"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIJ-Od-fqL">
+                                                    <rect key="frame" x="0.0" y="11" width="375" height="106"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal">
+                                                    <state key="normal" backgroundImage="scrollImageIconSquished360x60">
                                                         <attributedString key="attributedTitle">
-                                                            <fragment content="Add to Contacts">
+                                                            <fragment content="    Add to Contacts">
                                                                 <attributes>
-                                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <font key="NSFont" size="30" name="Luminari-Regular"/>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="25" name="Luminari-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1256,10 +1271,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="tIJ-Od-fqL" firstAttribute="top" secondItem="cLf-xu-t60" secondAttribute="top" constant="21" id="7Xo-Iz-Iy7"/>
-                                                <constraint firstAttribute="trailing" secondItem="tIJ-Od-fqL" secondAttribute="trailing" constant="8" id="NlG-gy-PSj"/>
-                                                <constraint firstAttribute="bottom" secondItem="tIJ-Od-fqL" secondAttribute="bottom" constant="20.5" id="SGK-5Y-haJ"/>
-                                                <constraint firstItem="tIJ-Od-fqL" firstAttribute="leading" secondItem="cLf-xu-t60" secondAttribute="leading" constant="8" id="gj2-gU-GNj"/>
+                                                <constraint firstItem="tIJ-Od-fqL" firstAttribute="top" secondItem="cLf-xu-t60" secondAttribute="top" constant="11" id="Rlc-B6-Sx0"/>
+                                                <constraint firstAttribute="bottom" secondItem="tIJ-Od-fqL" secondAttribute="bottom" id="VUR-mC-Urt"/>
+                                                <constraint firstItem="tIJ-Od-fqL" firstAttribute="leading" secondItem="cLf-xu-t60" secondAttribute="leading" id="lr5-56-qeG"/>
+                                                <constraint firstAttribute="trailing" secondItem="tIJ-Od-fqL" secondAttribute="trailing" id="yiO-dO-LaM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1381,6 +1396,7 @@
         <image name="WizardICONWITHGRADIANTRAW1024" width="1024" height="1024"/>
         <image name="icons8-user-50" width="25" height="25"/>
         <image name="message.fill" catalog="system" width="64" height="56"/>
+        <image name="scrollImageIconSquished360x60" width="360" height="60"/>
         <image name="xmark.octagon.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>

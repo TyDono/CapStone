@@ -24,12 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     //didfinihslaunching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
         let splashVC = storyboard.instantiateViewController(withIdentifier: "splash")
         window?.rootViewController = splashVC
-        FirebaseApp.configure()
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
