@@ -94,6 +94,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     func updateOtherProfile() {
         title = self.nameValue
+//        otherGameLabel.font = UIFont(name: Fonts.zapfino, size: 20.0)
         otherGameLabel.text = "Game: \(gameValue)"
         otherTitleLabel.text = "\(titleValue)"
         otherAgeLabel.text = "Age: \(ageValue)"

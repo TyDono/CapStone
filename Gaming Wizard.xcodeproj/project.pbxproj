@@ -42,6 +42,7 @@
 		CBBDDEEB2407B7E600345F5E /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBDDEEA2407B7E600345F5E /* ContactsTableViewCell.swift */; };
 		CBC068DA24066AA10039890F /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC068D924066AA10039890F /* ChatLogViewController.swift */; };
 		CBE461B1240EB598004CCD25 /* LFGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE461B0240EB598004CCD25 /* LFGViewController.swift */; };
+		CBFD79A6241FFDC7008A3C05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD79A5241FFDC7008A3C05 /* Constants.swift */; };
 		FBECEA3AF3FC6ECF4DABF1C2 /* Pods_Gaming_WizardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF42FCAB453C7A7E66848C2 /* Pods_Gaming_WizardTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,8 @@
 		CBBDDEEA2407B7E600345F5E /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		CBC068D924066AA10039890F /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		CBE461B0240EB598004CCD25 /* LFGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGViewController.swift; sourceTree = "<group>"; };
+		CBFD79A4241FFC6F008A3C05 /* Luminari-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Luminari-Regular.ttf"; path = "../../../../../Downloads/Luminari-Regular.ttf"; sourceTree = "<group>"; };
+		CBFD79A5241FFDC7008A3C05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D084AB1DFC345F6EB9C9506A /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB56D91ABC939403CB47C78 /* Pods-Gaming Wizard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.release.xcconfig"; sourceTree = "<group>"; };
 		EE5895449811401B6EAEFA8E /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard_Gaming_WizardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,8 +149,8 @@
 				CB610CA02215BAEC00DBBAAE /* LogInViewController.swift */,
 				CBE461B0240EB598004CCD25 /* LFGViewController.swift */,
 				CB610CA52215BAEC00DBBAAE /* UserTableViewController.swift */,
-				CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */,
 				CB4F2C042360EFE300584D12 /* SettingsViewController.swift */,
+				CB610CA62215BAED00DBBAAE /* SearchResultsTableViewController.swift */,
 				CB610CA22215BAEC00DBBAAE /* SearchResultsTableViewCell.swift */,
 				CB610CA32215BAEC00DBBAAE /* ViewOtherProfileTableViewController.swift */,
 				CB610C9F2215BAEC00DBBAAE /* TabController.swift */,
@@ -189,6 +192,7 @@
 				CB610CB72215BB9300DBBAAE /* Models */,
 				CB610C812215B8E300DBBAAE /* Controllers */,
 				CB610CBE2215BBD800DBBAAE /* Views */,
+				CBFD79A3241FFC4D008A3C05 /* Fonts */,
 				CB610C522214919400DBBAAE /* Assets.xcassets */,
 				CB610C572214919400DBBAAE /* Info.plist */,
 				CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */,
@@ -233,6 +237,7 @@
 				CBBA87AC221C53610002C25E /* MapKit.swift */,
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
 				CBBDDEE82407B6E700345F5E /* Contacts.swift */,
+				CBFD79A5241FFDC7008A3C05 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +260,14 @@
 				CB2C18F1223DCCB1004FAA1F /* UIImage.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		CBFD79A3241FFC4D008A3C05 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CBFD79A4241FFC6F008A3C05 /* Luminari-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E96D8D6B4F796293CD4F4517 /* Pods */ = {
@@ -563,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBFD79A6241FFDC7008A3C05 /* Constants.swift in Sources */,
 				CBE461B1240EB598004CCD25 /* LFGViewController.swift in Sources */,
 				CBBA88902225A06B0002C25E /* AppDelegate+GoogleSignIn.swift in Sources */,
 				CB610CB02215BAED00DBBAAE /* ViewOtherProfileTableViewController.swift in Sources */,

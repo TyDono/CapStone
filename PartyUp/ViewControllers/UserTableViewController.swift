@@ -44,6 +44,10 @@ class UserTableViewController: UITableViewController {
         getPersonalData()
     }
     
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+    
     // MARK: - Functions
     
     func changeBackground() {

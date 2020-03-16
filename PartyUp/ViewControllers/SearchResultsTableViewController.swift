@@ -71,6 +71,7 @@ class SearchResultsTableViewController: UITableViewController {
                 cell.isHidden = true
                 self.cellIsHidden = true
             }
+            cell.selectionStyle = .none
             cell.gameLabel?.text = "Game: \(user.game)"
             cell.ageLabel?.text = "Age: \(user.age)"
             cell.sizeLabel?.text = "Size: \(user.groupSize)"
