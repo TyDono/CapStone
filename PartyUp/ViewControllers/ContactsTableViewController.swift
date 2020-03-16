@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseFirestore
+import AVFoundation
 
 class ContactsTableViewController: UITableViewController {
     
@@ -17,6 +18,7 @@ class ContactsTableViewController: UITableViewController {
     @IBOutlet weak var reportCommentsTextView: UITextView!
     
     // MARK: - Propeties
+    
     var contactListId = [String?]()
     var contactsName = [String?]()
     var cellIsHidden: Bool? = false
@@ -26,6 +28,7 @@ class ContactsTableViewController: UITableViewController {
     var currentUserName: String?
     var chatId: String?
     var currentDate: String?
+    var audioPlayer = AVAudioPlayer()
     
     // MARK: - View Lifecycle
     
@@ -108,10 +111,21 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        audioPlayer.play()
         performSegue(withIdentifier: "segueToMessages", sender: self)
     }
     
     // MARK: - Functions
+    
+    func PaperSound() {
+        let paperSound = Bundle.main.path(forResource: "paperSound", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: paperSound!))
+        }
+        catch {
+            print(error)
+        }
+    }
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

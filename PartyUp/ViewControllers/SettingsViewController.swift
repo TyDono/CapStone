@@ -14,6 +14,7 @@ import GoogleSignIn
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     // MARK: - Propeties
+    
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?

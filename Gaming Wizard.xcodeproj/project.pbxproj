@@ -43,6 +43,8 @@
 		CBC068DA24066AA10039890F /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC068D924066AA10039890F /* ChatLogViewController.swift */; };
 		CBE461B1240EB598004CCD25 /* LFGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE461B0240EB598004CCD25 /* LFGViewController.swift */; };
 		CBFD79A6241FFDC7008A3C05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD79A5241FFDC7008A3C05 /* Constants.swift */; };
+		CBFD79A924203E76008A3C05 /* paperSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBFD79A824203E76008A3C05 /* paperSound.wav */; };
+		CBFD79AB2420421E008A3C05 /* paperBookSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBFD79AA2420421D008A3C05 /* paperBookSound.wav */; };
 		FBECEA3AF3FC6ECF4DABF1C2 /* Pods_Gaming_WizardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF42FCAB453C7A7E66848C2 /* Pods_Gaming_WizardTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,8 @@
 		CBE461B0240EB598004CCD25 /* LFGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGViewController.swift; sourceTree = "<group>"; };
 		CBFD79A4241FFC6F008A3C05 /* Luminari-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Luminari-Regular.ttf"; path = "../../../../../Downloads/Luminari-Regular.ttf"; sourceTree = "<group>"; };
 		CBFD79A5241FFDC7008A3C05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CBFD79A824203E76008A3C05 /* paperSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = paperSound.wav; path = ../../../../../Downloads/paperSound.wav; sourceTree = "<group>"; };
+		CBFD79AA2420421D008A3C05 /* paperBookSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = paperBookSound.wav; path = ../../../../../Downloads/paperBookSound.wav; sourceTree = "<group>"; };
 		D084AB1DFC345F6EB9C9506A /* Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard-Gaming WizardUITests/Pods-Gaming Wizard-Gaming WizardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB56D91ABC939403CB47C78 /* Pods-Gaming Wizard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.release.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.release.xcconfig"; sourceTree = "<group>"; };
 		EE5895449811401B6EAEFA8E /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gaming_Wizard_Gaming_WizardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,7 @@
 				CB610CBE2215BBD800DBBAAE /* Views */,
 				CBFD79A3241FFC4D008A3C05 /* Fonts */,
 				CB610C522214919400DBBAAE /* Assets.xcassets */,
+				CBFD79A724203E5B008A3C05 /* Sound Files */,
 				CB610C572214919400DBBAAE /* Info.plist */,
 				CBBA8868221EF23D0002C25E /* GoogleService-Info.plist */,
 				CBBA886C221F02E30002C25E /* credentials.plist */,
@@ -268,6 +273,15 @@
 				CBFD79A4241FFC6F008A3C05 /* Luminari-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CBFD79A724203E5B008A3C05 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBFD79AA2420421D008A3C05 /* paperBookSound.wav */,
+				CBFD79A824203E76008A3C05 /* paperSound.wav */,
+			);
+			path = "Sound Files";
 			sourceTree = "<group>";
 		};
 		E96D8D6B4F796293CD4F4517 /* Pods */ = {
@@ -412,6 +426,8 @@
 				CBBA8869221EF23E0002C25E /* GoogleService-Info.plist in Resources */,
 				CBBA886D221F02E30002C25E /* credentials.plist in Resources */,
 				CB610C532214919400DBBAAE /* Assets.xcassets in Resources */,
+				CBFD79A924203E76008A3C05 /* paperSound.wav in Resources */,
+				CBFD79AB2420421E008A3C05 /* paperBookSound.wav in Resources */,
 				CB610CC32215CF6400DBBAAE /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

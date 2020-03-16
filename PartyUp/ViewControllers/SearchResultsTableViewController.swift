@@ -11,6 +11,7 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import AVFoundation
 
 class SearchResultsTableViewController: UITableViewController {
     
@@ -21,6 +22,7 @@ class SearchResultsTableViewController: UITableViewController {
     var text: String?
     var cellIsHidden: Bool? = false
     let currentUserId = Auth.auth().currentUser?.uid
+    var audioPlayer = AVAudioPlayer()
 
     // MARK: - View Lifecycle
     
@@ -29,6 +31,7 @@ class SearchResultsTableViewController: UITableViewController {
         let db = Firestore.firestore()
         var users = [Users]()
         changeBackground()
+        PaperSound()
         //this will search for profile documents with the same game name as what was typed in the textView in LFGVC
         db.collection("profile").whereField("game", isEqualTo: text!).getDocuments { (snapshot, error) in
             if error != nil {
@@ -123,10 +126,21 @@ class SearchResultsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        audioPlayer.play()
         performSegue(withIdentifier: "viewUserSegue", sender: self)
     }
     
     // MARK: - Functions
+    
+    func PaperSound() {
+        let paperSound = Bundle.main.path(forResource: "paperSound", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: paperSound!))
+        }
+        catch {
+            print(error)
+        }
+    }
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

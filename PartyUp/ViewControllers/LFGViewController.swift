@@ -12,6 +12,7 @@ import Foundation
 import CoreLocation
 import FirebaseFirestore
 import FirebaseAuth
+import AVFoundation
 
 class LFGViewController: UIViewController {
     
@@ -25,12 +26,14 @@ class LFGViewController: UIViewController {
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
+    var audioPlayer = AVAudioPlayer()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
+        PaperSound()
         searchGame.delegate = self as? UITextFieldDelegate
 //        checkLoacationServices()
 //        locationManager.requestWhenInUseAuthorization()
@@ -51,6 +54,16 @@ class LFGViewController: UIViewController {
         backgroundImage.image = UIImage(named: "RealisticBillboard")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
+    }
+    
+    func PaperSound() {
+        let paperSound = Bundle.main.path(forResource: "paperBookSound", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: paperSound!))
+        }
+        catch {
+            print(error)
+        }
     }
     
     ///LOCATION MAPKIT
@@ -118,6 +131,7 @@ class LFGViewController: UIViewController {
                 })
             }
         } else {
+            audioPlayer.play()
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }

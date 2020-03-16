@@ -6,8 +6,6 @@
 //  Copyright © 2019 Tyler Donohue. All rights reserved.
 //
 
-
-
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -16,6 +14,7 @@ import GoogleSignIn
 class UserTableViewController: UITableViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var yourAgeTextField: UITextField!
@@ -26,6 +25,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var locationTextField: UITextField!
     
     // MARK: - Propeties
+    
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
