@@ -11,6 +11,9 @@
         <array key="Luminari-Regular.ttf">
             <string>Luminari-Regular</string>
         </array>
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Looking For Group-->
@@ -607,21 +610,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiS-0A-Yc6">
-                                <rect key="frame" x="16" y="599" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="jtl-CC-YcR"/>
-                                    <constraint firstAttribute="width" constant="343" id="n4n-HQ-uDU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Create New Account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccountTapped:" destination="VV9-QB-HDC" eventType="touchUpInside" id="A6g-DV-HR1"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log In with Google!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZH-8U-Avb">
                                 <rect key="frame" x="51" y="178" width="283" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -641,7 +629,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account owners must be 18 years of age or older" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-YS-nm4">
-                                <rect key="frame" x="16" y="323" width="343" height="41"/>
+                                <rect key="frame" x="65" y="331" width="255" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -649,25 +637,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6gU-YS-nm4" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="16" id="2aK-wU-TVY"/>
-                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="37" id="Is6-dg-dJl"/>
+                            <constraint firstItem="6gU-YS-nm4" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="65" id="2aK-wU-TVY"/>
+                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="45" id="Is6-dg-dJl"/>
                             <constraint firstItem="HmU-mU-v2n" firstAttribute="centerY" secondItem="Kfx-3v-Bbb" secondAttribute="centerY" constant="-77" id="kbo-Ro-fXY"/>
-                            <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="6gU-YS-nm4" secondAttribute="trailing" constant="16" id="nz2-Tr-dYZ"/>
+                            <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="6gU-YS-nm4" secondAttribute="trailing" constant="55" id="nz2-Tr-dYZ"/>
                             <constraint firstItem="HmU-mU-v2n" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="99" id="pDO-0a-GUm"/>
                             <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="HmU-mU-v2n" secondAttribute="trailing" constant="101" id="wLf-hN-Hjh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oMK-u5-wvs"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="GiS-0A-Yc6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="uVQ-bJ-Vir">
                         <barButtonItem key="backBarButtonItem" title="Log Out" id="em0-hn-1vw"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="createAccount" destination="GiS-0A-Yc6" id="lIs-kp-dYY"/>
                         <segue destination="lQV-Vs-KLX" kind="presentation" identifier="moveToTabVC" id="cyt-YB-OjK"/>
                     </connections>
                 </viewController>
@@ -1042,19 +1024,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-3s-BM1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-3s-BM1">
                                                     <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="Z1C-1y-d9v"/>
                                                         <constraint firstAttribute="width" constant="343" id="byu-vP-UGv"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Game">
-                                                            <attributes>
-                                                                <font key="NSFont" size="20" name="Luminari-Regular"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="20"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
