@@ -44,10 +44,6 @@ class UserTableViewController: UITableViewController {
         getPersonalData()
     }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-    
     // MARK: - Functions
     
     func changeBackground() {
@@ -56,29 +52,6 @@ class UserTableViewController: UITableViewController {
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.tableView.backgroundView = backgroundImage
     }
-    
-    //MARK methods
-    //    func profileInfo() {
-    //
-    //       UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
-    //        gameTextField.text = ""
-    //        UserDefaults.standard.set(titleTextField.text, forKey: "myTitle")
-    //        titleTextField.text = ""
-    //        UserDefaults.standard.set(ageTextField.text, forKey: "myAge")
-    //        ageTextField.text = ""
-    //        UserDefaults.standard.set(availabilityTextField.text, forKey: "myAvailability")
-    //        availabilityTextField.text = ""
-    //        UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
-    //        aboutTextField.text = ""
-    //        UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
-    //        groupSizeTextField.text = ""
-    //        UserDefaults.standard.set(nameTextField.text, forKey: "myName")
-    //        nameTextField.text = ""
-    //        UserDefaults.standard.set((emailTextField.text), forKey: "email")
-    //        emailTextField.text = ""
-    //        //experianceSegmentedControl =
-    //
-    //  }
     
     func getPersonalData() {
         
@@ -117,32 +90,18 @@ class UserTableViewController: UITableViewController {
         }
     }
     
-    //        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
-    //            gameTextField.text = gameTextSaved
-    //        }
-    //        if let titleTextSaved = UserDefaults.standard.object(forKey: "myTitle") as? String {
-    //            titleTextField.text = titleTextSaved
-    //        }
-    //        if let ageTextSaved = UserDefaults.standard.object(forKey: "myAge") as? String {
-    //            ageTextField.text = ageTextSaved
-    //        }
-    //        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "myAvailability") as? String {
-    //            availabilityTextField.text = availabilityTextSaved
-    //        }
-    //        if let aboutTextSaved = UserDefaults.standard.object(forKey: "myAbout") as? String {
-    //            aboutTextField.text = aboutTextSaved
-    //        }
-    //        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
-    //            groupSizeTextField.text = groupSizeTextSaved
-    //        }
-    //        if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
-    //            nameTextField.text = nameTextSaved
-    //        }
-    //        if let emailTextSaved = UserDefaults.standard.object(forKey: "email") as? String {
-    //            emailTextField.text = emailTextSaved
-    //        }
-    //    }
-    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToViewAccount", let otherProfileVC = segue.destination as? ViewPersonalAccountTableViewController {
+            otherProfileVC.yourGame = self.gameTextField.text ?? ""
+            otherProfileVC.yourTitleOfGroup = self.titleTextField.text ?? ""
+            otherProfileVC.yourAge = self.yourAgeTextField.text ?? ""
+            otherProfileVC.yourGroupSize = self.groupSizeTextField.text ?? ""
+            otherProfileVC.yourAvailability = self.availabilityTextField.text
+            otherProfileVC.yourAbout = self.aboutTextField.text
+            otherProfileVC.yourName = self.nameTextField.text ?? ""
+            otherProfileVC.yourLocation = self.locationTextField.text ?? ""
+        }
+    }
     
     // MARK: - Actions
     
@@ -205,6 +164,10 @@ class UserTableViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             moveToLogIn()
         }
+    }
+    
+    @IBAction func viewAccountButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueToViewAccount", sender: nil)
     }
     
 }

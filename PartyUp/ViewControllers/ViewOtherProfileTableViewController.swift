@@ -95,11 +95,12 @@ class ViewOtherProfileTableViewController: UITableViewController {
     func updateOtherProfile() {
         title = self.nameValue
         otherGameLabel.text = "Game: \(gameValue)"
-        otherTitleLabel.text = "\(titleValue)"
+        otherTitleLabel.text = titleValue
         otherAgeLabel.text = "Age: \(ageValue)"
         otherGroupSizeLabel.text = "Group Size: \(groupSizeValue)"
-        otherAboutLabel.text = "\(aboutValue)"
+        otherAboutLabel.text = aboutValue
         otherUserNameLabel.text = "Username: \(nameValue)"
+        otherAvailabilityLabel.text = "Availability: \(availabilityValue)"
         otherLocationLabel.text = "Location: \(locationValue)"
     }
     
