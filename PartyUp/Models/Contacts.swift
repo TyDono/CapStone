@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-protocol Identifiable {
-    var id: String? { get set }
-}
+
 
 protocol DocumentContactsSerializable {
     init?(dictionary: [String: Any])
@@ -34,7 +32,7 @@ struct Contacts {
     }
 }
 
-extension Users: DocumentContactsSerializable {
+extension Contacts: DocumentContactsSerializable {
     init?(dictionary: [String: Any]) {
         guard let contactsIdList = dictionary["contactsIdList"] as? [String],
             let contactsNameList = dictionary["contactsNameList"] as? [String],

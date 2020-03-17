@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-protocol Identifiable {
-    var id: String? { get set }
-}
+
 
 protocol DocumentUserSerializable {
     init?(dictionary: [String: Any])

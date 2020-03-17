@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol IdentifiableUserReport {
-    var id: String? { get set }
-}
-
 protocol DocumentSerializableUserReport {
     init?(dictionary: [String: Any])
 }
