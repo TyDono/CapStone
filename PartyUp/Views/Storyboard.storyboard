@@ -515,11 +515,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8u-cs-E2s">
-                                            <rect key="frame" x="16" y="97.5" width="201" height="21"/>
+                                            <rect key="frame" x="16" y="102" width="230" height="16.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Game">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Luminari-Regular"/>
+                                                        <font key="NSFont" size="14" name="Luminari-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -527,11 +527,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSl-Wu-JOB">
-                                            <rect key="frame" x="16" y="11" width="343" height="79"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="83.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Title">
                                                     <attributes>
-                                                        <font key="NSFont" size="19" name="Luminari-Regular"/>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="18" name="Luminari-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -539,14 +540,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjY-86-zVs">
-                                            <rect key="frame" x="254" y="97.5" width="105" height="21"/>
+                                            <rect key="frame" x="254" y="102" width="105" height="16.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="105" id="7R6-Gh-gEf"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content="age">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Luminari-Regular"/>
+                                                        <font key="NSFont" size="14" name="Luminari-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -558,7 +559,7 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Size">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Luminari-Regular"/>
+                                                        <font key="NSFont" size="14" name="Luminari-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -573,7 +574,7 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Location">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Luminari-Regular"/>
+                                                        <font key="NSFont" size="14" name="Luminari-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -592,7 +593,7 @@
                                         <constraint firstItem="R8u-cs-E2s" firstAttribute="leading" secondItem="4I8-Jo-k3q" secondAttribute="leadingMargin" id="Mlk-7H-Jw0"/>
                                         <constraint firstItem="R8u-cs-E2s" firstAttribute="top" secondItem="bSl-Wu-JOB" secondAttribute="bottom" constant="7.5" id="WS1-L2-SZl"/>
                                         <constraint firstItem="LjY-86-zVs" firstAttribute="leading" secondItem="Ttn-dh-HOE" secondAttribute="leading" id="YOK-T3-opq"/>
-                                        <constraint firstItem="LjY-86-zVs" firstAttribute="leading" secondItem="R8u-cs-E2s" secondAttribute="trailing" constant="37" id="a8h-sv-cL9"/>
+                                        <constraint firstItem="LjY-86-zVs" firstAttribute="leading" secondItem="R8u-cs-E2s" secondAttribute="trailing" constant="8" id="a8h-sv-cL9"/>
                                         <constraint firstItem="Ttn-dh-HOE" firstAttribute="trailing" secondItem="4I8-Jo-k3q" secondAttribute="trailingMargin" id="arG-LY-g2i"/>
                                         <constraint firstItem="R8u-cs-E2s" firstAttribute="firstBaseline" secondItem="LjY-86-zVs" secondAttribute="firstBaseline" id="asG-02-wSC"/>
                                         <constraint firstItem="bSl-Wu-JOB" firstAttribute="trailing" secondItem="4I8-Jo-k3q" secondAttribute="trailingMargin" id="eHo-2B-kdC"/>
