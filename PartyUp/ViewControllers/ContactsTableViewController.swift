@@ -36,7 +36,6 @@ class ContactsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.reportChatPopOver.layer.cornerRadius = 10
         db = Firestore.firestore()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
