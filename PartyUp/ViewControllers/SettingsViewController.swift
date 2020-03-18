@@ -10,6 +10,7 @@ import MessageUI
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import FirebaseStorage
 
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -20,6 +21,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     var currentUser: Users?
     var userId: String?
     var emailValue: String = "TyDonoCode@gmail.com"
+    var imageString: String?
+    let storage = Storage.storage()
     
     // MARK: - View Lifecycle
     
@@ -36,6 +39,23 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
+    
+    func deleteProfileImage() {
+        let imageRef = self.storage.reference().child(self.imageString ?? "no image String found")
+        imageRef.delete { err in
+            if let error = err {
+                let deleteImageAlert = UIAlertController(title: "Error", message: "Sorry, there was an error while trying to delete your Profile Image. Please check your internet connection and try again.", preferredStyle: .alert)
+                deleteImageAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    deleteImageAlert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(deleteImageAlert, animated: true, completion: nil)
+                print(error)
+            } else {
+                // File deleted successfully
+            }
+        }
+    }
+
     
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
@@ -86,8 +106,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let userRef = self.db.collection("profile")
             userRef.document(String(user.id)).updateData(user.dictionary){ err in
                 if err == nil {
-                    
-                    print("Logged Out Tapped")
+                    self.deleteProfileImage()
                     self.currentUser = nil
                     self.userId = ""
                     try! Auth.auth().signOut()
@@ -126,6 +145,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let userRef = self.db.collection("profile")
             userRef.document(String(userId)).delete(){ err in
                 if err == nil {
+                    self.deleteProfileImage()
                     self.currentUser = nil
                     self.userId = ""
                     try! Auth.auth().signOut()

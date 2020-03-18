@@ -10,11 +10,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import FirebaseStorage
 
-class UserTableViewController: UITableViewController {
+class UserTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var profileUIImage: UIImageView!
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var yourAgeTextField: UITextField!
@@ -33,12 +35,14 @@ class UserTableViewController: UITableViewController {
     var locationSpot: String? = ""
     var contactsName = [""]
     var contactsId = [""]
+    var imageString: String?
+    let storage = Storage.storage()
+    var profileImages = [UIImage]()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         db = Firestore.firestore()
         changeBackground()
         getPersonalData()
@@ -54,7 +58,6 @@ class UserTableViewController: UITableViewController {
     }
     
     func getPersonalData() {
-        
         guard let uid: String = self.currentAuthID else { return }
         print("this is my uid i really like my uid \(uid)")
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
@@ -84,6 +87,7 @@ class UserTableViewController: UITableViewController {
                         self.locationTextField.text = location
                         self.contactsId = contactsId
                         self.contactsName = contactsName
+                        self.getImages()
                     }
                 }
             }
@@ -100,17 +104,78 @@ class UserTableViewController: UITableViewController {
             otherProfileVC.yourAbout = self.aboutTextField.text
             otherProfileVC.yourName = self.nameTextField.text ?? ""
             otherProfileVC.yourLocation = self.locationTextField.text ?? ""
+        } else if segue.identifier == "segueToSettings", let profileSettingsVC = segue.destination as? SettingsViewController {
+            profileSettingsVC.imageString = self.imageString
         }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            profileUIImage.image = selectedImage
+            profileImages.append(selectedImage)
+            dismiss(animated: true, completion: nil)
+            self.profileUIImage.reloadInputViews()
+        }
+    }
+    
+    func getImages() {
+        guard let imageStringId = self.imageString else  { return }
+        let storageRef = storage.reference()
+        let profileImage = storageRef.child("profileImages/\(imageStringId)")
+        profileImage.getData(maxSize: (1024 * 1024), completion:  { (data, err) in
+            guard let data = data else {return}
+            guard let image = UIImage(data: data) else {return}
+            self.profileUIImage.image = image
+        })
+    }
+    
+    func uploadFirebaseImages(_ image: UIImage, completion: @escaping ((_ url: URL?) -> () )) {
+        let storageRef = Storage.storage().reference().child("profileImages/\(self.imageString ?? "no Image Found")")
+        guard let imageData = image.jpegData(compressionQuality: 0.10) else { return }
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            if error == nil, metaData != nil {
+                print("got profile image")
+                storageRef.downloadURL(completion: { (url, error) in
+                    completion(url)
+                })
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func saveImageToFirebase(graveImagesURL: URL, completion: @escaping((_ success: Bool) -> ())) {
+        let databaseRef = Firestore.firestore().document("profileImages/\(self.currentAuthID ?? "no image")")
+        let userObjectImages = [
+            "imageURL": graveImagesURL.absoluteString
+        ] as [String:Any]
+        databaseRef.setData(userObjectImages) { (error) in
+            completion(error == nil)
+        }
+        print("SaveImageToFirebase has been saved!!!!!")
     }
     
     // MARK: - Actions
     
     @IBAction func settingBarButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "settingsSegue", sender: nil)
+        performSegue(withIdentifier: "segueToSettings", sender: nil)
     }
     
     @IBAction func saveProfileTapped(_ sender: Any) {
-        // Auth.auth().currentUser?.uid // get current auth ID
+        guard profileUIImage.image != nil else { return }
+        for image in profileImages {
+            uploadFirebaseImages(image) { (url) in
+                print(url)
+                guard let url = url else { return }
+            }
+        }
+        
         guard let game = gameTextField.text,
             let titleOfGroup = titleTextField.text,
             let groupSize = groupSizeTextField.text,
@@ -151,17 +216,24 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert2, animated: true, completion: nil)
                 //self.profileInfo()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 }
             }
         }
+    }
+    
+    @IBAction func changeUIImageButtonTapped(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func loutOutButtonTapped(_ sender: Any) {
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             moveToLogIn()
         }
     }
