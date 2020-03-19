@@ -51,7 +51,7 @@ class LFGViewController: UIViewController {
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "RealisticBillboard")
+        backgroundImage.image = UIImage(named: "NewRealisticBillboard")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
