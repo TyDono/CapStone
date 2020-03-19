@@ -81,7 +81,7 @@ class ChatLogViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
-    } // chesk to see who is sending message.
+    } // cheks to see who is sending message.
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
@@ -104,6 +104,7 @@ class ChatLogViewController: JSQMessagesViewController {
     
     // MARK: - Functions
     
+    //this was report system moved to ContactsTVC
 //    func getCurrentDate() {
 //        let formatter : DateFormatter = DateFormatter()
 //        formatter.dateFormat = "d/M/yy"
