@@ -30,6 +30,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var chatDatabaseName: String?
     var chatId: String = ""
     var currentDate: String?
+    let defaults = UserDefaults.standard
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -48,6 +49,8 @@ class ChatLogViewController: JSQMessagesViewController {
         senderId = self.currentAuthID
         senderDisplayName = self.currentUserName
         title = "Chat: \(senderDisplayName!)"
+        defaults.set(senderDisplayName, forKey: "jsq_name")
+        defaults.synchronize()
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
