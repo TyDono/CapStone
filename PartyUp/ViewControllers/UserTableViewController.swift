@@ -106,7 +106,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             otherProfileVC.yourAbout = self.aboutTextField.text
             otherProfileVC.yourName = self.nameTextField.text ?? ""
             otherProfileVC.yourLocation = self.locationTextField.text ?? ""
-            otherProfileVC.profileUIImage = self.profileUIImage
+            otherProfileVC.profileImage = self.profileUIImage.image
         } else if segue.identifier == "segueToSettings", let profileSettingsVC = segue.destination as? SettingsViewController {
             profileSettingsVC.imageString = self.profileImageID
         }
@@ -171,11 +171,12 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
     }
     
     @IBAction func saveProfileTapped(_ sender: Any) {
-        guard profileUIImage.image != nil else { return }
-        for image in profileImages {
-            uploadFirebaseImages(image) { (url) in
-                print(url)
-                guard let url = url else { return }
+        if profileUIImage.image != nil {
+            for image in profileImages {
+                uploadFirebaseImages(image) { (url) in
+                    print(url)
+                    guard let url = url else { return }
+                }
             }
         }
         

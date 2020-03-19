@@ -81,7 +81,8 @@ class ViewPersonalAccountTableViewController: UITableViewController {
             let yourAbout = self.yourAbout,
             let yourName = self.yourName,
             let yourAvailability = self.yourAvailability,
-            let yourLocation = yourLocation else { return }
+            let yourLocation = self.yourLocation,
+            let profileImage = self.profileImage else { return }
         otherGameLabel.text = "Game: \(yourGame)"
         otherTitleLabel.text = yourTitleOfGroup
         otherAgeLabel.text = "Age: \(yourAge)"
@@ -90,6 +91,7 @@ class ViewPersonalAccountTableViewController: UITableViewController {
         otherUserNameLabel.text = "Username: \(yourName)"
         otherAvailabilityLabel.text = "Availability: \(yourAvailability)"
         otherLocationLabel.text = "Location: \(yourLocation)"
+        profileUIImage.image = profileImage
     }
 
     // MARK: - Actions
