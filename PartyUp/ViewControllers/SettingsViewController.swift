@@ -93,6 +93,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let location = ""
             let contactsId = [""]
             let contactsName = [""]
+            let profileImageID = ""
             let user = Users(id: self.currentAuthID!, game: game,
                              titleOfGroup: titleOfGroup,
                              groupSize: groupSize,
@@ -102,7 +103,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
                              name: name,
                              location: location,
                              contactsId: contactsId,
-                             contactsName: contactsName)
+                             contactsName: contactsName,
+                             profileImageID: profileImageID)
             let userRef = self.db.collection("profile")
             userRef.document(String(user.id)).updateData(user.dictionary){ err in
                 if err == nil {

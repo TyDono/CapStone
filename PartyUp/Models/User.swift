@@ -28,6 +28,7 @@ struct Users {
     var location: String
     var contactsId: [String]
     var contactsName: [String]
+    var profileImageID: String
    // let color: UIColor
    // let authData: Any?
   //  let clientData: Any?
@@ -45,7 +46,8 @@ struct Users {
             "name": name,
             "location": location,
             "contactsId": contactsId,
-            "contactsName": contactsName
+            "contactsName": contactsName,
+            "profileImageID": profileImageID
             // "color": color,
             //"authData": authData,
             //"clientData": clientData
@@ -66,11 +68,12 @@ extension Users: DocumentUserSerializable {
             let name = dictionary["name"] as? String,
             let location = dictionary["location"] as? String,
             let contactsId = dictionary["contactsId"] as? [String],
-        let contactsName = dictionary["contactsName"] as? [String] else {return nil}
-        //    let color  = dictionary["color"] as? UIColor
+            let contactsName = dictionary["contactsName"] as? [String],
+            let profileImageID = dictionary["profileImageID"] as? String else {return nil}
+        //let color  = dictionary["color"] as? UIColor
         //let authData = dictionary["authData"] as? Any?,
         //let clientData = dictionary["clientData"] as? Any? else { return nil }
-        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name, location: location, contactsId: contactsId, contactsName: contactsName)
+        self.init(id: id, game: game, titleOfGroup: titleOfGroup, groupSize: groupSize, age: age, availability: availability, about: about, name: name, location: location, contactsId: contactsId, contactsName: contactsName, profileImageID: profileImageID)
     }
     
 }

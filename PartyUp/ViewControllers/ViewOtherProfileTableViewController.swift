@@ -7,16 +7,17 @@
 //
 
 import UIKit
-import MessageUI
 import FirebaseDatabase
 import JSQMessagesViewController
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class ViewOtherProfileTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var profileUIImage: UIImageView!
     @IBOutlet weak var otherTitleLabel: UILabel!
     @IBOutlet weak var otherGameLabel: UILabel!
     @IBOutlet weak var otherAgeLabel: UILabel!
@@ -38,6 +39,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var chatRoomIdString: String?
     let currentAuthID = Auth.auth().currentUser?.uid
     var db: Firestore!
+    let storage = Storage.storage()
     var currentDate: String?
     
     var gameValue: String = ""
@@ -51,6 +53,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var locationValue: String = ""
     var contactsIdValue: [String] = []
     var contactsNameValue: [String] = []
+    var profileImageIDValue: String = ""
     
     var yourId: String = ""
     var yourGame: String = ""
@@ -63,6 +66,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     var yourLocation: String = ""
     var yourContactsId: [String] = []
     var yourContactsName: [String] = []
+    var youProfileImageID: String = ""
     
     // MARK: - View Lifecycle
     
@@ -115,7 +119,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          name: yourName,
                          location: yourLocation,
                          contactsId: yourContactsId,
-                         contactsName: yourContactsName)
+                         contactsName: yourContactsName,
+                         profileImageID: profileImageIDValue)
         let userRef = self.db.collection("profile")
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
             if let err = err {
@@ -150,7 +155,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          name: nameValue,
                          location: locationValue,
                          contactsId: contactsIdValue,
-                         contactsName: contactsNameValue)
+                         contactsName: contactsNameValue,
+                         profileImageID: youProfileImageID)
         let userRef2 = self.db.collection("profile")
         userRef2.document(String(user2.id)).updateData(user2.dictionary){ err in
             if let err = err {
@@ -222,6 +228,17 @@ class ViewOtherProfileTableViewController: UITableViewController {
         }
     }
     
+    func getImages() {
+        let imageStringId = self.profileImageIDValue
+        let storageRef = storage.reference()
+        let graveProfileImage = storageRef.child("profileImages/\(imageStringId)")
+        graveProfileImage.getData(maxSize: (1024 * 1024), completion:  { (data, err) in
+            guard let data = data else {return}
+            guard let image = UIImage(data: data) else {return}
+            self.profileUIImage.image = image
+        })
+    }
+    
     // MARK: - Actions
     
     @IBAction func contactMeTapped(_ sender: Any) {
@@ -247,7 +264,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
-                        let contactsName = document.data()["contactsName"]as? [String] else { return }
+                        let contactsName = document.data()["contactsName"] as? [String],
+                        let profileImageID = document.data()["profileImageID"] as? String else { return }
                     self.yourName = name
                     self.yourId = id
                     self.yourGame = game
@@ -259,6 +277,8 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     self.yourLocation = location
                     self.yourContactsId = contactsId
                     self.yourContactsName = contactsName
+                    self.youProfileImageID = profileImageID
+                    
                     let theOtherContactName: String = name //come back to this and do soem work on this line
                     
                     for contactId in self.yourContactsId {
@@ -271,7 +291,6 @@ class ViewOtherProfileTableViewController: UITableViewController {
                             return
                         }
                     }
-                    
                     self.yourContactsId.append(unwrappedChatRoomIdString)
                     self.contactsIdValue.append(unwrappedChatRoomIdString)
                     self.yourContactsName.append(unwrappedContactName)

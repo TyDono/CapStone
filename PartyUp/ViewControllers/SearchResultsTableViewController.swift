@@ -121,6 +121,7 @@ class SearchResultsTableViewController: UITableViewController {
                 otherProfileVC.locationValue = user.location
                 otherProfileVC.contactsIdValue = user.contactsId
                 otherProfileVC.contactsNameValue = user.contactsName
+                otherProfileVC.profileImageIDValue = user.profileImageID
             }
         }
     }

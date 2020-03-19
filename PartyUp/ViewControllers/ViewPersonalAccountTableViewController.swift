@@ -17,17 +17,16 @@ class ViewPersonalAccountTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var profileUIImage: UIImageView!
     @IBOutlet weak var otherTitleLabel: UILabel!
     @IBOutlet weak var otherGameLabel: UILabel!
     @IBOutlet weak var otherAgeLabel: UILabel!
     @IBOutlet weak var otherGroupSizeLabel: UILabel!
     @IBOutlet weak var otherAvailabilityLabel: UILabel!
     @IBOutlet weak var otherAboutLabel: UILabel!
-    @IBOutlet var contactMe: UIButton!
     @IBOutlet weak var otherUserNameLabel: UILabel!
     @IBOutlet weak var otherLocationLabel: UILabel!
     @IBOutlet var reportAccountPopOver: UIView!
-    @IBOutlet weak var reportAccountButton: UIBarButtonItem!
     @IBOutlet weak var reportCommentsTextView: UITextView!
     
     // MARK: - Propeties
@@ -51,6 +50,8 @@ class ViewPersonalAccountTableViewController: UITableViewController {
     var yourLocation: String?
     var yourContactsId: [String] = []
     var yourContactsName: [String] = []
+    var profileImageID: String?
+    var profileImage: UIImage?
     
     // MARK: - View Lifecycle
     

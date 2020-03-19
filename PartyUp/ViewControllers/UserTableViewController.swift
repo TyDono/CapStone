@@ -35,7 +35,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
     var locationSpot: String? = ""
     var contactsName = [""]
     var contactsId = [""]
-    var imageString: String?
+    var profileImageID: String?
     let storage = Storage.storage()
     var profileImages = [UIImage]()
     
@@ -75,7 +75,8 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
-                        let contactsName = document.data()["contactsName"] as? [String] {
+                        let contactsName = document.data()["contactsName"] as? [String],
+                        let profileImageID = document.data()["profileImageID"] as? String? {
                         
                         self.gameTextField.text = game
                         self.titleTextField.text = title
@@ -87,6 +88,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                         self.locationTextField.text = location
                         self.contactsId = contactsId
                         self.contactsName = contactsName
+                        self.profileImageID = profileImageID
                         self.getImages()
                     }
                 }
@@ -104,8 +106,9 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             otherProfileVC.yourAbout = self.aboutTextField.text
             otherProfileVC.yourName = self.nameTextField.text ?? ""
             otherProfileVC.yourLocation = self.locationTextField.text ?? ""
+            otherProfileVC.profileUIImage = self.profileUIImage
         } else if segue.identifier == "segueToSettings", let profileSettingsVC = segue.destination as? SettingsViewController {
-            profileSettingsVC.imageString = self.imageString
+            profileSettingsVC.imageString = self.profileImageID
         }
     }
     
@@ -123,7 +126,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
     }
     
     func getImages() {
-        guard let imageStringId = self.imageString else  { return }
+        guard let imageStringId = self.profileImageID else  { return }
         let storageRef = storage.reference()
         let profileImage = storageRef.child("profileImages/\(imageStringId)")
         profileImage.getData(maxSize: (1024 * 1024), completion:  { (data, err) in
@@ -134,8 +137,8 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
     }
     
     func uploadFirebaseImages(_ image: UIImage, completion: @escaping ((_ url: URL?) -> () )) {
-        let storageRef = Storage.storage().reference().child("profileImages/\(self.imageString ?? "no Image Found")")
-        guard let imageData = image.jpegData(compressionQuality: 0.10) else { return }
+        let storageRef = Storage.storage().reference().child("profileImages/\(self.profileImageID ?? "no Image Found")")
+        guard let imageData = image.jpegData(compressionQuality: 0.05) else { return }
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
@@ -183,6 +186,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
+            let profileImageID = self.profileImageID,
             let location = locationTextField.text else { return }
         let contactsId = self.contactsId
         let contactsName = self.contactsName
@@ -197,7 +201,8 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                          name: name,
                          location: location,
                          contactsId: contactsId,
-                         contactsName: contactsName)
+                         contactsName: contactsName,
+                         profileImageID: profileImageID)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
