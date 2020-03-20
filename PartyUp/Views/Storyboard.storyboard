@@ -861,7 +861,7 @@
                             <outlet property="delegate" destination="W8j-Zq-AT6" id="XdA-Yr-Khg"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Contacts" image="message.fill" catalog="system" id="xNb-Mz-tYR"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="icons8-chat-30" id="xNb-Mz-tYR"/>
                     <navigationItem key="navigationItem" id="LzT-V4-pMf"/>
                     <connections>
                         <outlet property="reportChatPopOver" destination="g4T-wO-USW" id="X1e-RA-Gdf"/>
@@ -895,7 +895,7 @@
                                 <constraint firstAttribute="height" constant="25" id="agx-i9-tW4"/>
                                 <constraint firstAttribute="width" constant="25" id="my3-Os-aAf"/>
                             </constraints>
-                            <state key="normal" image="xmark.octagon.fill" catalog="system"/>
+                            <state key="normal" image="x-mark-3-xxl"/>
                             <connections>
                                 <action selector="cancelReportButtonTapped:" destination="W8j-Zq-AT6" eventType="touchUpInside" id="Het-Fe-238"/>
                             </connections>
@@ -963,11 +963,11 @@
             </objects>
             <point key="canvasLocation" x="-26722" y="-118"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--LFG-->
         <scene sceneID="UNg-9S-eSk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6gU-xz-Shp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="PPz-JP-Lc9"/>
+                    <tabBarItem key="tabBarItem" title="LFG" image="icons8-search-30" id="PPz-JP-Lc9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KIa-jZ-hoz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -1406,7 +1406,7 @@
                                 <constraint firstAttribute="width" constant="25" id="Nbo-KC-DkO"/>
                                 <constraint firstAttribute="height" constant="25" id="dq8-wp-zf0"/>
                             </constraints>
-                            <state key="normal" image="xmark.octagon.fill" catalog="system"/>
+                            <state key="normal" image="x-mark-3-xxl"/>
                             <connections>
                                 <action selector="cencelReportButtonTapped:" destination="xEe-Ug-wsV" eventType="touchUpInside" id="ST2-Pa-OIq"/>
                             </connections>
@@ -1817,9 +1817,10 @@
         <image name="WantedWizard+" width="537" height="537"/>
         <image name="WizardICONWITHGRADIANTRAW1024" width="1024" height="1024"/>
         <image name="blankPaper" width="942" height="916"/>
+        <image name="icons8-chat-30" width="30" height="30"/>
+        <image name="icons8-search-30" width="30" height="30"/>
         <image name="icons8-user-50" width="25" height="25"/>
-        <image name="message.fill" catalog="system" width="64" height="56"/>
         <image name="scrollImageIconSquished360x60" width="360" height="60"/>
-        <image name="xmark.octagon.fill" catalog="system" width="64" height="56"/>
+        <image name="x-mark-3-xxl" width="256" height="256"/>
     </resources>
 </document>
