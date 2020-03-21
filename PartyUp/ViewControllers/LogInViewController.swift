@@ -43,7 +43,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Gradient")
+        backgroundImage.image = UIImage(named: "newWizard")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }

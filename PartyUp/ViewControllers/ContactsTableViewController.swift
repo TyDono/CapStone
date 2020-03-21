@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseFirestore
 import AVFoundation
+import FirebaseStorage
 
 class ContactsTableViewController: UITableViewController {
     
@@ -29,6 +30,8 @@ class ContactsTableViewController: UITableViewController {
     var chatId: String?
     var currentDate: String?
     var audioPlayer = AVAudioPlayer()
+    var profileImageId: String?
+    let storage = Storage.storage()
     
     // MARK: - View Lifecycle
     
@@ -66,6 +69,16 @@ class ContactsTableViewController: UITableViewController {
                 cell.isHidden = true
                 self.cellIsHidden = true
             }
+            //gets images. wip.
+//            if let imageStringId = self.profileImageId {
+//                let storageRef = storage.reference()
+//                let graveProfileImage = storageRef.child("profileImages/\(imageStringId)")
+//                graveProfileImage.getData(maxSize: (1024 * 1024), completion: { (data, err) in
+//                    guard let data = data else {return}
+//                    guard let image = UIImage(data: data) else {return}
+//                    cell.contactProfileImage.image = image
+//                })
+//            }
             self.chatId = contactId
             cell.contactId = contactId
             cell.contactNameLabel.text = contactName
@@ -144,10 +157,12 @@ class ContactsTableViewController: UITableViewController {
                 for document in (snapshot?.documents)! {
                     guard let contactList = document.data()["contactsId"] as? [String],
                         let name = document.data()["name"] as? String,
-                        let contactName = document.data()["contactsName"] as? [String] else { return }
+                        let contactName = document.data()["contactsName"] as? [String],
+                        let profileImageID = document.data()["profileImageID"] as? String else { return }
                     self.contactListId = contactList
                     self.contactsName = contactName
                     self.currentUserName = name
+                    self.profileImageId = profileImageID
                     self.tableView.reloadData()
                 }
             }

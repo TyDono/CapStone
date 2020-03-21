@@ -129,7 +129,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
         guard let imageStringId = self.profileImageID else  { return }
         let storageRef = storage.reference()
         let profileImage = storageRef.child("profileImages/\(imageStringId)")
-        profileImage.getData(maxSize: (1024 * 1024), completion:  { (data, err) in
+        profileImage.getData(maxSize: (1024 * 1024), completion: { (data, err) in
             guard let data = data else {return}
             guard let image = UIImage(data: data) else {return}
             self.profileUIImage.image = image

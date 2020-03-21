@@ -78,6 +78,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
         dbRef = Database.database().reference()
         updateOtherProfile()
         changeBackground()
+        getImages()
     }
     
     // MARK: - Functions
@@ -232,7 +233,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
         let imageStringId = self.profileImageIDValue
         let storageRef = storage.reference()
         let graveProfileImage = storageRef.child("profileImages/\(imageStringId)")
-        graveProfileImage.getData(maxSize: (1024 * 1024), completion:  { (data, err) in
+        graveProfileImage.getData(maxSize: (1024 * 1024), completion: { (data, err) in
             guard let data = data else {return}
             guard let image = UIImage(data: data) else {return}
             self.profileUIImage.image = image

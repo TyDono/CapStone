@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WizardICONWITHGRADIANTRAW1024" highlightedImage="WizardICONWITHGRADIANTRAW1024" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-5W-nZl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newWizard" highlightedImage="newWizard" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-5W-nZl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkG-u9-iel">
@@ -52,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WizardICONWITHGRADIANTRAW1024" width="1024" height="1024"/>
+        <image name="newWizard" width="303" height="538"/>
     </resources>
 </document>
