@@ -60,6 +60,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients([emailValue])
+        mailComposerVC.setSubject("Gaming Wizard: Contact Us")
         mailComposerVC.setPreferredSendingEmailAddress(emailValue)
         return mailComposerVC
     }
@@ -177,6 +179,14 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     @IBAction func contactUsButtonTapped(_ sender: UIButton) {
+        let mailComposeViewcontroller = configureMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewcontroller, animated: true, completion: nil)
+        } else {
+            showMailError()
+        }
+    }
+    @IBAction func contactUsHiddenButtonTapped(_ sender: UIButton) {
         let mailComposeViewcontroller = configureMailController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewcontroller, animated: true, completion: nil)
