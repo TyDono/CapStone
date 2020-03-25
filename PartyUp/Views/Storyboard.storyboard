@@ -704,12 +704,6 @@
                                     <action selector="googleSignIn:" destination="VV9-QB-HDC" eventType="valueChanged" id="gaZ-0g-izP"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account owners must be 18 years of age or older" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-YS-nm4">
-                                <rect key="frame" x="60" y="499" width="255" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-xE-o25">
                                 <rect key="frame" x="16" y="52" width="343" height="35"/>
                                 <attributedString key="attributedText">
@@ -723,14 +717,30 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-zp-DG5">
+                                <rect key="frame" x="42" y="453" width="291" height="116"/>
+                                <state key="normal" image="appleSigninButton"/>
+                                <connections>
+                                    <action selector="appleSigninButtonWasTapped:" destination="VV9-QB-HDC" eventType="touchUpInside" id="IhU-TM-0rR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account owners must be 18 years of age or older" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-YS-nm4">
+                                <rect key="frame" x="60" y="404" width="255" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6gU-YS-nm4" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="60" id="2aK-wU-TVY"/>
                             <constraint firstItem="HmU-mU-v2n" firstAttribute="top" secondItem="aZH-8U-Avb" secondAttribute="bottom" constant="8" id="E2y-wu-8Yl"/>
-                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="-148" id="Is6-dg-dJl"/>
+                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="-243" id="Is6-dg-dJl"/>
+                            <constraint firstItem="HmU-mU-v2n" firstAttribute="top" secondItem="G1B-zp-DG5" secondAttribute="bottom" constant="19" id="JWc-J4-TIZ"/>
                             <constraint firstItem="xbW-xE-o25" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="16" id="UPF-10-Zdv"/>
+                            <constraint firstItem="G1B-zp-DG5" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="42" id="VZB-8t-qyi"/>
                             <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="xbW-xE-o25" secondAttribute="trailing" constant="16" id="VdY-g8-YWs"/>
+                            <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="G1B-zp-DG5" secondAttribute="trailing" constant="42" id="ZXI-4E-V7X"/>
                             <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="aZH-8U-Avb" secondAttribute="trailing" constant="46" id="anO-gq-Zip"/>
                             <constraint firstItem="aZH-8U-Avb" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="46" id="fab-JJ-xy4"/>
                             <constraint firstItem="HmU-mU-v2n" firstAttribute="centerY" secondItem="Kfx-3v-Bbb" secondAttribute="centerY" constant="284" id="kbo-Ro-fXY"/>
@@ -1835,6 +1845,7 @@
         <image name="Page" width="617" height="500"/>
         <image name="WantedWizard" width="916" height="916"/>
         <image name="WantedWizard+" width="537" height="537"/>
+        <image name="appleSigninButton" width="292" height="116"/>
         <image name="blankPaper" width="942" height="916"/>
         <image name="icons8-chat-30" width="30" height="30"/>
         <image name="icons8-search-30" width="30" height="30"/>

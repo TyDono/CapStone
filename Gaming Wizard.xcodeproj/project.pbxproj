@@ -11,6 +11,8 @@
 		77D139C90FD7A02EDCBE15B8 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC98DDE1F8F576CAA3E7981 /* Pods_Gaming_Wizard_Gaming_WizardUITests.framework */; };
 		CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18EF223DCCB0004FAA1F /* UIColor.swift */; };
 		CB2C18F5223DCCB2004FAA1F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C18F1223DCCB1004FAA1F /* UIImage.swift */; };
+		CB3F872E242C0D5B004CB577 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F872D242C0D5B004CB577 /* AuthState.swift */; };
+		CB3F8730242C0D73004CB577 /* SignInWithAppleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F872F242C0D73004CB577 /* SignInWithAppleManager.swift */; };
 		CB433D0024229EEC000CEE08 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB433CFF24229EEB000CEE08 /* ProfileImage.swift */; };
 		CB4F2C052360EFE300584D12 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F2C042360EFE300584D12 /* SettingsViewController.swift */; };
 		CB610C4C2214919200DBBAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB610C4B2214919200DBBAAE /* AppDelegate.swift */; };
@@ -79,6 +81,9 @@
 		BBADB5D52B1B21E1E34162BB /* Pods-Gaming Wizard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gaming Wizard.debug.xcconfig"; path = "Target Support Files/Pods-Gaming Wizard/Pods-Gaming Wizard.debug.xcconfig"; sourceTree = "<group>"; };
 		CB2C18EF223DCCB0004FAA1F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CB2C18F1223DCCB1004FAA1F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		CB3F872C242BFD55004CB577 /* Gaming Wizard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gaming Wizard.entitlements"; sourceTree = "<group>"; };
+		CB3F872D242C0D5B004CB577 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		CB3F872F242C0D73004CB577 /* SignInWithAppleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleManager.swift; sourceTree = "<group>"; };
 		CB433CFF24229EEB000CEE08 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		CB4F2C042360EFE300584D12 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CB610C482214919200DBBAAE /* Gaming Wizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gaming Wizard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +180,7 @@
 		CB610C3F2214919200DBBAAE = {
 			isa = PBXGroup;
 			children = (
+				CB3F872C242BFD55004CB577 /* Gaming Wizard.entitlements */,
 				CB610C4A2214919200DBBAAE /* PartyUp */,
 				CB610C5F2214919400DBBAAE /* PartyUpTests */,
 				CB610C6A2214919400DBBAAE /* PartyUpUITests */,
@@ -250,6 +256,8 @@
 				CBBA88912225A20D0002C25E /* MyFirebase.swift */,
 				CBBDDEE82407B6E700345F5E /* Contacts.swift */,
 				CBFD79A5241FFDC7008A3C05 /* Constants.swift */,
+				CB3F872D242C0D5B004CB577 /* AuthState.swift */,
+				CB3F872F242C0D73004CB577 /* SignInWithAppleManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -613,6 +621,8 @@
 				CBA0A5952420708D00456AF9 /* ViewPersonalAccountTableViewController.swift in Sources */,
 				CB610CBC2215BBBA00DBBAAE /* User.swift in Sources */,
 				CB2C18F3223DCCB2004FAA1F /* UIColor.swift in Sources */,
+				CB3F872E242C0D5B004CB577 /* AuthState.swift in Sources */,
+				CB3F8730242C0D73004CB577 /* SignInWithAppleManager.swift in Sources */,
 				CB433D0024229EEC000CEE08 /* ProfileImage.swift in Sources */,
 				CB610CAD2215BAED00DBBAAE /* LogInViewController.swift in Sources */,
 				CBBDDEE92407B6E700345F5E /* Contacts.swift in Sources */,
@@ -794,6 +804,7 @@
 			baseConfigurationReference = BBADB5D52B1B21E1E34162BB /* Pods-Gaming Wizard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Gaming Wizard.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6AZ3B5HRK;
 				INFOPLIST_FILE = PartyUp/Info.plist;
@@ -801,7 +812,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "Gaming Wizard";
 				SWIFT_VERSION = 5.0;
@@ -814,6 +825,7 @@
 			baseConfigurationReference = CC70D8A325A14E5CDE486C48 /* Pods-Gaming Wizard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Gaming Wizard.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6AZ3B5HRK;
 				INFOPLIST_FILE = PartyUp/Info.plist;
@@ -821,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = TyDon.PartyUp;
 				PRODUCT_NAME = "Gaming Wizard";
 				SWIFT_VERSION = 5.0;

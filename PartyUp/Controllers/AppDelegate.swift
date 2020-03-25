@@ -13,6 +13,7 @@ import GoogleSignIn
 import FirebaseFirestore
 import Firebase
 import UserNotifications
+import CryptoKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
