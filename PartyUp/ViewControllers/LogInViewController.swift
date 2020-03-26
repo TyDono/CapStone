@@ -31,20 +31,21 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     var userId: String = ""
     let userDefault = UserDefaults.standard
     var delegate: LogInViewControllerDelegate?
+    fileprivate var currentNonce: String?
     lazy var appleLogInButton: ASAuthorizationAppleIDButton = {
         let button = ASAuthorizationAppleIDButton()
         button.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
-        
+
         return button
     }()
-    
+
     @objc func appleLoginButtonTapped() {
-        
+
         let request  = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
         let controller = ASAuthorizationController(authorizationRequests: [request])
-//        controller.delegate = self
-//        controller.presentationContextProvider = self
+        controller.delegate = self
+        controller.presentationContextProvider = self
         controller.performRequests()
     }
     
@@ -66,7 +67,6 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         appleLogInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         appleLogInButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +76,67 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // MARK: - Functions
+    
+    // makes the nonce
+    private func randomNonceString(length: Int = 32) -> String {
+      precondition(length > 0)
+      let charset: Array<Character> =
+          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+      var result = ""
+      var remainingLength = length
+
+      while remainingLength > 0 {
+        let randoms: [UInt8] = (0 ..< 16).map { _ in
+          var random: UInt8 = 0
+          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+          if errorCode != errSecSuccess {
+            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+          }
+          return random
+        }
+
+        randoms.forEach { random in
+          if remainingLength == 0 {
+            return
+          }
+
+          if random < charset.count {
+            result.append(charset[Int(random)])
+            remainingLength -= 1
+          }
+        }
+      }
+
+      return result
+    }
+    
+    // Unhashed nonce.
+
+    @available(iOS 13, *)
+    func startSignInWithAppleFlow() {
+      let nonce = randomNonceString()
+      currentNonce = nonce
+      let appleIDProvider = ASAuthorizationAppleIDProvider()
+      let request = appleIDProvider.createRequest()
+      request.requestedScopes = [.fullName, .email]
+      request.nonce = sha256(nonce)
+
+      let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+      authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+      authorizationController.performRequests()
+    }
+
+    @available(iOS 13, *)
+    private func sha256(_ input: String) -> String {
+      let inputData = Data(input.utf8)
+      let hashedData = SHA256.hash(data: inputData)
+      let hashString = hashedData.compactMap {
+        return String(format: "%02x", $0)
+      }.joined()
+
+      return hashString
+    }
     
 //    func setupView() {
 //
@@ -140,96 +201,63 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
 }
 
-//@available(iOS 13.0, *)
-//extension LogInViewController: ASAuthorizationControllerDelegate {
-//    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-//
-//        switch authorization.credential {
-//        case let credentials as ASAuthorizationAppleIDCredential:
-//            break
-//        default:
-//            break
-//        }
-//    }
-//
-//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-//        print("Error:", error)
-//    }
-//}
-//
-//@available(iOS 13.0, *)
-//extension LogInViewController: ASAuthorizationControllerPresentationContextProviding {
-//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-//        return view.window!
-//    }
-//}
+@available(iOS 13.0, *)
+extension LogInViewController: ASAuthorizationControllerDelegate {
+    
+    private func registerNewAccount(credential: ASAuthorizationAppleIDCredential) {
+        //sign in with new account
+        delegate?.didFinishAuth()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func SignInWithExistingAccount(credential: ASAuthorizationAppleIDCredential) {
+        // sign in with existing user
+        delegate?.didFinishAuth()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func SignInWithUserAndPassword(credentail: ASPasswordCredential) {
+        //sign in using existing icloud keychain
+        delegate?.didFinishAuth()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 
+        switch authorization.credential {
+        case let appleIdCredential as ASAuthorizationAppleIDCredential:
+            let userId = appleIdCredential.user
+            UserDefaults.standard.set(userId, forKey: SignInWithAppleManager.userIdentifierKey)
+            if let _ = appleIdCredential.email, let _ = appleIdCredential.fullName {
+                registerNewAccount(credential: appleIdCredential)
+            } else {
+                SignInWithExistingAccount(credential: appleIdCredential)
+            }
+            break
+            
+        case let passwordCredential as ASPasswordCredential:
+            let userId = passwordCredential.user
+            UserDefaults.standard.set(userId, forKey: SignInWithAppleManager.userIdentifierKey)
+            SignInWithUserAndPassword(credentail: passwordCredential)
+            break
+        default:
+            break
+        }
+    }
 
-//@available(iOS 13.0, *)
-//extension LogInViewController {
-//
-//    //the Nonce
-//    private func randomNonceString(length: Int = 32) -> String {
-//      precondition(length > 0)
-//      let charset: Array<Character> =
-//          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-//      var result = ""
-//      var remainingLength = length
-//
-//      while remainingLength > 0 {
-//        let randoms: [UInt8] = (0 ..< 16).map { _ in
-//          var random: UInt8 = 0
-//          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-//          if errorCode != errSecSuccess {
-//            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-//          }
-//          return random
-//        }
-//
-//        randoms.forEach { random in
-//          if remainingLength == 0 {
-//            return
-//          }
-//
-//          if random < charset.count {
-//            result.append(charset[Int(random)])
-//            remainingLength -= 1
-//          }
-//        }
-//      }
-//
-//      return result
-//    }
-//
-//
-//    @available(iOS 13, *)
-//    func startSignInWithAppleFlow() {
-//      let nonce = randomNonceString()
-//      currentNonce = nonce
-//      let appleIDProvider = ASAuthorizationAppleIDProvider()
-//      let request = appleIDProvider.createRequest()
-//      request.requestedScopes = [.fullName, .email]
-//      request.nonce = sha256(nonce)
-//
-//      let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//      authorizationController.delegate = self
-//      authorizationController.presentationContextProvider = self
-//      authorizationController.performRequests()
-//    }
-//
-//    @available(iOS 13, *)
-//    private func sha256(_ input: String) -> String {
-//      let inputData = Data(input.utf8)
-//      let hashedData = SHA256.hash(data: inputData)
-//      let hashString = hashedData.compactMap {
-//        return String(format: "%02x", $0)
-//      }.joined()
-//
-//      return hashString
-//    }
-//}
-//
-//
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Error:", error)
+        //make an alert to show error
+    }
+}
+
+@available(iOS 13.0, *)
+extension LogInViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+}
+
 //@available(iOS 13.0, *)
 //extension LogInViewController: ASAuthorizationControllerDelegate {
 //
@@ -248,16 +276,22 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
 //      }
 //      // Initialize a Firebase credential.
 //      let credential = OAuthProvider.credential(withProviderID: "apple.com",
-//                                                IDToken: idTokenString,
+//                                                idToken: idTokenString,
 //                                                rawNonce: nonce)
 //      // Sign in with Firebase.
 //      Auth.auth().signIn(with: credential) { (authResult, error) in
-//        if error {
+//        if (error != nil) {
 //          // Error. If error.code == .MissingOrInvalidNonce, make sure
 //          // you're sending the SHA256-hashed nonce as a hex string with
 //          // your request to Apple.
-//          print(error.localizedDescription)
+//          print("Error:", error)
 //          return
+//        }
+//        guard let currentUser = Auth.auth().currentUser else {return}
+//        currentUser.reauthenticate(with: credential) { (authResult, error) in
+//          guard error != nil else { return }
+//          // Apple user successfully re-authenticated.
+//          // ...
 //        }
 //        // User is signed in to Firebase with Apple.
 //        // ...

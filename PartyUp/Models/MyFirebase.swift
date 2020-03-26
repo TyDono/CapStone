@@ -12,7 +12,7 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import FirebaseFirestore
-import Firebase
+import FirebaseStorage
 
 class MyFirebase {
     
@@ -141,9 +141,17 @@ class MyFirebase {
             print("Credential linked")
         }
     }
+    
     func logOut() {
-        try! Auth.auth().signOut()
-        GIDSignIn.sharedInstance()?.signIn()
+            let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance()?.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+//        try! Auth.auth().signOut()
+//        GIDSignIn.sharedInstance()?.signIn()
     }
     
 }
