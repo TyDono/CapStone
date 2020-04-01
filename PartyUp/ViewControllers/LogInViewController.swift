@@ -18,7 +18,7 @@ protocol LogInViewControllerDelegate {
     func didFinishAuth()
 }
 
-@available(iOS 13.0, *)
+//@available(iOS 13.0, *)
 class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: - Outlets
@@ -32,16 +32,16 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     let userDefault = UserDefaults.standard
     var delegate: LogInViewControllerDelegate?
     fileprivate var currentNonce: String?
-    lazy var appleLogInButton: ASAuthorizationAppleIDButton = {
-        let button = ASAuthorizationAppleIDButton()
-        button.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
+    @available(iOS 13.0, *)
+//    lazy var appleLogInButton: ASAuthorizationAppleIDButton = {
+//        let button = ASAuthorizationAppleIDButton()
+//        button.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
+//        return button
+//    }()
 
-        return button
-    }()
-
+    @available(iOS 13.0, *)
     @objc func appleLoginButtonTapped() {
-
-        let request  = ASAuthorizationAppleIDProvider().createRequest()
+        let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
@@ -56,16 +56,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
         changeBackground()
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(appleLogInButton)
-        appleLogInButton.translatesAutoresizingMaskIntoConstraints = false
-        appleLogInButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9).isActive = true
-        appleLogInButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        appleLogInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        appleLogInButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+//        setUpView()
         
     }
     
@@ -76,6 +67,23 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // MARK: - Functions
+    
+//    @available(iOS 13.0, *)
+//    func setUpView() {
+//        if #available(iOS 13.0, *) {
+//            let appleLogInButton = ASAuthorizationAppleIDButton()
+//            let stackView = UIStackView()
+//            stackView.axis = .vertical
+//            view.addSubview(stackView)
+//            stackView.addArrangedSubview(self.appleLogInButton)
+//            self.appleLogInButton.translatesAutoresizingMaskIntoConstraints = false
+//            self.appleLogInButton.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
+//            self.appleLogInButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9).isActive = true
+//            self.appleLogInButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//            self.appleLogInButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//            self.appleLogInButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+//        }
+//    }
     
     // makes the nonce
     private func randomNonceString(length: Int = 32) -> String {
@@ -111,20 +119,19 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // Unhashed nonce.
-
     @available(iOS 13, *)
     func startSignInWithAppleFlow() {
-      let nonce = randomNonceString()
-      currentNonce = nonce
-      let appleIDProvider = ASAuthorizationAppleIDProvider()
-      let request = appleIDProvider.createRequest()
-      request.requestedScopes = [.fullName, .email]
-      request.nonce = sha256(nonce)
-
-      let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-      authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
-      authorizationController.performRequests()
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = sha256(nonce)
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
 
     @available(iOS 13, *)
@@ -138,7 +145,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
       return hashString
     }
     
-//    func setupView() {
+//    func setupView() { this made the ap[ple sign in button. there was an error using objc so I scrapped it
 //
 //        view.addSubview(appleLogInButton)
 //        NSLayoutConstraint.activate([
@@ -190,7 +197,16 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     // MARK: - Actions
     
     @IBAction func appleSigninButtonWasTapped(_ sender: UIButton) {
-        
+        if #available(iOS 13.0, *) {
+            let request = ASAuthorizationAppleIDProvider().createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+            controller.delegate = self
+            controller.presentationContextProvider = self
+            controller.performRequests()
+            startSignInWithAppleFlow()
+        }
+
     }
     
     @IBAction func googleSignIn(_ sender: Any) {
@@ -226,15 +242,45 @@ extension LogInViewController: ASAuthorizationControllerDelegate {
 
         switch authorization.credential {
         case let appleIdCredential as ASAuthorizationAppleIDCredential:
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            guard let appleIDToken = appleIdCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if (error != nil) {
+                    // Error. If error.code == .MissingOrInvalidNonce, make sure you're sending the SHA256-hashed nonce as a hex string with your request to Apple.
+                    print("Error:", error) //hitting this point errr: "Unable to insert COPY_SEND"
+                    return
+                }
+                guard let currentUser = Auth.auth().currentUser else {return}
+                currentUser.reauthenticate(with: credential) { (authResult, error) in
+                    guard error != nil else { return }
+                    // Apple user successfully re-authenticated.
+                }
+                // User is signed in to Firebase with Apple.
+            }
+            
             let userId = appleIdCredential.user
             UserDefaults.standard.set(userId, forKey: SignInWithAppleManager.userIdentifierKey)
             if let _ = appleIdCredential.email, let _ = appleIdCredential.fullName {
                 registerNewAccount(credential: appleIdCredential)
+                //test create user here?
             } else {
                 SignInWithExistingAccount(credential: appleIdCredential)
             }
             break
-            
         case let passwordCredential as ASPasswordCredential:
             let userId = passwordCredential.user
             UserDefaults.standard.set(userId, forKey: SignInWithAppleManager.userIdentifierKey)
@@ -248,18 +294,24 @@ extension LogInViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Error:", error)
         //make an alert to show error
+        let alert = UIAlertController(title: "Error", message: "There was an error while trying to sign in, please try again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        return
     }
 }
 
 @available(iOS 13.0, *)
 extension LogInViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return view.window!
+        return self.view.window!
     }
 }
 
 //@available(iOS 13.0, *)
-//extension LogInViewController: ASAuthorizationControllerDelegate {
+//extension LogInViewController {
 //
 //  func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 //    if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
@@ -297,11 +349,6 @@ extension LogInViewController: ASAuthorizationControllerPresentationContextProvi
 //        // ...
 //      }
 //    }
-//  }
-//
-//  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-//    // Handle error.
-//    print("Sign in with Apple errored: \(error)")
 //  }
 //
 //}
