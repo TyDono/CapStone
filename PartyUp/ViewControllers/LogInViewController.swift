@@ -24,6 +24,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     // MARK: - Outlets
     
     @IBOutlet var createAccount: UIButton!
+    @IBOutlet weak var signInWithappleButton: UIButton!
     
     // MARK: - Propeties
     
@@ -32,22 +33,23 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     let userDefault = UserDefaults.standard
     var delegate: LogInViewControllerDelegate?
     fileprivate var currentNonce: String?
-    @available(iOS 13.0, *)
+    
+//    @available(iOS 13.0, *)
 //    lazy var appleLogInButton: ASAuthorizationAppleIDButton = {
 //        let button = ASAuthorizationAppleIDButton()
 //        button.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
 //        return button
 //    }()
 
-    @available(iOS 13.0, *)
-    @objc func appleLoginButtonTapped() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.presentationContextProvider = self
-        controller.performRequests()
-    }
+//    @available(iOS 13.0, *) removed due to objc not working?
+//    @objc func appleLoginButtonTapped() {
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = self
+//        controller.presentationContextProvider = self
+//        controller.performRequests()
+//    }
     
     // MARK: - View Lifecycle
     
@@ -56,6 +58,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.uiDelegate = self
         db = Firestore.firestore()
         changeBackground()
+        HideAppleButton()
 //        setUpView()
         
     }
@@ -193,6 +196,14 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
     func whiteStatusBar() -> UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
     }
+    
+    func HideAppleButton() {
+        if #available(iOS 13.0, *) {
+            signInWithappleButton.isHidden = false
+        } else {
+            signInWithappleButton.isHidden = true
+        }
+    }
      
     // MARK: - Actions
     
@@ -261,7 +272,7 @@ extension LogInViewController: ASAuthorizationControllerDelegate {
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if (error != nil) {
                     // Error. If error.code == .MissingOrInvalidNonce, make sure you're sending the SHA256-hashed nonce as a hex string with your request to Apple.
-                    print("Error:", error) //hitting this point errr: "Unable to insert COPY_SEND"
+                    print("Error:", error)
                     return
                 }
                 guard let currentUser = Auth.auth().currentUser else {return}
@@ -293,13 +304,12 @@ extension LogInViewController: ASAuthorizationControllerDelegate {
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Error:", error)
-        //make an alert to show error
-        let alert = UIAlertController(title: "Error", message: "There was an error while trying to sign in, please try again", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-        return
+//        let alert = UIAlertController(title: "Error", message: "There was an error while trying to sign in, please try again", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//            alert.dismiss(animated: true, completion: nil)
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+//        return
     }
 }
 
