@@ -188,7 +188,13 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             let about = aboutTextField.text,
             let name = nameTextField.text,
             let profileImageID = self.profileImageID,
-            let location = locationTextField.text else { return }
+            let location = locationTextField.text else {
+                        let alert = UIAlertController(title: "Error", message: "All fields are rewuired to update your account", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        return }
         let contactsId = self.contactsId
         let contactsName = self.contactsName
         
