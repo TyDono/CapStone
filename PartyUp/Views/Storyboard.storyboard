@@ -393,15 +393,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="updateAccountCell" rowHeight="95" id="MVH-MZ-nQL">
-                                        <rect key="frame" x="0.0" y="1426" width="375" height="95"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="updateAccountCell" rowHeight="67" id="MVH-MZ-nQL">
+                                        <rect key="frame" x="0.0" y="1426" width="375" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVH-MZ-nQL" id="HGa-3k-U5q">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPR-bb-Krc">
-                                                    <rect key="frame" x="8" y="41.5" width="359" height="41"/>
+                                                    <rect key="frame" x="8" y="13.5" width="359" height="41"/>
                                                     <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <state key="normal" title="Update Account">
@@ -411,21 +411,11 @@
                                                         <action selector="saveProfileTapped:" destination="hgk-wY-HbF" eventType="touchUpInside" id="k79-IZ-1gL"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All field are required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpG-Ga-BZ5">
-                                                    <rect key="frame" x="8" y="12" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uPR-bb-Krc" firstAttribute="top" secondItem="YpG-Ga-BZ5" secondAttribute="bottom" constant="8.5" id="9Vz-UZ-pQI"/>
                                                 <constraint firstAttribute="bottom" secondItem="uPR-bb-Krc" secondAttribute="bottom" constant="12.5" id="XxN-bV-CfN"/>
                                                 <constraint firstItem="uPR-bb-Krc" firstAttribute="leading" secondItem="HGa-3k-U5q" secondAttribute="leading" constant="8" id="gOt-L0-fd7"/>
-                                                <constraint firstItem="YpG-Ga-BZ5" firstAttribute="leading" secondItem="HGa-3k-U5q" secondAttribute="leadingMargin" id="mm3-tJ-3xU"/>
-                                                <constraint firstItem="YpG-Ga-BZ5" firstAttribute="trailing" secondItem="HGa-3k-U5q" secondAttribute="trailingMargin" id="oud-Y9-dsg"/>
                                                 <constraint firstAttribute="trailing" secondItem="uPR-bb-Krc" secondAttribute="trailing" constant="8" id="uBL-fn-O2h"/>
-                                                <constraint firstItem="YpG-Ga-BZ5" firstAttribute="top" secondItem="HGa-3k-U5q" secondAttribute="topMargin" constant="4" id="vCl-aD-NWa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -728,14 +718,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-zp-DG5">
-                                <rect key="frame" x="42" y="453" width="291" height="116"/>
+                                <rect key="frame" x="42" y="502" width="291" height="38"/>
                                 <state key="normal" image="appleSigninButton"/>
                                 <connections>
                                     <action selector="appleSigninButtonWasTapped:" destination="VV9-QB-HDC" eventType="touchUpInside" id="IhU-TM-0rR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account owners must be 18 years of age or older" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-YS-nm4">
-                                <rect key="frame" x="60" y="404" width="255" height="41"/>
+                                <rect key="frame" x="60" y="453" width="255" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -745,8 +735,8 @@
                         <constraints>
                             <constraint firstItem="6gU-YS-nm4" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="60" id="2aK-wU-TVY"/>
                             <constraint firstItem="HmU-mU-v2n" firstAttribute="top" secondItem="aZH-8U-Avb" secondAttribute="bottom" constant="8" id="E2y-wu-8Yl"/>
-                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="-243" id="Is6-dg-dJl"/>
-                            <constraint firstItem="HmU-mU-v2n" firstAttribute="top" secondItem="G1B-zp-DG5" secondAttribute="bottom" constant="19" id="JWc-J4-TIZ"/>
+                            <constraint firstItem="6gU-YS-nm4" firstAttribute="top" secondItem="HmU-mU-v2n" secondAttribute="bottom" constant="-194" id="Is6-dg-dJl"/>
+                            <constraint firstItem="HmU-mU-v2n" firstAttribute="top" secondItem="G1B-zp-DG5" secondAttribute="bottom" constant="48" id="JWc-J4-TIZ"/>
                             <constraint firstItem="xbW-xE-o25" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="16" id="UPF-10-Zdv"/>
                             <constraint firstItem="G1B-zp-DG5" firstAttribute="leading" secondItem="oMK-u5-wvs" secondAttribute="leading" constant="42" id="VZB-8t-qyi"/>
                             <constraint firstItem="oMK-u5-wvs" firstAttribute="trailing" secondItem="xbW-xE-o25" secondAttribute="trailing" constant="16" id="VdY-g8-YWs"/>
@@ -1337,7 +1327,7 @@
                                         <rect key="frame" x="0.0" y="624" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AeE-oJ-2UP" id="xAP-nS-afq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-Mu-taq">
@@ -1797,7 +1787,7 @@
                                         <rect key="frame" x="0.0" y="624" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DTt-yM-DaM" id="aob-Xz-HfR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-L0-coh">
@@ -1856,7 +1846,7 @@
         <image name="Page" width="617" height="500"/>
         <image name="WantedWizard" width="916" height="916"/>
         <image name="WantedWizard+" width="537" height="537"/>
-        <image name="appleSigninButton" width="292" height="116"/>
+        <image name="appleSigninButton" width="212" height="38"/>
         <image name="blankPaper" width="942" height="916"/>
         <image name="icons8-chat-30" width="30" height="30"/>
         <image name="icons8-search-30" width="30" height="30"/>
