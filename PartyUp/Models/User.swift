@@ -62,7 +62,7 @@ extension Users: DocumentUserSerializable {
             let game = dictionary["game"] as? String,
             let titleOfGroup = dictionary["title of group"] as? String,
             let groupSize = dictionary["group size"] as? String,
-            let age = dictionary["age"] as? String,
+            let age = dictionary["yourAge"] as? String,
             let availability = dictionary["availability"] as? String,
             let about = dictionary["about"] as? String,
             let name = dictionary["name"] as? String,

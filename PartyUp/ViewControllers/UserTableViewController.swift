@@ -71,7 +71,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let yourAge = document.data()["age"] as? String,
+                        let yourAge = document.data()["yourAge"] as? String,
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
@@ -187,9 +187,10 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
-            let profileImageID = self.profileImageID,
-            let location = locationTextField.text else {
-                        let alert = UIAlertController(title: "Error", message: "All fields are rewuired to update your account", preferredStyle: .alert)
+            let location = locationTextField.text,
+            let profileImageID = self.profileImageID
+        else {
+                        let alert = UIAlertController(title: "Error", message: "there was an error while trying to update your account. Make sure all fields are filled in.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                             alert.dismiss(animated: true, completion: nil)
                         }))
