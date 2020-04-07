@@ -14,15 +14,18 @@ import FirebaseFirestore
 import FirebaseAuth
 import AVFoundation
 
-class LFGViewController: UIViewController {
+class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var tableViewGameList: UITableView!
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var logOut: UIBarButtonItem!
     
     // MARK: - Propeties
     
+//    var gameList: [Games]?
+    var gameList = ["jim", "jam", "joom"]
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
@@ -33,6 +36,8 @@ class LFGViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
+        tableViewGameList.delegate = self
+        tableViewGameList.dataSource = self
         PaperSound()
         searchGame.delegate = self as? UITextFieldDelegate
 //        checkLoacationServices()
@@ -45,6 +50,29 @@ class LFGViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchGame.resignFirstResponder()
+    }
+    
+    // MARK: - TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gameList.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "gamesCell", for: indexPath) as? GamesListTableViewCell else { return UITableViewCell() }
+//        if let gameList = gameList {
+            let game = gameList[indexPath.row]
+            cell.selectionStyle = .none
+            cell.GameNameLabel.text = game
+//        }
+        return cell
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let row = self.tableViewGameList.indexPathForSelectedRow?.row {
+            let gameName = gameList[row]
+            searchGame.text = gameName
+        }
     }
     
     // MARK: - Functions

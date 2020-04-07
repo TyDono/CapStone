@@ -64,7 +64,7 @@ class ContactsTableViewController: UITableViewController {
             return cell
         } else {
             let contactId = contactListId[indexPath.row]
-            let contactName = contactsName[indexPath.row]//will crash if comes as nothing
+            let contactName = contactsName[indexPath.row]
             if contactId == "" {
                 cell.isHidden = true
                 self.cellIsHidden = true

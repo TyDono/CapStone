@@ -29,12 +29,52 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G4H-Tj-qa8">
+                                <rect key="frame" x="16" y="98" width="343" height="488"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gamesCell" id="d3X-bI-idA" customClass="GamesListTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3X-bI-idA" id="LlM-fd-3Ef">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kZ-iY-SNN">
+                                                    <rect key="frame" x="8" y="12" width="327" height="20.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="Luminari-Regular"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="9kZ-iY-SNN" secondAttribute="trailing" constant="8" id="Ap9-EN-pQ6"/>
+                                                <constraint firstAttribute="bottom" secondItem="9kZ-iY-SNN" secondAttribute="bottom" constant="12" id="NXw-2Q-veE"/>
+                                                <constraint firstItem="9kZ-iY-SNN" firstAttribute="top" secondItem="LlM-fd-3Ef" secondAttribute="top" constant="12" id="R2p-Zt-hYx"/>
+                                                <constraint firstItem="9kZ-iY-SNN" firstAttribute="leading" secondItem="LlM-fd-3Ef" secondAttribute="leading" constant="8" id="uJA-my-5bs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="GameNameLabel" destination="9kZ-iY-SNN" id="Baz-dO-ER5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="zTf-bj-LUA" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="7ac-Gf-dyY"/>
                             <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="zTf-bj-LUA" secondAttribute="trailing" constant="16" id="9m9-83-IPz"/>
+                            <constraint firstItem="G4H-Tj-qa8" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="BGo-3J-Seh"/>
+                            <constraint firstItem="gVh-NL-AUU" firstAttribute="bottom" secondItem="G4H-Tj-qa8" secondAttribute="bottom" constant="12" id="Pmy-Nn-eIj"/>
                             <constraint firstItem="zTf-bj-LUA" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="8" id="TiH-2L-XUB"/>
+                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="G4H-Tj-qa8" secondAttribute="trailing" constant="16" id="gBf-44-A30"/>
+                            <constraint firstItem="G4H-Tj-qa8" firstAttribute="top" secondItem="zTf-bj-LUA" secondAttribute="bottom" id="wMQ-2T-PTv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVh-NL-AUU"/>
                     </view>
@@ -53,12 +93,13 @@
                     <connections>
                         <outlet property="logOut" destination="YQd-oh-VGF" id="sur-J9-cFH"/>
                         <outlet property="searchGame" destination="zTf-bj-LUA" id="DUF-2K-I9R"/>
+                        <outlet property="tableViewGameList" destination="G4H-Tj-qa8" id="S6s-6U-igg"/>
                         <segue destination="L4m-aT-Ugv" kind="show" identifier="segueSearch" id="hLs-CY-Pot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fue-vM-TJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24234" y="-118"/>
+            <point key="canvasLocation" x="-24234.400000000001" y="-118.29085457271366"/>
         </scene>
         <!--Edit Your Profile-->
         <scene sceneID="eJa-Ed-5i0">
@@ -1327,7 +1368,7 @@
                                         <rect key="frame" x="0.0" y="624" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AeE-oJ-2UP" id="xAP-nS-afq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-Mu-taq">
@@ -1787,7 +1828,7 @@
                                         <rect key="frame" x="0.0" y="624" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DTt-yM-DaM" id="aob-Xz-HfR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-L0-coh">
