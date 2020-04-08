@@ -25,7 +25,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - Propeties
     
 //    var gameList: [Games]?
-    var games: [String] = Array() //Games.name // ["jim", "jam", "joom"]
+    var games = Games.name // ["jim", "jam", "joom"]
     var gameList: [String] = Array()
     var db: Firestore!
     var currentUser: User?
@@ -36,9 +36,6 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        games.append("jim")
-        games.append("tim")
-        games.append("slim")
         for game in games {
             gameList.append(game)
         }
@@ -47,7 +44,6 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
         tableViewGameList.dataSource = self
         searchGame.delegate = self
         PaperSound()
-        searchGame.delegate = self as? UITextFieldDelegate
 //        checkLoacationServices()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.startUpdatingLocation()
@@ -74,6 +70,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 }
             }
         } else {
+            hideTableview()
             for game in gameList {
                 games.append(game)
             }
@@ -206,6 +203,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
             }
         } else {
             audioPlayer.play()
+            PaperSound()
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }
