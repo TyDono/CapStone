@@ -10,7 +10,7 @@ import Foundation
 
 struct Games {
     //I plan to use an API that will grab a large amount of games giving the user an option to choose from them. this is later in the future if at all.
-    let name: [String] = [
+    static let name = [
         "jim", "jam", "jormombay"
     ]
 }

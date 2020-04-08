@@ -14,7 +14,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import AVFoundation
 
-class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     // MARK: - Outlets
     
@@ -25,7 +25,8 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - Propeties
     
 //    var gameList: [Games]?
-    var gameList = ["jim", "jam", "joom"]
+    var games: [String] = Array() //Games.name // ["jim", "jam", "joom"]
+    var gameList: [String] = Array()
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
@@ -35,9 +36,16 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        games.append("jim")
+        games.append("tim")
+        games.append("slim")
+        for game in games {
+            gameList.append(game)
+        }
         db = Firestore.firestore()
         tableViewGameList.delegate = self
         tableViewGameList.dataSource = self
+        searchGame.delegate = self
         PaperSound()
         searchGame.delegate = self as? UITextFieldDelegate
 //        checkLoacationServices()
@@ -45,7 +53,31 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
 //        locationManager.startUpdatingLocation()
 //        locationManager.distanceFilter = 100
         changeBackground()
+        searchGame.addTarget(self, action: #selector(searchRecords(_ :)), for: .editingChanged)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           searchGame.resignFirstResponder()
+           return true
+       }
+    
+    @objc func searchRecords(_ textField: UITextField) {
+        self.games.removeAll()
+        if textField.text?.count != 0 {
+            for game in gameList {
+                guard let gameToSearch = textField.text else { return }
+                let range = game.lowercased().range(of: gameToSearch, options: .caseInsensitive, range: nil, locale: nil)
+                if range != nil {
+                    self.games.append(game)
+                }
+            }
+        } else {
+            for game in gameList {
+                games.append(game)
+            }
+        }
+        tableViewGameList.reloadData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,13 +87,13 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameList.count ?? 0
+        return games.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "gamesCell", for: indexPath) as? GamesListTableViewCell else { return UITableViewCell() }
 //        if let gameList = gameList {
-            let game = gameList[indexPath.row]
+            let game = games[indexPath.row]
             cell.selectionStyle = .none
             cell.GameNameLabel.text = game
 //        }
@@ -70,7 +102,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let row = self.tableViewGameList.indexPathForSelectedRow?.row {
-            let gameName = gameList[row]
+            let gameName = games[row]
             searchGame.text = gameName
         }
     }
