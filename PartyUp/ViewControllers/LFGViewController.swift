@@ -54,7 +54,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
 //        locationManager.distanceFilter = 100
         changeBackground()
         searchGame.addTarget(self, action: #selector(searchRecords(_ :)), for: .editingChanged)
-        
+        hideTableview()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -65,6 +65,7 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @objc func searchRecords(_ textField: UITextField) {
         self.games.removeAll()
         if textField.text?.count != 0 {
+            tableViewGameList.isHidden = false
             for game in gameList {
                 guard let gameToSearch = textField.text else { return }
                 let range = game.lowercased().range(of: gameToSearch, options: .caseInsensitive, range: nil, locale: nil)
@@ -92,11 +93,12 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "gamesCell", for: indexPath) as? GamesListTableViewCell else { return UITableViewCell() }
-//        if let gameList = gameList {
-            let game = games[indexPath.row]
-            cell.selectionStyle = .none
-            cell.GameNameLabel.text = game
-//        }
+        tableView.rowHeight = 60
+        //        if let gameList = gameList {
+        let game = games[indexPath.row]
+        cell.selectionStyle = .none
+        cell.GameNameLabel.text = game
+        //        }
         return cell
     }
     
@@ -123,6 +125,18 @@ class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         catch {
             print(error)
+        }
+    }
+    
+    func hideTableview() {
+        if searchGame.text?.count == 0 {
+            tableViewGameList.isHidden = true
+        }
+    }
+    
+    func showTableview() {
+        if searchGame.text?.count != 0 {
+            tableViewGameList.isHidden = false
         }
     }
     

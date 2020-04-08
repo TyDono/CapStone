@@ -29,19 +29,24 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G4H-Tj-qa8">
-                                <rect key="frame" x="16" y="98" width="343" height="488"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G4H-Tj-qa8">
+                                <rect key="frame" x="42" y="98" width="294" height="488"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gamesCell" id="d3X-bI-idA" customClass="GamesListTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="gamesCell" rowHeight="60" id="d3X-bI-idA" customClass="GamesListTableViewCell" customModule="Gaming_Wizard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="294" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3X-bI-idA" id="LlM-fd-3Ef">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page" translatesAutoresizingMaskIntoConstraints="NO" id="WXE-Mc-7jh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="60"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kZ-iY-SNN">
-                                                    <rect key="frame" x="8" y="12" width="327" height="20.5"/>
+                                                    <rect key="frame" x="8" y="12" width="278" height="36"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
@@ -56,7 +61,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="9kZ-iY-SNN" secondAttribute="trailing" constant="8" id="Ap9-EN-pQ6"/>
                                                 <constraint firstAttribute="bottom" secondItem="9kZ-iY-SNN" secondAttribute="bottom" constant="12" id="NXw-2Q-veE"/>
                                                 <constraint firstItem="9kZ-iY-SNN" firstAttribute="top" secondItem="LlM-fd-3Ef" secondAttribute="top" constant="12" id="R2p-Zt-hYx"/>
+                                                <constraint firstItem="WXE-Mc-7jh" firstAttribute="top" secondItem="LlM-fd-3Ef" secondAttribute="top" id="aVI-qL-vI1"/>
+                                                <constraint firstItem="WXE-Mc-7jh" firstAttribute="leading" secondItem="LlM-fd-3Ef" secondAttribute="leading" id="euV-YR-cvR"/>
+                                                <constraint firstAttribute="bottom" secondItem="WXE-Mc-7jh" secondAttribute="bottom" id="hla-4B-bEu"/>
                                                 <constraint firstItem="9kZ-iY-SNN" firstAttribute="leading" secondItem="LlM-fd-3Ef" secondAttribute="leading" constant="8" id="uJA-my-5bs"/>
+                                                <constraint firstAttribute="trailing" secondItem="WXE-Mc-7jh" secondAttribute="trailing" id="v7G-An-p3T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -70,10 +79,10 @@
                         <constraints>
                             <constraint firstItem="zTf-bj-LUA" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="7ac-Gf-dyY"/>
                             <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="zTf-bj-LUA" secondAttribute="trailing" constant="16" id="9m9-83-IPz"/>
-                            <constraint firstItem="G4H-Tj-qa8" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="16" id="BGo-3J-Seh"/>
+                            <constraint firstItem="G4H-Tj-qa8" firstAttribute="leading" secondItem="gVh-NL-AUU" secondAttribute="leading" constant="42" id="BGo-3J-Seh"/>
                             <constraint firstItem="gVh-NL-AUU" firstAttribute="bottom" secondItem="G4H-Tj-qa8" secondAttribute="bottom" constant="12" id="Pmy-Nn-eIj"/>
                             <constraint firstItem="zTf-bj-LUA" firstAttribute="top" secondItem="gVh-NL-AUU" secondAttribute="top" constant="8" id="TiH-2L-XUB"/>
-                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="G4H-Tj-qa8" secondAttribute="trailing" constant="16" id="gBf-44-A30"/>
+                            <constraint firstItem="gVh-NL-AUU" firstAttribute="trailing" secondItem="G4H-Tj-qa8" secondAttribute="trailing" constant="39" id="gBf-44-A30"/>
                             <constraint firstItem="G4H-Tj-qa8" firstAttribute="top" secondItem="zTf-bj-LUA" secondAttribute="bottom" id="wMQ-2T-PTv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVh-NL-AUU"/>
