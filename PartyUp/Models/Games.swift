@@ -11,6 +11,8 @@ import Foundation
 struct Games {
     //I plan to use an API that will grab a large amount of games giving the user an option to choose from them. this is later in the future if at all.
     static let name = [
+        
+        // MARK: - Two-player games
         "Abalone",
         "Agon",
         "Android: Netrunner",
@@ -94,6 +96,7 @@ struct Games {
         "ZÈRTZ",
         "Zingo!",
         
+        // MARK: - Multi-player elimination games
         "13 Dead End Drive",
         "1313 Dead End Drive",
         "American Megafauna",
@@ -146,6 +149,7 @@ struct Games {
         "Tsuro of the Seas",
         "War on Terror",
         
+        // MARK: -
         "Cartagena",
         "Chicken Cha Cha Cha",
         "Formula Dé",
@@ -154,6 +158,7 @@ struct Games {
         "Mississippi Queen",
         "Transformers",
         
+        // MARK: - European race games
         "18XX",
         "221B Baker Street",
         "30 Seconds",
@@ -370,7 +375,105 @@ struct Games {
         "Yahtzee",
         "Yut",
         "Zombies!!!",
-        "Zoophoria"
+        "Zoophoria",
+        
+        // MARK: - Economics and strategy games
+        "Battleship",
+        "Diplomacy",
+        "Glasnost The Game",
+        "Junta",
+        "Kolejka",
+        "København",
+        "Monopoly",
+        "Power Grid",
+        "Race for the Galaxy",
+        "Risk",
+        "Risk 2210 AD",
+        "Sentinels of the Multiverse",
+        "Squatter",
+        "The Settlers of Catan",
+        "Ticket to Ride",
+
+        // MARK: - Games of physical skill
+        "Blockhead!",
+        "Buckaroo",
+        "Camp Granada",
+        "Carrom",
+        "Chapayev",
+        "Crokinole",
+        "Dart Wars",
+        "Gnip Gnop",
+        "Hungry Hungry Hippos",
+        "Jenga",
+        "Kerplunk",
+        "Krazy Maze",
+        "Operation",
+        "Perfection",
+        "Polarity",
+        "Subbuteo",
+        "Twister",
+        "Villa Paletti",
+        
+        // MARK: - Children's games
+        "Candy Land",
+        "Catan Junior",
+        "Chicken Cha Cha Cha",
+        "Don't Break the Ice",
+        "Don't Wake Daddy",
+        "Forbidden Bridge",
+        "Hey Pa! There's a Goat on the Roof",
+        "Hi Ho! Cherry-O",
+        "Hungry Hungry Hippos",
+        "The Kids of Catan",
+        "Ludo",
+        "Mouse Trap",
+        "Snakes and ladders (aka Chutes and Ladders)",
+        "Sorry!",
+        "Space Hop",
+        "Uncle Wiggily",
+        
+        // MARK: - Cooperative games
+        "Arkham Horror",
+        "Battlestar Galactica: The Board Game",
+        "Betrayal at House on the Hill",
+        "Castle Panic",
+        "Flash Point",
+        "Forbidden Island",
+        "Freedom: The Underground Railroad",
+        "Gloomhaven",
+        "Hanabi",
+        "Just One",
+        "Lord of the Rings",
+        "Pandemic",
+        "Sentinels of the Multiverse",
+        "Shadows over Camelot",
+        "Space Alert",
+        "X-COM",
+        
+        // MARK: - Word games
+        "25 Words or Less",
+        "Acronymble",
+        "Aksharit",
+        "Alfapet",
+        "Bananagrams",
+        "Big Taboo",
+        "Kings Cribbage",
+        "Mad Gab",
+        "Pictionary",
+        "Probe",
+        "Scrabble",
+        "Thiruthamizh",
+        "Trickster",
+        "UpWords",
+        "Words with Friends",
+        
+        // MARK: - Gaming systems
+        "Flibbix",
+        "Hanafuda",
+        "Icehouse pieces",
+        "Stonehenge"
+        
+        // MARK: -
 
     ]
 }
