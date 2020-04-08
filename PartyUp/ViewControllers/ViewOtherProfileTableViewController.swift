@@ -261,12 +261,17 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let age = document.data()["age"] as? String,
+                        let age = document.data()["yourAge"] as? String,
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
                         let contactsName = document.data()["contactsName"] as? [String],
-                        let profileImageID = document.data()["profileImageID"] as? String else { return }
+                        let profileImageID = document.data()["profileImageID"] as? String else {                         let alert = UIAlertController(title: "Error", message: "Please make sure all fields of your account are filled in, in order to add other users to your contacts", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                alert.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            return }
                     self.yourName = name
                     self.yourId = id
                     self.yourGame = game
