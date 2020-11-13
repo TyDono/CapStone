@@ -6,16 +6,17 @@
 //  Copyright © 2019 Tyler Donohue. All rights reserved.
 //
 
-
-
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import FirebaseStorage
 
-class UserTableViewController: UITableViewController {
+class UserTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Outlets
+    
+    @IBOutlet weak var profileUIImage: UIImageView!
     @IBOutlet var gameTextField: UITextField!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var yourAgeTextField: UITextField!
@@ -26,6 +27,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet var locationTextField: UITextField!
     
     // MARK: - Propeties
+    
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
@@ -33,20 +35,18 @@ class UserTableViewController: UITableViewController {
     var locationSpot: String? = ""
     var contactsName = [""]
     var contactsId = [""]
+    var profileImageID: String?
+    let storage = Storage.storage()
+    var profileImages = [UIImage]()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         db = Firestore.firestore()
         changeBackground()
         getPersonalData()
     }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
     
     // MARK: - Functions
     
@@ -57,31 +57,7 @@ class UserTableViewController: UITableViewController {
         self.tableView.backgroundView = backgroundImage
     }
     
-    //MARK methods
-    //    func profileInfo() {
-    //
-    //       UserDefaults.standard.set(gameTextField.text, forKey: "myGame")
-    //        gameTextField.text = ""
-    //        UserDefaults.standard.set(titleTextField.text, forKey: "myTitle")
-    //        titleTextField.text = ""
-    //        UserDefaults.standard.set(ageTextField.text, forKey: "myAge")
-    //        ageTextField.text = ""
-    //        UserDefaults.standard.set(availabilityTextField.text, forKey: "myAvailability")
-    //        availabilityTextField.text = ""
-    //        UserDefaults.standard.set(aboutTextField.text, forKey: "myAbout")
-    //        aboutTextField.text = ""
-    //        UserDefaults.standard.set(groupSizeTextField.text, forKey: "myGroupSize")
-    //        groupSizeTextField.text = ""
-    //        UserDefaults.standard.set(nameTextField.text, forKey: "myName")
-    //        nameTextField.text = ""
-    //        UserDefaults.standard.set((emailTextField.text), forKey: "email")
-    //        emailTextField.text = ""
-    //        //experianceSegmentedControl =
-    //
-    //  }
-    
     func getPersonalData() {
-        
         guard let uid: String = self.currentAuthID else { return }
         print("this is my uid i really like my uid \(uid)")
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
@@ -95,11 +71,12 @@ class UserTableViewController: UITableViewController {
                         let groupSize = document.data()["group size"] as? String,
                         let about = document.data()["about"] as? String,
                         let availability = document.data()["availability"] as? String,
-                        let yourAge = document.data()["age"] as? String,
+                        let yourAge = document.data()["yourAge"] as? String,
                         let title = document.data()["title of group"] as? String,
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
-                        let contactsName = document.data()["contactsName"] as? [String] {
+                        let contactsName = document.data()["contactsName"] as? [String],
+                        let profileImageID = document.data()["profileImageID"] as? String? {
                         
                         self.gameTextField.text = game
                         self.titleTextField.text = title
@@ -111,47 +88,98 @@ class UserTableViewController: UITableViewController {
                         self.locationTextField.text = location
                         self.contactsId = contactsId
                         self.contactsName = contactsName
+                        self.profileImageID = profileImageID
+                        self.getImages()
                     }
                 }
             }
         }
     }
     
-    //        if let gameTextSaved = UserDefaults.standard.object(forKey: "myGame") as? String {
-    //            gameTextField.text = gameTextSaved
-    //        }
-    //        if let titleTextSaved = UserDefaults.standard.object(forKey: "myTitle") as? String {
-    //            titleTextField.text = titleTextSaved
-    //        }
-    //        if let ageTextSaved = UserDefaults.standard.object(forKey: "myAge") as? String {
-    //            ageTextField.text = ageTextSaved
-    //        }
-    //        if let availabilityTextSaved = UserDefaults.standard.object(forKey: "myAvailability") as? String {
-    //            availabilityTextField.text = availabilityTextSaved
-    //        }
-    //        if let aboutTextSaved = UserDefaults.standard.object(forKey: "myAbout") as? String {
-    //            aboutTextField.text = aboutTextSaved
-    //        }
-    //        if let groupSizeTextSaved = UserDefaults.standard.object(forKey: "myGroupSize") as? String {
-    //            groupSizeTextField.text = groupSizeTextSaved
-    //        }
-    //        if let nameTextSaved = UserDefaults.standard.object(forKey: "myName") as? String {
-    //            nameTextField.text = nameTextSaved
-    //        }
-    //        if let emailTextSaved = UserDefaults.standard.object(forKey: "email") as? String {
-    //            emailTextField.text = emailTextSaved
-    //        }
-    //    }
-    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToViewAccount", let otherProfileVC = segue.destination as? ViewPersonalAccountTableViewController {
+            otherProfileVC.yourGame = self.gameTextField.text ?? ""
+            otherProfileVC.yourTitleOfGroup = self.titleTextField.text ?? ""
+            otherProfileVC.yourAge = self.yourAgeTextField.text ?? ""
+            otherProfileVC.yourGroupSize = self.groupSizeTextField.text ?? ""
+            otherProfileVC.yourAvailability = self.availabilityTextField.text
+            otherProfileVC.yourAbout = self.aboutTextField.text
+            otherProfileVC.yourName = self.nameTextField.text ?? ""
+            otherProfileVC.yourLocation = self.locationTextField.text ?? ""
+            otherProfileVC.profileImage = self.profileUIImage.image
+        } else if segue.identifier == "segueToSettings", let profileSettingsVC = segue.destination as? SettingsViewController {
+            profileSettingsVC.imageString = self.profileImageID
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            profileUIImage.image = selectedImage
+            profileImages.append(selectedImage)
+            dismiss(animated: true, completion: nil)
+            self.profileUIImage.reloadInputViews()
+        }
+    }
+    
+    func getImages() {
+        guard let imageStringId = self.profileImageID else  { return }
+        let storageRef = storage.reference()
+        let profileImage = storageRef.child("profileImages/\(imageStringId)")
+        profileImage.getData(maxSize: (1024 * 1024), completion: { (data, err) in
+            guard let data = data else {return}
+            guard let image = UIImage(data: data) else {return}
+            self.profileUIImage.image = image
+        })
+    }
+    
+    func uploadFirebaseImages(_ image: UIImage, completion: @escaping ((_ url: URL?) -> () )) {
+        let storageRef = Storage.storage().reference().child("profileImages/\(self.profileImageID ?? "no Image Found")")
+        guard let imageData = image.jpegData(compressionQuality: 0.05) else { return }
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            if error == nil, metaData != nil {
+                print("got profile image")
+                storageRef.downloadURL(completion: { (url, error) in
+                    completion(url)
+                })
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func saveImageToFirebase(graveImagesURL: URL, completion: @escaping((_ success: Bool) -> ())) {
+        let databaseRef = Firestore.firestore().document("profileImages/\(self.currentAuthID ?? "no image")")
+        let userObjectImages = [
+            "imageURL": graveImagesURL.absoluteString
+        ] as [String:Any]
+        databaseRef.setData(userObjectImages) { (error) in
+            completion(error == nil)
+        }
+        print("SaveImageToFirebase has been saved!!!!!")
+    }
     
     // MARK: - Actions
     
     @IBAction func settingBarButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "settingsSegue", sender: nil)
+        performSegue(withIdentifier: "segueToSettings", sender: nil)
     }
     
     @IBAction func saveProfileTapped(_ sender: Any) {
-        // Auth.auth().currentUser?.uid // get current auth ID
+        if profileUIImage.image != nil {
+            for image in profileImages {
+                uploadFirebaseImages(image) { (url) in
+                    print(url)
+                    guard let url = url else { return }
+                }
+            }
+        }
+        
         guard let game = gameTextField.text,
             let titleOfGroup = titleTextField.text,
             let groupSize = groupSizeTextField.text,
@@ -159,7 +187,15 @@ class UserTableViewController: UITableViewController {
             let availability = availabilityTextField.text,
             let about = aboutTextField.text,
             let name = nameTextField.text,
-            let location = locationTextField.text else { return }
+            let location = locationTextField.text,
+            let profileImageID = self.profileImageID
+        else {
+                        let alert = UIAlertController(title: "Error", message: "there was an error while trying to update your account. Make sure all fields are filled in.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        return }
         let contactsId = self.contactsId
         let contactsName = self.contactsName
         
@@ -173,7 +209,8 @@ class UserTableViewController: UITableViewController {
                          name: name,
                          location: location,
                          contactsId: contactsId,
-                         contactsName: contactsName)
+                         contactsName: contactsName,
+                         profileImageID: profileImageID)
         let userRef = self.db.collection("profile")
         
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
@@ -192,19 +229,30 @@ class UserTableViewController: UITableViewController {
                 }))
                 self.present(alert2, animated: true, completion: nil)
                 //self.profileInfo()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 }
             }
         }
+    }
+    
+    @IBAction func changeUIImageButtonTapped(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func loutOutButtonTapped(_ sender: Any) {
         self.currentUser = nil
         self.userId = ""
         try! Auth.auth().signOut()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             moveToLogIn()
         }
+    }
+    
+    @IBAction func viewAccountButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueToViewAccount", sender: nil)
     }
     
 }

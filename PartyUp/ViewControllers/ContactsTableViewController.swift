@@ -10,6 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseFirestore
+import AVFoundation
+import FirebaseStorage
 
 class ContactsTableViewController: UITableViewController {
     
@@ -17,6 +19,7 @@ class ContactsTableViewController: UITableViewController {
     @IBOutlet weak var reportCommentsTextView: UITextView!
     
     // MARK: - Propeties
+    
     var contactListId = [String?]()
     var contactsName = [String?]()
     var cellIsHidden: Bool? = false
@@ -26,6 +29,9 @@ class ContactsTableViewController: UITableViewController {
     var currentUserName: String?
     var chatId: String?
     var currentDate: String?
+    var audioPlayer = AVAudioPlayer()
+    var profileImageId: String?
+    let storage = Storage.storage()
     
     // MARK: - View Lifecycle
     
@@ -58,11 +64,21 @@ class ContactsTableViewController: UITableViewController {
             return cell
         } else {
             let contactId = contactListId[indexPath.row]
-            let contactName = contactsName[indexPath.row]//will crash if comes as nothing
+            let contactName = contactsName[indexPath.row]
             if contactId == "" {
                 cell.isHidden = true
                 self.cellIsHidden = true
             }
+            //gets images. wip.
+//            if let imageStringId = self.profileImageId {
+//                let storageRef = storage.reference()
+//                let graveProfileImage = storageRef.child("profileImages/\(imageStringId)")
+//                graveProfileImage.getData(maxSize: (1024 * 1024), completion: { (data, err) in
+//                    guard let data = data else {return}
+//                    guard let image = UIImage(data: data) else {return}
+//                    cell.contactProfileImage.image = image
+//                })
+//            }
             self.chatId = contactId
             cell.contactId = contactId
             cell.contactNameLabel.text = contactName
@@ -108,10 +124,21 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        audioPlayer.play()
         performSegue(withIdentifier: "segueToMessages", sender: self)
     }
     
     // MARK: - Functions
+    
+    func PaperSound() {
+        let paperSound = Bundle.main.path(forResource: "paperSound", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: paperSound!))
+        }
+        catch {
+            print(error)
+        }
+    }
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -130,10 +157,12 @@ class ContactsTableViewController: UITableViewController {
                 for document in (snapshot?.documents)! {
                     guard let contactList = document.data()["contactsId"] as? [String],
                         let name = document.data()["name"] as? String,
-                        let contactName = document.data()["contactsName"] as? [String] else { return }
+                        let contactName = document.data()["contactsName"] as? [String],
+                        let profileImageID = document.data()["profileImageID"] as? String else { return }
                     self.contactListId = contactList
                     self.contactsName = contactName
                     self.currentUserName = name
+                    self.profileImageId = profileImageID
                     self.tableView.reloadData()
                 }
             }

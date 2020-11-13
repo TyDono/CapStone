@@ -16,16 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WizardICONWITHGRADIANTRAW1024" highlightedImage="WizardICONWITHGRADIANTRAW1024" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZm-I3-DeO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newWizard" highlightedImage="newWizard" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-5W-nZl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkG-u9-iel">
+                                <rect key="frame" x="16" y="637" width="343" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Loading Gaming Wizard...">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name="Luminari-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3d8-kA-Cxa"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="643-9K-0b9"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OtA-HO-8wQ"/>
-                            <constraint firstItem="PZm-I3-DeO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c3J-aU-PQ1"/>
+                            <constraint firstItem="ZmL-5W-nZl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AYU-XC-enY"/>
+                            <constraint firstItem="MkG-u9-iel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Iz2-5W-jsU"/>
+                            <constraint firstItem="ZmL-5W-nZl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XcD-Pm-yxL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MkG-u9-iel" secondAttribute="bottom" constant="10" id="aVY-cw-x8D"/>
+                            <constraint firstItem="ZmL-5W-nZl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c7d-GK-GGI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MkG-u9-iel" secondAttribute="trailing" constant="16" id="pE8-0m-dI9"/>
+                            <constraint firstItem="ZmL-5W-nZl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qh5-fO-yra"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WizardICONWITHGRADIANTRAW1024" width="1024" height="1024"/>
+        <image name="newWizard" width="303" height="538"/>
     </resources>
 </document>

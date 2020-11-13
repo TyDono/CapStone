@@ -12,7 +12,7 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import FirebaseFirestore
-import Firebase
+import FirebaseStorage
 
 class MyFirebase {
     
@@ -91,6 +91,7 @@ class MyFirebase {
         let location: String = ""
         let contactsId: [String] = []
         let contactsName: [String] = []
+        let profileImageID: String = UUID().uuidString
         // let location: String = ""
         // let color2: UIColor = .red
         // let authData: Any?
@@ -106,7 +107,8 @@ class MyFirebase {
                          name: name2,
                          location: location,
                          contactsId: contactsId,
-                         contactsName: contactsName)
+                         contactsName: contactsName,
+                         profileImageID: profileImageID)
         let userRef = self.db.collection("profile")
         userRef.document(String(user.id)).setData(user.dictionary) { err in
             if let err = err {
@@ -139,9 +141,17 @@ class MyFirebase {
             print("Credential linked")
         }
     }
+    
     func logOut() {
-        try! Auth.auth().signOut()
-        GIDSignIn.sharedInstance()?.signIn()
+            let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance()?.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+//        try! Auth.auth().signOut()
+//        GIDSignIn.sharedInstance()?.signIn()
     }
     
 }

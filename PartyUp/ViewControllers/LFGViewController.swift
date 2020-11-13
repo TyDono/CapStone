@@ -12,45 +12,129 @@ import Foundation
 import CoreLocation
 import FirebaseFirestore
 import FirebaseAuth
+import AVFoundation
 
-class LFGViewController: UIViewController {
+class LFGViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var tableViewGameList: UITableView!
     @IBOutlet var searchGame: UITextField!
     @IBOutlet var logOut: UIBarButtonItem!
     
     // MARK: - Propeties
     
+//    var gameList: [Games]?
+    var games = Games.name // ["jim", "jam", "joom"]
+    var gameList: [String] = Array()
     var db: Firestore!
     var currentUser: User?
     var userId: String = ""
+    var audioPlayer = AVAudioPlayer()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for game in games {
+            gameList.append(game)
+        }
         db = Firestore.firestore()
-        searchGame.delegate = self as? UITextFieldDelegate
+        tableViewGameList.delegate = self
+        tableViewGameList.dataSource = self
+        searchGame.delegate = self
+        PaperSound()
 //        checkLoacationServices()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.startUpdatingLocation()
 //        locationManager.distanceFilter = 100
         changeBackground()
-        
+        searchGame.addTarget(self, action: #selector(searchRecords(_ :)), for: .editingChanged)
+        hideTableview()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           searchGame.resignFirstResponder()
+           return true
+       }
+    
+    @objc func searchRecords(_ textField: UITextField) {
+        self.games.removeAll()
+        if textField.text?.count != 0 {
+            tableViewGameList.isHidden = false
+            for game in gameList {
+                guard let gameToSearch = textField.text else { return }
+                let range = game.lowercased().range(of: gameToSearch, options: .caseInsensitive, range: nil, locale: nil)
+                if range != nil {
+                    self.games.append(game)
+                }
+            }
+        } else {
+            hideTableview()
+            for game in gameList {
+                games.append(game)
+            }
+        }
+        tableViewGameList.reloadData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchGame.resignFirstResponder()
     }
     
+    // MARK: - TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "gamesCell", for: indexPath) as? GamesListTableViewCell else { return UITableViewCell() }
+        tableView.rowHeight = 60
+        //        if let gameList = gameList {
+        let game = games[indexPath.row]
+        cell.selectionStyle = .none
+        cell.GameNameLabel.text = game
+        //        }
+        return cell
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let row = self.tableViewGameList.indexPathForSelectedRow?.row {
+            let gameName = games[row]
+            searchGame.text = gameName
+        }
+    }
+    
     // MARK: - Functions
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "RealisticBillboard")
+        backgroundImage.image = UIImage(named: "NewRealisticBillboard")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
+    }
+    
+    func PaperSound() {
+        let paperSound = Bundle.main.path(forResource: "paperBookSound", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: paperSound!))
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    func hideTableview() {
+        if searchGame.text?.count == 0 {
+            tableViewGameList.isHidden = true
+        }
+    }
+    
+    func showTableview() {
+        if searchGame.text?.count != 0 {
+            tableViewGameList.isHidden = false
+        }
     }
     
     ///LOCATION MAPKIT
@@ -118,6 +202,8 @@ class LFGViewController: UIViewController {
                 })
             }
         } else {
+            audioPlayer.play()
+            PaperSound()
             performSegue(withIdentifier: "segueSearch", sender: nil)
         }
     }

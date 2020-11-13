@@ -10,4 +10,5 @@ import Foundation
 
 struct Fonts {
     static let zapfino = "Zapfino"
+    static let luminari = "Luminari-Regular"
 }

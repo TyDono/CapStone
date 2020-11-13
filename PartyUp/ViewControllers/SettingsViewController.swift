@@ -10,15 +10,19 @@ import MessageUI
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import FirebaseStorage
 
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     // MARK: - Propeties
+    
     var db: Firestore!
     var currentAuthID = Auth.auth().currentUser?.uid
     var currentUser: Users?
     var userId: String?
     var emailValue: String = "TyDonoCode@gmail.com"
+    var imageString: String?
+    let storage = Storage.storage()
     
     // MARK: - View Lifecycle
     
@@ -31,14 +35,33 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     func changeBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "RealisticBillboard")
+        backgroundImage.image = UIImage(named: "newWizard")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
+    func deleteProfileImage() {
+        let imageRef = self.storage.reference().child(self.imageString ?? "no image String found")
+        imageRef.delete { err in
+            if let error = err {
+                let deleteImageAlert = UIAlertController(title: "Error", message: "Sorry, there was an error while trying to delete your Profile Image. Please check your internet connection and try again.", preferredStyle: .alert)
+                deleteImageAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    deleteImageAlert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(deleteImageAlert, animated: true, completion: nil)
+                print(error)
+            } else {
+                // File deleted successfully
+            }
+        }
+    }
+
+    
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients([emailValue])
+        mailComposerVC.setSubject("Gaming Wizard: Contact Us")
         mailComposerVC.setPreferredSendingEmailAddress(emailValue)
         return mailComposerVC
     }
@@ -72,6 +95,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let location = ""
             let contactsId = [""]
             let contactsName = [""]
+            let profileImageID = ""
             let user = Users(id: self.currentAuthID!, game: game,
                              titleOfGroup: titleOfGroup,
                              groupSize: groupSize,
@@ -81,12 +105,12 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
                              name: name,
                              location: location,
                              contactsId: contactsId,
-                             contactsName: contactsName)
+                             contactsName: contactsName,
+                             profileImageID: profileImageID)
             let userRef = self.db.collection("profile")
             userRef.document(String(user.id)).updateData(user.dictionary){ err in
                 if err == nil {
-                    
-                    print("Logged Out Tapped")
+                    self.deleteProfileImage()
                     self.currentUser = nil
                     self.userId = ""
                     try! Auth.auth().signOut()
@@ -125,6 +149,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let userRef = self.db.collection("profile")
             userRef.document(String(userId)).delete(){ err in
                 if err == nil {
+                    self.deleteProfileImage()
                     self.currentUser = nil
                     self.userId = ""
                     try! Auth.auth().signOut()
@@ -154,6 +179,14 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     @IBAction func contactUsButtonTapped(_ sender: UIButton) {
+        let mailComposeViewcontroller = configureMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewcontroller, animated: true, completion: nil)
+        } else {
+            showMailError()
+        }
+    }
+    @IBAction func contactUsHiddenButtonTapped(_ sender: UIButton) {
         let mailComposeViewcontroller = configureMailController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewcontroller, animated: true, completion: nil)

@@ -7,15 +7,41 @@
 //
 
 import Foundation
+import UIKit
+import FirebaseFirestore
 
-struct Contacts {
-    var contactList: [String]
-    var contactListOwnerId: String
+
+
+protocol DocumentContactsSerializable {
+    init?(dictionary: [String: Any])
 }
 
-/*
- the user taps pon contact me. that will create a real timer data base, this will have 2 id's. the user who tapped and the user's profile who was tapped on. both of their currenthAuthId's, so that when we go to pull them down in the conactsTVC, it will search for all with your currentAuthId.
- 
- how contct will work. we pull down the realtime database.
- 
- */
+struct Contacts {
+    var contactsIdList: [String]
+    var contactsNameList: [String]
+    var personalId: String
+    var imageId: String
+    
+    var dictionary: [String: Any] {
+        return [
+            "contactsIdList": contactsIdList,
+            "contactsNameList": contactsNameList,
+            "personalId": personalId,
+            "ImageId": imageId
+        ]
+    }
+}
+
+extension Contacts: DocumentContactsSerializable {
+    init?(dictionary: [String: Any]) {
+        guard let contactsIdList = dictionary["contactsIdList"] as? [String],
+            let contactsNameList = dictionary["contactsNameList"] as? [String],
+            let personalId = dictionary["personalId"] as? String,
+            let imageId = dictionary["imageId"] as? String else {return nil}
+        //    let color  = dictionary["color"] as? UIColor
+        //let authData = dictionary["authData"] as? Any?,
+        //let clientData = dictionary["clientData"] as? Any? else { return nil }
+        self.init(contactsIdList: contactsIdList, contactsNameList: contactsNameList, personalId: personalId, imageId: imageId)
+    }
+    
+}

@@ -23,7 +23,7 @@ class ContactsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        contactNameLabel.font = UIFont(name: Fonts.luminari, size: 17.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

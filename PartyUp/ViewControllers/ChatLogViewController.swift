@@ -30,6 +30,7 @@ class ChatLogViewController: JSQMessagesViewController {
     var chatDatabaseName: String?
     var chatId: String = ""
     var currentDate: String?
+    let defaults = UserDefaults.standard
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -48,6 +49,8 @@ class ChatLogViewController: JSQMessagesViewController {
         senderId = self.currentAuthID
         senderDisplayName = self.currentUserName
         title = "Chat: \(senderDisplayName!)"
+        defaults.set(senderDisplayName, forKey: "jsq_name")
+        defaults.synchronize()
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -78,7 +81,7 @@ class ChatLogViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
-    } // chesk to see who is sending message.
+    } // cheks to see who is sending message.
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
@@ -101,6 +104,7 @@ class ChatLogViewController: JSQMessagesViewController {
     
     // MARK: - Functions
     
+    //this was report system moved to ContactsTVC
 //    func getCurrentDate() {
 //        let formatter : DateFormatter = DateFormatter()
 //        formatter.dateFormat = "d/M/yy"

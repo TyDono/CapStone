@@ -8,10 +8,10 @@
 
 import UIKit
 
-
 class SearchResultsTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet var gameLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
@@ -19,6 +19,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     
     // MARK: - Propeties
+    
     var users: [Users]?
     var experience: String = ""
     var about: String = ""
