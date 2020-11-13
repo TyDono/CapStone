@@ -9,7 +9,7 @@ target 'Gaming Wizard' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'GoogleSignIn', '< 5.0.0'
+pod 'GoogleSignIn'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Messaging'

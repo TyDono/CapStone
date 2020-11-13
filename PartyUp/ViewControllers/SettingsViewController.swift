@@ -41,10 +41,14 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func deleteProfileImage() {
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         let imageRef = self.storage.reference().child(self.imageString ?? "no image String found")
         imageRef.delete { err in
             if let error = err {
-                let deleteImageAlert = UIAlertController(title: "Error", message: "Sorry, there was an error while trying to delete your Profile Image. Please check your internet connection and try again.", preferredStyle: .alert)
+                let deleteImageAlert = UIAlertController(title: "Error", message: "Sorry, there was an error while trying to delete your Profile Image. Please check your internet connection and try again.", preferredStyle: alertStyle)
                 deleteImageAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     deleteImageAlert.dismiss(animated: true, completion: nil)
                 }))
@@ -67,7 +71,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func showMailError() {
-        let sendMailErrorAlert = UIAlertController(title: "Failed to send email", message: "Your device failed to send the email", preferredStyle: .alert)
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
+        let sendMailErrorAlert = UIAlertController(title: "Failed to send email", message: "Your device failed to send the email", preferredStyle: alertStyle)
         let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
         sendMailErrorAlert.addAction(dismiss)
         self.present(sendMailErrorAlert, animated: true, completion: nil)
@@ -118,7 +126,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
                         moveToLogIn()
                     }
                 } else {
-                    let alert1 = UIAlertController(title: "ERROR", message: "Sorry, there was an error while trying to deactivate your account, please try again", preferredStyle: .alert)
+                    var alertStyle = UIAlertController.Style.alert
+                    if (UIDevice.current.userInterfaceIdiom == .pad) {
+                        alertStyle = UIAlertController.Style.alert
+                    }
+                    let alert1 = UIAlertController(title: "ERROR", message: "Sorry, there was an error while trying to deactivate your account, please try again", preferredStyle: alertStyle)
                     alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         alert1.dismiss(animated: true, completion: nil)
                     }))
@@ -157,7 +169,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
                         moveToLogIn()
                     }
                 } else {
-                    let alert1 = UIAlertController(title: "ERROR", message: "Sorry, there was an error while trying to delete your account, please try again", preferredStyle: .alert)
+                    var alertStyle = UIAlertController.Style.alert
+                    if (UIDevice.current.userInterfaceIdiom == .pad) {
+                        alertStyle = UIAlertController.Style.alert
+                    }
+                    let alert1 = UIAlertController(title: "ERROR", message: "Sorry, there was an error while trying to delete your account, please try again", preferredStyle: alertStyle)
                     alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         alert1.dismiss(animated: true, completion: nil)
                     }))

@@ -190,12 +190,16 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
             let location = locationTextField.text,
             let profileImageID = self.profileImageID
         else {
-                        let alert = UIAlertController(title: "Error", message: "there was an error while trying to update your account. Make sure all fields are filled in.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                            alert.dismiss(animated: true, completion: nil)
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                        return }
+            var alertStyle = UIAlertController.Style.alert
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                alertStyle = UIAlertController.Style.alert
+            }
+            let alert = UIAlertController(title: "Error", message: "there was an error while trying to update your account. Make sure all fields are filled in.", preferredStyle: alertStyle)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return }
         let contactsId = self.contactsId
         let contactsName = self.contactsName
         
@@ -213,9 +217,13 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                          profileImageID: profileImageID)
         let userRef = self.db.collection("profile")
         
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
             if let err = err {
-                let alert1 = UIAlertController(title: "Not Saved", message: "Sorry, there was an error while trying to save your profile. Please try again.", preferredStyle: .alert)
+                let alert1 = UIAlertController(title: "Not Saved", message: "Sorry, there was an error while trying to save your profile. Please try again.", preferredStyle: alertStyle)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert1.dismiss(animated: true, completion: nil)
                 }))
@@ -223,7 +231,7 @@ class UserTableViewController: UITableViewController, UIImagePickerControllerDel
                 print("Issue: saveProfileTapped() has failed")
                 print(err)
             } else {
-                let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: .alert)
+                let alert2 = UIAlertController(title: "Saved", message: "Your profile has been saved", preferredStyle: alertStyle)
                 alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert2.dismiss(animated: true, completion: nil)
                 }))

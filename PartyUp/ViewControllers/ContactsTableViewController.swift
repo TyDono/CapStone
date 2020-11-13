@@ -212,16 +212,20 @@ class ContactsTableViewController: UITableViewController {
                                     reportId: userReportUID,
                                     userReportedId: userReportedId)
         let userReportRef = self.db.collection("userReports")
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
             if let err = err {
-                let reportChatFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let reportChatFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: alertStyle)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
                 reportChatFailAlert.addAction(dismiss)
                 self.present(reportChatFailAlert, animated: true, completion: nil)
                 print(err)
                 self.removePopOverAnimate()
             } else {
-                let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let reportChatAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: alertStyle)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
                 reportChatAlertSucceed.addAction(dismiss)
                 self.removePopOverAnimate()

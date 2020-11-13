@@ -123,9 +123,13 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          contactsName: yourContactsName,
                          profileImageID: profileImageIDValue)
         let userRef = self.db.collection("profile")
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         userRef.document(String(user.id)).updateData(user.dictionary){ err in
             if let err = err {
-                let alert1 = UIAlertController(title: "Contact Not Added", message: "Sorry, there was an error while trying to add them to your contacts. Please check your internet connection and try again.", preferredStyle: .alert)
+                let alert1 = UIAlertController(title: "Contact Not Added", message: "Sorry, there was an error while trying to add them to your contacts. Please check your internet connection and try again.", preferredStyle: alertStyle)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert1.dismiss(animated: true, completion: nil)
                 }))
@@ -133,7 +137,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                 print("Issue: UpdateUserContacts() has failed")
                 print(err)
             } else {
-                let alert2 = UIAlertController(title: "Contact Added", message: "Your have added them to your contacts", preferredStyle: .alert)
+                let alert2 = UIAlertController(title: "Contact Added", message: "Your have added them to your contacts", preferredStyle: alertStyle)
                 alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert2.dismiss(animated: true, completion: nil)
                 }))
@@ -159,9 +163,13 @@ class ViewOtherProfileTableViewController: UITableViewController {
                          contactsName: contactsNameValue,
                          profileImageID: youProfileImageID)
         let userRef2 = self.db.collection("profile")
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         userRef2.document(String(user2.id)).updateData(user2.dictionary){ err in
             if let err = err {
-                let alert1 = UIAlertController(title: "Contact Failed", message: "Sorry, there was an error while trying to add you to their contact list. Please check your internet connection and try again.", preferredStyle: .alert)
+                let alert1 = UIAlertController(title: "Contact Failed", message: "Sorry, there was an error while trying to add you to their contact list. Please check your internet connection and try again.", preferredStyle: alertStyle)
                 alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     alert1.dismiss(animated: true, completion: nil)
                 }))
@@ -211,16 +219,20 @@ class ViewOtherProfileTableViewController: UITableViewController {
                                     reportId: userReportUID,
                                     userReportedId: userReportedId)
         let userReportRef = self.db.collection("userReports")
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         userReportRef.document(userReportUID).setData(userReport.dictionary) { err in
             if let err = err {
-                let reportUserFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: .alert)
+                let reportUserFailAlert = UIAlertController(title: "Failed to report", message: "Your device failed to correctly send the report. Please make sure you have a stable internet connection.", preferredStyle: alertStyle)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
                 reportUserFailAlert.addAction(dismiss)
                 self.present(reportUserFailAlert, animated: true, completion: nil)
                 print(err)
                 self.removePopOverAnimate()
             } else {
-                let reportUserAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: .alert)
+                let reportUserAlertSucceed = UIAlertController(title: "Thank you!", message: "Your report has been received, thank you for your report", preferredStyle: alertStyle)
                 let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
                 reportUserAlertSucceed.addAction(dismiss)
                 self.removePopOverAnimate()
@@ -250,6 +262,10 @@ class ViewOtherProfileTableViewController: UITableViewController {
         //gets your info
         guard let uid: String = self.currentAuthID else { return }
         let profileRef = self.db.collection("profile").whereField("id", isEqualTo: uid)
+        var alertStyle = UIAlertController.Style.alert
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            alertStyle = UIAlertController.Style.alert
+        }
         profileRef.getDocuments { (snapshot, error) in
             if error != nil {
                 print(error as Any)
@@ -266,7 +282,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                         let location = document.data()["location"] as? String,
                         let contactsId = document.data()["contactsId"] as? [String],
                         let contactsName = document.data()["contactsName"] as? [String],
-                        let profileImageID = document.data()["profileImageID"] as? String else {                         let alert = UIAlertController(title: "Error", message: "Please make sure all fields of your account are filled in, in order to add other users to your contacts", preferredStyle: .alert)
+                        let profileImageID = document.data()["profileImageID"] as? String else {                         let alert = UIAlertController(title: "Error", message: "Please make sure all fields of your account are filled in, in order to add other users to your contacts", preferredStyle: alertStyle)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                                 alert.dismiss(animated: true, completion: nil)
                             }))
@@ -289,7 +305,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
                     
                     for contactId in self.yourContactsId {
                         if contactId == unwrappedChatRoomIdString {
-                            let alert1 = UIAlertController(title: "Contact Already Added", message: "This User is already in your contacts", preferredStyle: .alert)
+                            let alert1 = UIAlertController(title: "Contact Already Added", message: "This User is already in your contacts", preferredStyle: alertStyle)
                             alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                                 alert1.dismiss(animated: true, completion: nil)
                             }))

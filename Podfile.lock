@@ -337,7 +337,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - Firebase/Storage
-  - GoogleSignIn (< 5.0.0)
+  - GoogleSignIn
   - JSQMessagesViewController
 
 SPEC REPOS:
@@ -409,6 +409,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
 
-PODFILE CHECKSUM: 1a4a442c261577e08721398fe7725c4d9deb9684
+PODFILE CHECKSUM: 9b94eb5276ae22249a2e0cb779dc9909abc8f9fa
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0.rc.1
