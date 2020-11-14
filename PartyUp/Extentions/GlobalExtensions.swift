@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import AVKit
 
 // moveTo funcs will do as intedned. have the user move to what ever the VC it has as its destiantion
 func moveToLFG() {
@@ -54,56 +55,95 @@ func moveToMessages() {
 //    }
 //}
 
-//random color gen
-//extension UIColor {
-//    static var randomColor: UIColor {
-//        return UIColor(
-//            red: CGFloat.random(in: 0...1),
-//            green: CGFloat.random(in: 0...1),
-//            blue: CGFloat.random(in: 0...1),
-//            alpha: 1)
-//    }
-//}
+extension UIColor {
+    convenience init(_ r: Double,_ g: Double,_ b: Double,_ a: Double) {
+        self.init(red: CGFloat(r/255), green: CGFloat(g/255), blue: CGFloat(b/255), alpha: CGFloat(a))
+    }
+}
 
-//hexadecimal color codes
-//extension UIColor {
-//    convenience init(hex: String) {
-//        var hex = hex
-//        if hex.hasPrefix("#") {
-//            hex.remove(at: hex.startIndex)
-//        }
-//        
-//        var rgb: UInt64 = 0
-//        Scanner(string: hex).scanHexInt64(&rgb)
-//        
-//        let r = (rgb & 0xff0000) >> 16
-//        let g = (rgb & 0xff00) >> 8
-//        let b = rgb & 0xff
-//        
-//        self.init(
-//            red: CGFloat(r) / 0xff,
-//            green: CGFloat(g) / 0xff,
-//            blue: CGFloat(b) / 0xff,
-//            alpha: 1
-//        )
-//    }
-//    
-//    var hexString: String {
-//        var r: CGFloat = 0
-//        var g: CGFloat = 0
-//        var b: CGFloat = 0
-//        var a: CGFloat = 0
-//        
-//        self.getRed(&r, green: &g, blue: &b, alpha: &a)
-//        
-//        return String(
-//            format: "#%02X%02X%02X",
-//            Int(r * 0xff),
-//            Int(g * 0xff),
-//            Int(b * 0xff)
-//        )
-//    }
-//}
+extension UIFont {
+    var bold: UIFont {
+        return with(.traitBold)
+    }
+    var italic: UIFont {
+        return with(.traitItalic)
+    }
+    var boldItalic: UIFont {
+        return with([.traitBold, .traitItalic])
+    }
+
+    func with(_ traits: UIFontDescriptor.SymbolicTraits...) -> UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits).union(self.fontDescriptor.symbolicTraits)) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
+
+    func without(_ traits: UIFontDescriptor.SymbolicTraits...) -> UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(self.fontDescriptor.symbolicTraits.subtracting(UIFontDescriptor.SymbolicTraits(traits))) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
+}
+
+extension UITextField {
+    func isError(baseColor: CGColor, numberOfShakes shakes: Float, revert: Bool) {
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "shadowColor")
+        animation.fromValue = baseColor
+        animation.toValue = UIColor.red.cgColor
+        animation.duration = 0.4
+        if revert { animation.autoreverses = true } else { animation.autoreverses = false }
+        self.layer.add(animation, forKey: "")
+        let shake: CABasicAnimation = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.07
+        shake.repeatCount = shakes
+        if revert { shake.autoreverses = true  } else { shake.autoreverses = false }
+        shake.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
+        shake.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
+        self.layer.add(shake, forKey: "position")
+    }
+    
+    func setBottomBorderOnlyWith(color: CGColor) {
+        self.borderStyle = .none
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
+}
+
+extension AVAsset {
+    func generateThumbnail(completion: @escaping (UIImage?) -> Void) {
+        DispatchQueue.global().async {
+            let imageGenerator = AVAssetImageGenerator(asset: self)
+            let time = CMTime(seconds: 0.0, preferredTimescale: 600)
+            let times = [NSValue(time: time)]
+            imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
+                if let image = image {
+                    completion(UIImage(cgImage: image))
+                } else {
+                    completion(nil)
+                }
+            })
+        }
+    }
+}
+extension UIButton {
+    func pulsate() {
+    let pulse = CASpringAnimation(keyPath: "transform.scale")
+    pulse.duration = 0.4
+    pulse.fromValue = 0.98
+    pulse.toValue = 1.0
+    pulse.autoreverses = true
+    pulse.repeatCount = .infinity
+    pulse.initialVelocity = 0.5
+    pulse.damping = 1.0
+    layer.add(pulse, forKey: nil)
+    }
+
+}
 
 //scrollview constraints
 extension UIScrollView {

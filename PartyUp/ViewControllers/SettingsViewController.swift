@@ -66,7 +66,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([emailValue])
         mailComposerVC.setSubject("Gaming Wizard: Contact Us")
-        mailComposerVC.setPreferredSendingEmailAddress(emailValue)
+        if #available(iOS 11.0, *) {
+            mailComposerVC.setPreferredSendingEmailAddress(emailValue)
+        } else {
+            // Fallback on earlier versions
+        }
         return mailComposerVC
     }
     

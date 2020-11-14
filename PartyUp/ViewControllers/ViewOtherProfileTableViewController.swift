@@ -256,7 +256,7 @@ class ViewOtherProfileTableViewController: UITableViewController {
     
     @IBAction func contactMeTapped(_ sender: Any) {
         guard let unwrappedChatRoomIdString: String = self.chatRoomIdString else { return }
-        guard let unwrappedContactName: String = self.nameValue else { return }
+        let unwrappedContactName: String = self.nameValue
         let realTimeDatabaseRef = self.dbRef.child("Messages").child(unwrappedChatRoomIdString).childByAutoId()
         
         //gets your info
